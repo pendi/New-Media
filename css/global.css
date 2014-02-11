@@ -1,0 +1,109 @@
+/*Menu Dropdown*/
+
+.dropmenu{
+	background: transparent;
+	height: 30px;
+	list-style-type: none;
+	margin: 0;
+	padding: 0px;
+}
+
+.dropmenu li {
+	/*border-right: solid 2px white;*/
+	float: left;
+	height: 30px;
+}
+
+.dropmenu li a {
+	color: black;
+	display: block;
+	font: 13px arial, verdana, sans-serif;
+	font-weight: bold;
+	padding: 8px 20px;
+	text-decoration: none;
+}
+
+.dropmenu li:hover { 
+	background: #B2D1FF;
+	position: relative; 
+}
+
+.dropmenu li:hover ul {     
+	/*background-color: red; */
+	left: 0px;
+	padding: 0px;     
+	top: 30px;     
+	/*width: 30px; */
+}
+
+.dropmenu li:hover ul li { 
+	border: none; 
+	height: 20px; 
+}
+
+.dropmenu li:hover ul li a {
+	background-color: #0052CC;
+	border: 1px solid transparent;
+	color: white;
+	display: block;
+	font-size: 11px;
+	height: 18px;
+	line-height: 18px;
+	padding: 0px;
+	text-decoration: none;
+	text-indent: 5px;
+	width: 158px;
+	padding: 3px; 
+}
+
+.dropmenu li:hover ul li a:hover {
+	background: #B2D1FF;
+	border: solid 1px #444;
+	color: #000;
+	height: 18px;
+	padding: 3px; 
+}
+
+.dropmenu ul {
+	/*left: -9999px;*/
+	list-style-type: none;
+	position: absolute;
+	top: -9999px; 
+}
+/*End Menu Dropdown*/
+
+/* Pagination */
+.list {
+	float: left;
+	margin: 10px;
+}	
+/* End Pagination */
+
+
+/* Table */
+table.border tr > td {
+       font-size: 12px;
+       text-align: center;
+       border: 1px solid black;
+       margin: 0 !important;
+       padding: 0 2px;
+}
+
+table.border {
+       border-spacing: 0;
+       border-collapse: separate;
+}
+
+table.border tr > td {
+       border-left: 0;
+       border-bottom: 0;
+}
+
+table.border tr > td:first-child {
+       border-left: 1px solid black;
+}
+
+table.border tr:last-child > td {
+       border-bottom: 1px solid black;
+}
+/* End Table */
