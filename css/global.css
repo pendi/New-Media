@@ -65,9 +65,10 @@ table.border tr:last-child > td {
 /* End Table */
 
 
-/* Body */
-.body {
-	/*width: 48%;*/
-	/*margin: 0 auto;*/
+/* Footer */
+.footer{
+	/*width: 80%;*/
+	margin: 0 auto;
+	margin-top: 30px;
 }
-/*End Body*/
+/*End Footer*/

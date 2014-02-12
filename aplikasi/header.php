@@ -12,6 +12,10 @@
 </head>
 <body bgcolor="#80B2FF">
 <form action="search.php" method="post">
+<?php 
+include "koneksi.php";
+$sql = mysql_query("select file_gambar from gambar where id_image = 4");
+?>
 <table width="65%" align="center" bgcolor="#3385FF">
 	<tr>
 		<td colspan="2"><font color="white" size="30">&nbsp;ANILA SHOP</font></td>
@@ -21,7 +25,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td width="10%" align="center"><img src="http://localhost/new_media/aplikasi/gambar/huruf-a.png" height="30%"></td>
+		<td width="10%" align="center"><img src="<?php echo $sql; ?>" height="25%"></td>
 		<td width="25%">Jual Laptop Baru Bergaransi</td>
 		<td width="35%" align="right"><font size="6">PENDI SETIAWAN</font></td>
 	</tr>
@@ -123,6 +127,11 @@
 					}
 			?>
 			</center>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<?php include "footer.php" ?>	
 		</td>
 	</tr>
 </table>
