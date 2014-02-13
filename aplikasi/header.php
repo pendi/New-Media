@@ -38,66 +38,14 @@
 	<tr>
 		<td>
 			<ul class="dropmenu">
-				<li><a href="#1">Acer</a>
-					<!-- <ul>
-						<li><a href="#11">E1-421-11202G32Mn</a></li>
-						<li><a href="#12">E1-421-E302G32Mn</a></li>
-						<li><a href="#12">E1-422-12502G50Mn</a></li>
-						<li><a href="#12">E1-422-65202G50Mn</a></li>
-						<li><a href="#12">E1-431-10002G32Mn</a></li>
-						<li><a href="#12">E1-431-B832G32Mn</a></li>
-					</ul> -->
-				</li>
-				<li><a href="#2">Asus</a>
-					<!-- <ul>
-						<li><a href="#21">1225B</a></li>
-						<li><a href="#22">1225C</a></li>
-						<li><a href="#23">A43E-VX1070D</a></li>
-						<li><a href="#24">A43E-VX1071D</a></li>
-					</ul> -->
-				</li>
-				<li><a href="#3">Apple</a>
-					<!-- <ul>
-						<li><a href="#31">Sub Menu 1</a></li>
-						<li><a href="#32">Sub Menu 2</a></li>
-						<li><a href="#33">Sub Menu 3</a></li>
-					</ul> -->
-				</li>
-				<li><a href="#4">Dell</a>
-					<!-- <ul>
-						<li><a href="#41">Sub Menu 1</a></li>
-						<li><a href="#42">Sub Menu 2</a></li>
-						<li><a href="#43">Sub Menu 3</a></li>
-					</ul> -->
-				</li>
-				<li><a href="#4">Hp</a>
-					<!-- <ul>
-						<li><a href="#41">Sub Menu 1</a></li>
-						<li><a href="#42">Sub Menu 2</a></li>
-						<li><a href="#43">Sub Menu 3</a></li>
-					</ul> -->
-				</li>
-				<li><a href="#4">Lenovo</a>
-					<!-- <ul>
-						<li><a href="#41">Sub Menu 1</a></li>
-						<li><a href="#42">Sub Menu 2</a></li>
-						<li><a href="#43">Sub Menu 3</a></li>
-					</ul> -->
-				</li>
-				<li><a href="#4">Samsung</a>
-					<!-- <ul>
-						<li><a href="#41">Sub Menu 1</a></li>
-						<li><a href="#42">Sub Menu 2</a></li>
-						<li><a href="#43">Sub Menu 3</a></li>
-					</ul> -->
-				</li>
-				<li><a href="#4">Toshiba</a>
-					<!-- <ul>
-						<li><a href="#41">Sub Menu 1</a></li>
-						<li><a href="#42">Sub Menu 2</a></li>
-						<li><a href="#43">Sub Menu 3</a></li>
-					</ul> -->
-				</li>
+				<li><a href="#1">Acer</a></li>
+				<li><a href="#2">Asus</a></li>
+				<li><a href="#3">Apple</a></li>
+				<li><a href="#4">Dell</a></li>
+				<li><a href="#4">Hp</a></li>
+				<li><a href="#4">Lenovo</a></li>
+				<li><a href="#4">Samsung</a></li>
+				<li><a href="#4">Toshiba</a></li>
 			</ul>
 		</td>
 	</tr>
