@@ -3,7 +3,7 @@
 <head>
 	<title>Anila Shop</title>
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
-	<link rel="shortcut icon" href="gambar/favicon_1.ico" />
+	<link rel="shortcut icon" href="gambar/favicon/favicon_2.ico" />
 <style type="text/css">
 .search {
 	margin: 7px 0;
@@ -13,8 +13,11 @@
 <body bgcolor="#80B2FF">
 <form action="search.php" method="post">
 <?php 
-include "koneksi.php";
-$sql = mysql_query("select file_gambar from gambar where id_image = 4");
+	include "koneksi.php";
+	$sql = "select location from image where id_image = 1";
+	$query = mysql_query($sql);
+	while ($data = mysql_fetch_array($query)) {
+	$loc = $data['location'];
 ?>
 <table width="65%" align="center" bgcolor="#3385FF">
 	<tr>
@@ -25,11 +28,12 @@ $sql = mysql_query("select file_gambar from gambar where id_image = 4");
 		</td>
 	</tr>
 	<tr>
-		<td width="10%" align="center"><img src="<?php echo $sql; ?>" height="25%"></td>
+		<td width="10%" align="center"><img src="<?php echo $loc; ?>" height="25%"></td>
 		<td width="25%">Jual Laptop Baru Bergaransi</td>
 		<td width="35%" align="right"><font size="6">PENDI SETIAWAN</font></td>
 	</tr>
 </table>
+<?php } ?>
 <table width="65%" align="center" bgcolor="#0052CC">
 	<tr>
 		<td>
