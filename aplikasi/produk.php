@@ -33,7 +33,7 @@ $sql = mysql_query("select * from produk limit $posisi,$batas");
 					<b>Rp. $harga</b><br />
 				</div>
 				<div width='14%' align='center'>
-					<a href='aksi.php?module=keranjang&act=tambah&id=$r[0]'><input type='button' value='Beli'></a>
+					<a href='aksi.php?module=keranjang&act=tambah&id=$r[kdbrg]'><input type='button' value='Beli'></a>
 					<input type=button value='Detail' onclick=\"window.location.href='aksi.php?module=detail&id=$r[0]';\">
 				</div>
 			</div>";

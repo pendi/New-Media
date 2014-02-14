@@ -32,7 +32,7 @@ elseif ($module=='keranjang' AND $act=='tambah'){
 			mysql_query("UPDATE orders_temp SET jumlah = jumlah + 1 WHERE kdbrg='$_GET[id]'");		
 		}	
 		deleteAbandonedCart();
-		header('Location:header.php?module=keranjang');
+		header('Location:header.php?module=hitung');
 	}
 }
 elseif ($module=='keranjang' AND $act=='update'){

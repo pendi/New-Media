@@ -21,9 +21,7 @@ if($ketemu < 1) {
 			while($r=mysql_fetch_array($sql)){
 				$subtotal = $r["harga"] * $r["jumlah"];
 				$total = $total + $subtotal;
-				$subtotal_rp = ($subtotal);
-				$total_rp = ($total);
-				$harga = ($r["harga"]);
+				$harga = $r["harga"];
 	echo "<tr bgcolor=#CCFF99>
 			<td>$no</td>
 			<input type=hidden name=id[$no] value=$r[id_orders_temp]>
@@ -38,7 +36,7 @@ if($ketemu < 1) {
 	}	
 	echo "</select></td>";
 	echo "<td>Rp. $harga</td>
-		  <td>Rp. $subtotal_rp</td>
+		  <td>Rp. $subtotal</td>
 		  <td align=center><a href='aksi.php?module=keranjang&act=hapus&id=$r[id_orders_temp]'>HAPUS</td>
 		</tr>";
 	$no++;
@@ -46,7 +44,7 @@ if($ketemu < 1) {
 
 echo "<tr>
 		<td colspan=4 align=right><b>Total</b></td>
-		<td colspan=2 align='right'>Rp. <b>$total_rp</b></td>
+		<td colspan=2 align='right'>Rp. <b>$total</b></td>
 	</tr>
 	<tr>
 		<td colspan=6>&nbsp;</td>

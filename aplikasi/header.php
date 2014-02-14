@@ -53,8 +53,8 @@
 <table width="65%" align="center" bgcolor="#E6E6E6">
 	<tr>
 		<td align="right">
-			<input class="search" required type="search" name="search" placeholder="search">
-			<input type="submit" name="submit" value="search">
+			<input class="search" type="search" name="search" placeholder="search">
+			<input type="button" name="submit" value="search">
 		</td>
 	</tr>
 	<tr>
@@ -73,6 +73,9 @@
 					}
 					else if($module=='detail') {
 						include "detail_produk.php";
+					}
+					else if($module=='hitung') {
+						include "hitung_produk.php";
 					}
 					else {
 						include "produk.php";
