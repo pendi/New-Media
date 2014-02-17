@@ -31,7 +31,7 @@
 /* Pagination */
 .list {
 	float: left;
-	margin: 10px 20px;
+	margin: 10px 25px;
 }	
 /* End Pagination */
 
@@ -67,8 +67,14 @@ table.border tr:last-child > td {
 
 /* Footer */
 .footer{
-	/*width: 80%;*/
 	margin: 0 auto;
 	margin-top: 30px;
 }
 /*End Footer*/
+
+/* Link */
+.href{
+	text-decoration: none;
+	color: #002966;
+}
+/*End Link*/

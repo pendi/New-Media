@@ -1,7 +1,21 @@
+<?php 
+include "koneksi.php";
+include "function.php";
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
 <div class="footer">
 	<hr>
-	<p style="float: right;margin-top: -5px;margin-bottom: 30px;color: red;">
-		<a href="https://www.facebook.com/pendi.nida" target="blank">Pendi Setiawan Facebook</a>
-		<a href="https://twitter.com/pendianila" target="blank">Pendi Setiawan Twitter</a>
+	<p align="right" style="margin-top: -5px;margin-bottom: 30px;">
+		<a href="https://www.facebook.com/pendi.nida" class="href" target="blank">
+		<img src="<?php echo image(5); ?>" width="3%"> Add Pendi Setiawan</a>&nbsp;
+		<a href="https://twitter.com/pendianila" class="href" target="blank">
+		<img src="<?php echo image(6); ?>" width="3%"> Follow Pendi Setiawan</a>
 	</p>
 </div>
+</body>
+</html>

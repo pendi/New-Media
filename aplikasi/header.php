@@ -4,36 +4,26 @@
 	<title>Anila Shop</title>
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
 	<link rel="shortcut icon" href="gambar/favicon/favicon_2.ico" />
-<style type="text/css">
-.search {
-	margin: 7px 0;
-}
-</style>
 </head>
 <body bgcolor="#80B2FF">
-<form action="search.php" method="post">
+<form method="post">
 <?php 
 	include "koneksi.php";
-	$sql = "select location from image where id_image = 1";
-	$query = mysql_query($sql);
-	while ($data = mysql_fetch_array($query)) {
-	$loc = $data['location'];
+	include "function.php";
 ?>
 <table width="65%" align="center" bgcolor="#3385FF">
 	<tr>
 		<td colspan="2"><font color="white" size="30">&nbsp;ANILA SHOP</font></td>
 		<td align="right" style="vertical-align: top;">
-			<a href="login.php" style="text-decoration: none;">
-			<font color="white"> Login &nbsp;</font></a>
+			<a href="login.php" class="href">Login &nbsp;</a>
 		</td>
 	</tr>
 	<tr>
-		<td width="10%" align="center"><img src="<?php echo $loc; ?>" height="25%"></td>
+		<td width="10%" align="center"><img src="<?php echo image(1); ?>" height="25%"></td>
 		<td width="25%">Jual Laptop Baru Bergaransi</td>
 		<td width="35%" align="right"><font size="6">PENDI SETIAWAN</font></td>
 	</tr>
 </table>
-<?php } ?>
 <table width="65%" align="center" bgcolor="#0052CC">
 	<tr>
 		<td>
@@ -50,7 +40,7 @@
 		</td>
 	</tr>
 </table>
-<table width="65%" align="center" bgcolor="#E6E6E6">
+<!-- <table width="65%" align="center" bgcolor="#E6E6E6">
 	<tr>
 		<td align="right">
 			<input class="search" type="search" name="search" placeholder="search">
@@ -60,36 +50,36 @@
 	<tr>
 		<td><center>
 			<?php  
-				if(isset($_REQUEST['module'])) { $module = $_REQUEST['module']; } 
-				else { $module = ""; } 
-					if($module=='keranjang') {
-						include "keranjang_belanja.php";
-					}
-					else if($module=='selesai') {
-						include "selesai_belanja.php";
-					}
-					else if($module=='simpan') {
-						include "simpan_transaksi.php";
-					}
-					else if($module=='detail') {
-						include "detail_produk.php";
-					}
-					else if($module=='hitung') {
-						include "hitung_produk.php";
-					}
-					else {
-						include "produk.php";
-					}
+				// if(isset($_REQUEST['module'])) { $module = $_REQUEST['module']; } 
+				// else { $module = ""; } 
+				// 	if($module=='keranjang') {
+				// 		include "keranjang_belanja.php";
+				// 	}
+				// 	else if($module=='selesai') {
+				// 		include "selesai_belanja.php";
+				// 	}
+				// 	else if($module=='simpan') {
+				// 		include "simpan_transaksi.php";
+				// 	}
+				// 	else if($module=='detail') {
+				// 		include "detail_produk.php";
+				// 	}
+				// 	else if($module=='hitung') {
+				// 		include "hitung_produk.php";
+				// 	}
+				// 	else {
+				// 		include "produk.php";
+				// 	}
 			?>
 			</center>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<?php include "footer.php" ?>	
+			<?php //include "footer.php" ?>	
 		</td>
 	</tr>
-</table>
+</table> -->
 </form>
 </body>
 </html>
