@@ -20,7 +20,6 @@ table.padding tr > td {
 </head>
 <body>
 <table width="65%" bgcolor="E6E6E6" align="center" class="padding">
-<input type="hidden" name="kode" value="<?php echo $data[0]; ?>" />
 	<tr>
 		<td colspan="3"><img src="<?php echo $data['image']; ?>" height="50%"></td>
 	</tr>
