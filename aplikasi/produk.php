@@ -8,7 +8,7 @@
 <?php  
 include "koneksi.php";
 
-$batas   = 10;
+$batas   = 8;
 if(isset($_GET['halaman'])) { $halaman = $_GET['halaman']; } 
 	else { $halaman = ""; }
 
@@ -19,22 +19,20 @@ if(empty($halaman)){
 else{ 
     $posisi = ($halaman-1) * $batas; 
 }
-$sql = mysql_query("select * from produk limit $posisi,$batas");
+$sql = mysql_query("select * from product limit $posisi,$batas");
 	while ($r=mysql_fetch_array($sql)) {
-		$harga = ($r['harga']);
 		echo "<div class='list'>
 				<div width='14%' align='center'>
-					<img src='$r[gambar]' width=100 border=0><br/>
+					<img src='$r[image]' width=100 border=0><br/>
 				</div>
 				<div width='14%' align='center'>
-					<b>$r[nama]</b><br/>
+					<b>$r[name]</b><br/>
 				</div>
 				<div width='14%' align='center'>
-					<b>Rp. $harga</b><br />
+					<b>Rp. $r[price]</b><br />
 				</div>
 				<div width='14%' align='center'>
-					<a href='aksi.php?module=keranjang&act=tambah&id=$r[kdbrg]'><input type='button' value='Beli'></a>
-					<input type=button value='Detail' onclick=\"window.location.href='aksi.php?module=detail&id=$r[0]';\">
+					<a href='module.php?module=detail&id_product=$r[0]'><input type=button value='Detail Product'></a>
 				</div>
 			</div>";
 	}
@@ -46,7 +44,7 @@ $sql = mysql_query("select * from produk limit $posisi,$batas");
 				echo "<br>Halaman : "; 
 				$file="produk.php"; 
 
-				$tampil2="select * from produk"; 
+				$tampil2="select * from product"; 
 				$hasil2=mysql_query($tampil2); 
 				$jmldata=mysql_num_rows($hasil2); 
 				$jmlhalaman=ceil($jmldata/$batas); 

@@ -12,35 +12,23 @@ if(empty($halaman)){
 else{ 
     $posisi = ($halaman-1) * $batas; 
 }
-$sql = mysql_query("select * from produk limit $posisi,$batas");
+$sql = mysql_query("select * from product limit $posisi,$batas");
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
-<style type="text/css">
-.search {
-	margin: 7px 0;
-}
-</style>
 </head>
 <body>
-<form action="search.php" method="post">
+<form>
 	<table width="65%" bgcolor="#E6E6E6" align="center">
-		<tr>
-			<td align="right">
-				<input class="search" type="search" name="search" placeholder="search">
-				<input type="submit" name="submit" value="search">
-			</td>
-		</tr>
 		<?php while ($r=mysql_fetch_array($sql)) { ?>
 		<tr class="list">
 			<td><center>
-				<img src="<?php echo $r['gambar']; ?>" width="100"><br/>
-				<?php echo "$r[nama]"; ?><br/>
-				<?php echo "$r[harga]"; ?><br/>
-				<?php echo "<a href='aksi.php?module=keranjang&act=tambah&id=$r[kdbrg]'><input type='button' value='Beli'></a>
-				<input type=button value='Detail' onclick=\"window.location.href='aksi.php?module=detail&id=$r[0]';\">"; ?>
+				<img src="<?php echo $r['image']; ?>" width="100"><br/>
+				<?php echo $r["name"]; ?><br/>
+				<?php echo $r["price"]; ?><br/>
+				<?php echo "<a href='detail.php?id_product=$r[0]'><input type=button value='Detail Product'></a>"; ?>
 			</center></td>
 		</tr>
 		<?php } ?>
@@ -50,7 +38,7 @@ $sql = mysql_query("select * from produk limit $posisi,$batas");
 				echo "<br>Halaman : "; 
 				$file="produk.php"; 
 
-				$tampil2="select * from produk"; 
+				$tampil2="select * from product"; 
 				$hasil2=mysql_query($tampil2); 
 				$jmldata=mysql_num_rows($hasil2); 
 				$jmlhalaman=ceil($jmldata/$batas); 

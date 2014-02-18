@@ -4,6 +4,11 @@
 	<title>Anila Shop</title>
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
 	<link rel="shortcut icon" href="gambar/favicon/favicon_2.ico" />
+<style type="text/css">
+.search {
+	margin: 7px 0;
+}
+</style>
 </head>
 <body bgcolor="#80B2FF">
 <form method="post">
@@ -40,14 +45,14 @@
 		</td>
 	</tr>
 </table>
-<!-- <table width="65%" align="center" bgcolor="#E6E6E6">
+<table width="65%" align="center" bgcolor="#E6E6E6">
 	<tr>
 		<td align="right">
 			<input class="search" type="search" name="search" placeholder="search">
-			<input type="button" name="submit" value="search">
+			<a href="search.php"><input type="button" name="submit" value="search"></a>
 		</td>
 	</tr>
-	<tr>
+	<!-- <tr>
 		<td><center>
 			<?php  
 				// if(isset($_REQUEST['module'])) { $module = $_REQUEST['module']; } 
@@ -62,14 +67,14 @@
 				// 		include "simpan_transaksi.php";
 				// 	}
 				// 	else if($module=='detail') {
-				// 		include "detail_produk.php";
+				// 		include "detail.php";
 				// 	}
 				// 	else if($module=='hitung') {
 				// 		include "hitung_produk.php";
 				// 	}
 				// 	else {
 				// 		include "produk.php";
-				// 	}
+					// }
 			?>
 			</center>
 		</td>
@@ -78,8 +83,8 @@
 		<td>
 			<?php //include "footer.php" ?>	
 		</td>
-	</tr>
-</table> -->
+	</tr> -->
+</table>
 </form>
 </body>
 </html>
