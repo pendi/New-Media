@@ -11,7 +11,6 @@
 </style>
 </head>
 <body bgcolor="#80B2FF">
-<form method="post">
 <?php 
 	include "koneksi.php";
 	include "function.php";
@@ -45,11 +44,12 @@
 		</td>
 	</tr>
 </table>
+<form action="search.php" method="post">
 <table width="65%" align="center" bgcolor="#E6E6E6">
 	<tr>
 		<td align="right">
 			<input class="search" type="search" name="search" placeholder="search">
-			<a href="search.php"><input type="button" name="submit" value="search"></a>
+			<input type="submit" name="submit" value="search">
 		</td>
 	</tr>
 	<!-- <tr>
