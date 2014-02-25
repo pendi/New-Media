@@ -8,7 +8,7 @@
 <?php  
 include "koneksi.php";
 
-$batas   = 8;
+$batas   = 10;
 if(isset($_GET['halaman'])) { $halaman = $_GET['halaman']; } 
 	else { $halaman = ""; }
 
@@ -19,6 +19,9 @@ if(empty($halaman)){
 else{ 
     $posisi = ($halaman-1) * $batas; 
 }
+echo "<pre>";
+print_r($batas);
+exit();
 $sql = mysql_query("select * from product limit $posisi,$batas");
 	while ($r=mysql_fetch_array($sql)) {
 		echo "<div class='list'>
