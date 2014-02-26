@@ -15,7 +15,7 @@
 	include "koneksi.php";
 	include "function.php";
 ?>
-<table width="65%" align="center" bgcolor="#3385FF">
+<table width="70%" align="center" bgcolor="#3385FF">
 	<tr>
 		<td colspan="2"><font color="white" size="30">&nbsp;ANILA SHOP</font></td>
 		<td align="right" style="vertical-align: top;">
@@ -23,12 +23,14 @@
 		</td>
 	</tr>
 	<tr>
-		<td width="10%" align="center"><img src="<?php echo image(1); ?>" height="25%"></td>
+		<td width="10%" align="center">
+			<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/gambar/logo.png' ?>" height="25%">
+		</td>
 		<td width="25%">Jual Laptop Baru Bergaransi</td>
 		<td width="35%" align="right"><font size="6">PENDI SETIAWAN</font></td>
 	</tr>
 </table>
-<table width="65%" align="center" bgcolor="#0052CC">
+<table width="70%" align="center" bgcolor="#0052CC">
 	<tr>
 		<td>
 			<ul class="dropmenu">
@@ -45,10 +47,13 @@
 	</tr>
 </table>
 <form action="search.php" method="post">
-<table width="65%" align="center" bgcolor="#E6E6E6">
+<table width="70%" align="center" bgcolor="#E6E6E6">
 	<tr>
+		<td><a href="index.php">
+			<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/gambar/home.png' ?>">
+		</a></td>
 		<td align="right">
-			<input class="search" type="search" name="search" placeholder="search">
+			<input class="search" type="search" value="<?php $search ?>" name="search" placeholder="search">
 			<input type="submit" name="submit" value="search">
 		</td>
 	</tr>

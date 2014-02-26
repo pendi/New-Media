@@ -19,9 +19,15 @@ table.padding tr > td {
 </style>
 </head>
 <body>
-<table width="65%" bgcolor="E6E6E6" align="center" class="padding">
+<table width="70%" bgcolor="E6E6E6" align="center" class="padding">
 	<tr>
-		<td colspan="3"><img src="<?php echo $data['image']; ?>" height="50%"></td>
+		<td colspan="3">
+			<?php if (!empty($data['image'])): ?>				
+				<img src="<?php echo $data['image']; ?>" height="50%"><br/>
+			<?php else : ?>
+				<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/gambar/no-image.jpg' ?>" height="50%"><br/>
+			<?php endif ?>
+		</td>
 	</tr>
 	<tr>
 		<td width="12%">Produck</td>
@@ -54,11 +60,9 @@ table.padding tr > td {
 			<a href="index.php"><input type="button" name="back" value="Back"></a>
 		</td>
 	</tr>
-</table>
-<table width="65%" bgcolor="E6E6E6" align="center">	
 	<tr>
-		<td>
-			<?php include "footer.php" ?>	
+		<td colspan="3" style="padding: 0px;">
+			<?php include "footer.php" ?>
 		</td>
 	</tr>
 </table>
