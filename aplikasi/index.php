@@ -2,7 +2,7 @@
 include "koneksi.php";
 include "header.php";
 
-$batas   = 8;
+$batas   = 10;
 $halaman = $_GET['halaman'];
 
 if(empty($halaman)){ 
@@ -30,32 +30,32 @@ $sql = mysql_query("select * from product limit $posisi,$batas");
 	</tr>
 	<?php } ?>
 	<tr>
-	<td align="right">		
-		<?php
-			echo "<br>Halaman : ";
+		<td align="right">		
+			<?php
+				echo "<br>Halaman : ";
 
-			$tampil2="select * from product"; 
-			$hasil2=mysql_query($tampil2); 
-			$jmldata=mysql_num_rows($hasil2); 
-			$jmlhalaman=ceil($jmldata/$batas);
+				$tampil2="select * from product"; 
+				$hasil2=mysql_query($tampil2); 
+				$jmldata=mysql_num_rows($hasil2); 
+				$jmlhalaman=ceil($jmldata/$batas);
 
-			for($i=1;$i<=$jmlhalaman;$i++) 
-				if($i>=($halaman-3) && $i <= ($halaman+3)){
-					if ($i != $halaman) 
-					{ 
-					    echo " <a href=$_SERVER[PHP_SELF]?halaman=$i><font color='#00F'>$i</font></a> | "; 
-					} 
-					else 
-					{ 
-					    echo " <b>$i</b> | "; 
+				for($i=1;$i<=$jmlhalaman;$i++) 
+					if($i>=($halaman-3) && $i <= ($halaman+3)){
+						if ($i != $halaman) 
+						{ 
+						    echo " <a href=$_SERVER[PHP_SELF]?halaman=$i><font color='#00F'>$i</font></a> | "; 
+						} 
+						else 
+						{ 
+						    echo " <b>$i</b> | "; 
+						}
 					}
-				}
-		?>
-	</td>
-</tr>
-<tr>
-	<td>
-		<?php include "footer.php" ?>	
-	</td>
-</tr>
+			?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<?php include("footer.php"); ?>	
+		</td>
+	</tr>
 </table>

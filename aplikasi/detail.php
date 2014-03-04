@@ -4,10 +4,6 @@ include "header.php";
 $sql=mysql_query("select * from product where id_product='$_GET[id_product]'");
 $data=mysql_fetch_array($sql);
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
 <style type="text/css">
 table.padding tr > td {
 	padding-left: 2%;
@@ -17,8 +13,6 @@ table.padding tr > td {
 	vertical-align: top;
 }
 </style>
-</head>
-<body>
 <table width="70%" bgcolor="E6E6E6" align="center" class="padding">
 	<tr>
 		<td colspan="3">
@@ -66,5 +60,3 @@ table.padding tr > td {
 		</td>
 	</tr>
 </table>
-</body>
-</html>

@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 17, 2014 at 08:24 PM
--- Server version: 5.5.35-0+wheezy1
--- PHP Version: 5.4.4-14+deb7u7
+-- Generation Time: Mar 04, 2014 at 04:27 PM
+-- Server version: 5.5.35-0ubuntu0.12.04.1
+-- PHP Version: 5.3.10-1ubuntu3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -101,25 +101,25 @@ INSERT INTO `orders_temp` (`id_orders_temp`, `kdbrg`, `jumlah`, `tgl_order_temp`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produk`
+-- Table structure for table `product`
 --
 
-CREATE TABLE IF NOT EXISTS `produk` (
-  `kdbrg` char(5) NOT NULL,
-  `nama` varchar(20) NOT NULL,
+CREATE TABLE IF NOT EXISTS `product` (
+  `id_product` char(5) NOT NULL,
+  `name` varchar(20) NOT NULL,
   `type` varchar(50) NOT NULL,
-  `harga` double NOT NULL,
-  `deskripsi` text NOT NULL,
-  `stok` int(3) NOT NULL,
-  `gambar` text NOT NULL,
-  PRIMARY KEY (`kdbrg`)
+  `price` double NOT NULL,
+  `description` text NOT NULL,
+  `stock` int(3) NOT NULL,
+  `image` text NOT NULL,
+  PRIMARY KEY (`id_product`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `produk`
+-- Dumping data for table `product`
 --
 
-INSERT INTO `produk` (`kdbrg`, `nama`, `type`, `harga`, `deskripsi`, `stok`, `gambar`) VALUES
+INSERT INTO `product` (`id_product`, `name`, `type`, `price`, `description`, `stock`, `image`) VALUES
 ('AC001', 'Acer', '', 2000000, '', 4, ''),
 ('AC002', 'Acer', '', 1000000, '', 10, ''),
 ('AC003', 'Notebook Acer', '', 1500000, '', 5, ''),

@@ -41,7 +41,7 @@ include "header.php";
 
 
 <?php
-$batas   = 8;
+$batas   = 10;
 $halaman = $_GET['halaman'];
 $search = $_POST['search'];
 
@@ -53,22 +53,32 @@ else{
     $posisi = ($halaman-1) * $batas; 
 }
 $sql = mysql_query("select * from product where name = '$search' or type = '$search' limit $posisi,$batas");
+$jumlah = mysql_num_rows($sql);
 ?>
 <table width="70%" bgcolor="#E6E6E6" align="center">
-	<?php while ($r=mysql_fetch_array($sql)) { ?>
-	<tr class="list">
-		<td><center>
-		<?php if (!empty($r['image'])): ?>				
-			<img src="<?php echo $r['image']; ?>" width="100"><br/>
-		<?php else : ?>
-			<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/gambar/no-image.jpg' ?>" width="100"><br/>
-		<?php endif ?>
-			<?php echo $r["name"]; ?><br/>
-			<?php echo $r["price"]; ?><br/>
-			<?php echo "<a href='detail.php?id_product=$r[0]'><input type=button value='Detail Product'></a>"; ?>
-		</center></td>
-	</tr>
-	<?php } ?>
+	<?php if ($jumlah > 0): ?>
+		<tr>
+			<td><center><?php echo "featuring " .$search. " many as " .$jumlah. " records"; ?></center></td>
+		</tr>
+		<?php while ($r=mysql_fetch_array($sql)) : ?>
+			<tr class="list">
+				<td><center>
+				<?php if (!empty($r['image'])): ?>				
+					<img src="<?php echo $r['image']; ?>" width="100"><br/>
+				<?php else : ?>
+					<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/gambar/no-image.jpg' ?>" width="100"><br/>
+				<?php endif ?>
+					<?php echo $r["name"]; ?><br/>
+					<?php echo $r["price"]; ?><br/>
+					<?php echo "<a href='detail.php?id_product=$r[0]'><input type=button value='Detail Product'></a>"; ?>
+				</center></td>
+			</tr>
+		<?php endwhile ?>
+	<?php else : ?>
+		<tr>
+			<td><center><h2><font color="#FF1919"><?php echo "Sorry, ".$search." not found"; ?></font></h2></center></td>
+		</tr>
+	<?php endif ?>
 	<tr>
 	<td align="right">		
 		<?php

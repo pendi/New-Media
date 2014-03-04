@@ -53,7 +53,7 @@
 			<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/gambar/home.png' ?>">
 		</a></td>
 		<td align="right">
-			<input class="search" type="search" value="<?php $search ?>" name="search" placeholder="search">
+			<input class="search" type="search" name="search" placeholder="search">
 			<input type="submit" name="submit" value="search">
 		</td>
 	</tr>
