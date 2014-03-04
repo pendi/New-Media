@@ -1,6 +1,7 @@
 <?php  
 include "koneksi.php";
 include "header.php";
+
 $sql=mysql_query("select * from product where id_product='$_GET[id_product]'");
 $data=mysql_fetch_array($sql);
 ?>

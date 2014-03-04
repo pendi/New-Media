@@ -49,9 +49,6 @@
 <form action="search.php" method="post">
 <table width="70%" align="center" bgcolor="#E6E6E6">
 	<tr>
-		<td><a href="index.php">
-			<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/gambar/home.png' ?>">
-		</a></td>
 		<td align="right">
 			<input class="search" type="search" name="search" placeholder="search">
 			<input type="submit" name="submit" value="search">
