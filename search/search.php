@@ -1,6 +1,6 @@
 <?php
-include "koneksi.php";
-include "header.php";
+include "../aplikasi/koneksi.php";
+include "../header/header.php";
 
 $batas   = 10;
 $halaman = $_GET['halaman'];
@@ -42,7 +42,7 @@ $jumlah = mysql_num_rows($sql);
 	<?php endif ?>
 	<tr>
 		<td>
-			<a href="index.php"><input type="button" name="back" value="Back"></a>
+			<a href="../aplikasi/index.php"><input type="button" name="back" value="Back"></a>
 		</td>
 	</tr>
 	<tr>
@@ -71,7 +71,7 @@ $jumlah = mysql_num_rows($sql);
 </tr>
 <tr>
 	<td>
-		<?php include "footer.php" ?>	
+		<?php include "../footer/footer.php" ?>	
 	</td>
 </tr>
 </table>

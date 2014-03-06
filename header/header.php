@@ -3,7 +3,7 @@
 <head>
 	<title>Anila Shop</title>
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
-	<link rel="shortcut icon" href="gambar/favicon/favicon_2.ico" />
+	<link rel="shortcut icon" href="image/favicon/favicon_2.ico" />
 <style type="text/css">
 .search {
 	margin: 7px 0;
@@ -13,7 +13,7 @@
 <body bgcolor="#80B2FF">
 <?php 
 	include "koneksi.php";
-	include "function.php";
+	// include "function.php";
 ?>
 <table width="70%" align="center" bgcolor="#3385FF">
 	<tr>
@@ -24,7 +24,7 @@
 	</tr>
 	<tr>
 		<td width="10%" align="center">
-			<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/gambar/logo.png' ?>" height="25%">
+			<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/logo.png' ?>" height="25%">
 		</td>
 		<td width="25%">Jual Laptop Baru Bergaransi</td>
 		<td width="35%" align="right"><font size="6">PENDI SETIAWAN</font></td>
@@ -46,12 +46,12 @@
 		</td>
 	</tr>
 </table>
-<form action="search.php" method="post">
+<form action="../search/search.php" method="post">
 <table width="70%" align="center" bgcolor="#E6E6E6">
 	<tr>
 		<td align="right">
 			<input class="search" type="search" name="search" placeholder="search">
-			<input type="submit" name="submit" value="search">
+			<a href="search.php"></a><input type="submit" name="submit" value="search">
 		</td>
 	</tr>
 	<!-- <tr>

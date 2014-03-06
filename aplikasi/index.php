@@ -1,6 +1,6 @@
 <?php 
 include "koneksi.php";
-include "header.php";
+include "../header/header.php";
 
 $batas   = 10;
 $halaman = $_GET['halaman'];
@@ -21,7 +21,7 @@ $sql = mysql_query("select * from product limit $posisi,$batas");
 		<?php if (!empty($r['image'])): ?>				
 			<img src="<?php echo $r['image']; ?>" width="100"><br/>
 		<?php else : ?>
-			<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/gambar/no-image.jpg' ?>" width="100"><br/>
+			<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="100"><br/>
 		<?php endif ?>
 			<?php echo $r["name"]; ?><br/>
 			<?php echo $r["price"]; ?><br/>
@@ -55,7 +55,7 @@ $sql = mysql_query("select * from product limit $posisi,$batas");
 	</tr>
 	<tr>
 		<td>
-			<?php include("footer.php"); ?>	
+			<?php include "../footer/footer.php"; ?>	
 		</td>
 	</tr>
 </table>
