@@ -1,7 +1,7 @@
 <?php 
 include "../aplikasi/function.php";
 ?>
-<form action="coba2.php" method="post">
-	Nama : <input type="text" name="nama"><?php echo nameValidation();?><br/>
+<form action="" method="post">
+	Nama : <input type="text" name="nama" value="<?php echo setValue('nama');?>"><br/>
 	<input type="submit">
 </form>

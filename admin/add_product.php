@@ -13,7 +13,7 @@ include "../aplikasi/function.php";
 		<tr>
 			<td width="25%"></td>
 			<td width="10%">Id Product &nbsp;</td>
-			<td width="35%"><input type="text" name="id" maxlength="5" placeholder="Id Product" value="<?php echo setEmpty('id'); ?>"></td>
+			<td width="35%"><input type="text" name="id" maxlength="5" placeholder="Id Product"></td>
 		</tr>
 		<tr>
 			<td width="25%"></td>
