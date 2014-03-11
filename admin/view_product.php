@@ -34,21 +34,21 @@ include "../aplikasi/koneksi.php";
 
 			$que = "select * from product limit $posisi,$batas";
 			$tampil = mysql_query("$que");
-			$no=$posisi+1;
-			while ($data = mysql_fetch_array($tampil)) {
-				echo "<tr>
-						<td align='center'>$data[0]</td>
-						<td align='center'>$data[1]</td>
-						<td align='center'>$data[2]</td>
-						<td align='center'>$data[3]</td>
-						<td align='center'>$data[5]</td>
-						<td align='center'><img src='$data[image]' width='100%'></td>
+			$no = $posisi+1;
+			while ($data = mysql_fetch_array($tampil)) { ?>
+					<tr>
+						<td align='center'><?php echo $data[0]; ?></td>
+						<td align='center'><?php echo $data[1]; ?></td>
+						<td align='center'><?php echo $data[2]; ?></td>
+						<td align='center'><?php echo $data[3]; ?></td>
+						<td align='center'><?php echo $data[5]; ?></td>
+						<td align='center'><img src='<?php echo $data['image']; ?>' width='100%'></td>
 						<td align='center'>
-							<a href='edit.php?kdbrg=$data[0]'><img src='http://localhost/belajar/aplikasi/gambar/glyphicons_030_pencil.png' width='10%'></a> &nbsp;
-							<a href='hapus.php?kdbrg=$data[0]'><img src='http://localhost/belajar/aplikasi/gambar/glyphicons_016_bin.png' width='10%'></a>
+							<a href="edit.php?id_product=<?php echo $data[0]; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/edit.png' ?>" width = "10%"></a> &nbsp;
+							<a href="delete.php?id_product=<?php echo $data[0]; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/delete.png' ?>" width = "10%"></a>
 						</td>
-					 </tr>";
-				$no++;
+					 </tr>
+				<?php $no++;
 			}
 		 ?>
 		 <tr>
@@ -68,7 +68,7 @@ include "../aplikasi/koneksi.php";
 				$jmlhalaman=ceil($jmldata/$batas); 
 
 				for($i=1;$i<=$jmlhalaman;$i++) 
-				if ($i != $halaman) 
+				if ($i != $halaman)
 				{ 
 				    echo " <a href=$_SERVER[PHP_SELF]?halaman=$i><font color='blue'>$i</font></A> | "; 
 				} 
