@@ -20,7 +20,7 @@ table.padding tr > td {
 			<?php if (!empty($data['image'])): ?>				
 				<img src="<?php echo $data['image']; ?>" height="50%"><br/>
 			<?php else : ?>
-				<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/gambar/no-image.jpg' ?>" height="50%"><br/>
+				<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" height="50%"><br/>
 			<?php endif ?>
 		</td>
 	</tr>

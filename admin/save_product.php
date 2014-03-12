@@ -22,7 +22,7 @@ move_uploaded_file($tmp_name, $name_img);
 	// echo "Data Berhasil Disimpan";
 	echo "<script>window.alert('Data Berhasil Disimpan');</script>";
 	// include "add_product.php";
-	echo "<script>window.location = 'add_product.php';</script>";
+	echo "<script>window.location = 'view_product.php';</script>";
 	// echo "<h2>Data Berhasil Disimpan</h2>";
 // }
 // else

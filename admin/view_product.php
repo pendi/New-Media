@@ -42,7 +42,13 @@ include "../aplikasi/koneksi.php";
 						<td align='center'><?php echo $data[2]; ?></td>
 						<td align='center'><?php echo $data[3]; ?></td>
 						<td align='center'><?php echo $data[5]; ?></td>
-						<td align='center'><img src='<?php echo $data['image']; ?>' width='100%'></td>
+						<td align='center'>
+							<?php if (!empty($data['image'])): ?>				
+								<img src="<?php echo $data['image']; ?>" width="100%"><br/>
+							<?php else : ?>
+								<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="100%"><br/>
+							<?php endif ?>
+						</td>
 						<td align='center'>
 							<a href="edit.php?id_product=<?php echo $data[0]; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/edit.png' ?>" width = "10%"></a> &nbsp;
 							<a href="delete.php?id_product=<?php echo $data[0]; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/delete.png' ?>" width = "10%"></a>

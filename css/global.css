@@ -78,3 +78,9 @@ table.border tr:last-child > td {
 	color: #002966;
 }
 /*End Link*/
+
+/*Image*/
+img.gambar:hover {
+	box-shadow: 10px 10px 10px #0066FF;
+}
+/*End Image*/

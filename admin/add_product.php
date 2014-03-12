@@ -5,7 +5,7 @@ include "../aplikasi/function.php";
 <form action="save_product.php" method="post" enctype="multipart/form-data">
 	<table width="70%" align="center" bgcolor="#E6E6E6">
 		<tr>
-			<td colspan="3"><center><h2>ADD PRODUCK</h2></center></td>
+			<td colspan="3"><center><h2>ADD PRODUCT</h2></center></td>
 		</tr>
 		<tr>
 			<td colspan="3">&nbsp;</td>

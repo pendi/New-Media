@@ -19,9 +19,9 @@ $sql = mysql_query("select * from product limit $posisi,$batas");
 	<tr class="list">
 		<td><center>
 		<?php if (!empty($r['image'])): ?>				
-			<img src="<?php echo $r['image']; ?>" width="100"><br/>
+			<a href="detail.php?id_product=<?php echo $r[0] ?>"><img class="gambar" src="<?php echo $r['image']; ?>" width="100px"></a><br/>
 		<?php else : ?>
-			<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="100"><br/>
+			<a href="detail.php?id_product=<?php echo $r[0] ?>"><img class="gambar" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="100px"></a><br/>
 		<?php endif ?>
 			<?php echo $r["name"]; ?><br/>
 			<?php echo $r["price"]; ?><br/>
