@@ -12,38 +12,38 @@ include "../aplikasi/function.php";
 		</tr>
 		<tr>
 			<td width="25%"></td>
-			<td width="10%">Id Product &nbsp;</td>
-			<td width="35%"><input type="text" name="id" maxlength="5" placeholder="Id Product"></td>
+			<td width="12%">Id Product &nbsp;</td>
+			<td width="33%"><input type="text" name="id" maxlength="5" placeholder="Id Product"></td>
 		</tr>
 		<tr>
-			<td width="25%"></td>
-			<td width="10%">Name &nbsp;</td>
-			<td width="35%"><input type="text" name="name" placeholder="Name"></td>
+			<td></td>
+			<td>Name &nbsp;</td>
+			<td><input type="text" name="name" placeholder="Name"></td>
 		</tr>
 		<tr>
-			<td width="25%"></td>
-			<td width="10%">Type &nbsp;</td>
-			<td width="35%"><input type="text" name="type" placeholder="Type"></td>
+			<td></td>
+			<td>Type &nbsp;</td>
+			<td><input type="text" name="type" placeholder="Type"></td>
 		</tr>
 		<tr>
-			<td width="25%"></td>
-			<td width="10%">Price &nbsp;</td>
-			<td width="35%"><input type="text" name="price" placeholder="Price"></td>
+			<td></td>
+			<td>Price &nbsp;</td>
+			<td><input type="text" name="price" placeholder="Price"></td>
 		</tr>
 		<tr>
-			<td width="25%"></td>
-			<td width="10%">Description &nbsp;</td>
-			<td width="35%"><textarea name="description" rows="5" cols="20" placeholder="Description"></textarea></td>
+			<td></td>
+			<td>Description &nbsp;</td>
+			<td><textarea name="description" rows="5" cols="20" placeholder="Description"></textarea></td>
 		</tr>
 		<tr>
-			<td width="25%"></td>
-			<td width="10%">Stock &nbsp;</td>
-			<td width="35%"><input type="text" name="stock" placeholder="Stock"></td>
+			<td></td>
+			<td>Stock &nbsp;</td>
+			<td><input type="text" name="stock" placeholder="Stock"></td>
 		</tr>
 		<tr>
-			<td width="25%"></td>
-			<td width="10%">Choose An Image &nbsp;</td>
-			<td width="35%"><input type="file" name="image"></td>
+			<td></td>
+			<td>Choose An Image &nbsp;</td>
+			<td><input type="file" name="image"></td>
 		</tr>
 		<tr>
 			<td colspan="3">&nbsp;</td>
