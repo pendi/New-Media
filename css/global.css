@@ -84,3 +84,8 @@ img.gambar:hover {
 	box-shadow: 10px 10px 10px #0066FF;
 }
 /*End Image*/
+
+/*Table*/
+tr.product:hover {
+	background: #A1A1A1;
+}

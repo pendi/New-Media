@@ -49,7 +49,10 @@ include "../aplikasi/function.php";
 			<td colspan="3">&nbsp;</td>
 		</tr>
 		<tr>
-			<td colspan="3" align="center"><input type="submit" name="submit" value="Submit"> <input type="reset" name="reset" value="Reset"></td>
+			<td colspan="3" align="center">
+				<input type="submit" name="submit" value="Submit"> <input type="reset" name="reset" value="Reset">
+				<a href="view_product.php"><input type="button" name="button" value="Back"></a>
+			</td>
 		</tr>
 		<tr>
 			<td colspan="3"><?php include "../footer/footer.php"; ?></td>

@@ -14,9 +14,9 @@ include "../aplikasi/koneksi.php";
 			<th width="8%">Product Name</th>
 			<th width="8%">Type Product</th>
 			<th width="8%">Product Price</th>
-			<th width="5%">Stock Product</th>
-			<th width="5%">Image</th>
-			<th width="7%">Action</th>
+			<th width="3%">Stock Product</th>
+			<th width="9%">Image</th>
+			<th width="5%">Action</th>
 		</tr>
 		<?php
 			$batas   = 7; 
@@ -35,8 +35,8 @@ include "../aplikasi/koneksi.php";
 			$que = "select * from product limit $posisi,$batas";
 			$tampil = mysql_query("$que");
 			$no = $posisi+1;
-			while ($data = mysql_fetch_array($tampil)) { ?>
-					<tr>
+			while ($data = mysql_fetch_array($tampil)) { ?>					
+					<tr class="product">
 						<td align='center'><?php echo $data[0]; ?></td>
 						<td align='center'><?php echo $data[1]; ?></td>
 						<td align='center'><?php echo $data[2]; ?></td>
@@ -44,16 +44,16 @@ include "../aplikasi/koneksi.php";
 						<td align='center'><?php echo $data[5]; ?></td>
 						<td align='center'>
 							<?php if (!empty($data['image'])): ?>				
-								<img src="<?php echo $data['image']; ?>" width="100%"><br/>
+								<img src="<?php echo $data['image']; ?>" width="55%"><br/>
 							<?php else : ?>
-								<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="100%"><br/>
+								<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="55%"><br/>
 							<?php endif ?>
 						</td>
 						<td align='center'>
-							<a href="edit.php?id_product=<?php echo $data[0]; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/edit.png' ?>" width = "10%"></a> &nbsp;
-							<a href="delete.php?id_product=<?php echo $data[0]; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/delete.png' ?>" width = "10%"></a>
+							<a href="edit.php?id_product=<?php echo $data[0]; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/edit.png' ?>" width = "15%"></a> &nbsp;
+							<a href="delete.php?id_product=<?php echo $data[0]; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/delete.png' ?>" width = "15%"></a>
 						</td>
-					 </tr>
+					</tr>					 
 				<?php $no++;
 			}
 		 ?>

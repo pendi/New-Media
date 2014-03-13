@@ -6,18 +6,37 @@ $type = $_POST['type'];
 $price = $_POST['price'];
 $description = $_POST['description'];
 $stock = $_POST['stock'];
+$fileSize = $_FILES["image"]["size"];
 $folder = "../aplikasi/image";
-$tmp_name = $_FILES["image"]["tmp_name"];
-$name_img = $folder."/".$_FILES["image"]["name"];
+	$tmp_name = $_FILES["image"]["tmp_name"];
+	$name_img = $folder."/".$_FILES["image"]["name"];
 
-move_uploaded_file($tmp_name, $name_img);
+if ($fileSize > 0) {
 
-echo "<script language=\"Javascript\">\n";
+	move_uploaded_file($tmp_name, $name_img);
+	
 	$query = "update product set name='$name',type='$type',price='$price',description='$description',stock='$stock',image='$name_img' where id_product='$id'";
-	mysql_query("$query");
-	echo "window.alert('Data Berhasil Disimpan');";
-	echo "window.location = 'view_product.php';";
-	// echo "<h2>Data Berhasil Disimpan</h2>";
-echo "</script>";
+} else {
+	$query = "update product set name='$name',type='$type',price='$price',description='$description',stock='$stock' where id_product='$id'";
+}
+
+$hasil = mysql_query($query);
+if ($hasil) {
+	echo "<script>window.alert('Data Berhasil Disimpan');</script>";
+	echo "<script>window.location = 'view_product.php';</script>";
+} else {
+	echo "<script>window.alert('Data Gagal Disimpan');</script>";
+	echo "<script>window.location = 'view_product.php';</script>";
+}
+	print_r($query);
+	exit();
+
+
+// echo "<script language=\"Javascript\">\n";
+// 	mysql_query("$query");
+// 	echo "window.alert('Data Berhasil Disimpan');";
+// 	echo "window.location = 'view_product.php';";
+// 	// echo "<h2>Data Berhasil Disimpan</h2>";
+// echo "</script>";
 
 ?>

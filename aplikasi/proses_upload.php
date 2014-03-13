@@ -4,9 +4,11 @@ mysql_connect("localhost","root","password");
 mysql_select_db("new_media");
 
 $keterangan = $_POST['keterangan'];
-$folder = "gambar";
+$folder = "image";
 $tmp_name = $_FILES["file_foto"]["tmp_name"];
 $name = $folder."/".$_FILES["file_foto"]["name"];
+// print_r($_FILES);
+// exit();
 
 //kode untuk upload ke folder gambar
 move_uploaded_file($tmp_name, $name);
