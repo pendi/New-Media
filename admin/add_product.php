@@ -1,6 +1,10 @@
 <?php 
-include "../header/header.php";
-include "../aplikasi/function.php";
+session_start();
+	if(!isset($_SESSION['id'])) {
+	  	echo "<script>window.alert('Anda Harus Login Dulu');</script>";
+		echo "<script>window.location = '../login/login.php';</script>";
+	} else {
+include "../header/header_admin.php";
 ?>
 <form action="save_product.php" method="post" enctype="multipart/form-data">
 	<table width="70%" align="center" bgcolor="#E6E6E6">
@@ -59,3 +63,4 @@ include "../aplikasi/function.php";
 		</tr>
 	</table>
 </form>
+<?php } ?>

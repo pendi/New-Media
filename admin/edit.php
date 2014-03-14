@@ -1,6 +1,11 @@
 <?php 
 include "../aplikasi/koneksi.php";
-include "../header/header.php";
+session_start();
+	if(!isset($_SESSION['id'])) {
+	  	echo "<script>window.alert('Anda Harus Login Dulu');</script>";
+		echo "<script>window.location = '../login/login.php';</script>";
+	} else {
+include "../header/header_admin.php";
 $query = mysql_query("select * from product where id_product='$_GET[id_product]'");
 $data = mysql_fetch_array($query);
 ?>
@@ -75,3 +80,4 @@ $data = mysql_fetch_array($query);
 		</tr>
 	</table>
 </form>
+<?php } ?>

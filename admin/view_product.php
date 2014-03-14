@@ -1,6 +1,12 @@
 <?php
-include "../header/header.php";
 include "../aplikasi/koneksi.php";
+session_start();
+	if(!isset($_SESSION['id'])) {
+	  	echo "<script>window.alert('Anda Harus Login Dulu');</script>";
+		echo "<script>window.location = '../login/login.php';</script>";
+	} else {
+include "../header/header_admin.php";
+
 ?>
 <form action="add_product.php" method="post">
 	<table width="70%" align="center" bgcolor="#E6E6E6">
@@ -95,5 +101,4 @@ include "../aplikasi/koneksi.php";
 		</tr>
 	</table>
 </form>
-</body>
-</html>
+<?php } ?>

@@ -19,7 +19,7 @@
 	<tr>
 		<td colspan="2"><font color="white" size="30">&nbsp;ANILA SHOP</font></td>
 		<td align="right" style="vertical-align: top;">
-			<a href="../login/login.php" class="href">Login &nbsp;</a>
+			<a href="../logout/logout.php" class="href">Logout &nbsp;</a>
 		</td>
 	</tr>
 	<tr>
@@ -46,7 +46,7 @@
 		</td>
 	</tr>
 </table>
-<form action="../search/search.php" method="post">
+<form action="../search/search_admin.php" method="post">
 <table width="70%" align="center" bgcolor="#E6E6E6">
 	<tr>
 		<td align="right">
