@@ -1,7 +1,9 @@
 <?php 
 session_start();
-if(isset($_SESSION['id'])) {
-	header('location:../admin/view_product.php'); 
+if(isset($_SESSION['id']) AND $_SESSION['level'] == "admin") {
+	header('location:../admin/dashboard.php'); 
+} elseif (isset($_SESSION['id']) AND $_SESSION['level'] == "co-admin") {
+	header('location:../product/view_product.php'); 
 }
 include "../header/header.php";
 ?>

@@ -26,9 +26,12 @@ include "../header/header_admin.php";
 		</tr>
 		<?php
 			$batas   = 7; 
-			$halaman = $_GET['halaman']; 
-			// if(isset($_GET['halaman'])) { $halaman = $_GET['halaman']; } 
-			// 	else { $halaman = ""; }
+			// $halaman = $_GET['halaman']; 
+			if(isset($_GET['halaman'])) { 
+				$halaman = $_GET['halaman']; 
+			} else { 
+				$halaman = ""; 
+			}
 
 			if(empty($halaman)){ 
 			    $posisi=0; 
@@ -42,7 +45,7 @@ include "../header/header_admin.php";
 			$tampil = mysql_query("$que");
 			$no = $posisi+1;
 			while ($data = mysql_fetch_array($tampil)) { ?>					
-					<tr class="product">
+					<tr class="hover">
 						<td align='center'><?php echo $data[0]; ?></td>
 						<td align='center'><?php echo $data[1]; ?></td>
 						<td align='center'><?php echo $data[2]; ?></td>
@@ -71,31 +74,30 @@ include "../header/header_admin.php";
 	<tr>
 		<td align="right">		
 			<?php
-				echo "<br>Halaman : "; 
-				$file="produk.php"; 
+				echo "<br>Halaman : ";
 
 				$tampil2="select * from product"; 
 				$hasil2=mysql_query($tampil2); 
 				$jmldata=mysql_num_rows($hasil2); 
 				$jmlhalaman=ceil($jmldata/$batas); 
 
-				for($i=1;$i<=$jmlhalaman;$i++) 
-				if ($i != $halaman)
-				{ 
-				    echo " <a href=$_SERVER[PHP_SELF]?halaman=$i><font color='blue'>$i</font></A> | "; 
-				} 
-				else 
-				{ 
-				    echo " <b>$i</b> | "; 
+				for($i=1;$i<=$jmlhalaman;$i++) {
+					if($i>=($halaman-3) && $i <= ($halaman+3)){
+						if ($i != $halaman)
+						{ 
+						    echo " <a href=$_SERVER[PHP_SELF]?halaman=$i><font color='#00F'>$i</font></a> | "; 
+						} 
+						else 
+						{ 
+						    echo " <b>$i</b> | "; 
+						}
+					}
 				}
 			?>
 		</td>
 	</tr>
 	</table>
 	<table width="70%" align="center" bgcolor="#E6E6E6">
-		<tr>
-			<td>&nbsp;<a href="menuadmin.php"><img src="http://localhost/belajar/aplikasi/gambar/back1.png" width="10%"></a></td>
-		</tr>
 		<tr>
 			<td><?php include "../footer/footer.php"; ?></td>
 		</tr>

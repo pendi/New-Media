@@ -12,13 +12,17 @@
 </head>
 <body bgcolor="#80B2FF">
 <?php 
-	include "koneksi.php";
+if (!isset($_SESSION)) {
+    session_start();
+}
+	// include "koneksi.php";
 	// include "function.php";
 ?>
 <table width="70%" align="center" bgcolor="#3385FF">
 	<tr>
-		<td colspan="2"><font color="white" size="30">&nbsp;ANILA SHOP</font></td>
+		<td colspan="2"><font color="#fff" size="30">&nbsp;ANILA SHOP</font></td>
 		<td align="right" style="vertical-align: top;">
+			<font color="#fff"><?php echo ucfirst($_SESSION['id']); ?></font> ||
 			<a href="../logout/logout.php" class="href">Logout &nbsp;</a>
 		</td>
 	</tr>
@@ -51,7 +55,7 @@
 	<tr>
 		<td align="right">
 			<input class="search" type="search" name="search" placeholder="search">
-			<a href="search.php"></a><input type="submit" name="submit" value="search">
+			<input type="submit" name="submit" value="search">
 		</td>
 	</tr>
 	<!-- <tr>

@@ -12,7 +12,7 @@
 </head>
 <body bgcolor="#80B2FF">
 <?php 
-	include "koneksi.php";
+	// include "koneksi.php";
 	// include "function.php";
 ?>
 <table width="70%" align="center" bgcolor="#3385FF">
@@ -51,7 +51,7 @@
 	<tr>
 		<td align="right">
 			<input class="search" type="search" name="search" placeholder="search">
-			<a href="search.php"></a><input type="submit" name="submit" value="search">
+			<input type="submit" name="submit" value="search">
 		</td>
 	</tr>
 	<!-- <tr>

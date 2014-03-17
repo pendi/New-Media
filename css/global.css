@@ -86,6 +86,12 @@ img.gambar:hover {
 /*End Image*/
 
 /*Table*/
-tr.product:hover {
+tr.hover:hover {
 	background: #A1A1A1;
+}
+/*End Table*/
+
+.row {
+	width: 70%;
+	background-color: #E6E6E6;
 }

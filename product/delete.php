@@ -43,7 +43,7 @@ $data = mysql_fetch_array($que);
 		<tr>
 			<td></td>
 			<td class="td">Description &nbsp;</td>
-			<td><?php echo $data[4]; ?></td>
+			<td><?php echo nl2br($data[4]); ?></td>
 		</tr>
 		<tr>
 			<td></td>

@@ -3,8 +3,13 @@ include "../aplikasi/koneksi.php";
 include "../header/header_admin.php";
 
 $batas   = 10;
-$halaman = $_GET['halaman'];
+// $halaman = $_GET['halaman'];
 $search = $_POST['search'];
+if(isset($_GET['halaman'])) { 
+	$halaman = $_GET['halaman']; 
+} else { 
+	$halaman = ""; 
+}
 
 if(empty($halaman)){ 
     $posisi=0; 
@@ -31,7 +36,7 @@ $jumlah = mysql_num_rows($sql);
 				<?php endif ?>
 					<?php echo $r["name"]; ?><br/>
 					<?php echo $r["price"]; ?><br/>
-					<?php echo "<a href='detail.php?id_product=$r[0]'><input type=button value='Detail Product'></a>"; ?>
+					<?php echo "<a href='../product/detail.php?id_product=$r[0]'><input type=button value='Detail Product'></a>"; ?>
 				</center></td>
 			</tr>
 		<?php endwhile ?>
@@ -42,7 +47,7 @@ $jumlah = mysql_num_rows($sql);
 	<?php endif ?>
 	<tr>
 		<td>
-			<a href="../admin/view_product.php"><input type="button" name="button" value="Back"></a>
+			<a href="../product/view_product.php"><input type="button" name="button" value="Back"></a>
 		</td>
 	</tr>
 	<tr>

@@ -3,7 +3,12 @@ include "koneksi.php";
 include "../header/header.php";
 
 $batas   = 10;
-$halaman = $_GET['halaman'];
+// $halaman = $_GET['halaman'];
+if(isset($_GET['halaman'])) { 
+	$halaman = $_GET['halaman']; 
+} else { 
+	$halaman = ""; 
+}
 
 if(empty($halaman)){ 
     $posisi=0; 
@@ -39,7 +44,7 @@ $sql = mysql_query("select * from product limit $posisi,$batas");
 				$jmldata=mysql_num_rows($hasil2); 
 				$jmlhalaman=ceil($jmldata/$batas);
 
-				for($i=1;$i<=$jmlhalaman;$i++) 
+				for($i=1;$i<=$jmlhalaman;$i++) {
 					if($i>=($halaman-3) && $i <= ($halaman+3)){
 						if ($i != $halaman) 
 						{ 
@@ -50,6 +55,7 @@ $sql = mysql_query("select * from product limit $posisi,$batas");
 						    echo " <b>$i</b> | "; 
 						}
 					}
+				}
 			?>
 		</td>
 	</tr>

@@ -28,8 +28,8 @@ if ($hasil) {
 	echo "<script>window.alert('Data Gagal Disimpan');</script>";
 	echo "<script>window.location = 'view_product.php';</script>";
 }
-	print_r($query);
-	exit();
+	// print_r($query);
+	// exit();
 
 
 // echo "<script language=\"Javascript\">\n";

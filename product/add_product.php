@@ -17,7 +17,7 @@ include "../header/header_admin.php";
 		<tr>
 			<td width="25%"></td>
 			<td width="12%">Id Product &nbsp;</td>
-			<td width="33%"><input type="text" name="id" maxlength="5" placeholder="Id Product"></td>
+			<td width="33%"><input autofocus type="text" name="id" maxlength="5" placeholder="Id Product"></td>
 		</tr>
 		<tr>
 			<td></td>
