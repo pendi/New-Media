@@ -11,10 +11,6 @@
 </style>
 </head>
 <body bgcolor="#80B2FF">
-<?php 
-	// include "koneksi.php";
-	// include "function.php";
-?>
 <table width="70%" align="center" bgcolor="#3385FF">
 	<tr>
 		<td colspan="2"><font color="white" size="30">&nbsp;ANILA SHOP</font></td>
@@ -26,7 +22,7 @@
 		<td width="10%" align="center">
 			<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/logo.png' ?>" height="25%">
 		</td>
-		<td width="25%">Jual Laptop Baru Bergaransi</td>
+		<td width="25%">Selling a New Laptop Under Warranty</td>
 		<td width="35%" align="right"><font size="6">PENDI SETIAWAN</font></td>
 	</tr>
 </table>

@@ -44,7 +44,7 @@ include "../header/header_admin.php";
 				}
 
 				$que = "select * from login limit $posisi,$batas";
-				$tampil = mysql_query("$que");
+				$tampil = mysql_query($que);
 				$no = $posisi+1;
 				while ($data = mysql_fetch_array($tampil)) { ?>					
 						<tr class="hover">
