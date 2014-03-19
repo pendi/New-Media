@@ -2,8 +2,8 @@
 include "../aplikasi/koneksi.php";
 session_start();
 
-$username	= $_POST['username'];
-$password	= $_POST['password'];
+$username = trim($_POST['username']);
+$password = md5(trim($_POST['password']));
 
 $query	= "SELECT * FROM login WHERE username='$username' AND password='$password'";
 $sql	= mysql_query($query);

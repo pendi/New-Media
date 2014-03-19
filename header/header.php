@@ -3,26 +3,40 @@
 <head>
 	<title>Anila Shop</title>
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
-	<link rel="shortcut icon" href="image/favicon/favicon_2.ico" />
+	<link rel="shortcut icon" href="../aplikasi/image/favicon/favicon_2.ico" type="image/x-icon" />
 <style type="text/css">
 .search {
 	margin: 7px 0;
 }
+
+.align {
+	vertical-align: bottom;
+	padding-bottom: 8px;
+}
+
+img.padding {
+	padding-right: 4px;
+}
 </style>
 </head>
 <body bgcolor="#80B2FF">
-<table width="70%" align="center" bgcolor="#3385FF">
+<?php 
+if (!isset($_SESSION)) {
+    session_start();
+}
+?>
+<table width="70%" align="center" bgcolor="#3385FF" border="0">
 	<tr>
-		<td colspan="2"><font color="white" size="30">&nbsp;ANILA SHOP</font></td>
+		<td colspan="2"><font color="#fff" size="30">&nbsp;ANILA SHOP</font></td>
 		<td align="right" style="vertical-align: top;">
 			<a href="../login/login.php" class="href">Login &nbsp;</a>
 		</td>
 	</tr>
 	<tr>
-		<td width="10%" align="center">
-			<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/logo.png' ?>" height="25%">
+		<td width="9%" align="right">
+			<img class="padding" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/logo-icon.png' ?>" width="70%">
 		</td>
-		<td width="25%">Selling a New Laptop Under Warranty</td>
+		<td width="26%" class="align">Selling a New Laptop Under Warranty</td>
 		<td width="35%" align="right"><font size="6">PENDI SETIAWAN</font></td>
 	</tr>
 </table>

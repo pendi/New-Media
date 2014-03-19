@@ -18,7 +18,7 @@ $data = mysql_fetch_array($que);
 <input type="hidden" name="id" value="<?php echo $data[0]; ?>">
 	<table width="70%" align="center" bgcolor="#E6E6E6">
 		<tr>
-			<td colspan="3" align="center"><h2>EDIT PRODUCT</h2></td>
+			<td colspan="3" align="center"><h2>DELETE PRODUCT</h2></td>
 		</tr>
 		<tr>
 			<td width="25%"></td>

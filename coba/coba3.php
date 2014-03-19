@@ -1,4 +1,3 @@
-<?php 
-$no = 1;
-$no++;
- ?>
+<?php
+echo strtolower("HeLLo WORLD.");
+?>
