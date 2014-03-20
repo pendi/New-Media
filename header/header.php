@@ -60,7 +60,7 @@ if (!isset($_SESSION)) {
 <table width="70%" align="center" bgcolor="#E6E6E6">
 	<tr>
 		<td align="right">
-			<input class="search" type="search" name="search" placeholder="search">
+			<input class="search" type="search" name="search" placeholder="search Product">
 			<input type="submit" name="submit" value="search">
 		</td>
 	</tr>

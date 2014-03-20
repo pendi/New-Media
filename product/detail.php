@@ -1,5 +1,10 @@
 <?php  
 include "../aplikasi/koneksi.php";
+session_start();
+	if(!isset($_SESSION['id'])) {
+	  	echo "<script>window.alert('Anda Harus Login Dulu');</script>";
+		echo "<script>window.location = '../login/login.php';</script>";
+	} else {
 include "../header/header_admin.php";
 
 $sql=mysql_query("select * from product where id_product='$_GET[id_product]'");
@@ -60,3 +65,4 @@ table.padding tr > td {
 		</td>
 	</tr>
 </table>
+<?php } ?>

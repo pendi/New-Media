@@ -45,10 +45,10 @@ include "../header/header_admin.php";
 
 				$que = "select * from login limit $posisi,$batas";
 				$tampil = mysql_query($que);
-				$no = $posisi+1;
+				$no = $posisi + 1;
 				while ($data = mysql_fetch_array($tampil)) { ?>					
 						<tr class="hover">
-							<td align='center'><?php echo $data[0]; ?></td>
+							<td align='center'><?php echo $no; ?></td>
 							<td align='center'><?php echo $data[1]; ?></td>
 							<td align='center'><?php echo $data[2]; ?></td>
 							<td align='center'><?php echo $data[3]; ?></td>

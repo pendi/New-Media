@@ -32,9 +32,9 @@ if ((isset($_POST['submit'])) AND ($_POST['search'] <> "")) {
 				<tr class="list">
 					<td><center>
 					<?php if (!empty($r['image'])): ?>				
-						<img src="<?php echo $r['image']; ?>" width="100"><br/>
+						<img src="<?php echo $r['image']; ?>" width="100px" height="120px"><br/>
 					<?php else : ?>
-						<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/gambar/no-image.jpg' ?>" width="100"><br/>
+						<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/gambar/no-image.jpg' ?>" width="100px" height="120px"><br/>
 					<?php endif ?>
 						<?php echo $r["name"]; ?><br/>
 						<?php echo $r["price"]; ?><br/>
