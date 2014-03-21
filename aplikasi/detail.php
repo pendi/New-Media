@@ -51,7 +51,7 @@ table.padding tr > td {
 	</tr>
 	<tr>
 		<td colspan="3">
-			<a href="buy.php"><input type="button" name="buy" value="Buy"></a>
+			<a href="../customer/data_customer.php"><input type="button" name="buy" value="Buy"></a>
 			<a href="index.php"><input type="button" name="back" value="Back"></a>
 		</td>
 	</tr>

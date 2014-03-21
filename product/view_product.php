@@ -14,7 +14,7 @@ include "../header/header_admin.php";
 			<td align="center"><h2>LIST PRODUCT</h2></td>
 		</tr>
 	</table>
-	<table width="70%" align="center" bgcolor="#E6E6E6" border="1" style="border-collapse: collapse;">
+	<table width="70%" align="center" bgcolor="#E6E6E6" border="1" class="border">
 		<tr bgcolor="#00FFFF">
 			<th width="8%">Id Product</th>
 			<th width="8%">Product Name</th>

@@ -18,7 +18,7 @@ include "../header/header_admin.php";
 		</tr>
 	</table>
 	<center><div class="row">
-		<table width="75%" align="center" border="1" style="border-collapse: collapse;">
+		<table width="75%" align="center" border="1" class="border">
 			<tr bgcolor="#00FFFF">
 				<th width="3%">Id</th>
 				<th width="15%">Username</th>

@@ -20,11 +20,7 @@ img.padding {
 </style>
 </head>
 <body bgcolor="#80B2FF">
-<?php 
-include "../aplikasi/koneksi.php";
-$query = mysql_query("select * from login");
-$data = mysql_fetch_array($query);
-
+<?php
 if (!isset($_SESSION)) {
     session_start();
 }
@@ -33,8 +29,8 @@ if (!isset($_SESSION)) {
 <table width="70%" align="center" bgcolor="#3385FF" border="0">
 	<tr>
 		<td colspan="2"><font color="#fff" size="30">&nbsp;ANILA SHOP</font></td>
-		<td align="right" style="vertical-align: top;">
-			<a class="href" href="../admin/edit.php?id=<?php echo $_SESSION['id']; ?>"><?php echo ucfirst(strtolower($_SESSION['id'])); ?></a> ||
+		<td align="right" style="vertical-align: top;"><font color="#fff">
+			<?php echo ucfirst(strtolower($_SESSION['id'])); ?></font> ||
 			<a href="../logout/logout.php" class="href">Logout &nbsp;</a>
 		</td>
 	</tr>
@@ -51,7 +47,7 @@ if (!isset($_SESSION)) {
 		<td>
 			<ul class="dropmenu">
 				<li><a href="../admin/check.php">Dashboard</a></li>
-				<li><a href="../admin/edit.php?id=<?php echo $data[0] ?>">Change Profile</a></li>
+				<li><a href="../admin/view_edit.php">Profile</a></li>
 			</ul>
 		</td>
 	</tr>

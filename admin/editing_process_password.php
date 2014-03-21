@@ -2,28 +2,23 @@
 include "../aplikasi/koneksi.php";
 session_start();
 $id = $_POST['id'];
-$username = $_POST['username'];
 $oldpass = md5($_POST['oldpass']);
 $newpass = md5($_POST['newpass']);
 $newpass2 = md5($_POST['newpass2']);
 
-$que = mysql_query("select * from login where id='$_SESSION[id]'");
-$data = mysql_fetch_array($que);
+// $que = mysql_query("select * from login where id='$_SESSION[id]'");
+// $data = mysql_fetch_array($que);
 
 if ($oldpass == $_SESSION['password']) {
 	if ($newpass2 == $newpass) {
-		if ($newpass != "" AND $newpass2 != "") {
-			$query = "update login set username='$username',password='$newpass' where id='$_SESSION[id]'";
-		} else {
-			$query = "update login set username='$username',password='$oldpass' where id='$_SESSION[id]'";
-		}
+		$query = "update login set password='$newpass' where id='$_SESSION[id_admin]'";
 	} else {
 		echo "<script>window.alert('Konfirmasi Password Anda Tidak Cocok');</script>";
-		echo "<script>window.location = 'edit.php?id=$id';</script>";
+		echo "<script>window.location = 'edit_password.php?id=$_SESSION[id_admin]';</script>";
 	}
 } else {
 	echo "<script>window.alert('Password Anda Tidak Cocok');</script>";
-	echo "<script>window.location = 'edit.php?id=$id';</script>";
+	echo "<script>window.location = 'edit_password.php?id=$_SESSION[id_admin]';</script>";
 }
 
 

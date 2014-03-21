@@ -12,8 +12,8 @@ $data = mysql_fetch_array($sql);
 
 if($numrow > 0) {
 $_SESSION['id']	= $username;
-$_SESSION['username'] = $data['username'];
-$_SESSION['password'] = $data['password'];
+$_SESSION['id_admin'] = $data['id'];
+$_SESSION['password'] = $password;
 $_SESSION['level'] = $data['level'];
 header("Location:../admin/check.php");
 } else {
