@@ -1,7 +1,7 @@
 <?php  
 include "../aplikasi/koneksi.php";
 
-session_start();
+// session_start();
 
 $username = strtolower(trim($_POST['username']));
 $password = md5(trim($_POST['password']));

@@ -1,6 +1,7 @@
 <?php  
 include "../aplikasi/koneksi.php";
 $id = $_POST['id'];
+$category = $_POST['category'];
 $name = $_POST['name'];
 $type = $_POST['type'];
 $price = $_POST['price'];
@@ -15,9 +16,9 @@ if ($fileSize > 0) {
 
 	move_uploaded_file($tmp_name, $name_img);
 	
-	$query = "update product set name='$name',type='$type',price='$price',description='$description',stock='$stock',image='$name_img' where id_product='$id'";
+	$query = "update product set name='$name',type='$type',price='$price',description='$description',stock='$stock',image='$name_img',category_id='$category' where id_product='$id'";
 } else {
-	$query = "update product set name='$name',type='$type',price='$price',description='$description',stock='$stock' where id_product='$id'";
+	$query = "update product set name='$name',type='$type',price='$price',description='$description',stock='$stock',category_id='$category' where id_product='$id'";
 }
 
 $hasil = mysql_query($query);

@@ -21,6 +21,23 @@ include "../header/header_admin.php";
 		</tr>
 		<tr>
 			<td></td>
+			<td>Category</td>
+			<td>
+				<select name='category'>
+					<option value="0">Select Category</option>
+					<option value="1">Acer</option>
+					<option value="2">Asus</option>
+					<option value="3">Apple</option>
+					<option value="4">Dell</option>
+					<option value="5">Hp</option>
+					<option value="6">Lenovo</option>
+					<option value="7">Samsung</option>
+					<option value="8">Toshiba</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
 			<td>Name &nbsp;</td>
 			<td><input type="text" name="name" placeholder="Name"></td>
 		</tr>

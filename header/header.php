@@ -24,6 +24,13 @@ img.padding {
 if (!isset($_SESSION)) {
     session_start();
 }
+
+include "../aplikasi/koneksi.php";
+// echo "<pre>";
+// $sql = mysql_query("SELECT * FROM category");
+// $data = mysql_fetch_array($sql);
+// print_r($data);
+// exit();
 ?>
 <table width="70%" align="center" bgcolor="#3385FF" border="0">
 	<tr>
@@ -44,14 +51,15 @@ if (!isset($_SESSION)) {
 	<tr>
 		<td>
 			<ul class="dropmenu">
-				<li><a href="#1">Acer</a></li>
-				<li><a href="#2">Asus</a></li>
-				<li><a href="#3">Apple</a></li>
-				<li><a href="#4">Dell</a></li>
-				<li><a href="#4">Hp</a></li>
-				<li><a href="#4">Lenovo</a></li>
-				<li><a href="#4">Samsung</a></li>
-				<li><a href="#4">Toshiba</a></li>
+				<li><a href="../aplikasi/index.php">Home</a></li>
+				<li><a href="../customer/product.php?id=1">Acer</a></li>
+				<li><a href="../customer/product.php?id=2">Asus</a></li>
+				<li><a href="../customer/product.php?id=3">Apple</a></li>
+				<li><a href="../customer/product.php?id=4">Dell</a></li>
+				<li><a href="../customer/product.php?id=5">Hp</a></li>
+				<li><a href="../customer/product.php?id=6">Lenovo</a></li>
+				<li><a href="../customer/product.php?id=7">Samsung</a></li>
+				<li><a href="../customer/product.php?id=8">Toshiba</a></li>
 			</ul>
 		</td>
 	</tr>
