@@ -31,8 +31,8 @@ table.padding tr > td {
 	</tr>
 	<tr>
 		<td width="12%">Produck</td>
-		<td width="2%">:</td>
-		<td width="51%"><?php echo $data['name'] ?></td>
+		<td width="1%">:</td>
+		<td width="57%"><?php echo $data['name'] ?></td>
 	</tr>
 	<tr>
 		<td>Type</td>

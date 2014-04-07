@@ -46,7 +46,9 @@ include "../header/header_admin.php";
 			$no = $posisi+1;
 			while ($data = mysql_fetch_array($tampil)) { ?>					
 					<tr class="hover">
-						<td align='center'><?php echo $data[0]; ?></td>
+						<td align='center'>
+							<a href="detail.php?id_product=<?php echo $data[0]; ?>" class="href"><?php echo $data[0]; ?></a>
+						</td>
 						<td align='center'><?php echo $data[1]; ?></td>
 						<td align='center'><?php echo $data[2]; ?></td>
 						<td align='center'><?php echo $data[3]; ?></td>
