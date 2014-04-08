@@ -43,7 +43,6 @@ include "../header/header_admin.php";
 
 			$que = "select * from product limit $posisi,$batas";
 			$tampil = mysql_query("$que");
-			$no = $posisi+1;
 			while ($data = mysql_fetch_array($tampil)) { ?>					
 					<tr class="hover">
 						<td align='center'>
@@ -65,7 +64,7 @@ include "../header/header_admin.php";
 							<a href="delete.php?id_product=<?php echo $data[0]; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/delete.png' ?>" width = "15%"></a>
 						</td>
 					</tr>					 
-				<?php $no++;
+				<?php
 			}
 		 ?>
 		 <tr>

@@ -15,7 +15,7 @@ if ($_GET['id'] == 1) {
 			while ($data = mysql_fetch_array($query)) {
 		?>
 		<tr>
-			<td width="4%" align="left"><?php echo $no; ?></td>
+			<td width="3%" align="left"><?php echo $no; ?>.</td>
 			<td>
 				<a class="href" href="../aplikasi/detail.php?id_product=<?php echo $data[0] ?>"><?php echo $data['name'];?>&nbsp;<?php echo $data['type']; ?></a>
 			</td>
@@ -40,7 +40,7 @@ if ($_GET['id'] == 1) {
 			while ($data = mysql_fetch_array($query)) {
 		?>
 		<tr>
-			<td width="4%" align="left"><?php echo $no; ?></td>
+			<td width="3%" align="left"><?php echo $no; ?>.</td>
 			<td>
 				<a class="href" href="../aplikasi/detail.php?id_product=<?php echo $data[0] ?>"><?php echo $data['name'];?>&nbsp;<?php echo $data['type']; ?></a>
 			</td>
@@ -65,7 +65,7 @@ if ($_GET['id'] == 1) {
 			while ($data = mysql_fetch_array($query)) {
 		?>
 		<tr>
-			<td width="4%" align="left"><?php echo $no; ?></td>
+			<td width="3%" align="left"><?php echo $no; ?>.</td>
 			<td>
 				<a class="href" href="../aplikasi/detail.php?id_product=<?php echo $data[0] ?>"><?php echo $data['name'];?>&nbsp;<?php echo $data['type']; ?></a>
 			</td>
@@ -90,7 +90,7 @@ if ($_GET['id'] == 1) {
 			while ($data = mysql_fetch_array($query)) {
 		?>
 		<tr>
-			<td width="4%" align="left"><?php echo $no; ?></td>
+			<td width="3%" align="left"><?php echo $no; ?>.</td>
 			<td>
 				<a class="href" href="../aplikasi/detail.php?id_product=<?php echo $data[0] ?>"><?php echo $data['name'];?>&nbsp;<?php echo $data['type']; ?></a>
 			</td>
@@ -115,7 +115,7 @@ if ($_GET['id'] == 1) {
 			while ($data = mysql_fetch_array($query)) {
 		?>
 		<tr>
-			<td width="4%" align="left"><?php echo $no; ?></td>
+			<td width="3%" align="left"><?php echo $no; ?>.</td>
 			<td>
 				<a class="href" href="../aplikasi/detail.php?id_product=<?php echo $data[0] ?>"><?php echo $data['name'];?>&nbsp;<?php echo $data['type']; ?></a>
 			</td>
@@ -140,7 +140,7 @@ if ($_GET['id'] == 1) {
 			while ($data = mysql_fetch_array($query)) {
 		?>
 		<tr>
-			<td width="4%" align="left"><?php echo $no; ?></td>
+			<td width="3%" align="left"><?php echo $no; ?>.</td>
 			<td>
 				<a class="href" href="../aplikasi/detail.php?id_product=<?php echo $data[0] ?>"><?php echo $data['name'];?>&nbsp;<?php echo $data['type']; ?></a>
 			</td>
@@ -165,7 +165,7 @@ if ($_GET['id'] == 1) {
 			while ($data = mysql_fetch_array($query)) {
 		?>
 		<tr>
-			<td width="4%" align="left"><?php echo $no; ?></td>
+			<td width="3%" align="left"><?php echo $no; ?>.</td>
 			<td>
 				<a class="href" href="../aplikasi/detail.php?id_product=<?php echo $data[0] ?>"><?php echo $data['name'];?>&nbsp;<?php echo $data['type']; ?></a>
 			</td>
@@ -190,7 +190,7 @@ if ($_GET['id'] == 1) {
 			while ($data = mysql_fetch_array($query)) {
 		?>
 		<tr>
-			<td width="4%" align="left"><?php echo $no; ?></td>
+			<td width="3%" align="left"><?php echo $no; ?>.</td>
 			<td>
 				<a class="href" href="../aplikasi/detail.php?id_product=<?php echo $data[0] ?>"><?php echo $data['name'];?>&nbsp;<?php echo $data['type']; ?></a>
 			</td>
