@@ -31,7 +31,7 @@ $data = mysql_fetch_array($sql);
 		margin-top: 13px;
 	}
 </style>
-<form>
+<form action="payment_process.php" method="post">
 	<center><div class="row">
 		<table width="80%" border="0">
 			<tr>
@@ -69,6 +69,15 @@ $data = mysql_fetch_array($sql);
 				<td>
 					<div class="div">Bank BCA #2222222222<br> a/n Anila Shop</div>
 					&nbsp;
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="submit" name="submit" value="Next">
+					<a href="../aplikasi/index.php"><input type="button" name="button" value="Cancel"></a>
 				</td>
 			</tr>
 		</table>

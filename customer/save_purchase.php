@@ -7,8 +7,8 @@ $id = $_POST['id'];
 $quantity = $_POST['quantity'];
 $total = $_POST['total'];
 
-$query = "INSERT INTO orders_temp(id_order,id_product,id_session,quantity,total) 
-			VALUES(null,'$id','$sid','$quantity','$total')";
+$query = "INSERT INTO orders_temp(id_order,id_product,id_session,quantity,total,method) 
+			VALUES(null,'$id','$sid','$quantity','$total','bca')";
 $hasil = mysql_query($query);
 
 if ($hasil) {

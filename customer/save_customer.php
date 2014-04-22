@@ -11,6 +11,6 @@ $query = "INSERT INTO customer(id_cus,name,address,phone_number,email)
 $hasil = mysql_query($query);
 
 if ($hasil) {
-	header("Location:../aplikasi/index.php");
+	header("Location:method_of_payment.php");
 }
 ?>

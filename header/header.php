@@ -28,11 +28,6 @@ if (!isset($_SESSION)) {
 }
 
 include "../aplikasi/koneksi.php";
-// echo "<pre>";
-// $sql = mysql_query("SELECT * FROM category");
-// $data = mysql_fetch_array($sql);
-// print_r($data);
-// exit();
 ?>
 <table width="70%" align="center" bgcolor="#3385FF" border="0">
 	<tr>
