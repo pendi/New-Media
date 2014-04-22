@@ -29,6 +29,20 @@ include "../header/header_admin.php";
 				</center></td>
 			</tr>
 			<tr class="hover">
+				<td><b>First Name</b></td>
+				<td><?php echo $_SESSION['first_name']; ?></td>
+				<td><center>
+					<a href="edit_first_name.php?id=<?php echo $_SESSION['id_admin']; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/edit.png' ?>" width = "20%"></a>
+				</center></td>
+			</tr>
+			<tr class="hover">
+				<td><b>Last Name</b></td>
+				<td><?php echo $_SESSION['last_name']; ?></td>
+				<td><center>
+					<a href="edit_last_name.php?id=<?php echo $_SESSION['id_admin']; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/edit.png' ?>" width = "20%"></a>
+				</center></td>
+			</tr>
+			<tr class="hover">
 				<td><b>Password</b></td>
 				<td>**********</td>
 				<td><center>

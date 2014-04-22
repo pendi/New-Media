@@ -18,13 +18,15 @@ include "../header/header_admin.php";
 		</tr>
 	</table>
 	<center><div class="row">
-		<table width="75%" align="center" border="1" class="border">
+		<table width="90%" align="center" border="1" class="border">
 			<tr bgcolor="#00FFFF">
-				<th width="3%">Id</th>
-				<th width="15%">Username</th>
-				<th width="32%">Password</th>
-				<th width="15%">Status</th>
-				<th width="10%">Action</th>
+				<th>Id</th>
+				<th>Username</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Password</th>
+				<th>Status</th>
+				<th>Action</th>
 			</tr>
 			<?php
 				$batas   = 7; 
@@ -52,6 +54,8 @@ include "../header/header_admin.php";
 							<td align='center'><?php echo $data[1]; ?></td>
 							<td align='center'><?php echo $data[2]; ?></td>
 							<td align='center'><?php echo $data[3]; ?></td>
+							<td align='center'><?php echo $data[4]; ?></td>
+							<td align='center'><?php echo $data[5]; ?></td>
 							<td align='center'>
 								<a href="delete.php?id=<?php echo $data[0]; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/delete.png' ?>" width = "15%"></a>
 							</td>
@@ -60,10 +64,10 @@ include "../header/header_admin.php";
 				}
 			 ?>
 			<tr>
-				<td colspan="5"><center><input type="submit" name="submit" value="Add Admin" /></center></td>
+				<td colspan="7"><center><input type="submit" name="submit" value="Add Admin" /></center></td>
 			</tr>
 			<tr>
-				<td align="right" colspan="5">		
+				<td align="right" colspan="7">		
 					<?php
 						echo "<br>Halaman : ";
 

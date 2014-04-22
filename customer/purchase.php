@@ -57,9 +57,7 @@ $tampil = mysql_query($query);
 			?>
 			<tr>
 				<td colspan="5" align="center">
-					<!-- <a href="save_purchase.php"> -->
 					<input type="submit" value="Next">
-					<!-- </a> -->
 					<a href="../aplikasi/index.php"><input type="button" value="Cancel"></a>
 				</td>
 			</tr>

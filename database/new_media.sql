@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 14, 2014 at 06:00 PM
+-- Generation Time: Apr 22, 2014 at 12:34 PM
 -- Server version: 5.5.35-0ubuntu0.12.04.2
 -- PHP Version: 5.3.10-1ubuntu3.10
 
@@ -19,6 +19,69 @@ SET time_zone = "+00:00";
 --
 -- Database: `new_media`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+CREATE TABLE IF NOT EXISTS `category` (
+  `id` int(11) NOT NULL,
+  `merk` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `merk`) VALUES
+(1, 'Acer'),
+(2, 'Asus'),
+(3, 'Apple'),
+(4, 'Dell'),
+(5, 'Hp');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer`
+--
+
+CREATE TABLE IF NOT EXISTS `customer` (
+  `id_cus` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `address` text NOT NULL,
+  `phone_number` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_cus`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`id_cus`, `name`, `address`, `phone_number`, `email`) VALUES
+(1, 'Fadil', 'Pondok Gede', 123456789, 'bla@gmail.com'),
+(2, 'Dony', 'Bekasi', 999999999, 'nnnnnn'),
+(3, 'Tirta', 'Tambun', 77777777, 'hhhhhhh'),
+(4, 'wwwwww', 'gggggggggggg', 2147483647, 'bbbbbbbbbbb'),
+(5, 'pendi', '', 0, ''),
+(6, '', '', 0, ''),
+(7, 'hhhhhhhh', '', 0, ''),
+(8, 'mmmmmmmmmm', '', 0, ''),
+(9, 'bbbbbbb', '', 0, ''),
+(10, 'iiiiiiiiiii', '', 0, ''),
+(11, 'llllllllll', '', 0, ''),
+(12, 'vvvvvvvv', '', 0, ''),
+(13, 'nhjk', '', 0, ''),
+(14, 'bh', '', 0, ''),
+(15, 'Pendi Setiawan', 'Pondok Ungu Permai', 2147483647, 'sacktiawan@gmail.com'),
+(16, 'dsdfafa', 'fasfafa', 3353545, ''),
+(17, 'Herman', 'Bekasi', 111111, 'rrrrrrrrrrrrrrrr'),
+(18, 'Herman', 'hhhhhhhh', 0, ''),
+(19, 'Nida R', '', 0, '');
 
 -- --------------------------------------------------------
 
@@ -54,16 +117,26 @@ INSERT INTO `image` (`id_image`, `filename`, `location`) VALUES
 CREATE TABLE IF NOT EXISTS `login` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `first_name` varchar(20) NOT NULL,
+  `last_name` varchar(30) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `level` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`id`, `username`, `password`) VALUES
-(1, 'pendi', 'password');
+INSERT INTO `login` (`id`, `username`, `first_name`, `last_name`, `password`, `level`) VALUES
+(1, 'pendi', 'primus', 'setiawan', '5f4dcc3b5aa765d61d8327deb882cf99', 'admin'),
+(2, 'nida', 'nida', 'rahmani', '5f4dcc3b5aa765d61d8327deb882cf99', 'co-admin'),
+(3, 'admin', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'co-admin'),
+(4, 'adm', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'co-admin'),
+(6, 'ichan', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'co-admin'),
+(7, 'udin', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'co-admin'),
+(8, 'upin', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'co-admin'),
+(9, 'fadil', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'co-admin');
 
 -- --------------------------------------------------------
 
@@ -96,27 +169,56 @@ INSERT INTO `login1` (`id`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `orders`
+--
+
+CREATE TABLE IF NOT EXISTS `orders` (
+  `id_order` int(11) NOT NULL AUTO_INCREMENT,
+  `id_product` char(5) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  PRIMARY KEY (`id_order`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id_order`, `id_product`, `quantity`) VALUES
+(1, 'AC001', 0),
+(2, 'AC002', 0),
+(3, 'AC001', 0),
+(4, 'AC002', 0),
+(5, 'AC002', 3),
+(6, 'AC002', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `orders_temp`
 --
 
 CREATE TABLE IF NOT EXISTS `orders_temp` (
-  `id_orders_temp` int(5) NOT NULL AUTO_INCREMENT,
-  `kdbrg` char(5) NOT NULL,
-  `jumlah` int(5) NOT NULL,
-  `tgl_order_temp` date NOT NULL,
-  `jam_order_temp` time NOT NULL,
-  PRIMARY KEY (`id_orders_temp`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+  `id_order` int(11) NOT NULL AUTO_INCREMENT,
+  `id_product` char(5) NOT NULL,
+  `id_session` varchar(150) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `total` double NOT NULL,
+  PRIMARY KEY (`id_order`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `orders_temp`
 --
 
-INSERT INTO `orders_temp` (`id_orders_temp`, `kdbrg`, `jumlah`, `tgl_order_temp`, `jam_order_temp`) VALUES
-(3, 'AC001', 6, '2014-02-13', '17:47:47'),
-(4, 'AC002', 3, '2014-02-13', '17:53:36'),
-(5, 'AC006', 3, '2014-02-14', '15:43:30'),
-(6, 'AS001', 1, '2014-02-14', '17:41:05');
+INSERT INTO `orders_temp` (`id_order`, `id_product`, `id_session`, `quantity`, `total`) VALUES
+(1, 'AC001', '', 1, 0),
+(2, 'AC002', 't3qkbl4ne8ct1agja3pvt8n7k3', 5, 0),
+(3, 'AC005', 't3qkbl4ne8ct1agja3pvt8n7k3', 2, 0),
+(4, 'AC006', 'qs9ievblfn0ntrt3rnip499ki1', 5, 0),
+(5, 'AC003', 't3qkbl4ne8ct1agja3pvt8n7k3', 5, 0),
+(6, 'AC001', 't3qkbl4ne8ct1agja3pvt8n7k3', 1, 0),
+(7, 'AC002', 't3qkbl4ne8ct1agja3pvt8n7k3', 1, 0),
+(9, 'AC002', 'oiejsjtsvvvpjm3emjb6mnlq85', 4, 4000000);
 
 -- --------------------------------------------------------
 
@@ -132,6 +234,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `description` text NOT NULL,
   `stock` int(3) NOT NULL,
   `image` text NOT NULL,
+  `category_id` int(1) NOT NULL,
   PRIMARY KEY (`id_product`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -139,26 +242,31 @@ CREATE TABLE IF NOT EXISTS `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id_product`, `name`, `type`, `price`, `description`, `stock`, `image`) VALUES
-('AC001', 'Acer', '', 2000000, '', 4, '../aplikasi/image/C360_2014-02-15-14-33-29-348.jpg'),
-('AC002', 'Acer33', 'klllllllllll', 1000000, 'vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv\r\nvvvvvvvvvvvvvvvvvv', 10, '../aplikasi/image/images (1).jpg'),
-('AC003', 'Notebook Acer', '', 1500000, '', 5, ''),
-('AC004', 'Acer', '', 2300000, '', 7, ''),
-('AC006', 'mjgv', 'Bekas', 2000000, 'Ancur\r\n', 6, '../aplikasi/image/C360_2014-02-15-14-21-48-834.jpg'),
-('AS001', 'Asus', '', 1200000, '', 2, '../aplikasi/image/images (1).jpg'),
-('AS002', 'Asus', '', 1400000, '', 0, ''),
-('AS003', 'Asus', 'Terbaru', 4100000, '', 5, ''),
-('gghgb', 'gvhgv', 'gvgv', 0, 'vbjgvjgbj', 4, 'image/Rizky Dana Saputro_108091000006.jpg'),
-('HP001', 'Hp', '', 2500000, '', 0, ''),
-('HP002', 'Hp', '123', 3200000, '', 3, ''),
-('HP003', 'Hp', 'Sdim', 4400000, 'n ,kznjnjbjbfhhjbJ', 2, 'image/acer.jpg'),
-('jjjjj', 'jjjjjj', 'jjjjj', 0, 'jjjjjjj\r\njjjj\r\njjjjjjjjjjjjjj\r\njjjjjjjj\r\njjjjjjjjjjjjj', 0, '../aplikasi/image/images (2).jpg'),
-('lllll', 'lllllll', 'llllllll', 0, 'llllllllllllllllll\r\nllllllllllll\r\nllllllllllllllllllllllllllllllllllllllllllllllllllll\r\nlllllllllllllll\r\nllllllllllllllllll\r\nllllllll\r\nllllllllllllllllllllll\r\nllllllllllllllll\r\nll\r\nllllllllll', 45, '../aplikasi/image/images (1).jpg'),
-('mmmmm', 'mmmmm', 'mmmmmm', 0, 'mmmmmmmmm', 9, '../aplikasi/image/images.jpg'),
-('nnnnn', 'nnnnnnn', 'nnnnn', 0, '', 0, 'image/'),
-('uygby', 'hygvu', 'vy', 6565, 'hfcvgfvh', 4, 'image/sub7.jpg'),
-('vv', 'vvvv', 'vvvvv', 0, 'vvvvvvvvvvvv', 0, '../aplikasi/image/images (1).jpg'),
-('vvvv', 'vvvvvv', 'vvvvvv', 0, 'vvvvvvvv\r\nvvvvvvvvv\r\nvvv\r\nvvvvvv\r\nvvvvv', 0, '');
+INSERT INTO `product` (`id_product`, `name`, `type`, `price`, `description`, `stock`, `image`, `category_id`) VALUES
+('AC001', 'Acer', 'D250', 2000000, 'Ram       2GB\r\nProcessor 1Gzh', 5, '../aplikasi/image/C360_2014-02-15-14-33-29-348.jpg', 1),
+('AC002', 'Acer33', 'klllllllllll', 1000000, 'vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv\r\nvvvvvvvvvvvvvvvvvv', 10, '../aplikasi/image/images (1).jpg', 1),
+('AC003', 'Notebook Acer', '', 1500000, '', 5, '', 1),
+('AC004', 'Acer', '', 2300000, '', 7, '', 1),
+('AC005', 'Acer', 'D257', 5000000, 'ddddddddddddddd\r\ndddddddddd\r\ndddddddddddddddddddddddddddddd\r\nddddddddddddddd\r\nddddddddddddddddddd\r\nddddddddddddddddddddddddddddddddddddddddd\r\ndddddddddddddddddd', 2, '../aplikasi/image/C360_2014-02-15-14-18-12-686.jpg', 1),
+('AC006', 'mjgv', 'Bekas', 2000000, 'Ancur\r\n', 6, '../aplikasi/image/C360_2014-02-15-14-21-48-834.jpg', 0),
+('AS001', 'Asus', '', 1200000, '', 2, '../aplikasi/image/images (1).jpg', 2),
+('AS002', 'Asus', '', 1400000, '', 0, '', 2),
+('AS003', 'Asus', 'Terbaru', 4100000, '', 5, '', 2),
+('bbbb', 'bbbb', 'bbbb', 0, '', 2, '../aplikasi/image/', 0),
+('ccccc', 'cccc', 'ccccccc', 0, 'cccccccc\r\ncccc', 8, '../aplikasi/image/images.jpg', 0),
+('gghgb', 'gvhgv', 'gvgv', 0, 'vbjgvjgbj', 4, 'image/Rizky Dana Saputro_108091000006.jpg', 0),
+('HP001', 'Hp', '', 2500000, '', 0, '', 5),
+('HP002', 'Hp', '123', 3200000, '', 3, '', 5),
+('HP003', 'Hp', 'Sdim', 4400000, 'n ,kznjnjbjbfhhjbJ', 2, 'image/acer.jpg', 5),
+('jjjjj', 'jjjjjj', 'jjjjj', 0, 'jjjjjjj\r\njjjj\r\njjjjjjjjjjjjjj\r\njjjjjjjj\r\njjjjjjjjjjjjj', 0, '../aplikasi/image/images (2).jpg', 0),
+('lllll', 'lllllll', 'llllllll', 0, 'llllllllllllllllll\r\nllllllllllll\r\nllllllllllllllllllllllllllllllllllllllllllllllllllll\r\nlllllllllllllll\r\nllllllllllllllllll\r\nllllllll\r\nllllllllllllllllllllll\r\nllllllllllllllll\r\nll\r\nllllllllll', 45, '../aplikasi/image/images (1).jpg', 0),
+('mmmmm', 'mmmmm', 'mmmmmm', 0, 'mmmmmmmmm', 9, '../aplikasi/image/images.jpg', 0),
+('nn', '', '', 0, '', 0, '../aplikasi/image/', 0),
+('nnnnn', 'nnnnnnn', 'nnnnn', 0, '', 0, 'image/', 0),
+('qqqq', 'qqqq', 'qqqqq', 0, '', 0, '../aplikasi/image/', 0),
+('uygby', 'hygvu', 'vy', 6565, 'hfcvgfvh', 4, 'image/sub7.jpg', 0),
+('vv', 'vvvv', 'vvvvv', 0, 'vvvvvvvvvvvv', 0, '../aplikasi/image/images (1).jpg', 0),
+('vvvv', 'vvvvvv', 'vvvvvv', 0, 'vvvvvvvv\r\nvvvvvvvvv\r\nvvv\r\nvvvvvv\r\nvvvvv', 0, '', 0);
 
 -- --------------------------------------------------------
 

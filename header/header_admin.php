@@ -30,7 +30,7 @@ if (!isset($_SESSION)) {
 	<tr>
 		<td colspan="2"><font color="#fff" size="30">&nbsp;ANILA SHOP</font></td>
 		<td align="right" style="vertical-align: top;"><font color="#fff">
-			<?php echo ucfirst(strtolower($_SESSION['id'])); ?></font> ||
+			<?php echo ucfirst($_SESSION['first_name']); ?> <?php echo ucfirst($_SESSION['last_name']); ?></font> ||
 			<a href="../logout/logout.php" class="href">Logout &nbsp;</a>
 		</td>
 	</tr>

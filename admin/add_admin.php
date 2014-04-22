@@ -21,7 +21,21 @@ include "../header/header_admin.php";
 			<td width="27%"></td>
 			<td width="8%">Username &nbsp;</td>
 			<td width="35%">
-				<input autofocus type="text" name="username" placeholder="Username">
+				<input autofocus type="text" name="username" placeholder="Username" maxlength="30">
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>First Name &nbsp;</td>
+			<td>
+				<input type="text" name="first_name" placeholder="First Name" maxlength="20">
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>Last Name &nbsp;</td>
+			<td>
+				<input type="text" name="last_name" placeholder="Last Name" maxlength="30">
 			</td>
 		</tr>
 		<tr>
