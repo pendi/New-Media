@@ -8,14 +8,20 @@ $type = $_POST['type'];
 $price = $_POST['price'];
 $description = $_POST['description'];
 $stock = $_POST['stock'];
+$fileSize = $_FILES["image"]["size"];
 $folder = "../aplikasi/image";
 $tmp_name = $_FILES["image"]["tmp_name"];
 $name_img = $folder."/".$_FILES["image"]["name"];
 
-move_uploaded_file($tmp_name, $name_img);
-
-$query = "INSERT INTO product(id_product,name,type,price,description,stock,image,category_id) 
+if ($fileSize > 0) {
+	move_uploaded_file($tmp_name, $name_img);
+	$query = "INSERT INTO product(id_product,name,type,price,description,stock,image,category_id) 
 			VALUES('$id','$name','$type','$price','$description','$stock','$name_img','$category')";
+} else {
+	$query = "INSERT INTO product(id_product,name,type,price,description,stock,image,category_id) 
+			VALUES('$id','$name','$type','$price','$description','$stock','','$category')";
+}
+
 $hasil = mysql_query($query);
 
 if ($hasil) {
