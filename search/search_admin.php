@@ -32,9 +32,9 @@ if ((isset($_POST['submit'])) AND ($_POST['search'] <> "")) {
 				<tr class="list">
 					<td><center>
 					<?php if (!empty($r['image'])): ?>				
-						<a href='../product/detail.php?id_product=<?php echo $r[0] ?>'><img class="gambar" src="<?php echo $r['image']; ?>" width="100px" height="120px"><br/>
+						<a href='../product/detail.php?id_product=<?php echo $r[0] ?>'><img class="gambar" src="<?php echo $r['image']; ?>" width="100px" height="120px"></a><br/>
 					<?php else : ?>
-						<a href='../product/detail.php?id_product=<?php echo $r[0] ?>'><img class="gambar" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/gambar/no-image.jpg' ?>" width="100px" height="120px"><br/>
+						<a href='../product/detail.php?id_product=<?php echo $r[0] ?>'><img class="gambar" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/gambar/no-image.jpg' ?>" width="100px" height="120px"></a><br/>
 					<?php endif ?>
 						<?php echo $r["name"]; ?><br/>
 						<?php echo $r["price"]; ?><br/>
