@@ -13,6 +13,9 @@ include "../header/header_admin.php";
 		<tr>
 			<td align="center"><h2>LIST PRODUCT</h2></td>
 		</tr>
+		<tr>
+			<td align="right"><input type="submit" name="submit" value="Add Product" /></td>
+		</tr>
 	</table>
 	<table width="70%" align="center" bgcolor="#E6E6E6" border="1" class="border">
 		<tr bgcolor="#00FFFF">
@@ -67,9 +70,6 @@ include "../header/header_admin.php";
 				<?php
 			}
 		 ?>
-		 <tr>
-		 	<td colspan="7"><center><input type="submit" name="submit" value="Add Product" /></center></td>
-		 </tr>
 	</table>
 	<table width="70%" bgcolor="#E6E6E6" align="center">
 	<tr>

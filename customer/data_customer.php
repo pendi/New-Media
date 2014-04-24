@@ -1,12 +1,36 @@
 <?php  
 include "../header/header.php";
 ?>
+<script>
+	function validasi(form) {
+		if (form.name.value == ""){
+			alert("Anda belum mengisikan Nama.");
+			form.name.focus();
+			return (false);
+		}
+		if (form.address.value == ""){
+			alert("Anda belum mengisikan Alamat.");
+			form.address.focus();
+			return (false);
+		}
+		if (form.phone.value == ""){
+			alert("Anda belum mengisikan Nomor Telepon.");
+			form.phone.focus();
+			return (false);
+		}
+		if (form.email.value == ""){
+			alert("Anda belum mengisikan Alamat Email.");
+			form.email.focus();
+			return (false);
+		}
+	}
+</script>
 <style type="text/css">
 	.top {
 		vertical-align: top;
 	}
 </style>
-<form action="save_customer.php" method="post">
+<form action="save_customer.php" method="post" onsubmit="return validasi(this)">
 	<center><div class="row">
 		<table width="55%">
 			<tr>
@@ -16,7 +40,7 @@ include "../header/header.php";
 		<table width="55%">
 			<tr>
 				<td width="20%"><b>Full Name</b></td>
-				<td width="35%"><input type="text" maxlength="50" name="name" placeholder="Full Name"></td>
+				<td width="35%"><input autofocus type="text" maxlength="50" name="name" placeholder="Full Name"></td>
 			</tr>
 			<tr>
 				<td class="top"><b>Address</b></td>

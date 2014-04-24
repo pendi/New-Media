@@ -9,7 +9,31 @@ session_start();
 	} else {
 include "../header/header_admin.php";
 ?>
-<form action="save_admin.php" method="post">
+<script>
+	function validasi(form) {
+		if (form.username.value == ""){
+			alert("Anda belum mengisikan Username.");
+			form.username.focus();
+			return (false);
+		}
+		if (form.first_name.value == ""){
+			alert("Anda belum mengisikan Nama Depan.");
+			form.first_name.focus();
+			return (false);
+		}
+		if (form.last_name.value == ""){
+			alert("Anda belum mengisikan Nama Belakang.");
+			form.last_name.focus();
+			return (false);
+		}
+		if (form.password.value == ""){
+			alert("Anda belum mengisikan Password.");
+			form.password.focus();
+			return (false);
+		}
+	}
+</script>
+<form action="save_admin.php" method="post" onsubmit="return validasi(this)" id="form">
 	<table width="70%" align="center" bgcolor="#E6E6E6">
 		<tr>
 			<td colspan="3"><center><h2>ADD ADMIN</h2></center></td>

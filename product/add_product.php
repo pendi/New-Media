@@ -6,7 +6,41 @@ session_start();
 	} else {
 include "../header/header_admin.php";
 ?>
-<form action="save_product.php" method="post" enctype="multipart/form-data">
+<script>
+	function validasi(form) {
+		if (form.id.value == ""){
+			alert("Anda belum mengisikan Id Produk.");
+			form.id.focus();
+			return (false);
+		}
+		if (form.name.value == ""){
+			alert("Anda belum mengisikan Nama Produk.");
+			form.name.focus();
+			return (false);
+		}
+		if (form.type.value == ""){
+			alert("Anda belum mengisikan Type Produk.");
+			form.type.focus();
+			return (false);
+		}
+		if (form.price.value == ""){
+			alert("Anda belum mengisikan Harga Produk.");
+			form.price.focus();
+			return (false);
+		}
+		if (form.description.value == ""){
+			alert("Anda belum mengisikan Deskripsi Produk.");
+			form.description.focus();
+			return (false);
+		}
+		if (form.stock.value == ""){
+			alert("Anda belum mengisikan Stok Produk.");
+			form.stock.focus();
+			return (false);
+		}    
+	}
+</script>
+<form action="save_product.php" method="post" enctype="multipart/form-data" onsubmit="return validasi(this)">
 	<table width="70%" align="center" bgcolor="#E6E6E6">
 		<tr>
 			<td colspan="3"><center><h2>ADD PRODUCT</h2></center></td>

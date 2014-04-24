@@ -83,23 +83,5 @@ if ((isset($_POST['submit'])) AND ($_POST['search'] <> "")) {
 		</tr>
 	</table>
 <?php 
-} else {
-	echo "
-		<table width='70%' bgcolor='#E6E6E6' align='center'>
-			<tr>
-				<td><center><h2><font color='#FF1919'>Please enter your search keywords</font></h2></center></td>
-			</tr>
-			<tr>
-				<td>
-					<a href='../aplikasi/index.php'><input type='button' name='button' value='Back'></a>
-				</td>
-			</tr>
-			<tr>
-				<td>"; 
-					include '../footer/footer.php';
-				echo "</td>
-			</tr>
-		</table>";
-
-} 
+}
 ?>
