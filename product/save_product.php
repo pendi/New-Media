@@ -24,6 +24,9 @@ if ($fileSize > 0) {
 
 $hasil = mysql_query($query);
 
+// print_r($query);
+// exit();
+
 if ($hasil) {
 	echo "<script>window.alert('Data Berhasil Disimpan');</script>";
 	echo "<script>window.location = 'view_product.php';</script>";

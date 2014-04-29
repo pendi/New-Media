@@ -5,6 +5,10 @@ session_start();
 		echo "<script>window.location = '../login/login.php';</script>";
 	} else {
 include "../header/header_admin.php";
+include "../aplikasi/koneksi.php";
+
+$query = "SELECT * FROM category ORDER BY vendor ASC";
+$sql = mysql_query($query);
 ?>
 <script>
 	function validasi(form) {
@@ -59,14 +63,19 @@ include "../header/header_admin.php";
 			<td>
 				<select name='category'>
 					<option value="0">Select Category</option>
-					<option value="1">Acer</option>
+					<?php 
+						while ($data = mysql_fetch_array($sql)) {
+							echo "<option value=$data[0]>$data[1]</option>";
+						}
+					?>
+					<!-- <option value="1">Acer</option>
 					<option value="2">Asus</option>
 					<option value="3">Apple</option>
 					<option value="4">Dell</option>
 					<option value="5">Hp</option>
 					<option value="6">Lenovo</option>
 					<option value="7">Samsung</option>
-					<option value="8">Toshiba</option>
+					<option value="8">Toshiba</option> -->
 				</select>
 			</td>
 		</tr>
