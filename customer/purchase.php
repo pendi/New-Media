@@ -11,12 +11,12 @@ $idtransaksi = $_SESSION['transaksi'];
 
 // $query = "SELECT * FROM product WHERE id_product = '$_GET[id_product]'";
 // $tampil = mysql_query($query);
-$sql = mysql_query("select orders_temp.*, product.name, product.type, product.stock, product.price from orders_temp, product
+$sql = mysql_query("select orders_temp.*, product.name, product.type, product.stock from orders_temp, product
 where orders_temp.id_session='$idtransaksi' and orders_temp.id_product=product.id_product");
 
 ?>
 <script>
-	function hitung() {
+	function hitung(id) {
 		var price = $(".price").val();
 	    var qty = $(".qty").val();
 	    sub_total = price * qty;
@@ -44,6 +44,7 @@ where orders_temp.id_session='$idtransaksi' and orders_temp.id_product=product.i
 				$sub_total = 0;
 				$no = 1;
 				while ($data = mysql_fetch_array($sql)) {
+					$id = $data['id_order'];
 			?>
 			<!-- <input type="hidden" name="id" value="<?php //echo $data[0]; ?>" /> -->
 			<tr>
@@ -51,7 +52,7 @@ where orders_temp.id_session='$idtransaksi' and orders_temp.id_product=product.i
 				<td><?php echo $data['name']; ?>&nbsp;<?php echo $data['type']; ?></td>
 				<td>Rp. <input readonly type="text" class="price" value="<?php echo $data['total']; ?>"></td>
 				<td><center>
-					<select name="quantity" class="qty" onclick="hitung();">
+					<select name="quantity" class="qty" onclick="hitung(<?php echo $id; ?>)">
 						<?php 
 						for ($i=1; $i <= $data['stock']; $i++) { 
 							echo "<option value='$i'>$i</option>";

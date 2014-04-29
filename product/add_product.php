@@ -17,6 +17,11 @@ $sql = mysql_query($query);
 			form.id.focus();
 			return (false);
 		}
+		if (form.category.value == 0){
+			alert("Anda belum memilih Category Produk.");
+			form.category.focus();
+			return (false);
+		}
 		if (form.name.value == ""){
 			alert("Anda belum mengisikan Nama Produk.");
 			form.name.focus();
@@ -41,7 +46,8 @@ $sql = mysql_query($query);
 			alert("Anda belum mengisikan Stok Produk.");
 			form.stock.focus();
 			return (false);
-		}    
+		}
+		return (true);  
 	}
 </script>
 <form action="save_product.php" method="post" enctype="multipart/form-data" onsubmit="return validasi(this)">

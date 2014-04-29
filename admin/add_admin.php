@@ -31,9 +31,15 @@ include "../header/header_admin.php";
 			form.password.focus();
 			return (false);
 		}
+		if (form.status.value == 0){
+			alert("Anda belum memilih Status.");
+			form.status.focus();
+			return (false);
+		}
+		return (true);
 	}
 </script>
-<form action="save_admin.php" method="post" onsubmit="return validasi(this)" id="form">
+<form action="save_admin.php" method="post" onsubmit="return validasi(this)">
 	<table width="70%" align="center" bgcolor="#E6E6E6">
 		<tr>
 			<td colspan="3"><center><h2>ADD ADMIN</h2></center></td>
@@ -73,8 +79,11 @@ include "../header/header_admin.php";
 			<td></td>
 			<td>Status &nbsp;</td>
 			<td>
-				<input type="radio" name="status" value="admin">Admin
-				<input type="radio" name="status" value="co-admin">Co-Admin
+				<select name="status">
+					<option value="0">Select Status</option>
+					<option value="admin">Admin</option>
+					<option value="co-admin">Co-Admin</option>
+				</select>
 			</td>
 		</tr>
 		<tr>
