@@ -16,14 +16,18 @@ where orders_temp.id_session='$idtransaksi' and orders_temp.id_product=product.i
 
 ?>
 <script>
-	function hitung(id) {
-		var price = $(".price").val();
-	    var qty = $(".qty").val();
-	    sub_total = price * qty;
-	    $(".sub_total").val(sub_total);
-	    total = sub_total - 62;
-	    $(".total").val(total);	    
-	}
+$(function(){
+    // var qty = $(".qty").val();
+	$(".qty").change(function(){
+		var price = $(this).parent().parent().find("td input.price").val();
+		var sub_total = $(this).parent().parent().find("td input.sub_total");
+		var qty = $(this).val();
+	    var grandtotal = price * qty;
+		console.log($(sub_total).val());
+	    $(sub_total).val(grandtotal) ;
+	});
+
+});
 </script>
 <form method="post" action="save_purchase.php">
 	<center><div class="row">
@@ -51,15 +55,18 @@ where orders_temp.id_session='$idtransaksi' and orders_temp.id_product=product.i
 				<td align="center"><?php echo $no; ?></td>
 				<td><?php echo $data['name']; ?>&nbsp;<?php echo $data['type']; ?></td>
 				<td>Rp. <input readonly type="text" class="price" value="<?php echo $data['total']; ?>"></td>
-				<td><center>
-					<select name="quantity" class="qty" onclick="hitung(<?php echo $id; ?>)">
+				<!-- <td><input style="text-align: center;" size="1" name="quantity" type="text" class="qty" value="1"></td> -->
+
+
+				<td>
+					<select style="margin-left: 7px;" name="quantity" class="qty">
 						<?php 
 						for ($i=1; $i <= $data['stock']; $i++) { 
 							echo "<option value='$i'>$i</option>";
 						}
 						?>
 					</select>
-				</center></td>
+				</td>
 				<td>
 					Rp. <input style="text-align: right;" type="text" class="sub_total" readonly value="<?php echo $data['total']; ?>">
 					<a href="delete.php?id=<?php echo $data[0]; ?>" style="vertical-align: -3px;">
