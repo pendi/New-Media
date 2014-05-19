@@ -24,13 +24,17 @@ img.padding {
 if (!isset($_SESSION)) {
     session_start();
 }
+include "../aplikasi/koneksi.php";
+$query = "SELECT * from login WHERE id='$_SESSION[id_admin]'";
+$que = mysql_query($query);
+$data = mysql_fetch_array($que);
 
 ?>
 <table width="70%" align="center" bgcolor="#3385FF" border="0">
 	<tr>
 		<td colspan="2"><font color="#fff" size="30">&nbsp;ANILA SHOP</font></td>
-		<td align="right" style="vertical-align: top;"><font color="#fff">
-			<?php echo ucfirst($_SESSION['first_name']); ?> <?php echo ucfirst($_SESSION['last_name']); ?></font> ||
+		<td align="right" style="vertical-align: top;"><a href="../admin/view_edit.php" class="href"><font color="#fff">
+			<?php echo ucfirst($data['first_name']); ?> <?php echo ucfirst($data['last_name']); ?></font></a> ||
 			<a href="../logout/logout.php" class="href">Logout &nbsp;</a>
 		</td>
 	</tr>

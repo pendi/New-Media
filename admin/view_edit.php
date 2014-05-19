@@ -18,26 +18,26 @@ include "../header/header_admin.php";
 		<table width="45%" align="center" border="1" style="border-collapse: collapse;">
 			<tr class="hover">
 				<td width="13%"><b>Id</b></td>
-				<td width="22%"><?php echo $_SESSION['id_admin']; ?></td>
+				<td width="22%"><?php echo $data[0]; ?></td>
 				<td width="10%"></td>
 			</tr>
 			<tr class="hover">
 				<td><b>Username</b></td>
-				<td><?php echo $_SESSION['id']; ?></td>
+				<td><?php echo $data[1]; ?></td>
 				<td><center>
 					<a href="edit_user.php?id=<?php echo $_SESSION['id_admin']; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/edit.png' ?>" width = "20%"></a>
 				</center></td>
 			</tr>
 			<tr class="hover">
 				<td><b>First Name</b></td>
-				<td><?php echo $_SESSION['first_name']; ?></td>
+				<td><?php echo $data[2]; ?></td>
 				<td><center>
 					<a href="edit_first_name.php?id=<?php echo $_SESSION['id_admin']; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/edit.png' ?>" width = "20%"></a>
 				</center></td>
 			</tr>
 			<tr class="hover">
 				<td><b>Last Name</b></td>
-				<td><?php echo $_SESSION['last_name']; ?></td>
+				<td><?php echo $data[3]; ?></td>
 				<td><center>
 					<a href="edit_last_name.php?id=<?php echo $_SESSION['id_admin']; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/edit.png' ?>" width = "20%"></a>
 				</center></td>
@@ -51,7 +51,7 @@ include "../header/header_admin.php";
 			</tr>
 			<tr class="hover">
 				<td><b>Status</b></td>
-				<td><?php echo $_SESSION['level']; ?></td>
+				<td><?php echo $data[5]; ?></td>
 				<td></td>
 			</tr>
 		</table>

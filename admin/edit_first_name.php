@@ -18,7 +18,7 @@ $data = mysql_fetch_array($query);
 		<tr>
 			<td width="23%"></td>
 			<td width="12%">Change First Name &nbsp;</td>
-			<td width="35%"><input autofocus type="text" name="first_name" placeholder="First Name" value="<?php echo $_SESSION['first_name']; ?>"></td>
+			<td width="35%"><input autofocus type="text" name="first_name" placeholder="First Name" value="<?php echo $data[2]; ?>"></td>
 		</tr>
 		<tr>
 			<td colspan="3">&nbsp;</td>
