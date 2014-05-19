@@ -9,8 +9,8 @@ $description = $_POST['description'];
 $stock = $_POST['stock'];
 $fileSize = $_FILES["image"]["size"];
 $folder = "../aplikasi/image";
-	$tmp_name = $_FILES["image"]["tmp_name"];
-	$name_img = $folder."/".$_FILES["image"]["name"];
+$tmp_name = $_FILES["image"]["tmp_name"];
+$name_img = $folder."/".$_FILES["image"]["name"];
 
 if ($fileSize > 0) {
 
@@ -29,15 +29,5 @@ if ($hasil) {
 	echo "<script>window.alert('Data Gagal Disimpan');</script>";
 	echo "<script>window.location = 'view_product.php';</script>";
 }
-	// print_r($query);
-	// exit();
-
-
-// echo "<script language=\"Javascript\">\n";
-// 	mysql_query("$query");
-// 	echo "window.alert('Data Berhasil Disimpan');";
-// 	echo "window.location = 'view_product.php';";
-// 	// echo "<h2>Data Berhasil Disimpan</h2>";
-// echo "</script>";
 
 ?>

@@ -9,12 +9,14 @@ session_start();
 		echo "<script>window.location = '../product/view_product.php';</script>";
 	} else {
 include "../header/header_admin.php";
-
 ?>
 <form action="add_admin.php" method="post">
 	<table width="70%" align="center" bgcolor="#E6E6E6">
 		<tr>
 			<td align="center"><h2>LIST ADMIN</h2></td>
+		</tr>
+		<tr>
+			<td align="right"><input style="margin-right: 41px;" type="submit" name="submit" value="Add Admin" /></td>
 		</tr>
 	</table>
 	<center><div class="row">
@@ -63,9 +65,6 @@ include "../header/header_admin.php";
 					<?php $no++;
 				}
 			 ?>
-			<tr>
-				<td colspan="7"><center><input type="submit" name="submit" value="Add Admin" /></center></td>
-			</tr>
 			<tr>
 				<td align="right" colspan="7">		
 					<?php

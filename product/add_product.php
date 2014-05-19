@@ -5,8 +5,52 @@ session_start();
 		echo "<script>window.location = '../login/login.php';</script>";
 	} else {
 include "../header/header_admin.php";
+include "../aplikasi/koneksi.php";
+
+$query = "SELECT * FROM category ORDER BY vendor ASC";
+$sql = mysql_query($query);
 ?>
-<form action="save_product.php" method="post" enctype="multipart/form-data">
+<script>
+	function validasi(form) {
+		if (form.id.value == ""){
+			alert("Anda belum mengisikan Id Produk.");
+			form.id.focus();
+			return (false);
+		}
+		if (form.category.value == 0){
+			alert("Anda belum memilih Category Produk.");
+			form.category.focus();
+			return (false);
+		}
+		if (form.name.value == ""){
+			alert("Anda belum mengisikan Nama Produk.");
+			form.name.focus();
+			return (false);
+		}
+		if (form.type.value == ""){
+			alert("Anda belum mengisikan Type Produk.");
+			form.type.focus();
+			return (false);
+		}
+		if (form.price.value == ""){
+			alert("Anda belum mengisikan Harga Produk.");
+			form.price.focus();
+			return (false);
+		}
+		if (form.description.value == ""){
+			alert("Anda belum mengisikan Deskripsi Produk.");
+			form.description.focus();
+			return (false);
+		}
+		if (form.stock.value == ""){
+			alert("Anda belum mengisikan Stok Produk.");
+			form.stock.focus();
+			return (false);
+		}
+		return (true);  
+	}
+</script>
+<form action="save_product.php" method="post" enctype="multipart/form-data" onsubmit="return validasi(this)">
 	<table width="70%" align="center" bgcolor="#E6E6E6">
 		<tr>
 			<td colspan="3"><center><h2>ADD PRODUCT</h2></center></td>
@@ -25,14 +69,19 @@ include "../header/header_admin.php";
 			<td>
 				<select name='category'>
 					<option value="0">Select Category</option>
-					<option value="1">Acer</option>
+					<?php 
+						while ($data = mysql_fetch_array($sql)) {
+							echo "<option value=$data[0]>$data[1]</option>";
+						}
+					?>
+					<!-- <option value="1">Acer</option>
 					<option value="2">Asus</option>
 					<option value="3">Apple</option>
 					<option value="4">Dell</option>
 					<option value="5">Hp</option>
 					<option value="6">Lenovo</option>
 					<option value="7">Samsung</option>
-					<option value="8">Toshiba</option>
+					<option value="8">Toshiba</option> -->
 				</select>
 			</td>
 		</tr>

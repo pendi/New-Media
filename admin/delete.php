@@ -25,13 +25,18 @@ $data = mysql_fetch_array($que);
 		</tr>
 		<tr>
 			<td></td>
+			<td>Full Name &nbsp;</td>
+			<td>: <?php echo $data[2]; ?> <?php echo $data[3]; ?></td>
+		</tr>
+		<tr>
+			<td></td>
 			<td>Password &nbsp;</td>
-			<td>: <?php echo $data[2]; ?></td>
+			<td>: <?php echo $data[4]; ?></td>
 		</tr>
 		<tr>
 			<td></td>
 			<td>Status &nbsp;</td>
-			<td>: <?php echo $data[3]; ?></td>
+			<td>: <?php echo $data[5]; ?></td>
 		</tr>
 		<tr>
 			<td colspan="3">&nbsp;</td>

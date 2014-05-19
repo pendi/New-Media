@@ -32,9 +32,9 @@ if ((isset($_POST['submit'])) AND ($_POST['search'] <> "")) {
 				<tr class="list">
 					<td><center>
 					<?php if (!empty($r['image'])): ?>				
-						<a href='../product/detail.php?id_product=<?php echo $r[0] ?>'><img class="gambar" src="<?php echo $r['image']; ?>" width="100px" height="120px"><br/>
+						<a href='../product/detail.php?id_product=<?php echo $r[0] ?>'><img class="gambar" src="<?php echo $r['image']; ?>" width="100px" height="120px"></a><br/>
 					<?php else : ?>
-						<a href='../product/detail.php?id_product=<?php echo $r[0] ?>'><img class="gambar" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/gambar/no-image.jpg' ?>" width="100px" height="120px"><br/>
+						<a href='../product/detail.php?id_product=<?php echo $r[0] ?>'><img class="gambar" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/gambar/no-image.jpg' ?>" width="100px" height="120px"></a><br/>
 					<?php endif ?>
 						<?php echo $r["name"]; ?><br/>
 						<?php echo $r["price"]; ?><br/>
@@ -83,23 +83,5 @@ if ((isset($_POST['submit'])) AND ($_POST['search'] <> "")) {
 		</tr>
 	</table>
 <?php 
-} else {
-	echo "
-		<table width='70%' bgcolor='#E6E6E6' align='center'>
-			<tr>
-				<td><center><h2><font color='#FF1919'>Please enter your search keywords</font></h2></center></td>
-			</tr>
-			<tr>
-				<td>
-					<a href='../product/view_product.php'><input type='button' name='button' value='Back'></a>
-				</td>
-			</tr>
-			<tr>
-				<td>"; 
-					include '../footer/footer.php';
-				echo "</td>
-			</tr>
-		</table>";
-
-} 
+}
 ?>

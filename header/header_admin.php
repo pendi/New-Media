@@ -4,6 +4,16 @@
 	<title>Anila Shop</title>
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
 	<link rel="shortcut icon" href="../aplikasi/image/favicon/favicon_2.ico" type="image/x-icon" />
+<script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
+<script>
+	function validasi(form) {
+		if (form.search.value == ""){
+			alert("Silahkan masukan kata kunci yang anda cari.");
+			form.search.focus();
+			return (false);
+		}    
+	}
+</script>
 <style type="text/css">
 .search {
 	margin: 7px 0;
@@ -56,7 +66,7 @@ $data = mysql_fetch_array($que);
 		</td>
 	</tr>
 </table>
-<form action="../search/search_admin.php" method="post">
+<form action="../search/search_admin.php" method="post" onsubmit="return validasi(this)">
 <table width="70%" align="center" bgcolor="#E6E6E6">
 	<tr>
 		<td align="right">

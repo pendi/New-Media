@@ -7,7 +7,21 @@ if(isset($_SESSION['id']) AND $_SESSION['level'] == "admin") {
 }
 include "../header/header.php";
 ?>
-<form action="login_process.php" method="post">
+<script>
+	function validasi(form) {
+		if (form.username.value == ""){
+			alert("Anda belum mengisikan Username.");
+			form.username.focus();
+			return (false);
+		}
+		if (form.password.value == ""){
+			alert("Anda belum mengisikan Password.");
+			form.password.focus();
+			return (false);
+		}    
+	}
+</script>
+<form action="login_process.php" method="post" onsubmit="return validasi(this)">
 	<table width="70%" align="center" bgcolor="#E6E6E6">
 		<tr>
 			<td colspan="3" align="center"><h2>Login Admin</h2></td>
