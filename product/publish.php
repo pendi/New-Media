@@ -12,8 +12,4 @@ if ($data[8]==1) {
 if ($sql) {
 	echo "<script>window.location = 'view_product.php';</script>";
 }
-
-// mysql_query("delete from product where id_product = '$_POST[id]'");
-// echo "<script>window.alert('Data Berhasil Dihapus');</script>";
-// echo "<script>window.location = 'view_product.php';</script>";
 ?>
