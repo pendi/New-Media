@@ -42,10 +42,16 @@ $data = mysql_fetch_array($que);
 ?>
 <table width="70%" align="center" bgcolor="#3385FF" border="0">
 	<tr>
-		<td colspan="2"><font color="#fff" size="30">&nbsp;ANILA SHOP</font></td>
+		<td colspan="2"><a href="../aplikasi/index.php" class="href"><font color="#fff" size="30">&nbsp;ANILA SHOP</font></a></td>
 		<td align="right" style="vertical-align: top;"><a href="../admin/view_edit.php" class="href"><font color="#fff">
 			<?php echo ucfirst($data['first_name']); ?> <?php echo ucfirst($data['last_name']); ?></font></a> ||
-			<a href="../logout/logout.php" class="href">Logout &nbsp;</a>
+			<?php 
+				if (isset($_SESSION["id"])) {
+					echo "<a href='../logout/logout.php' class='href'>Logout &nbsp;</a>";
+				} else {
+					echo "<a href='../login/login.php' class='href'>Login &nbsp;</a>";
+				}
+			?>
 		</td>
 	</tr>
 	<tr>
@@ -53,7 +59,7 @@ $data = mysql_fetch_array($que);
 			<img class="padding" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/logo-icon.png' ?>" width="70%">
 		</td>
 		<td width="26%" class="align">Selling a New Laptop Under Warranty</td>
-		<td width="35%" align="right"><font size="6">PENDI SETIAWAN</font></td>
+		<td width="35%" align="right">&nbsp;</td>
 	</tr>
 </table>
 <table width="70%" align="center" bgcolor="#0052CC">

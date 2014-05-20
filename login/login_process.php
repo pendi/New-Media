@@ -2,9 +2,6 @@
 include "../aplikasi/koneksi.php";
 session_start();
 
-$waktu = time()+25200;
-$expired = 5;
-
 $username = trim($_POST['username']);
 $password = md5(trim($_POST['password']));
 
@@ -20,7 +17,6 @@ $_SESSION['password'] = $password;
 $_SESSION['level'] = $data['level'];
 $_SESSION['first_name'] = $data['first_name'];
 $_SESSION['last_name'] = $data['last_name'];
-// $_SESSION['timeout'] = $waktu + $expired;
 header("Location:../admin/check.php");
 } else {
 echo "<script>alert('Periksa Kembali Username dan Password Anda');</script>";
