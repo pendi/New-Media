@@ -17,7 +17,7 @@ if(empty($halaman)){
 else{ 
     $posisi = ($halaman-1) * $batas; 
 }
-$sql = mysql_query("select * from product where publish = 2 limit $posisi,$batas");
+$sql = mysql_query("select * from product where status = 2 limit $posisi,$batas");
 ?>
 <table width="70%" bgcolor="#E6E6E6" align="center">
 	<?php while ($r=mysql_fetch_array($sql)) { ?>
@@ -39,7 +39,7 @@ $sql = mysql_query("select * from product where publish = 2 limit $posisi,$batas
 			<?php
 				echo "<br>Halaman : ";
 
-				$tampil2="select * from product where publish = 2"; 
+				$tampil2="select * from product where status = 2"; 
 				$hasil2=mysql_query($tampil2); 
 				$jmldata=mysql_num_rows($hasil2); 
 				$jmlhalaman=ceil($jmldata/$batas);

@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 29, 2014 at 05:22 PM
--- Server version: 5.5.35-0ubuntu0.12.04.2
--- PHP Version: 5.3.10-1ubuntu3.10
+-- Generation Time: May 21, 2014 at 05:59 PM
+-- Server version: 5.5.37-0ubuntu0.12.04.1
+-- PHP Version: 5.4.4-14+deb7u9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -38,8 +38,8 @@ CREATE TABLE IF NOT EXISTS `category` (
 
 INSERT INTO `category` (`id`, `vendor`) VALUES
 (1, 'Acer'),
-(2, 'Asus'),
-(3, 'Apple'),
+(2, 'Apple\r\n'),
+(3, 'Asus'),
 (4, 'Dell'),
 (5, 'Hp'),
 (6, 'Lenovo'),
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `phone_number` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`id_cus`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `customer`
@@ -88,8 +88,7 @@ INSERT INTO `customer` (`id_cus`, `name`, `address`, `phone_number`, `email`) VA
 (20, 'Gilang', 'daasdsdsd', 989090, 'jnjnk'),
 (21, 'rido', 'mkmkmk', 98989, 'km'),
 (22, 'ssds', 'scddfdf', 0, 'dsfcdf'),
-(23, 'gtgt', 'bghhn', 34343, 'gbgbg'),
-(24, 'sarip', 'asdfghjkl', 123456789, 'fdfdfdfdf');
+(23, 'gtgt', 'bghhn', 34343, 'gbgbg');
 
 -- --------------------------------------------------------
 
@@ -130,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `login` (
   `password` varchar(255) NOT NULL,
   `level` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `login`
@@ -141,11 +140,10 @@ INSERT INTO `login` (`id`, `username`, `first_name`, `last_name`, `password`, `l
 (2, 'nida', 'nida', 'rahmani', '5f4dcc3b5aa765d61d8327deb882cf99', 'co-admin'),
 (3, 'admin', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'co-admin'),
 (4, 'adm', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'co-admin'),
-(6, 'ichan', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'co-admin'),
+(6, 'ichan', 'ichan', '02', '5f4dcc3b5aa765d61d8327deb882cf99', 'co-admin'),
 (7, 'udin', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'co-admin'),
 (8, 'upin', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'co-admin'),
-(9, 'fadil', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'co-admin'),
-(10, 'ipin', 'ipin', 'saripudin', '5f4dcc3b5aa765d61d8327deb882cf99', 'co-admin');
+(9, 'fadil', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'co-admin');
 
 -- --------------------------------------------------------
 
@@ -216,7 +214,7 @@ CREATE TABLE IF NOT EXISTS `orders_temp` (
   `total` double NOT NULL,
   `method` varchar(30) NOT NULL DEFAULT 'bca',
   PRIMARY KEY (`id_order`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=42 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `orders_temp`
@@ -234,12 +232,7 @@ INSERT INTO `orders_temp` (`id_order`, `id_product`, `id_session`, `quantity`, `
 (10, 'AC001', '', 1, 2499938, 'mandiri'),
 (11, 'AC006', '', 4, 7999938, 'bca'),
 (12, 'AC006', '', 3, 5999938, 'bca'),
-(13, 'AC006', '26jlmj8a7mpq8rorsgjummj246', 1, 1999938, 'mandiri'),
-(14, 'AC001', '26r54f7afj567v7a169v6qeet6', 4, 9999938, 'bca'),
-(15, 'AC001', 'qbamechnknkbns3jr4mout4fg6', 2, 4999938, 'bca'),
-(38, '', 'tus6obl34997ds94an3kuiv652', 1, 999938, 'bca'),
-(40, 'a', '140429121342', 1, 98989, 'bca'),
-(41, 'AC005', '140429121342', 1, 5000000, 'bca');
+(13, 'AC006', '26jlmj8a7mpq8rorsgjummj246', 1, 1999938, 'mandiri');
 
 -- --------------------------------------------------------
 
@@ -256,6 +249,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `stock` int(3) NOT NULL,
   `image` text NOT NULL,
   `category_id` int(1) NOT NULL,
+  `status` int(1) NOT NULL,
   PRIMARY KEY (`id_product`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -263,34 +257,8 @@ CREATE TABLE IF NOT EXISTS `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id_product`, `name`, `type`, `price`, `description`, `stock`, `image`, `category_id`) VALUES
-('a', 'hh', 'hh', 98989, 'hhbbj', 8, '', 8),
-('AC001', 'Acer', 'D250', 2500000, 'Ram       2GB\r\nProcessor 1Gzh', 5, '../aplikasi/image/C360_2014-02-15-14-33-29-348.jpg', 1),
-('AC002', 'Acer33', 'klllllllllll', 1000000, 'vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv\r\nvvvvvvvvvvvvvvvvvv', 10, '../aplikasi/image/images (1).jpg', 1),
-('AC003', 'Notebook Acer', '', 1500000, '', 5, '', 1),
-('AC004', 'Acer', '', 2300000, '', 7, '', 1),
-('AC005', 'Acer', 'D257', 5000000, 'ddddddddddddddd\r\ndddddddddd\r\ndddddddddddddddddddddddddddddd\r\nddddddddddddddd\r\nddddddddddddddddddd\r\nddddddddddddddddddddddddddddddddddddddddd\r\ndddddddddddddddddd', 2, '../aplikasi/image/C360_2014-02-15-14-18-12-686.jpg', 1),
-('AC006', 'mjgv', 'Bekas', 2000000, 'Ancur\r\n', 6, '../aplikasi/image/C360_2014-02-15-14-21-48-834.jpg', 0),
-('AC007', 'Acer', 'N37', 3000000, 'bla bla bla...\r\nbla bla bla bla...\r\nbla bla bla bla bla...', 9, '', 1),
-('AS001', 'Asus', '', 1200000, '', 2, '../aplikasi/image/images (1).jpg', 2),
-('AS002', 'Asus', '', 1400000, '', 0, '', 2),
-('AS003', 'Asus', 'Terbaru', 4100000, '', 5, '', 2),
-('bbbb', 'bbbb', 'bbbb', 0, '', 2, '../aplikasi/image/', 0),
-('ccccc', 'cccc', 'ccccccc', 0, 'cccccccc\r\ncccc', 8, '../aplikasi/image/images.jpg', 0),
-('gghgb', 'gvhgv', 'gvgv', 0, 'vbjgvjgbj', 4, 'image/Rizky Dana Saputro_108091000006.jpg', 0),
-('HP001', 'Hp', '', 2500000, '', 0, '', 5),
-('HP002', 'Hp', '123', 3200000, '', 3, '', 5),
-('HP003', 'Hp', 'Sdim', 4400000, 'n ,kznjnjbjbfhhjbJ', 2, 'image/acer.jpg', 5),
-('jjjjj', 'jjjjjj', 'jjjjj', 0, 'jjjjjjj\r\njjjj\r\njjjjjjjjjjjjjj\r\njjjjjjjj\r\njjjjjjjjjjjjj', 0, '../aplikasi/image/images (2).jpg', 0),
-('lllll', 'lllllll', 'llllllll', 0, 'llllllllllllllllll\r\nllllllllllll\r\nllllllllllllllllllllllllllllllllllllllllllllllllllll\r\nlllllllllllllll\r\nllllllllllllllllll\r\nllllllll\r\nllllllllllllllllllllll\r\nllllllllllllllll\r\nll\r\nllllllllll', 45, '../aplikasi/image/images (1).jpg', 0),
-('mmmmm', 'mmmmm', 'mmmmmm', 0, 'mmmmmmmmm', 9, '../aplikasi/image/images.jpg', 0),
-('nn', '', '', 0, '', 0, '../aplikasi/image/', 0),
-('nnnnn', 'nnnnnnn', 'nnnnn', 0, '', 0, 'image/', 0),
-('qqqq', 'qqqq', 'qqqqq', 0, '', 0, '../aplikasi/image/', 0),
-('uygby', 'hygvu', 'vy', 6565, 'hfcvgfvh', 4, 'image/sub7.jpg', 0),
-('v', 'bkj', 'hjbj', 0, 'jbjkhb', 34, '', 2),
-('vv', 'vvvv', 'vvvvv', 0, 'vvvvvvvvvvvv', 0, '../aplikasi/image/images (1).jpg', 0),
-('vvvv', 'vvvvvv', 'vvvvvv', 0, 'vvvvvvvv\r\nvvvvvvvvv\r\nvvv\r\nvvvvvv\r\nvvvvv', 0, '', 0);
+INSERT INTO `product` (`id_product`, `name`, `type`, `price`, `description`, `stock`, `image`, `category_id`, `status`) VALUES
+('AC001', 'Acer Aspire', 'E1-410-29202G50Mn', 4300000, 'Intel N2920\r\n14” HD Acer Cine Crystal\r\n2GB DDR3\r\n500GB\r\nIntel HD\r\nDVDRW\r\nCamera\r\nWifi\r\nNo Bluetooth\r\nCard Reader\r\nDOS ', 2, '', 0, 2);
 
 -- --------------------------------------------------------
 

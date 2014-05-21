@@ -87,7 +87,7 @@ $sql = mysql_query($query);
 		</tr>
 		<tr>
 			<td></td>
-			<td>Name &nbsp;</td>
+			<td>Vendor &nbsp;</td>
 			<td><input type="text" name="name" placeholder="Name"></td>
 		</tr>
 		<tr>

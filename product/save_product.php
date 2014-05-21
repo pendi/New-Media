@@ -15,11 +15,11 @@ $name_img = $folder."/".$_FILES["image"]["name"];
 
 if ($fileSize > 0) {
 	move_uploaded_file($tmp_name, $name_img);
-	$query = "INSERT INTO product(id_product,name,type,price,description,stock,image,category_id) 
-			VALUES('$id','$name','$type','$price','$description','$stock','$name_img','$category')";
+	$query = "INSERT INTO product(id_product,name,type,price,description,stock,image,category_id,status) 
+			VALUES('$id','$name','$type','$price','$description','$stock','$name_img','$category','1')";
 } else {
-	$query = "INSERT INTO product(id_product,name,type,price,description,stock,image,category_id) 
-			VALUES('$id','$name','$type','$price','$description','$stock','','$category')";
+	$query = "INSERT INTO product(id_product,name,type,price,description,stock,image,category_id,status) 
+			VALUES('$id','$name','$type','$price','$description','$stock','','$category','1')";
 }
 
 $hasil = mysql_query($query);

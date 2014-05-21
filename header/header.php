@@ -72,8 +72,8 @@ $data = mysql_fetch_array($sql);
 			<ul class="dropmenu">
 				<li><a href="../aplikasi/index.php">Home</a></li>
 				<li><a href="../customer/product.php?id=1">Acer</a></li>
-				<li><a href="../customer/product.php?id=2">Asus</a></li>
-				<li><a href="../customer/product.php?id=3">Apple</a></li>
+				<li><a href="../customer/product.php?id=2">Apple</a></li>
+				<li><a href="../customer/product.php?id=3">Asus</a></li>
 				<li><a href="../customer/product.php?id=4">Dell</a></li>
 				<li><a href="../customer/product.php?id=5">Hp</a></li>
 				<li><a href="../customer/product.php?id=6">Lenovo</a></li>
