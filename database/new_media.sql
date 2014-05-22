@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 21, 2014 at 05:59 PM
+-- Generation Time: May 22, 2014 at 04:47 PM
 -- Server version: 5.5.37-0ubuntu0.12.04.1
 -- PHP Version: 5.4.4-14+deb7u9
 
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `phone_number` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`id_cus`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `customer`
@@ -88,7 +88,8 @@ INSERT INTO `customer` (`id_cus`, `name`, `address`, `phone_number`, `email`) VA
 (20, 'Gilang', 'daasdsdsd', 989090, 'jnjnk'),
 (21, 'rido', 'mkmkmk', 98989, 'km'),
 (22, 'ssds', 'scddfdf', 0, 'dsfcdf'),
-(23, 'gtgt', 'bghhn', 34343, 'gbgbg');
+(23, 'gtgt', 'bghhn', 34343, 'gbgbg'),
+(24, 'jnjn', 'jnjnkjn', 9897989, 'jkjnk');
 
 -- --------------------------------------------------------
 
@@ -214,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `orders_temp` (
   `total` double NOT NULL,
   `method` varchar(30) NOT NULL DEFAULT 'bca',
   PRIMARY KEY (`id_order`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `orders_temp`
@@ -232,7 +233,9 @@ INSERT INTO `orders_temp` (`id_order`, `id_product`, `id_session`, `quantity`, `
 (10, 'AC001', '', 1, 2499938, 'mandiri'),
 (11, 'AC006', '', 4, 7999938, 'bca'),
 (12, 'AC006', '', 3, 5999938, 'bca'),
-(13, 'AC006', '26jlmj8a7mpq8rorsgjummj246', 1, 1999938, 'mandiri');
+(13, 'AC006', '26jlmj8a7mpq8rorsgjummj246', 1, 1999938, 'mandiri'),
+(16, 'AC001', '20140522115714', 1, 4300000, 'bca'),
+(19, '', 'hp4067g3hj88lahgsj2mathbi4', 1, 4299938, '');
 
 -- --------------------------------------------------------
 
@@ -250,6 +253,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `image` text NOT NULL,
   `category_id` int(1) NOT NULL,
   `status` int(1) NOT NULL,
+  `specification` text NOT NULL,
   PRIMARY KEY (`id_product`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -257,8 +261,10 @@ CREATE TABLE IF NOT EXISTS `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id_product`, `name`, `type`, `price`, `description`, `stock`, `image`, `category_id`, `status`) VALUES
-('AC001', 'Acer Aspire', 'E1-410-29202G50Mn', 4300000, 'Intel N2920\r\n14” HD Acer Cine Crystal\r\n2GB DDR3\r\n500GB\r\nIntel HD\r\nDVDRW\r\nCamera\r\nWifi\r\nNo Bluetooth\r\nCard Reader\r\nDOS ', 2, '', 0, 2);
+INSERT INTO `product` (`id_product`, `name`, `type`, `price`, `description`, `stock`, `image`, `category_id`, `status`, `specification`) VALUES
+('AC001', 'Acer Aspire', 'E1-410-29202G50Mn', 4300000, 'Intel N2920\r\n14” HD Acer Cine Crystal\r\n2GB DDR3\r\n500GB\r\nIntel HD\r\nDVDRW\r\nCamera\r\nWifi\r\nNo Bluetooth\r\nCard Reader\r\nDOS ', 2, '', 1, 2, ''),
+('AC002', 'Acer Aspire', 'E1-422-12502G50Mn', 3993000, 'AMD Dual Core Processor E1-2500\r\nAMD Rodeon HD 8240\r\n14" resolution up to 1366 x 768\r\n2GB RAM\r\n500GB HDD\r\nWiFi\r\nDOS', 3, '', 1, 2, ''),
+('AS001', 'Asus', 'A450CA-WX103D 1007U', 3778000, 'Intel Celeron 1007U DC 1.5Ghz Processor\r\nIntel HD Graphics 4000\r\n14" WXGA LED Resolution up to 1366 x 768\r\n2 GB DDR3\r\n500 GB HDD\r\nDVD/RW\r\nBluetooth\r\nHDMI\r\nDOS', 5, '', 3, 2, '');
 
 -- --------------------------------------------------------
 
@@ -272,6 +278,36 @@ CREATE TABLE IF NOT EXISTS `search` (
   `alamat` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `specification`
+--
+
+CREATE TABLE IF NOT EXISTS `specification` (
+  `id` int(11) NOT NULL,
+  `platform` varchar(255) NOT NULL,
+  `processor_onboard` int(11) NOT NULL,
+  `standard_memory` int(11) NOT NULL,
+  `video_type` int(11) NOT NULL,
+  `display_size` int(11) NOT NULL,
+  `display_max_resolution` int(11) NOT NULL,
+  `display_technology` int(11) NOT NULL,
+  `audio_type` int(11) NOT NULL,
+  `hard_drive_type` int(11) NOT NULL,
+  `optical_drive_type` int(11) NOT NULL,
+  `networking` int(11) NOT NULL,
+  `network_speed` int(11) NOT NULL,
+  `wireless_network_type` int(11) NOT NULL,
+  `wireless_network_protocol` int(11) NOT NULL,
+  `card_reader_provided` int(11) NOT NULL,
+  `interface_provided` int(11) NOT NULL,
+  `o/s_provided` int(11) NOT NULL,
+  `battery_type` int(11) NOT NULL,
+  `power_supply` int(11) NOT NULL,
+  `standard_warranty` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

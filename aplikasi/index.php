@@ -36,45 +36,39 @@ if ($by == "az") {
 
 $sql = mysql_query("select * from product where status = 2 order by $order $pos limit $posisi,$batas");
 ?>
-<table width="70%" bgcolor="E6E6E6" align="center" border="1">
+<table width="70%" bgcolor="E6E6E6" align="center">
 	<tr>
-		<td width="10%">
-			Sort By:<br/><hr> 
-			<p><a href="<?php $_SERVER['PHP_SELF']?>?by=az" class="href">A-Z</a></p>
-			<p><a href="<?php $_SERVER['PHP_SELF']?>?by=za" class="href">Z-A</a></p>
-		</td>
-		<td width="60%">
-			aaaa
+		<td align="center">
+			<hr/>
+			Sort By: &nbsp;&nbsp; 
+			<a href="<?php $_SERVER['PHP_SELF']?>?by=az" class="href">A-Z</a> &nbsp;&nbsp;&nbsp; 
+			<a href="<?php $_SERVER['PHP_SELF']?>?by=za" class="href">Z-A</a>
+			<hr/>
 		</td>
 	</tr>
 </table>
-<div class="row">
-	<table width="100%" align="center">
-		<!-- <tr>
-			<td align="center">
-				Sort By: &nbsp;&nbsp; 
-				<a href="<?php $_SERVER['PHP_SELF']?>?by=az" class="href">A-Z</a> &nbsp;&nbsp;&nbsp; 
-				<a href="<?php $_SERVER['PHP_SELF']?>?by=za" class="href">Z-A</a>
-			</td>
-		</tr> -->
+<div class="row-index">	
+	<table width="70%" border="0" align="center">
 		<?php while ($r=mysql_fetch_array($sql)) { ?>
-		<tr class="list">
-			<td><center>
-			<?php if (!empty($r['image'])): ?>				
-				<a href="detail.php?id_product=<?php echo $r[0] ?>"><img class="gambar" src="<?php echo $r['image']; ?>" width="100px" height="120px"></a><br/>
-			<?php else : ?>
-				<a href="detail.php?id_product=<?php echo $r[0] ?>"><img class="gambar" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="100px" height="120px"></a><br/>
-			<?php endif ?>
-				<?php echo $r["name"]; ?><br/>
+		<tr>
+			<td>			
+				<p><a href="detail.php?id_product=<?php echo $r[0] ?>" class="href ref"><?php echo $r["name"]; ?>&nbsp;<?php echo $r['type']; ?></a></p>
+				<?php if (!empty($r['image'])): ?>				
+					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img class="gambar" src="<?php echo $r['image']; ?>" width="100px" height="120px"></a><br/>
+				<?php else : ?>
+					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img class="gambar" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="100px" height="120px"></a><br/>
+				<?php endif ?>
 				<?php echo $r["price"]; ?><br/>
 				<?php echo "<a href='detail.php?id_product=$r[0]'><input type=button value='Detail Product'></a>"; ?>
-			</center></td>
+			</td>		
 		</tr>
 		<?php } ?>
+	</table>
+	<table width="100%">		
 		<tr>
 			<td align="right">		
 				<?php
-					echo "<br>Halaman : ";
+					echo "<br>Page : ";
 
 					$tampil2="select * from product where status = 2 order by $order $pos"; 
 					$hasil2=mysql_query($tampil2); 
@@ -103,3 +97,28 @@ $sql = mysql_query("select * from product where status = 2 order by $order $pos 
 		</tr>
 	</table>
 </div>
+<!-- <div class="row">
+	<table width="100%" align="center">
+		<tr>
+			<td align="center">
+				Sort By: &nbsp;&nbsp; 
+				<a href="<?php $_SERVER['PHP_SELF']?>?by=az" class="href">A-Z</a> &nbsp;&nbsp;&nbsp; 
+				<a href="<?php $_SERVER['PHP_SELF']?>?by=za" class="href">Z-A</a>
+			</td>
+		</tr>
+		<?php while ($r=mysql_fetch_array($sql)) { ?>
+		<tr class="list">
+			<td><center>
+			<?php if (!empty($r['image'])): ?>				
+				<a href="detail.php?id_product=<?php echo $r[0] ?>"><img class="gambar" src="<?php echo $r['image']; ?>" width="100px" height="120px"></a><br/>
+			<?php else : ?>
+				<a href="detail.php?id_product=<?php echo $r[0] ?>"><img class="gambar" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="100px" height="120px"></a><br/>
+			<?php endif ?>
+				<?php echo $r["name"]; ?><br/>
+				<?php echo $r["price"]; ?><br/>
+				<?php echo "<a href='detail.php?id_product=$r[0]'><input type=button value='Detail Product'></a>"; ?>
+			</center></td>
+		</tr>
+		<?php } ?>
+	</table>
+</div> -->

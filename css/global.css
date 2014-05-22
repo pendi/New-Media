@@ -55,6 +55,10 @@ table.border {
 	text-decoration: none;
 	color: #002966;
 }
+.ref:hover {
+	text-decoration: underline;
+	color: #005CE6;
+}
 /*End Link*/
 
 /*Image*/
@@ -73,6 +77,12 @@ tr.hover:hover {
 .row {
 	margin-left: 190px;
 	width: 884px;
+	background-color: #E6E6E6;
+}
+
+.row-index {
+	margin-left: 189px;
+	width: 879px;
 	background-color: #E6E6E6;
 }
 /*End Div*/
