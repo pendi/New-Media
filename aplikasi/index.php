@@ -36,6 +36,14 @@ if ($by == "az") {
 
 $sql = mysql_query("select * from product where status = 2 order by $order $pos limit $posisi,$batas");
 ?>
+<style type="text/css">
+	/*.margin {
+    margin-left: 132px;
+    margin-bottom: 96px;
+    margin-top: -124px;
+    position: absolute;
+	}*/
+</style>
 <table width="70%" bgcolor="E6E6E6" align="center">
 	<tr>
 		<td align="center">
@@ -48,19 +56,42 @@ $sql = mysql_query("select * from product where status = 2 order by $order $pos 
 	</tr>
 </table>
 <div class="row-index">	
-	<table width="70%" border="0" align="center">
+	<table width="70%" align="center" border="0">
 		<?php while ($r=mysql_fetch_array($sql)) { ?>
 		<tr>
-			<td>			
+			<td colspan="3">			
 				<p><a href="detail.php?id_product=<?php echo $r[0] ?>" class="href ref"><?php echo $r["name"]; ?>&nbsp;<?php echo $r['type']; ?></a></p>
+			</td>
+		</tr>
+		<tr>
+			<td width="120px">
 				<?php if (!empty($r['image'])): ?>				
-					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img class="gambar" src="<?php echo $r['image']; ?>" width="100px" height="120px"></a><br/>
+					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img src="<?php echo $r['image']; ?>" width="120px" height="120px"></a>
 				<?php else : ?>
-					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img class="gambar" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="100px" height="120px"></a><br/>
+					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="120px" height="120px"></a>
 				<?php endif ?>
-				<?php echo $r["price"]; ?><br/>
-				<?php echo "<a href='detail.php?id_product=$r[0]'><input type=button value='Detail Product'></a>"; ?>
-			</td>		
+			</td>
+			<td style="vertical-align: top; font-size: 14px;" colspan="2">
+				<?php echo $r["description"]; ?><br/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;<?php //echo "<a href='detail.php?id_product=$r[0]'><input type=button value='Detail Product'></a>"; ?>
+			</td>
+			<td align="right" style="font-size: x-large; color: #00008B;">				
+				Rp. <?php echo $r["price"]; ?> &nbsp;
+			</td>
+			<td width="80px">
+				<a href="../customer/check.php?id_product=<?php echo $data[0]; ?>" class="href">
+					<img title="Buy" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/buy.png' ?>" width="80px">
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<hr>				
+			</td>
 		</tr>
 		<?php } ?>
 	</table>
