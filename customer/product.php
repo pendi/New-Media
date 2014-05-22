@@ -5,7 +5,7 @@ include "../header/header.php";
 if ($_GET['id'] == 1) {
 	$query = mysql_query("SELECT * FROM product WHERE category_id='1' AND status ='2'");
 ?>
-<center><div class='row'>
+<div class='row'>
 	<table width="100%">
 		<tr>
 			<td colspan="2" align="center"><h2>ACER</h2></td>
@@ -25,12 +25,12 @@ if ($_GET['id'] == 1) {
 		</tr>
 		<?php } ?>
 	</table>
-</div></center>
+</div>
 <?php
 } elseif ($_GET['id'] == 2) {
 	$query = mysql_query("SELECT * FROM product WHERE category_id='2' AND status ='2'");
 ?>
-<center><div class ='row'>
+<div class ='row'>
 	<table width="100%">
 		<tr>
 			<td colspan="2" align="center"><h2>APPLE</h2></td>
@@ -50,12 +50,12 @@ if ($_GET['id'] == 1) {
 		</tr>
 		<?php } ?>
 	</table>
-</div></center>
+</div>
 <?php
 } elseif ($_GET['id'] == 3) {
 	$query = mysql_query("SELECT * FROM product WHERE category_id='3' AND status ='2'");
 ?>
-<center><div class ='row'>
+<div class ='row'>
 	<table width="100%">
 		<tr>
 			<td colspan="2" align="center"><h2>ASUS</h2></td>
@@ -75,12 +75,12 @@ if ($_GET['id'] == 1) {
 		</tr>
 		<?php } ?>
 	</table>
-</div></center>
+</div>
 <?php
 } elseif ($_GET['id'] == 4) {
 	$query = mysql_query("SELECT * FROM product WHERE category_id='4' AND status ='2'");
 ?>
-<center><div class ='row'>
+<div class ='row'>
 	<table width="100%">
 		<tr>
 			<td colspan="2" align="center"><h2>DELL</h2></td>
@@ -100,12 +100,12 @@ if ($_GET['id'] == 1) {
 		</tr>
 		<?php } ?>
 	</table>
-</div></center>
+</div>
 <?php
 } elseif ($_GET['id'] == 5) {
 	$query = mysql_query("SELECT * FROM product WHERE category_id='5' AND status ='2'");
 ?>
-<center><div class ='row'>
+<div class ='row'>
 	<table width="100%">
 		<tr>
 			<td colspan="2" align="center"><h2>HP</h2></td>
@@ -125,12 +125,12 @@ if ($_GET['id'] == 1) {
 		</tr>
 		<?php } ?>
 	</table>
-</div></center>
+</div>
 <?php
 } elseif ($_GET['id'] == 6) {
 	$query = mysql_query("SELECT * FROM product WHERE category_id='6' AND status ='2'");
 ?>
-<center><div class ='row'>
+<div class ='row'>
 	<table width="100%">
 		<tr>
 			<td colspan="2" align="center"><h2>LENOVO</h2></td>
@@ -150,12 +150,12 @@ if ($_GET['id'] == 1) {
 		</tr>
 		<?php } ?>
 	</table>
-</div></center>
+</div>
 <?php
 } elseif ($_GET['id'] == 7) {
 	$query = mysql_query("SELECT * FROM product WHERE category_id='7' AND status ='2'");
 ?>
-<center><div class ='row'>
+<div class ='row'>
 	<table width="100%">
 		<tr>
 			<td colspan="2" align="center"><h2>SAMSUNG</h2></td>
@@ -175,12 +175,12 @@ if ($_GET['id'] == 1) {
 		</tr>
 		<?php } ?>
 	</table>
-</div></center>
+</div>
 <?php
 } elseif ($_GET['id'] == 8) {
 	$query = mysql_query("SELECT * FROM product WHERE category_id='8' AND status ='2'");
 ?>
-<center><div class ='row'>
+<div class ='row'>
 	<table width="100%">
 		<tr>
 			<td colspan="2" align="center"><h2>TOSHIBA</h2></td>
@@ -200,14 +200,14 @@ if ($_GET['id'] == 1) {
 		</tr>
 		<?php } ?>
 	</table>
-</div></center>
+</div>
 <?php 
 }
 ?>
-<center><div class="row">
+<div class="row">
 	<table width="100%">
 		<tr>
 			<td><?php include "../footer/footer.php"; ?></td>
 		</tr>
 	</table>
-</div></center>
+</div>

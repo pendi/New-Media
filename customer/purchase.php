@@ -30,13 +30,13 @@ $(function(){
 });
 </script>
 <form method="post" action="save_purchase.php">
-	<center><div class="row">
-		<table width="70%">
+	<div class="row">
+		<table width="90%" align="center">
 			<tr>
 				<td><h2>Details of Spending :</h2></td>
 			</tr>
 		</table>
-		<table border="1" width="70%" class="border">
+		<table border="1" width="90%" class="border" align="center">
 			<tr bgcolor="#75D1FF">
 				<th>No</th>
 				<th>Product Name</th>
@@ -109,5 +109,5 @@ $(function(){
 				<td><?php include "../footer/footer.php" ?></td>
 			</tr>
 		</table>
-	</div></center>
+	</div>
 </form>

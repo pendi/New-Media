@@ -71,7 +71,8 @@ tr.hover:hover {
 
 /*Div*/
 .row {
-	width: 70%;
+	margin-left: 190px;
+	width: 884px;
 	background-color: #E6E6E6;
 }
 /*End Div*/

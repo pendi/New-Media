@@ -19,7 +19,7 @@ include "../header/header_admin.php";
 			<td align="right"><input style="margin-right: 41px;" type="submit" name="submit" value="Add Admin" /></td>
 		</tr>
 	</table>
-	<center><div class="row">
+	<div class="row">
 		<table width="90%" align="center" border="1" class="border">
 			<tr bgcolor="#00FFFF">
 				<th>Id</th>
@@ -96,6 +96,6 @@ include "../header/header_admin.php";
 				<td><?php include "../footer/footer.php"; ?></td>
 			</tr>
 		</table>
-	</div></center>
+	</div>
 </form>
 <?php } ?>

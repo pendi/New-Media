@@ -32,8 +32,8 @@ $data = mysql_fetch_array($sql);
 	}
 </style>
 <form action="payment_process.php" method="post">
-	<center><div class="row">
-		<table width="80%" border="0">
+	<div class="row">
+		<table width="80%" align="center">
 			<tr>
 				<td colspan="2"><h2 class="h2">Method of Payment :</h2></td>
 			</tr>
@@ -86,5 +86,5 @@ $data = mysql_fetch_array($sql);
 				<td><?php include "../footer/footer.php" ?></td>
 			</tr>
 		</table>
-	</div></center>
+	</div>
 </form>

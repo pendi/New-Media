@@ -14,7 +14,7 @@ $price = $data['price'];
 $quantity = $_SESSION['quantity'];
 ?>
 <form action="" method="post">
-	<center><div class="row">
+	<div class="row">
 		<table>
 			<tr>
 				<td><h2>ORDER</h2></td>
@@ -58,5 +58,5 @@ $quantity = $_SESSION['quantity'];
 				<td><?php include "../footer/footer.php" ?></td>
 			</tr>
 		</table>
-	</div></center>
+	</div>
 </form>

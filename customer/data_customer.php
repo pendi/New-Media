@@ -31,13 +31,13 @@ include "../header/header.php";
 	}
 </style>
 <form action="save_customer.php" method="post" onsubmit="return validasi(this)">
-	<center><div class="row">
-		<table width="55%">
+	<div class="row">
+		<table width="55%" align="center">
 			<tr>
 				<td><h2>Data Customer :</h2></td>
 			</tr>
 		</table>
-		<table width="55%">
+		<table width="55%" align="center">
 			<tr>
 				<td width="20%"><b>Full Name</b></td>
 				<td width="35%"><input autofocus type="text" maxlength="50" name="name" placeholder="Full Name"></td>
@@ -69,5 +69,5 @@ include "../header/header.php";
 				<td><?php include "../footer/footer.php" ?></td>
 			</tr>
 		</table>
-	</div></center>
+	</div>
 </form>

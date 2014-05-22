@@ -14,7 +14,7 @@ include "../header/header_admin.php";
 			<td align="center"><h2>PROFILE</h2></td>
 		</tr>
 	</table>
-	<center><div class="row">
+	<div class="row">
 		<table width="45%" align="center" border="1" style="border-collapse: collapse;">
 			<tr class="hover">
 				<td width="13%"><b>Id</b></td>
@@ -60,6 +60,6 @@ include "../header/header_admin.php";
 				<td><?php include "../footer/footer.php"; ?></td>
 			</tr>
 		</table>
-	</div></center>
+	</div>
 </form>
 <?php } ?>
