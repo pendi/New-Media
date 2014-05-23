@@ -2,7 +2,7 @@
 include "koneksi.php";
 include "../header/header.php";
 
-$batas   = 10;
+$batas   = 5;
 // $halaman = $_GET['halaman'];
 if(isset($_GET['halaman'])) { 
 	$halaman = $_GET['halaman']; 
@@ -57,7 +57,8 @@ $sql = mysql_query("select * from product where status = 2 order by $order $pos 
 </table>
 <div class="row-index">	
 	<table width="70%" align="center" border="0">
-		<?php while ($r=mysql_fetch_array($sql)) { ?>
+		<?php while ($r=mysql_fetch_array($sql)) {
+		$price = $r["price"];	 ?>
 		<tr>
 			<td colspan="3">			
 				<p><a href="detail.php?id_product=<?php echo $r[0] ?>" class="href ref"><?php echo $r["name"]; ?>&nbsp;<?php echo $r['type']; ?></a></p>
@@ -80,11 +81,11 @@ $sql = mysql_query("select * from product where status = 2 order by $order $pos 
 				&nbsp;<?php //echo "<a href='detail.php?id_product=$r[0]'><input type=button value='Detail Product'></a>"; ?>
 			</td>
 			<td align="right" style="font-size: x-large; color: #00008B;">				
-				Rp. <?php echo $r["price"]; ?> &nbsp;
+				Rp. <?php echo number_format($price,0,'','.').",-" ?> &nbsp;
 			</td>
 			<td width="80px">
-				<a href="../customer/check.php?id_product=<?php echo $data[0]; ?>" class="href">
-					<img title="Buy" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/buy.png' ?>" width="80px">
+				<a href="../customer/check.php?id_product=<?php echo $r[0]; ?>" class="href">
+					<img title="Buy" class="image" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/buy.png' ?>" width="80px">
 				</a>
 			</td>
 		</tr>

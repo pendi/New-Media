@@ -14,21 +14,22 @@ $idtransaksi = $_SESSION['transaksi'];
 $sql = mysql_query("select orders_temp.*, product.name, product.type, product.stock from orders_temp, product
 where orders_temp.id_session='$idtransaksi' and orders_temp.id_product=product.id_product");
 
+// include "function.php";
 ?>
 <script>
-$(function(){
-    // var qty = $(".qty").val();
-	$(".qty").change(function(){
-		var price = $(this).parent().parent().find("td input.price").val();
-		var sub_total = $(this).parent().parent().find("td input.sub_total");
-		var qty = $(this).val();
-	    var grandtotal = price * qty;
-		console.log($(sub_total).val());
-	    $(sub_total).val(grandtotal) ;
-	});
+// $(function(){
+//     // var qty = $(".qty").val();
+// 	$(".qty").change(function(){
+// 		var price = $(this).parent().parent().find("td input.price").val();
+// 		var sub_total = $(this).parent().parent().find("td input.sub_total");
+// 		var qty = $(this).val();
+// 	    var grandtotal = price * qty;
+// 		console.log($(sub_total).val());
+// 	    $(sub_total).val(grandtotal) ;
+// 	});
 
-});
-</script>
+// });
+// </script>
 <form method="post" action="save_purchase.php">
 	<div class="row">
 		<table width="90%" align="center">
@@ -49,17 +50,18 @@ $(function(){
 				$no = 1;
 				while ($data = mysql_fetch_array($sql)) {
 					$id = $data['id_order'];
+					$total = $data["total"];
 			?>
 			<!-- <input type="hidden" name="id" value="<?php //echo $data[0]; ?>" /> -->
 			<tr>
 				<td align="center"><?php echo $no; ?></td>
 				<td><?php echo $data['name']; ?>&nbsp;<?php echo $data['type']; ?></td>
-				<td>Rp. <input readonly type="text" class="price" value="<?php echo $data['total']; ?>"></td>
+				<td>Rp. <input readonly type="text" id="price" value="<?php echo $total; ?>"></td>
 				<!-- <td><input style="text-align: center;" size="1" name="quantity" type="text" class="qty" value="1"></td> -->
 
 
 				<td>
-					<select style="margin-left: 7px;" name="quantity" class="qty">
+					<select onClick="total()" style="margin-left: 7px;" name="quantity" id="qty">
 						<?php 
 						for ($i=1; $i <= $data['stock']; $i++) { 
 							echo "<option value='$i'>$i</option>";
@@ -68,7 +70,7 @@ $(function(){
 					</select>
 				</td>
 				<td>
-					Rp. <input style="text-align: right;" type="text" class="sub_total" readonly value="<?php echo $data['total']; ?>">
+					Rp. <input style="text-align: right;" type="text" id="sub_total" readonly value="<?php echo $total; ?>">
 					<a href="delete.php?id=<?php echo $data[0]; ?>" style="vertical-align: -3px;">
 						<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/delete.png' ?>" width = "13px">
 					</a>

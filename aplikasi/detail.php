@@ -25,7 +25,7 @@ table.padding tr > td {
 		</td>
 		<td style="vertical-align: bottom;">
 			<a href="../customer/check.php?id_product=<?php echo $data[0]; ?>" class="href">
-				<img title="Buy" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/buy.png' ?>" width="15%">
+				<img class="image" title="Buy" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/buy.png' ?>" width="15%">
 			</a> &nbsp;
 			<a href="index.php">
 				<img title="Back" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/back4.png' ?>" width="10%">

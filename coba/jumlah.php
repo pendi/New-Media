@@ -1,19 +1,61 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+
 <html>
+
 <head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
-</script>
-<script>
-$(document).ready(function(){
-  $("button").click(function(){
-    $("p").hide();
-  });
-});
-</script>
+
+<meta http-equiv="content-type" content="text/html" />
+
+<meta name="author" content="Jayuhni" />
+
+
+
+<title>Untitled 2</title>
+
 </head>
 
+
+
 <body>
-<h2>This is a heading</h2>
-<p>This is a paragraph.</p>
-<p>This is another paragraph.</p>
-<button>Click me</button>
+
+Contoh Tambah2an
+
+
+
+
+
+<input type="text" id="type1" onkeyup="kalkulatorTambah(this.value,getElementById('type2').value);" />x
+
+<input type="text" id="type2" onkeyup="kalkulatorTambah(getElementById('type1').value,this.value);" />
+
+=
+
+<span id="result">
+
+</span><br/>
+
+<input type="text" id="type1" onkeyup="kalkulatorTambah(this.value,getElementById('type2').value);" />x
+
+<input type="text" id="type2" onkeyup="kalkulatorTambah(getElementById('type1').value,this.value);" />
+
+=
+
+<span id="result">
+
+</span>
+
+<script>
+function kalkulatorTambah(type1,type2){
+var hasil = eval(type1) * eval(type2);
+document.getElementById('result').innerHTML = hasil;
+}
+</script>
+
+
+
+</body>
+
+</html>
+
+
+

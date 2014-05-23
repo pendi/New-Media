@@ -62,8 +62,11 @@ table.border {
 /*End Link*/
 
 /*Image*/
-img.gambar:hover {
-	box-shadow: 10px 10px 10px #0066FF;
+img.image {
+	box-shadow: 0 2px 10px #0066FF;
+}
+img.image:hover {
+	box-shadow: 0 -2px 10px #0066FF;
 }
 /*End Image*/
 
