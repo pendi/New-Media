@@ -6,17 +6,18 @@ session_start();
 	} else {
 include "../header/header_admin.php";
 include "../aplikasi/koneksi.php";
+include "../function/function.php";
 
 $query = "SELECT * FROM category ORDER BY vendor ASC";
 $sql = mysql_query($query);
 ?>
 <script>
 	function validasi(form) {
-		if (form.id.value == ""){
-			alert("Anda belum mengisikan Id Produk.");
-			form.id.focus();
-			return (false);
-		}
+		// if (form.id.value == ""){
+		// 	alert("Anda belum mengisikan Id Produk.");
+		// 	form.id.focus();
+		// 	return (false);
+		// }
 		if (form.category.value == 0){
 			alert("Anda belum memilih Category Produk.");
 			form.category.focus();
@@ -61,27 +62,22 @@ $sql = mysql_query($query);
 		<tr>
 			<td width="25%"></td>
 			<td width="12%">Id Product &nbsp;</td>
-			<td width="33%"><input autofocus type="text" name="id" maxlength="5" placeholder="Id Product"></td>
+			<td width="33%">
+				<input type="text" name="id" value="<?php //echo rand_string('2'); ?><?php echo kdauto() ?>" disabled="disabled">
+				<input type="hidden" name="id" value="<?php //echo rand_string('2'); ?><?php echo kdauto() ?>">
+			</td>
 		</tr>
 		<tr>
 			<td></td>
 			<td>Category</td>
 			<td>
-				<select name='category'>
+				<select name='category' autofocus>
 					<option value="0">Select Category</option>
 					<?php 
 						while ($data = mysql_fetch_array($sql)) {
 							echo "<option value=$data[0]>$data[1]</option>";
 						}
 					?>
-					<!-- <option value="1">Acer</option>
-					<option value="2">Asus</option>
-					<option value="3">Apple</option>
-					<option value="4">Dell</option>
-					<option value="5">Hp</option>
-					<option value="6">Lenovo</option>
-					<option value="7">Samsung</option>
-					<option value="8">Toshiba</option> -->
 				</select>
 			</td>
 		</tr>

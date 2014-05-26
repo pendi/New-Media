@@ -9,13 +9,15 @@ include "../header/header_admin.php";
 $query = mysql_query("SELECT * from product where id_product = '$_GET[id_product]'");
 $data = mysql_fetch_array($query);
 
+$sql = mysql_query("SELECT * FROM category");
+
 $category = "";
 if ($data['category_id'] == 1) {
 	$category = "Acer";
 } elseif($data['category_id'] == 2) {
-	$category = "Asus";
-} elseif($data['category_id'] == 3) {
 	$category = "Apple";
+} elseif($data['category_id'] == 3) {
+	$category = "Asus";
 } elseif($data['category_id'] == 4) {
 	$category = "Dell";
 } elseif($data['category_id'] == 5) {
@@ -48,16 +50,14 @@ if ($data['category_id'] == 1) {
 				<select name="category">
 					<?php $selected = ""; ?>
 		            <?php if($data['category']) $selected = "selected"; ?>
-		            <option value="<?php echo $data['category'] ?>" <?php echo $selected; ?>><?php echo $category; ?></option>
+		            <option value="<?php echo $data['category_id'] ?>" <?php echo $selected; ?>><?php echo $category; ?></option>
 					<option value="0">Select Category</option>
-					<option value="1">Acer</option>
-					<option value="2">Asus</option>
-					<option value="3">Apple</option>
-					<option value="4">Dell</option>
-					<option value="5">Hp</option>
-					<option value="6">Lenovo</option>
-					<option value="7">Samsung</option>
-					<option value="8">Toshiba</option>
+					<?php 
+					 while($r = mysql_fetch_array($sql))
+					 {
+						echo "<option value=$r[0]>$r[1]</option>";
+					 }
+					?>
 				</select>
 			</td>
 		</tr>

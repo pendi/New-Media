@@ -87,5 +87,6 @@ tr.hover:hover {
 	margin-left: 189px;
 	width: 879px;
 	background-color: #E6E6E6;
+	position: inherit;
 }
 /*End Div*/
