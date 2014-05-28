@@ -13,7 +13,7 @@
 }
 
 .dropmenu li a {
-	color: black;
+	color: #FFF;
 	display: block;
 	font: 13px arial, verdana, sans-serif;
 	font-weight: bold;
@@ -24,6 +24,10 @@
 .dropmenu li:hover { 
 	background: #B2D1FF;
 	position: relative; 
+}
+
+.dropmenu li a:hover {
+	color: black;
 }
 /*End Menu Dropdown*/
 
@@ -58,6 +62,47 @@ table.border {
 .ref:hover {
 	text-decoration: underline;
 	color: #005CE6;
+}
+a.plus {
+	color: #3385FF;
+	width: 8px;
+	height: 8px;
+	right: 12px;
+	top: 50%;
+	content: "\a0";
+	display: inline-block;
+	vertical-align: middle;
+	border-style: solid;
+	border-width: .14rem .14rem 0 0;	
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+a.minus {
+	color: #3385FF;
+	width: 8px;
+	height: 8px;
+	right: 12px;
+	top: 50%;
+	content: "\a0";
+	display: inline-block;
+	vertical-align: middle;
+	border-style: solid;
+	border-width: 0 0 .14rem .14rem;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+a.disabled {
+	color: #97A0A4;
+	pointer-events: none;
+	cursor: default;
 }
 /*End Link*/
 

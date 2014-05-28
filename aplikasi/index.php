@@ -35,6 +35,7 @@ if ($by == "az") {
 }
 
 $sql = mysql_query("select * from product where status = 2 order by $order $pos limit $posisi,$batas");
+// $data = mysql_fetch_array($sql);
 ?>
 <style type="text/css">
 	/*.margin {
@@ -84,7 +85,8 @@ $sql = mysql_query("select * from product where status = 2 order by $order $pos 
 				Rp. <?php echo number_format($price,0,'','.').",-" ?> &nbsp;
 			</td>
 			<td width="80px">
-				<a href="../customer/check.php?id_product=<?php echo $r[0]; ?>" class="href">
+				<a href="../customer/cart.php?act=add&amp;id=<?php echo $r['id_product']; ?>&amp;ref=purchase.php">
+				<!-- <a href="../customer/check.php?id_product=<?php echo $r[0]; ?>" class="href"> -->
 					<img title="Buy" class="image" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/buy.png' ?>" width="80px">
 				</a>
 			</td>
