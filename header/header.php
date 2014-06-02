@@ -3,6 +3,7 @@
 <head>
 	<title>Anila Shop</title>
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<!-- <link rel="stylesheet" type="text/css" href="../css/naked.css"> -->
 	<link rel="shortcut icon" href="../aplikasi/image/favicon/favicon_2.ico" type="image/x-icon" />
 <script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
 <script>
@@ -16,7 +17,15 @@
 </script>
 <style type="text/css">
 .search {
-	margin: 7px 0;
+	margin: 7px -27px;
+	width: 23%;
+	height: 28px;
+}
+
+.icon-search {
+	width: 17px;
+	height: 17px;
+	margin: -4px 4px;
 }
 
 .align {
@@ -45,7 +54,7 @@ if(isset($_SESSION['id_admin'])) {
 $sql = mysql_query("SELECT * FROM login WHERE id = '$id'");
 $data = mysql_fetch_array($sql);
 ?>
-<table width="70%" align="center" bgcolor="#3385FF" border="0">
+<table width="70%" align="center" bgcolor="#3385FF" class="radius">
 	<tr>
 		<td colspan="2"><a href="../aplikasi/index.php" class="href"><font color="#fff" size="30">&nbsp;ANILA SHOP</font></a></td>
 		<td align="right" style="vertical-align: top;">
@@ -66,7 +75,7 @@ $data = mysql_fetch_array($sql);
 		<td width="35%" align="right">&nbsp;</td>
 	</tr>
 </table>
-<table width="70%" align="center" bgcolor="#0052CC">
+<table width="70%" align="center" bgcolor="#0052CC" class="radius" style="margin: 5px auto;">
 	<tr>
 		<td>
 			<ul class="dropmenu">
@@ -84,11 +93,13 @@ $data = mysql_fetch_array($sql);
 	</tr>
 </table>
 <form action="../search/search.php" method="post" onsubmit="return validasi(this)">
-<table width="70%" align="center" bgcolor="#E6E6E6">
+<table width="70%" align="center" bgcolor="#E6E6E6" class="radius-top">
 	<tr>
 		<td align="right">
-			<input class="search" type="search" name="search" placeholder="search Product">
-			<input type="submit" name="submit" value="search">
+			<input class="search" type="search" name="search" placeholder="Search Product">
+			<img class="icon-search" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/search.png' ?>">
+			<!-- <a href="../search/search.php" class="button" style="padding: 1px 10px 1px;">Search</a> -->
+			<!-- <input type="submit" name="submit" value="search"> -->
 		</td>
 	</tr>
 	<!-- <tr>

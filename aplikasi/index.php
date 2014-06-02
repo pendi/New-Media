@@ -38,14 +38,14 @@ $sql = mysql_query("select * from product where status = 2 order by $order $pos 
 // $data = mysql_fetch_array($sql);
 ?>
 <style type="text/css">
-	/*.margin {
-    margin-left: 132px;
-    margin-bottom: 96px;
-    margin-top: -124px;
-    position: absolute;
-	}*/
+	.padding-left {
+    padding-left: 135px;
+	}
+	.padding-right {
+    padding-right: 135px;
+	}
 </style>
-<table width="70%" bgcolor="E6E6E6" align="center">
+<table width="70%" bgcolor="#E6E6E6" align="center">
 	<tr>
 		<td align="center">
 			<hr/>
@@ -56,81 +56,91 @@ $sql = mysql_query("select * from product where status = 2 order by $order $pos 
 		</td>
 	</tr>
 </table>
-<div class="row-index">	
-	<table width="70%" align="center" border="0">
-		<?php while ($r=mysql_fetch_array($sql)) {
-		$price = $r["price"];	 ?>
-		<tr>
-			<td colspan="3">			
-				<p><a href="detail.php?id_product=<?php echo $r[0] ?>" class="href ref"><?php echo $r["name"]; ?>&nbsp;<?php echo $r['type']; ?></a></p>
-			</td>
-		</tr>
-		<tr>
-			<td width="120px">
-				<?php if (!empty($r['image'])): ?>				
-					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img src="<?php echo $r['image']; ?>" width="120px" height="120px"></a>
-				<?php else : ?>
-					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="120px" height="120px"></a>
-				<?php endif ?>
-			</td>
-			<td style="vertical-align: top; font-size: 14px;" colspan="2">
-				<?php echo $r["description"]; ?><br/>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				&nbsp;<?php //echo "<a href='detail.php?id_product=$r[0]'><input type=button value='Detail Product'></a>"; ?>
-			</td>
-			<td align="right" style="font-size: x-large; color: #00008B;">				
-				Rp. <?php echo number_format($price,0,'','.').",-" ?> &nbsp;
-			</td>
-			<td width="80px">
-				<a href="../customer/cart.php?act=add&amp;id=<?php echo $r['id_product']; ?>&amp;ref=purchase.php">
+<table width="70%" bgcolor="#E6E6E6" align="center">
+	<?php while ($r=mysql_fetch_array($sql)) {
+	$price = $r["price"];
+	$stock = $r['stock']; ?>
+	<tr>
+		<td class="padding-left" colspan="3">			
+			<p><a href="detail.php?id_product=<?php echo $r[0] ?>" class="href ref"><?php echo $r["name"]; ?>&nbsp;<?php echo $r['type']; ?></a></p>
+		</td>
+	</tr>
+	<tr>
+		<td class="padding-left" width="120px">
+			<?php if (!empty($r['image'])): ?>				
+				<a href="detail.php?id_product=<?php echo $r[0] ?>"><img src="<?php echo $r['image']; ?>" width="120px" height="120px"></a>
+			<?php else : ?>
+				<a href="detail.php?id_product=<?php echo $r[0] ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="120px" height="120px"></a>
+			<?php endif ?>
+		</td>
+		<td style="vertical-align: top; font-size: 14px;" colspan="2" class="padding-right">
+			<?php echo $r["description"]; ?><br/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			&nbsp;<?php //echo "<a href='detail.php?id_product=$r[0]'><input type=button value='Detail Product'></a>"; ?>
+		</td>
+		<td align="right" style="font-size: x-large; color: #00008B;">				
+			Rp. <?php echo number_format($price,0,'','.').",-" ?> &nbsp;
+		</td>
+		<td class="padding-right" width="80px">
+			<?php if ($stock == 0): ?>
+				<a href="../customer/check.php?id_product=<?php echo $r[0]; ?>" id="buy" class="button round">BUY</a>
 				<!-- <a href="../customer/check.php?id_product=<?php echo $r[0]; ?>" class="href"> -->
-					<img title="Buy" class="image" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/buy.png' ?>" width="80px">
+					<!-- <img title="Buy" class="image" src="<?php //echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/buy.png' ?>" width="80px"> -->
 				</a>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="3">
-				<hr>				
-			</td>
-		</tr>
-		<?php } ?>
-	</table>
-	<table width="100%">		
-		<tr>
-			<td align="right">		
-				<?php
-					echo "<br>Page : ";
+			<?php else: ?>
+				<!-- <a href="../customer/cart.php?act=add&amp;id=<?php echo $r['id_product']; ?>&amp;ref=purchase.php"> -->
+				<a href="../customer/cart.php?act=add&amp;id=<?php echo $r['id_product']; ?>&amp;ref=purchase.php" id="buy" class="button round">BUY</a>
+					<!-- <img title="Buy" class="image" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/buy.png' ?>" width="80px"> -->
+				</a>
+			<?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3">
+			<hr>				
+		</td>
+	</tr>
+	<?php } ?>	
+</table>
+<table width="70%" bgcolor="#E6E6E6" align="center">		
+	<tr>
+		<td align="right">		
+			<?php
+				echo "<br>Page : ";
 
-					$tampil2="select * from product where status = 2 order by $order $pos"; 
-					$hasil2=mysql_query($tampil2); 
-					$jmldata=mysql_num_rows($hasil2); 
-					$jmlhalaman=ceil($jmldata/$batas);
+				$tampil2="select * from product where status = 2 order by $order $pos"; 
+				$hasil2=mysql_query($tampil2); 
+				$jmldata=mysql_num_rows($hasil2); 
+				$jmlhalaman=ceil($jmldata/$batas);
 
-					for($i=1;$i<=$jmlhalaman;$i++) {
-						if($i>=($halaman-3) && $i <= ($halaman+3)){
-							if ($i != $halaman) 
-							{ 
-							    echo " <a href=$_SERVER[PHP_SELF]?halaman=$i&by=$by><font color='#00F'>$i</font></a> | "; 
-							} 
-							else 
-							{ 
-							    echo " <b>$i</b> | "; 
-							}
+				for($i=1;$i<=$jmlhalaman;$i++) {
+					if($i>=($halaman-3) && $i <= ($halaman+3)){
+						if ($i != $halaman) 
+						{ 
+						    echo " <a href=$_SERVER[PHP_SELF]?halaman=$i&by=$by><font color='#00F'>$i</font></a> | "; 
+						} 
+						else 
+						{ 
+						    echo " <b>$i</b> | "; 
 						}
 					}
-				?>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<?php include "../footer/footer.php"; ?>	
-			</td>
-		</tr>
+				}
+			?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<?php include "../footer/footer.php"; ?>	
+		</td>
+	</tr>
+</table>
+<!-- <div class="row-index">	
+	<table width="70%" align="center">
 	</table>
-</div>
+</div> -->
 <!-- <div class="row">
 	<table width="100%" align="center">
 		<tr>

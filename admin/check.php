@@ -1,9 +1,14 @@
 <?php 
 session_start();
 
-if ($_SESSION['level'] == "admin") {
-	header("Location:../admin/dashboard.php");
-} elseif ($_SESSION['level'] == "co-admin") {
-	header("Location:../product/view_product.php");
+if(!isset($_SESSION['id'])) {
+  	echo "<script>window.alert('Anda Harus Login Dulu');</script>";
+	echo "<script>window.location = '../login/login.php';</script>";
+} else {
+	if ($_SESSION['level'] == "admin") {
+		header("Location:../admin/dashboard.php");
+	} elseif ($_SESSION['level'] == "co-admin") {
+		header("Location:../product/view_product.php");
+	}	
 }
 ?>

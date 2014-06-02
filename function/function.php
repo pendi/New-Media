@@ -44,4 +44,3 @@ function kdauto() {
 	$nextNoTransaksi = "IP".sprintf('%04s', $nextNoUrut);
 	return $nextNoTransaksi;
 }
-?>

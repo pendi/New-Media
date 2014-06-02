@@ -68,7 +68,7 @@ include "../header/header_admin.php";
 			<tr>
 				<td align="right" colspan="7">		
 					<?php
-						echo "<br>Halaman : ";
+						echo "<br>Page : ";
 
 						$tampil2="select * from login"; 
 						$hasil2=mysql_query($tampil2); 
@@ -79,11 +79,11 @@ include "../header/header_admin.php";
 							if($i>=($halaman-3) && $i <= ($halaman+3)){
 								if ($i != $halaman)
 								{
-								    echo " <a href=$_SERVER[PHP_SELF]?halaman=$i><font color='#00F'>$i</font></a> | "; 
+								    echo " <a class=href href=$_SERVER[PHP_SELF]?halaman=$i><font color='#00F'>$i</font></a>"; 
 								} 
 								else 
 								{ 
-								    echo " <b>$i</b> | "; 
+								    echo " <a class=display>$i</a>"; 
 								}
 							}
 						}

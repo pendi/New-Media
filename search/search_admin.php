@@ -18,7 +18,7 @@ if(empty($halaman)){
 else{ 
     $posisi = ($halaman-1) * $batas; 
 }
-if ((isset($_POST['submit'])) AND ($_POST['search'] <> "")) {
+if ($_POST['search'] <> "") {
 
 	$sql = mysql_query("select * from product where name like '%$search%' or type like '%$search%' limit $posisi,$batas");
 	$jumlah = mysql_num_rows($sql);
