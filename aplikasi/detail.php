@@ -4,6 +4,8 @@ include "../header/header.php";
 
 $sql=mysql_query("select * from product where id_product='$_GET[id_product]'");
 $data=mysql_fetch_array($sql);
+$price = $data['price'];
+$stock = $data['stock'];
 ?>
 <style type="text/css">
 table.padding tr > td {
@@ -22,14 +24,27 @@ table.padding tr > td {
 			<?php else : ?>
 				<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="100%"><br/>
 			<?php endif ?>			
-		</td>
+		</td>				
 		<td style="vertical-align: bottom;">
-			<a href="../customer/check.php?id_product=<?php echo $data[0]; ?>" class="href">
+			<?php if ($stock == 0): ?>
+				<a class="stock" style="font-size: x-large; color: #F00;">STOK HABIS</a>			
+			<?php endif ?>
+			<a style="font-size: x-large; color: #00008B;">Rp. <?php echo number_format($price,0,'','.').",-" ?></a> &nbsp;
+			<?php if ($stock == 0): ?>
+				<a></a>
+			<?php else: ?>
+				<a href="../customer/cart.php?act=add&amp;id=<?php echo $data[0]; ?>&amp;ref=purchase.php" id="buy" class="button round-group">BUY</a>
+			<?php endif ?>
+			<!-- <a href="../customer/cart.php?act=add&amp;id=<?php echo $r['id_product']; ?>&amp;ref=purchase.php" id="buy" class="button round-group">BUY</a> -->
+			<a href="index.php" id="alert" class="button alert round-group-right">BACK</a>
+
+
+			<!-- <a href="../customer/check.php?id_product=<?php echo $data[0]; ?>" class="href">
 				<img class="image" title="Buy" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/buy.png' ?>" width="15%">
-			</a> &nbsp;
-			<a href="index.php">
+			</a> &nbsp; -->
+			<!-- <a href="index.php">
 				<img title="Back" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/back4.png' ?>" width="10%">
-			</a>
+			</a> -->
 		</td>
 	</tr>
 	<tr>
@@ -52,10 +67,10 @@ table.padding tr > td {
 		<td>:</td>
 		<td>
 			<?php
-				if ($data['stock']==0) {
+				if ($stock==0) {
 					echo "Stok Habis";
 				} else {
-					echo $data['stock'];
+					echo $stock;
 				}
 			?>
 		</td>

@@ -124,11 +124,11 @@ if (isset($id)) {
 					if($i>=($halaman-3) && $i <= ($halaman+3)){
 						if ($i != $halaman) 
 						{ 
-						    echo " <a href=$_SERVER[PHP_SELF]?halaman=$i&id=$id><font color='#00F'>$i</font></a> | "; 
+						    echo " <a href=$_SERVER[PHP_SELF]?halaman=$i&id=$id><font color='#00F'>$i</font></a>"; 
 						} 
 						else 
 						{ 
-						    echo " <b>$i</b> | "; 
+						    echo " <a class=display>$i</a>"; 
 						}
 					}
 				}

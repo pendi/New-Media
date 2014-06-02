@@ -79,22 +79,19 @@ $sql = mysql_query("select * from product where status = 2 order by $order $pos 
 	</tr>
 	<tr>
 		<td>
-			&nbsp;<?php //echo "<a href='detail.php?id_product=$r[0]'><input type=button value='Detail Product'></a>"; ?>
+			&nbsp;
 		</td>
-		<td align="right" style="font-size: x-large; color: #00008B;">				
+		<td align="right" style="font-size: x-large; color: #00008B;">
+			<?php if ($stock == 0): ?>
+				<a class="stock">STOK HABIS</a>			
+			<?php endif ?>
 			Rp. <?php echo number_format($price,0,'','.').",-" ?> &nbsp;
 		</td>
 		<td class="padding-right" width="80px">
 			<?php if ($stock == 0): ?>
-				<a href="../customer/check.php?id_product=<?php echo $r[0]; ?>" id="buy" class="button round">BUY</a>
-				<!-- <a href="../customer/check.php?id_product=<?php echo $r[0]; ?>" class="href"> -->
-					<!-- <img title="Buy" class="image" src="<?php //echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/buy.png' ?>" width="80px"> -->
-				</a>
+				<a>&nbsp;</a>
 			<?php else: ?>
-				<!-- <a href="../customer/cart.php?act=add&amp;id=<?php echo $r['id_product']; ?>&amp;ref=purchase.php"> -->
-				<a href="../customer/cart.php?act=add&amp;id=<?php echo $r['id_product']; ?>&amp;ref=purchase.php" id="buy" class="button round">BUY</a>
-					<!-- <img title="Buy" class="image" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/buy.png' ?>" width="80px"> -->
-				</a>
+				<a href="../customer/cart.php?act=add&amp;id=<?php echo $r[0]; ?>&amp;ref=purchase.php" id="buy" class="button round">BUY</a>
 			<?php endif ?>
 		</td>
 	</tr>
@@ -120,11 +117,11 @@ $sql = mysql_query("select * from product where status = 2 order by $order $pos 
 					if($i>=($halaman-3) && $i <= ($halaman+3)){
 						if ($i != $halaman) 
 						{ 
-						    echo " <a href=$_SERVER[PHP_SELF]?halaman=$i&by=$by><font color='#00F'>$i</font></a> | "; 
+						    echo " <a href=$_SERVER[PHP_SELF]?halaman=$i&by=$by><font color='#00F'>$i</font></a>"; 
 						} 
 						else 
 						{ 
-						    echo " <b>$i</b> | "; 
+						    echo " <a class=display>$i</a>"; 
 						}
 					}
 				}

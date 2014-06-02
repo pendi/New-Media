@@ -147,7 +147,7 @@ tr.hover:hover {
   text-decoration: none;
   text-align: center;
   background: #13c4ff;
-  border: 1px solid white;
+  border: 1px solid #E6E6E6;
   color: white;
   font-weight: 400;
   display: inline-block;
@@ -161,6 +161,12 @@ tr.hover:hover {
   border-radius: 0;
 }
 
+.button.alert {
+	background: #FF3B30;
+	padding: 5px 10px 5px;
+	font-weight: 400;
+}
+
 .button.round {
   -webkit-border-radius: 1000px;
   -moz-border-radius: 1000px;
@@ -168,8 +174,22 @@ tr.hover:hover {
   padding: 5px 20px 5px;
 }
 
+.round-group {
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.round-group-right {
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
 #buy.button:hover {
 	background: #0052CC;
+}
+
+#alert.button:hover {
+	background: #F00;
 }
 /*End Button Buy*/
 
@@ -184,10 +204,18 @@ tr.hover:hover {
 }
 /*End Radius*/
 
+/*Pagination*/
 .display {
 	background: #13C4FF;
 	color: #FFF;
 	font-weight: bold;
 	/*display: block;*/
 	padding: 0 5px 0 5px;
+}
+/*End Pagination*/
+
+.stock {
+	font-weight: bold;
+	margin-right: 20px;
+	color: #F00;
 }
