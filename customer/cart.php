@@ -1,10 +1,18 @@
 <?php
-    include "../aplikasi/koneksi.php";
+    session_start();
+    // session_start();
+    if(!isset($_SESSION['transaksi'])){
+        $idt = date("YmdHis");
+        $_SESSION['transaksi'] = $idt;
+    }
+    $idt = $_SESSION['transaksi'];
+    $insert = mysql_query("INSERT INTO orders_temp(id_order,id_product,id_session,quantity,total,method) 
+            VALUES(null,'$id','$idt','$quantity','$total','bca')");
     $query = mysql_query("SELECT * FROM product WHERE id_product = '$_GET[id]'");
     $data = mysql_fetch_array($query);
-    if (!isset($_SESSION)) {
-        session_start();
-    }
+    // if (!isset($_SESSION)) {
+    //     session_start();
+    // }
      
     if (isset($_GET['act']) && isset($_GET['ref'])) {
         $act = $_GET['act'];
@@ -38,11 +46,20 @@
                 $id = $_GET['id'];
                 if (isset($_SESSION['items'][$id])) {
                     unset($_SESSION['items'][$id]);
-                }
-                if ($_SESSION['item'][$id] == 0) {
-                	$ref = "../aplikasi/index.php";
+                } 
+                if (!isset($id)) {
+                    $ref = "../aplikasi/index.php";                
+                } else {
+                    $ref = "purchase.php";
                 }
             }
+
+
+            //     if (!isset($_SESSION['items'][$id])) {
+            //         // session_destroy();
+            //     	$ref = "../aplikasi/index.php";
+            //     }
+            // }
         } elseif ($act == "clear") {
             if (isset($_SESSION['items'])) {
                 foreach ($_SESSION['items'] as $key => $val) {

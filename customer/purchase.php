@@ -86,7 +86,7 @@ $idtransaksi = $_SESSION['transaksi'];
 				</td>
 				<td>
 					Rp. <input style="text-align: right;" type="text" readonly value="<?php echo $sub_total; ?>">
-					<a href="cart.php?act=del&amp;id=<?php echo $key; ?>&amp;ref=purchase.php" style="vertical-align: -3px;">
+					<a href="cart.php?act=del&amp;id=<?php echo $data[0]; ?>&amp;ref=purchase.php" style="vertical-align: -3px;">
 					<!-- <a href="delete.php?id=<?php echo $data[0]; ?>" style="vertical-align: -3px;"> -->
 						<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/delete.png' ?>" width ="13px">
 					</a>
