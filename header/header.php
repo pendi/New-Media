@@ -17,15 +17,16 @@
 </script>
 <style type="text/css">
 .search {
-	margin: 7px -27px;
+	margin: 7px -42px;
 	width: 23%;
 	height: 28px;
+	border-radius: 30px;
 }
 
 .icon-search {
 	width: 17px;
 	height: 17px;
-	margin: -4px 4px;
+	margin: -4px 12px;
 }
 
 .align {
@@ -41,7 +42,7 @@ img.padding {
 <body bgcolor="#80B2FF">
 <?php 
 if (!isset($_SESSION)) {
-    session_start();
+    @session_start();
 }
 
 include "../aplikasi/koneksi.php";
@@ -54,7 +55,7 @@ if(isset($_SESSION['id_admin'])) {
 $sql = mysql_query("SELECT * FROM login WHERE id = '$id'");
 $data = mysql_fetch_array($sql);
 ?>
-<table width="70%" align="center" bgcolor="#3385FF" class="radius">
+<table class="width radius" align="center" bgcolor="#3385FF">
 	<tr>
 		<td colspan="2"><a href="../aplikasi/index.php" class="href"><font color="#fff" size="30">&nbsp;ANILA SHOP</font></a></td>
 		<td align="right" style="vertical-align: top;">

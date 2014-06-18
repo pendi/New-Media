@@ -45,6 +45,14 @@
 table.border {
 	border-collapse: collapse;
 }
+
+tr.hover:hover {
+	background: #A1A1A1;
+}
+
+.width {
+	width: 70%;
+}
 /* End Table */
 
 
@@ -116,14 +124,14 @@ img.image:hover {
 }
 /*End Image*/
 
-/*Table*/
-tr.hover:hover {
-	background: #A1A1A1;
-}
-/*End Table*/
-
 /*Div*/
 .row {
+	margin-left: 190px;
+	width: 884px;
+	background-color: #3385FF;
+}
+
+.row1 {
 	margin-left: 190px;
 	width: 884px;
 	background-color: #E6E6E6;

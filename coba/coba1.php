@@ -1,5 +1,5 @@
 <?php 
-include "../aplikasi/function.php";
+include "../header/header.php";
 ?>
 <form action="" method="post">
 	Nama : <input type="text" name="nama" value="<?php echo setValue('nama');?>"><br/>
