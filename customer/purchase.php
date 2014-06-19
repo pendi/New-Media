@@ -32,13 +32,13 @@ $idtransaksi = $_SESSION['transaksi'];
 // });
 </script>
 <form method="post" action="save_purchase.php">
-	<div class="row">
-		<table width="90%" align="center">
+	<div class="row-isi">
+		<table width="95%" align="center">
 			<tr>
 				<td><h2>Details of Spending :</h2></td>
 			</tr>
 		</table>
-		<table border="1" width="90%" class="border" align="center">
+		<table border="1" class="border" width="95%" align="center">
 			<tr bgcolor="#75D1FF">
 				<th>No</th>
 				<th>Product Name</th>

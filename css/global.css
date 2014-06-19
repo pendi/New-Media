@@ -51,7 +51,7 @@ tr.hover:hover {
 }
 
 .width {
-	width: 70%;
+	width: 100%;
 }
 /* End Table */
 
@@ -125,23 +125,25 @@ img.image:hover {
 /*End Image*/
 
 /*Div*/
-.row {
+.row-header {
 	margin-left: 190px;
 	width: 884px;
 	background-color: #3385FF;
+	margin: auto;
 }
 
-.row1 {
+.row-menu {
+	margin-left: 190px;
+	width: 884px;
+	background-color: #0052CC;
+	margin: 5px auto;
+}
+
+.row-isi {
 	margin-left: 190px;
 	width: 884px;
 	background-color: #E6E6E6;
-}
-
-.row-index {
-	margin-left: 189px;
-	width: 879px;
-	background-color: #E6E6E6;
-	position: inherit;
+	margin: auto;
 }
 /*End Div*/
 

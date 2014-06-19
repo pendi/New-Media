@@ -14,8 +14,7 @@ include "../header/header_admin.php";
 			<td align="center"><h2>PROFILE</h2></td>
 		</tr>
 	</table>
-	<div class="row">
-		<table width="45%" align="center" border="1" style="border-collapse: collapse;">
+		<table class="width" bgcolor="#E6E6E6" align="center" border="1" style="border-collapse: collapse;">
 			<tr class="hover">
 				<td width="13%"><b>Id</b></td>
 				<td width="22%"><?php echo $data[0]; ?></td>
@@ -55,11 +54,10 @@ include "../header/header_admin.php";
 				<td></td>
 			</tr>
 		</table>
-		<table width="100%">
+		<table class="width" bgcolor="#E6E6E6" align="center">
 			<tr>
 				<td><?php include "../footer/footer.php"; ?></td>
 			</tr>
 		</table>
-	</div>
 </form>
 <?php } ?>

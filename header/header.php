@@ -55,54 +55,64 @@ if(isset($_SESSION['id_admin'])) {
 $sql = mysql_query("SELECT * FROM login WHERE id = '$id'");
 $data = mysql_fetch_array($sql);
 ?>
-<table class="width radius" align="center" bgcolor="#3385FF">
-	<tr>
-		<td colspan="2"><a href="../aplikasi/index.php" class="href"><font color="#fff" size="30">&nbsp;ANILA SHOP</font></a></td>
-		<td align="right" style="vertical-align: top;">
-			<?php if (isset($_SESSION["id"])): ?>
-				<a href="../admin/view_edit.php" class="href"><font color="#fff">
-				<?php echo ucfirst($data['first_name']); ?> <?php echo ucfirst($data['last_name']); ?></font></a> ||
-				<a href='../logout/logout.php' class='href'>Logout &nbsp;</a>
-			<?php else: ?>
-				<a href='../login/login.php' class='href'>Login &nbsp;</a>				
-			<?php endif ?>		
-		</td>
-	</tr>
-	<tr>
-		<td width="9%" align="right">
-			<img class="padding" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/logo-icon.png' ?>" width="70%">
-		</td>
-		<td width="26%" class="align">Selling a New Laptop Under Warranty</td>
-		<td width="35%" align="right">&nbsp;</td>
-	</tr>
-</table>
-<table width="70%" align="center" bgcolor="#0052CC" class="radius" style="margin: 5px auto;">
-	<tr>
-		<td>
-			<ul class="dropmenu">
-				<li><a href="../aplikasi/index.php">Home</a></li>
-				<li><a href="../customer/product.php?id=1">Acer</a></li>
-				<li><a href="../customer/product.php?id=2">Apple</a></li>
-				<li><a href="../customer/product.php?id=3">Asus</a></li>
-				<li><a href="../customer/product.php?id=4">Dell</a></li>
-				<li><a href="../customer/product.php?id=5">Hp</a></li>
-				<li><a href="../customer/product.php?id=6">Lenovo</a></li>
-				<li><a href="../customer/product.php?id=7">Samsung</a></li>
-				<li><a href="../customer/product.php?id=8">Toshiba</a></li>
-			</ul>
-		</td>
-	</tr>
-</table>
+<div class="row-header radius">
+	<table class="width">
+		<tr>
+			<td colspan="2"><a href="../aplikasi/index.php" class="href"><font color="#fff" size="30">&nbsp;ANILA SHOP</font></a></td>
+			<td align="right" style="vertical-align: top;">
+				<?php if (isset($_SESSION["id"])): ?>
+					<a href="../admin/view_edit.php" class="href"><font color="#fff">
+					<?php echo ucfirst($data['first_name']); ?> <?php echo ucfirst($data['last_name']); ?></font></a> ||
+					<a href='../logout/logout.php' class='href'>Logout &nbsp;</a>
+				<?php else: ?>
+					<a href='../login/login.php' class='href'>Login &nbsp;</a>				
+				<?php endif ?>		
+			</td>
+		</tr>
+		<tr>
+			<td width="9%" align="right">
+				<img class="padding" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/logo-icon.png' ?>" width="70%">
+			</td>
+			<td width="26%" class="align">Selling a New Laptop Under Warranty</td>
+			<td width="35%" align="right">&nbsp;</td>
+		</tr>
+	</table>
+</div>
+<div class="row-menu radius">
+	<table class="width">
+		<tr>
+			<td>
+				<ul class="dropmenu">
+					<li><a href="../aplikasi/index.php">Home</a></li>
+					<li><a href="../customer/product.php?id=1">Acer</a></li>
+					<li><a href="../customer/product.php?id=2">Apple</a></li>
+					<li><a href="../customer/product.php?id=3">Asus</a></li>
+					<li><a href="../customer/product.php?id=4">Dell</a></li>
+					<li><a href="../customer/product.php?id=5">Hp</a></li>
+					<li><a href="../customer/product.php?id=6">Lenovo</a></li>
+					<li><a href="../customer/product.php?id=7">Samsung</a></li>
+					<li><a href="../customer/product.php?id=8">Toshiba</a></li>
+				</ul>
+			</td>
+		</tr>
+	</table>
+</div>
 <form action="../search/search.php" method="post" onsubmit="return validasi(this)">
-<table width="70%" align="center" bgcolor="#E6E6E6" class="radius-top">
-	<tr>
-		<td align="right">
-			<input class="search" type="search" name="search" placeholder="Search Product">
-			<img class="icon-search" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/search.png' ?>">
-			<!-- <a href="../search/search.php" class="button" style="padding: 1px 10px 1px;">Search</a> -->
-			<!-- <input type="submit" name="submit" value="search"> -->
-		</td>
-	</tr>
+<div class="row-isi radius-top">
+	<table class="width">
+		<tr>
+			<td align="right">
+				<input class="search" type="search" name="search" placeholder="Search Product">
+				<img class="icon-search" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/search.png' ?>">
+				<!-- <a href="../search/search.php" class="button" style="padding: 1px 10px 1px;">Search</a> -->
+				<!-- <input type="submit" name="submit" value="search"> -->
+			</td>
+		</tr>
+	</table>
+</div>
+</form>
+</body>
+</html>
 	<!-- <tr>
 		<td><center>
 			<?php  
@@ -135,7 +145,3 @@ $data = mysql_fetch_array($sql);
 			<?php //include "footer.php" ?>	
 		</td>
 	</tr> -->
-</table>
-</form>
-</body>
-</html>
