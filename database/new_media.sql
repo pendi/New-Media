@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.5
+-- version 3.4.10.1deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 22, 2014 at 04:47 PM
--- Server version: 5.5.37-0ubuntu0.12.04.1
--- PHP Version: 5.4.4-14+deb7u9
+-- Generation Time: Jun 19, 2014 at 03:13 PM
+-- Server version: 5.5.37
+-- PHP Version: 5.3.10-1ubuntu3.11
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -45,6 +45,26 @@ INSERT INTO `category` (`id`, `vendor`) VALUES
 (6, 'Lenovo'),
 (7, 'Samsung'),
 (8, 'Toshiba');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `coba`
+--
+
+CREATE TABLE IF NOT EXISTS `coba` (
+  `id_tamu` varchar(5) NOT NULL,
+  `nama` varchar(25) NOT NULL,
+  `pesan` varchar(25) NOT NULL,
+  PRIMARY KEY (`id_tamu`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `coba`
+--
+
+INSERT INTO `coba` (`id_tamu`, `nama`, `pesan`) VALUES
+('AP001', 'pendi', 'sdknsjdfvns');
 
 -- --------------------------------------------------------
 
@@ -183,7 +203,7 @@ INSERT INTO `login1` (`id`, `username`, `password`) VALUES
 CREATE TABLE IF NOT EXISTS `orders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_cus` int(11) NOT NULL,
-  `id_product` char(5) NOT NULL,
+  `id_product` varchar(20) NOT NULL,
   `quantity` int(11) NOT NULL,
   `method` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
@@ -209,13 +229,13 @@ INSERT INTO `orders` (`id`, `id_cus`, `id_product`, `quantity`, `method`) VALUES
 
 CREATE TABLE IF NOT EXISTS `orders_temp` (
   `id_order` int(11) NOT NULL AUTO_INCREMENT,
-  `id_product` char(5) NOT NULL,
+  `id_product` varchar(20) NOT NULL,
   `id_session` varchar(150) NOT NULL,
   `quantity` int(11) NOT NULL,
   `total` double NOT NULL,
   `method` varchar(30) NOT NULL DEFAULT 'bca',
   PRIMARY KEY (`id_order`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=54 ;
 
 --
 -- Dumping data for table `orders_temp`
@@ -235,7 +255,26 @@ INSERT INTO `orders_temp` (`id_order`, `id_product`, `id_session`, `quantity`, `
 (12, 'AC006', '', 3, 5999938, 'bca'),
 (13, 'AC006', '26jlmj8a7mpq8rorsgjummj246', 1, 1999938, 'mandiri'),
 (16, 'AC001', '20140522115714', 1, 4300000, 'bca'),
-(19, '', 'hp4067g3hj88lahgsj2mathbi4', 1, 4299938, '');
+(19, '', 'hp4067g3hj88lahgsj2mathbi4', 1, 4299938, ''),
+(27, 'AC001', '20140523142042', 1, 4300000, 'bca'),
+(28, 'AC001', '20140523163414', 1, 4300000, 'bca'),
+(32, 'AC001', '20140526111003', 1, 4300000, 'bca'),
+(33, 'AC001', '20140526111003', 1, 4300000, 'bca'),
+(34, 'AC001', '20140527153011', 1, 4300000, 'bca'),
+(35, 'AC002', '20140527153011', 1, 3993000, 'bca'),
+(37, '', 'koj88ldt6h2d8p9mv07fkfuob7', 0, -62, 'bca'),
+(42, 'AC001', '140528152420', 1, 4300000, 'bca'),
+(43, 'AC001', '140603124838', 1, 0, 'bca'),
+(44, 'AC001', '140603124838', 1, 0, 'bca'),
+(45, 'AC001', '140603124838', 1, 0, 'bca'),
+(46, 'AC001', '140603124838', 1, 0, 'bca'),
+(47, 'AC001', '140603124838', 1, 0, 'bca'),
+(48, 'AC001', '140603124838', 1, 0, 'bca'),
+(49, 'AC001', '140603124838', 1, 0, 'bca'),
+(50, 'AC001', '140603124838', 1, 0, 'bca'),
+(51, 'AC001', '140603124838', 1, 0, 'bca'),
+(52, 'AS001', '140603124838', 1, 0, 'bca'),
+(53, 'AS001', '140603124838', 1, 0, 'bca');
 
 -- --------------------------------------------------------
 
@@ -244,7 +283,7 @@ INSERT INTO `orders_temp` (`id_order`, `id_product`, `id_session`, `quantity`, `
 --
 
 CREATE TABLE IF NOT EXISTS `product` (
-  `id_product` char(5) NOT NULL,
+  `id_product` varchar(20) NOT NULL,
   `name` varchar(20) NOT NULL,
   `type` varchar(50) NOT NULL,
   `price` double NOT NULL,
@@ -262,9 +301,41 @@ CREATE TABLE IF NOT EXISTS `product` (
 --
 
 INSERT INTO `product` (`id_product`, `name`, `type`, `price`, `description`, `stock`, `image`, `category_id`, `status`, `specification`) VALUES
-('AC001', 'Acer Aspire', 'E1-410-29202G50Mn', 4300000, 'Intel N2920\r\n14” HD Acer Cine Crystal\r\n2GB DDR3\r\n500GB\r\nIntel HD\r\nDVDRW\r\nCamera\r\nWifi\r\nNo Bluetooth\r\nCard Reader\r\nDOS ', 2, '', 1, 2, ''),
-('AC002', 'Acer Aspire', 'E1-422-12502G50Mn', 3993000, 'AMD Dual Core Processor E1-2500\r\nAMD Rodeon HD 8240\r\n14" resolution up to 1366 x 768\r\n2GB RAM\r\n500GB HDD\r\nWiFi\r\nDOS', 3, '', 1, 2, ''),
+('AC001', 'Acer Aspire', 'E1-410-29202G50Mn', 4300000, 'Intel Celeron Dual Core Processor N2820, Intel HD Graphic, 14" resolution up to 1366 x 768, 2GB RAM, 500GB HDD, USB 3.0, WiFi, DOS.', 2, '../aplikasi/image/acer-aspire-e1-410-28202g32mn-dos-black-1.png', 1, 2, ''),
+('AC002', 'Acer Aspire', 'E1-422-12502G50Mn', 3993000, 'AMD Dual Core Processor E1-2500\r\nAMD Rodeon HD 8240\r\n14" resolution up to 1366 x 768\r\n2GB RAM\r\n500GB HDD\r\nWiFi\r\nDOS', 0, '', 1, 2, ''),
 ('AS001', 'Asus', 'A450CA-WX103D 1007U', 3778000, 'Intel Celeron 1007U DC 1.5Ghz Processor\r\nIntel HD Graphics 4000\r\n14" WXGA LED Resolution up to 1366 x 768\r\n2 GB DDR3\r\n500 GB HDD\r\nDVD/RW\r\nBluetooth\r\nHDMI\r\nDOS', 5, '', 3, 2, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product2`
+--
+
+CREATE TABLE IF NOT EXISTS `product2` (
+  `id_product` varchar(20) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `price` double NOT NULL,
+  `description` text NOT NULL,
+  `stock` int(3) NOT NULL,
+  `image` text NOT NULL,
+  `category_id` int(1) NOT NULL,
+  `status` int(1) NOT NULL,
+  `specification` text NOT NULL,
+  PRIMARY KEY (`id_product`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `product2`
+--
+
+INSERT INTO `product2` (`id_product`, `name`, `type`, `price`, `description`, `stock`, `image`, `category_id`, `status`, `specification`) VALUES
+('BGIP0001', 'eses', 'ffsdsfv', 4444444, 'zszfzsfasafads', 3, '', 2, 1, ''),
+('IP0001', 'sdas', 'adsd', 434, 'vxvxfvxvxvfx', 7, '', 2, 1, ''),
+('IPOJ0002', 'frf', 'rggee', 565, 'frhzdhzdthzde', 1, '', 4, 1, ''),
+('IPVD0001', 'dssdf', 'sdfsf', 43, 'zdfzdvzdfsd', 5, '', 1, 1, ''),
+('JTIP0002', 'asa', 'frgdgd', 56665, 'sssrgsgr', 7, '', 3, 1, ''),
+('QSIP0001', 'Acer Aspire', 'asasas', 54, 'ssfssf', 5, '', 1, 1, '');
 
 -- --------------------------------------------------------
 

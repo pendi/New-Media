@@ -17,16 +17,18 @@
 </script>
 <style type="text/css">
 .search {
-	margin: 7px -42px;
+	margin: 7px -387px;
 	width: 23%;
 	height: 28px;
 	border-radius: 30px;
+	outline-style: none;
+	padding-left: 23px;
 }
 
 .icon-search {
 	width: 17px;
 	height: 17px;
-	margin: -4px 12px;
+	margin: -5px 187px;
 }
 
 .align {
