@@ -8,13 +8,6 @@ include "../header/header.php";
 include "../aplikasi/koneksi.php";
 
 $idtransaksi = $_SESSION['transaksi'];
-
-// $query = "SELECT * FROM product WHERE id_product = '$_GET[id_product]'";
-// $tampil = mysql_query($query);
-// $sql = mysql_query("select orders_temp.*, product.name, product.type, product.stock from orders_temp, product
-// where orders_temp.id_session='$idtransaksi' and orders_temp.id_product=product.id_product");
-
-// include "function.php";
 ?>
 <script>
 // $(function(){
@@ -46,17 +39,11 @@ $idtransaksi = $_SESSION['transaksi'];
 				<th>Quantity</th>
 				<th>Total</th>
 			</tr>
-			<?php  
-				// $sub_total = 0;
+			<?php
 				$no = 1;
-				// while ($data = mysql_fetch_array($sql)) {
-				// 	$id = $data['id_order'];
-				// 	$total = $data["total"];
 				$subs_total = 0;
 				if (isset($_SESSION['items'])) {
 				    foreach ($_SESSION['items'] as $key => $val){
-				  //       $query = mysql_query("select orders_temp.*, product.name, product.type, product.stock from orders_temp, product
-						// where orders_temp.id_session='$idtransaksi' and orders_temp.$key=product.$key");
 						$query = mysql_query ("select * from product where id_product = '$key'");
 				        $data = mysql_fetch_array($query);
 				         
@@ -97,8 +84,6 @@ $idtransaksi = $_SESSION['transaksi'];
 				mysql_free_result($query);
 					}
 				}
-				// $sub_total = $sub_total + $data['total'];
-				// }
 			?>
 			<tr>
 				<td colspan="3">&nbsp;</td>
@@ -111,7 +96,6 @@ $idtransaksi = $_SESSION['transaksi'];
 			</tr>
 			<?php  
 				$total = 0;
-				// $total = $sub_total - 62;
 			?>
 			<tr>
 				<td colspan="2" align="center"><a href="../aplikasi/index.php"><input type="button" value="Buy Again"></a></td>

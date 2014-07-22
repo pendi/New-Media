@@ -21,38 +21,41 @@ include "../header/header.php";
 		}    
 	}
 </script>
-<form action="login_process.php" method="post" onsubmit="return validasi(this)">
-	<table width="70%" align="center" bgcolor="#E6E6E6">
-		<tr>
-			<td colspan="3" align="center"><h2>Login Admin</h2></td>
-		</tr>
-		<tr>
-			<td colspan="3">&nbsp;</td>
-		</tr>
-		<tr>
-			<td width="27%">&nbsp;</td>
-			<td width="8%">Username</td>
-			<td width="35%"><input type="text" name="username" placeholder="username" autofocus></td>	
-		</tr>
-		<tr>
-			<td>&nbsp;</td>
-			<td>Password</td>
-			<td><input type="password" name="password" placeholder="password"></td>	
-		</tr>
-		<tr>
-			<td colspan="3">&nbsp;</td>
-		</tr>
-		<tr>
-			<td colspan="3" align="center">
-				<input type="submit" name="submit" value="Login">
-				<a href="../aplikasi/index.php"><input type="button" name="button" value="Back"></a>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="3">&nbsp;</td>
-		</tr>
-		<tr>
-			<td colspan="3"><?php include "../footer/footer.php"; ?></td>
-		</tr>
-	</table>
+<form action="login_process.php" method="post">
+	<div class="row-isi">
+		<table class="width">
+			<tr>
+				<td colspan="3" align="center"><h2>Login Admin</h2></td>
+			</tr>
+			<tr>
+				<td colspan="3">&nbsp;</td>
+			</tr>
+			<tr>
+				<td width="27%">&nbsp;</td>
+				<td width="8%">Username</td>
+				<td width="35%"><input type="text" name="username" placeholder="username" autofocus></td>	
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>Password</td>
+				<td><input type="password" name="password" placeholder="password"></td>	
+			</tr>
+			<tr>
+				<td colspan="3">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center">
+					<a href="login_process.php" id="buy" class="button round" oncl="return validasi(this)">Login</a>
+					<!-- <input type="submit"> -->
+					<a href="../aplikasi/index.php"><input type="button" name="button" value="Back"></a>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="3"><?php include "../footer/footer.php"; ?></td>
+			</tr>
+		</table>		
+	</div>
 </form>

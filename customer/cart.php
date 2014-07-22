@@ -11,9 +11,6 @@
     //         VALUES(null,'$id','$idt','$quantity','$total','bca')");
     $query = mysql_query("SELECT * FROM product WHERE id_product = '$_GET[id]'");
     $data = mysql_fetch_array($query);
-    // if (!isset($_SESSION)) {
-    //     session_start();
-    // }
      
     if (isset($_GET['act']) && isset($_GET['ref'])) 
     {
