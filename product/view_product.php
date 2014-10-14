@@ -86,7 +86,7 @@ include "../header/header_admin.php";
 	<tr>
 		<td align="right">		
 			<?php
-				echo "<br>Halaman : ";
+				echo "<br>Page : ";
 
 				$tampil2="select * from product"; 
 				$hasil2=mysql_query($tampil2); 

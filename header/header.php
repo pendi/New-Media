@@ -64,7 +64,7 @@ $data = mysql_fetch_array($sql);
 			<td align="right" style="vertical-align: top;">
 				<?php if (isset($_SESSION["id"])): ?>
 					<a href="../admin/view_edit.php" class="href"><font color="#fff">
-					<?php echo ucfirst($data['first_name']); ?> <?php echo ucfirst($data['last_name']); ?></font></a> ||
+						<?php echo ucfirst($data['first_name']); ?> <?php echo ucfirst($data['last_name']); ?></font></a> ||
 					<a href='../logout/logout.php' class='href'>Logout &nbsp;</a>
 				<?php else: ?>
 					<a href='../login/login.php' class='href'>Login &nbsp;</a>				
@@ -73,7 +73,7 @@ $data = mysql_fetch_array($sql);
 		</tr>
 		<tr>
 			<td width="9%" align="right">
-				<img class="padding" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/logo-icon.png' ?>" width="70%">
+				<a href="../aplikasi/index.php" class="href"><img class="padding" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/logo-icon.png' ?>" width="70%"></a>
 			</td>
 			<td width="26%" class="align">Selling a New Laptop Under Warranty</td>
 			<td width="35%" align="right">&nbsp;</td>

@@ -1,8 +1,19 @@
 <?php 
+	include "../header/header.php";
+?>
+<style type="text/css">
+	img.scale:hover {
+		-webkit-transform: scale(1.2,1.2);
+		-moz-transform: scale(1.2,1.2);
+		-ms-transform: scale(1.2,1.2);
+		-o-transform: scale(1.2,1.2);
+	}
+</style>
+<?php 
 include "koneksi.php";
-include "../header/header.php";
+// include "../header/header.php";
 
-$batas   = 5;
+$batas   = 2;
 // $halaman = $_GET['halaman'];
 if(isset($_GET['halaman'])) { 
 	$halaman = $_GET['halaman']; 
@@ -65,11 +76,11 @@ $sql = mysql_query("select * from product where status = 2 order by $order $pos 
 			</td>
 		</tr>
 		<tr>
-			<td class="padding-left" width="120px">
+			<td class="padding-left" width="128px">
 				<?php if (!empty($r['image'])): ?>				
-					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img src="<?php echo $r['image']; ?>" width="120px" height="120px"></a>
+					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img class="scale" src="<?php echo $r['image']; ?>" width="120px" height="120px"></a>
 				<?php else : ?>
-					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="120px" height="120px"></a>
+					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img class="scale" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="120px" height="120px"></a>
 				<?php endif ?>
 			</td>
 			<td style="vertical-align: top; font-size: 14px;" colspan="2" class="padding-right">

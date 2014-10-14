@@ -45,8 +45,8 @@ include "../header/header.php";
 			</tr>
 			<tr>
 				<td colspan="3" align="center">
-					<a href="login_process.php" id="buy" class="button round" oncl="return validasi(this)">Login</a>
-					<!-- <input type="submit"> -->
+					<!-- <a href="login_process.php" id="buy" class="button round" oncl="return validasi(this)">Login</a> -->
+					<input type="submit">
 					<a href="../aplikasi/index.php"><input type="button" name="button" value="Back"></a>
 				</td>
 			</tr>

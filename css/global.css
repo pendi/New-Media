@@ -224,8 +224,10 @@ img.image:hover {
 }
 /*End Pagination*/
 
+/*Stock*/
 .stock {
 	font-weight: bold;
 	margin-right: 20px;
 	color: #F00;
 }
+/*End Stock*/
