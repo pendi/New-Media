@@ -33,12 +33,12 @@ include "../header/header.php";
 			<tr>
 				<td width="27%">&nbsp;</td>
 				<td width="8%">Username</td>
-				<td width="35%"><input type="text" name="username" placeholder="username" autofocus></td>	
+				<td width="35%"><input type="text" class="input" name="username" placeholder="username" autofocus></td>	
 			</tr>
 			<tr>
 				<td>&nbsp;</td>
 				<td>Password</td>
-				<td><input type="password" name="password" placeholder="password"></td>	
+				<td><input type="password" class="input" name="password" placeholder="password"></td>	
 			</tr>
 			<tr>
 				<td colspan="3">&nbsp;</td>
