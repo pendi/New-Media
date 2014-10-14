@@ -17,19 +17,19 @@
 </script>
 <style type="text/css">
 .search {
-	margin: 7px -387px;
+	margin: 7px 10px;
 	width: 23%;
 	height: 28px;
 	border-radius: 30px;
 	outline-style: none;
-	padding-left: 23px;
+	padding-left: 7px;
 }
 
-.icon-search {
+/*.icon-search {
 	width: 17px;
 	height: 17px;
 	margin: -5px 187px;
-}
+}*/
 
 .align {
 	vertical-align: bottom;
@@ -75,7 +75,7 @@ $data = mysql_fetch_array($sql);
 			<td width="9%" align="right">
 				<a href="../aplikasi/index.php" class="href"><img class="padding" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/logo-icon.png' ?>" width="70%"></a>
 			</td>
-			<td width="26%" class="align">Selling a New Laptop Under Warranty</td>
+			<td width="26%" class="align">Menjual Laptop Baru dan Bergaransi</td>
 			<td width="35%" align="right">&nbsp;</td>
 		</tr>
 	</table>
@@ -85,7 +85,7 @@ $data = mysql_fetch_array($sql);
 		<tr>
 			<td>
 				<ul class="dropmenu">
-					<li><a href="../aplikasi/index.php">Home</a></li>
+					<li><a href="../aplikasi/index.php">Beranda</a></li>
 					<li><a href="../customer/product.php?id=1">Acer</a></li>
 					<li><a href="../customer/product.php?id=2">Apple</a></li>
 					<li><a href="../customer/product.php?id=3">Asus</a></li>
@@ -104,8 +104,8 @@ $data = mysql_fetch_array($sql);
 	<table class="width">
 		<tr>
 			<td align="right">
-				<input class="search" type="search" name="search" placeholder="Search Product">
-				<img class="icon-search" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/search.png' ?>">
+				<input class="search" type="search" name="search" placeholder="Cari Produk">
+				<!-- <img class="icon-search" src="<?php //echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/search.png' ?>"> -->
 				<!-- <a href="../search/search.php" class="button" style="padding: 1px 10px 1px;">Search</a> -->
 				<!-- <input type="submit" name="submit" value="search"> -->
 			</td>

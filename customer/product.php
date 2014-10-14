@@ -95,7 +95,7 @@ if (isset($id)) {
 				<?php if ($stock == 0): ?>
 					<a>&nbsp;</a>
 				<?php else: ?>
-					<a href="cart.php?act=add&amp;id=<?php echo $r['id_product']; ?>&amp;ref=purchase.php" id="buy" class="button round">BUY</a>
+					<a href="cart.php?act=add&amp;id=<?php echo $r['id_product']; ?>&amp;ref=purchase.php" id="buy" class="button round">BELI</a>
 				<?php endif ?>
 			</td>
 		</tr>

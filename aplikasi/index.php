@@ -98,7 +98,7 @@ $sql = mysql_query("select * from product where status = 2 order by $order $pos 
 				<?php if ($stock == 0): ?>
 					<a>&nbsp;</a>
 				<?php else: ?>
-					<a href="../customer/cart.php?act=add&amp;id=<?php echo $r[0]; ?>&amp;ref=purchase.php" id="buy" class="button round">BUY</a>
+					<a href="../customer/cart.php?act=add&amp;id=<?php echo $r[0]; ?>&amp;ref=purchase.php" id="buy" class="button round">BELI</a>
 				<?php endif ?>
 			</td>
 		</tr>

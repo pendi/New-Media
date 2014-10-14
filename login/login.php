@@ -21,7 +21,7 @@ include "../header/header.php";
 		}    
 	}
 </script>
-<form action="login_process.php" method="post">
+<form action="login_process.php" method="post" onsubmit="return validasi(this)">
 	<div class="row-isi">
 		<table class="width">
 			<tr>
@@ -46,8 +46,8 @@ include "../header/header.php";
 			<tr>
 				<td colspan="3" align="center">
 					<!-- <a href="login_process.php" id="buy" class="button round" oncl="return validasi(this)">Login</a> -->
-					<input type="submit">
-					<a href="../aplikasi/index.php"><input type="button" name="button" value="Back"></a>
+					<input type="submit" class="submit">
+					<a href="../aplikasi/index.php"><input type="button" name="button" value="Kembali"></a>
 				</td>
 			</tr>
 			<tr>
