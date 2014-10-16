@@ -5,7 +5,6 @@ if(!isset($_SESSION['transaksi'])){
     $_SESSION['transaksi'] = $idt;
 }
 include "../header/header.php";
-include "../aplikasi/koneksi.php";
 
 $idtransaksi = $_SESSION['transaksi'];
 ?>
@@ -50,11 +49,12 @@ $idtransaksi = $_SESSION['transaksi'];
 				        $sub_total = $data['price'] * $val;
 				        $subs_total += $sub_total;
 			?>
+					<?php //echo "<pre>"; print_r($val); exit(); ?>
 			<!-- <input type="hidden" name="id" value="<?php //echo $data[0]; ?>" /> -->
 			<tr>
 				<td align="center"><?php echo $no; ?></td>
 				<td><?php echo $data['name']; ?>&nbsp;<?php echo $data['type']; ?></td>
-				<td>Rp. <input readonly type="text" value="<?php echo $data['price']; ?>"></td>
+				<td>Rp. <input readonly type="text" value="<?php echo price($data['price']); ?>"></td>
 				<!-- <td><input style="text-align: center;" size="1" name="quantity" type="text" class="qty" value="1"></td> -->
 
 
@@ -62,27 +62,30 @@ $idtransaksi = $_SESSION['transaksi'];
 					<?php if ($val > 1): ?>
 						<a class="href minus" href="cart.php?act=min&amp;id=<?php echo $key; ?>&amp;ref=purchase.php"></a>
 					<?php else: ?>
-						<a class="href minus disabled" href="cart.php?act=min&amp;id=<?php echo $key; ?>&amp;ref=purchase.php"></a>
+						<a class="href minus disabled"></a>
 					<?php endif ?>
 					<input name="qty" readonly type="text" size="1" style="text-align:center" value="<?php echo $val; ?>"/>
 					<?php if ($val < $data['stock']): ?>
 						<a class="href plus" href="cart.php?act=plus&amp;id=<?php echo $key; ?>&amp;ref=purchase.php"></a>
 					<?php else: ?>
-						<a class="href plus disabled" href="cart.php?act=plus&amp;id=<?php echo $key; ?>&amp;ref=purchase.php"></a>
+						<a class="href plus disabled"></a>
 					<?php endif ?>
 				</td>
 				<td>
 					Rp. <input style="text-align: right;" type="text" readonly value="<?php echo $sub_total; ?>">
-					<a href="cart.php?act=del&amp;id=<?php echo $data[0]; ?>&amp;ref=purchase.php" style="vertical-align: -3px;">
-					<!-- <a href="delete.php?id=<?php echo $data[0]; ?>" style="vertical-align: -3px;"> -->
+
+					<!-- <a href="cart.php?act=del&amp;id=<?php //echo $data[0]; ?>&amp;ref=purchase.php" style="vertical-align: -3px;"> -->
+					<a href="delete.php?id=<?php echo $data[0]; ?>" style="vertical-align: -3px;">
 						<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/delete.png' ?>" width ="13px">
 					</a>
 				</td>
 			</tr>
 			<?php 
 				$no++;
-				mysql_free_result($query);
+				// mysql_free_result($query);
 					}
+				} elseif($val == 0) {
+					header('Location: index.php');
 				}
 			?>
 			<tr>

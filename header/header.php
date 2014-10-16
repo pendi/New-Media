@@ -25,12 +25,6 @@
 	padding-left: 7px;
 }
 
-/*.icon-search {
-	width: 17px;
-	height: 17px;
-	margin: -5px 187px;
-}*/
-
 .align {
 	vertical-align: bottom;
 	padding-bottom: 8px;
@@ -48,6 +42,7 @@ if (!isset($_SESSION)) {
 }
 
 include "../aplikasi/koneksi.php";
+include "../function/function.php";
 if(isset($_SESSION['id_admin'])) { 
 	$id = $_SESSION['id_admin']; 
 } else { 

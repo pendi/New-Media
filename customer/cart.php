@@ -1,16 +1,31 @@
 <?php
     session_start();
-    // session_start();
+    include "../aplikasi/koneksi.php";
     if(!isset($_SESSION['transaksi'])){
         $idt = date("YmdHis");
         $_SESSION['transaksi'] = $idt;
     }
     $idt = $_SESSION['transaksi'];
     $id = $_GET['id'];
-    // $insert = mysql_query("INSERT INTO orders_temp(id_order,id_product,id_session,quantity,total,method) 
-    //         VALUES(null,'$id','$idt','$quantity','$total','bca')");
-    $query = mysql_query("SELECT * FROM product WHERE id_product = '$_GET[id]'");
-    $data = mysql_fetch_array($query);
+
+    $encript = md5($id);
+    $regex = preg_replace("/[^A-Za-z]/", '', $encript);
+    $alfa = substr($regex, 0, 5);
+    $kode = strtoupper($alfa);
+
+    $kdauto = mysql_query("SELECT max(id_order) AS last FROM orders_temp WHERE id_order LIKE '$kode%'");
+    $result = mysql_fetch_array($kdauto);
+    $lastNoTransaksi = $result['last'];
+    $lastNoUrut = substr($lastNoTransaksi, 5, 4);
+    $nextNoUrut = $lastNoUrut + 1;
+    $nextNoTransaksi = $kode.sprintf('%04s', $nextNoUrut);
+    // echo "<pre>";
+    // print_r($nextNoTransaksi);
+    // exit();
+    $insert = mysql_query("INSERT INTO orders_temp(id_order,id_product,id_session,quantity,total,method) 
+            VALUES($nextNoTransaksi,'$id','$idt','0','0','bca')");
+    // $query = mysql_query("SELECT * FROM product WHERE id_product = '$_GET[id]'");
+    // $data = mysql_fetch_array($query);
      
     if (isset($_GET['act']) && isset($_GET['ref'])) 
     {
@@ -18,10 +33,10 @@
         $ref = $_GET['ref'];
              
         if ($act == "add") 
-        {        	
+        {           
             if (isset($_GET['id'])) 
             {
-                $id = $_GET['id'];	                
+                $id = $_GET['id'];                  
                 if (isset($_SESSION['items'][$id])) 
                 {
                     $_SESSION['items'][$id] += 1;
@@ -60,8 +75,6 @@
                 $id = $_GET['id'];
                 if (isset($_SESSION['items'][$id])) 
                 {
-                    var_dump($_SESSION['items'][$id]);
-                    exit();
                     unset($_SESSION['items'][$id]);
                 }
             }

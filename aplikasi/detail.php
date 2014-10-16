@@ -1,5 +1,4 @@
-<?php  
-include "koneksi.php";
+<?php
 include "../header/header.php";
 
 $sql=mysql_query("select * from product where id_product='$_GET[id_product]'");
@@ -30,14 +29,14 @@ table.padding tr > td {
 				<?php if ($stock == 0): ?>
 					<a class="stock" style="font-size: x-large; color: #F00;">STOK HABIS</a>			
 				<?php endif ?>
-				<a style="font-size: x-large; color: #00008B;">Rp. <?php echo number_format($price,0,'','.').",-" ?></a> &nbsp;
+				<a style="font-size: x-large; color: #00008B;">Rp. <?php echo price($price); ?></a> &nbsp;
 				<?php if ($stock == 0): ?>
 					<a></a>
 				<?php else: ?>
-					<a href="../customer/cart.php?act=add&amp;id=<?php echo $data[0]; ?>&amp;ref=purchase.php" id="buy" class="button round-group">BUY</a>
+					<a href="../customer/cart.php?act=add&amp;id=<?php echo $data[0]; ?>&amp;ref=purchase.php" id="buy" class="button round-group">BELI</a>
 				<?php endif ?>
 				<!-- <a href="../customer/cart.php?act=add&amp;id=<?php echo $r['id_product']; ?>&amp;ref=purchase.php" id="buy" class="button round-group">BUY</a> -->
-				<a href="index.php" id="alert" class="button alert round-group-right">BACK</a>
+				<a href="index.php" id="alert" class="button alert round-group-right">KEMBALI</a>
 
 
 				<!-- <a href="../customer/check.php?id_product=<?php echo $data[0]; ?>" class="href">
@@ -49,27 +48,22 @@ table.padding tr > td {
 			</td>
 		</tr>
 		<tr>
-			<td width="12%">Produck</td>
+			<td width="12%">Produk</td>
 			<td width="2%">:</td>
 			<td width="51%"><?php echo $data['name'] ?></td>
 		</tr>
 		<tr>
-			<td>Type</td>
+			<td>Jenis</td>
 			<td>:</td>
 			<td><?php echo $data['type'] ?></td>
 		</tr>
 		<tr>
-			<td>Price</td>
-			<td>:</td>
-			<td>Rp. <?php echo $data['price']; ?></td>
-		</tr>
-		<tr>
-			<td>Available Stock</td>
+			<td>Stok Tersedia</td>
 			<td>:</td>
 			<td>
 				<?php
 					if ($stock==0) {
-						echo "Stok Habis";
+						echo "-";
 					} else {
 						echo $stock;
 					}
@@ -77,7 +71,7 @@ table.padding tr > td {
 			</td>
 		</tr>
 		<tr>
-			<td class="top">Description</td>
+			<td class="top">Deskripsi</td>
 			<td class="top">:</td>
 			<td><?php echo nl2br($data['description']); ?></td>
 		</tr>

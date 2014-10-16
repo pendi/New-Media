@@ -44,3 +44,8 @@ function kdauto() {
 	$nextNoTransaksi = "IP".sprintf('%04s', $nextNoUrut);
 	return $nextNoTransaksi;
 }
+
+function price($price) {
+	$format = number_format($price,0,'','.').",-";
+	return $format;
+}

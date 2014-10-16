@@ -1,5 +1,4 @@
-<?php 
-include "../aplikasi/koneksi.php";
+<?php
 session_start();
 	if(!isset($_SESSION['id'])) {
 	  	echo "<script>window.alert('Anda Harus Login Dulu');</script>";
@@ -11,40 +10,42 @@ $data = mysql_fetch_array($query);
 ?>
 <form action="editing_process_last_name.php" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="<?php echo $data[0]; ?>" />
-	<table width="70%" align="center" bgcolor="#E6E6E6">
-		<tr>
-			<td colspan="3" align="center"><h2>EDIT LAST NAME</h2></td>
-		</tr>
-		<tr>
-			<td width="23%"></td>
-			<td width="12%">Change Last Name &nbsp;</td>
-			<td width="35%"><input autofocus type="text" name="last_name" placeholder="Last Name" value="<?php echo $data[3]; ?>"></td>
-		</tr>
-		<tr>
-			<td colspan="3">&nbsp;</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>Insert Password &nbsp;</td>
-			<td><input type="password" name="password" placeholder="Insert Password"></td>
-		</tr>
-		<tr>
-			<td colspan="3">&nbsp;</td>
-		</tr>
-		<tr>
-			<td colspan="3" align="center">
-				<input type="submit" name="submit" value="Submit">
-				<a href="view_edit.php"><input type="button" name="button" value="Back"></a>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="3">&nbsp;</td>
-		</tr>
-		<tr>
-			<td colspan="3">
-				<?php include "../footer/footer.php"; ?>
-			</td>
-		</tr>
-	</table>
+	<div class="row-isi">
+		<table class="width">
+			<tr>
+				<td colspan="3" align="center"><h2>EDIT NAMA BELAKANG</h2></td>
+			</tr>
+			<tr>
+				<td width="23%"></td>
+				<td width="13%">Ganti Nama Belakang &nbsp;</td>
+				<td width="35%"><input autofocus type="text" class="input" name="last_name" placeholder="Nama Belakang" value="<?php echo $data[3]; ?>"></td>
+			</tr>
+			<tr>
+				<td colspan="3">&nbsp;</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>Masukan Password &nbsp;</td>
+				<td><input type="password" class="input" name="password" placeholder="Masukan Password"></td>
+			</tr>
+			<tr>
+				<td colspan="3">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center">
+					<input type="submit" name="submit" value="Simpan">
+					<a href="view_edit.php"><input type="button" name="button" value="Kembali"></a>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<?php include "../footer/footer.php"; ?>
+				</td>
+			</tr>
+		</table>		
+	</div>
 </form>
 <?php } ?>

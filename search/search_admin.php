@@ -1,5 +1,4 @@
 <?php
-include "../aplikasi/koneksi.php";
 include "../header/header_admin.php";
 
 $batas   = 10;

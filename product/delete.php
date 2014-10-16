@@ -1,5 +1,4 @@
-<?php 
-include "../aplikasi/koneksi.php";
+<?php
 session_start();
 	if(!isset($_SESSION['id'])) {
 	  	echo "<script>window.alert('Anda Harus Login Dulu');</script>";
@@ -18,41 +17,41 @@ $data = mysql_fetch_array($que);
 <input type="hidden" name="id" value="<?php echo $data[0]; ?>">
 	<table width="70%" align="center" bgcolor="#E6E6E6">
 		<tr>
-			<td colspan="3" align="center"><h2>DELETE PRODUCT</h2></td>
+			<td colspan="3" align="center"><h2>HAPUS PRODUK</h2></td>
 		</tr>
 		<tr>
-			<td width="25%"></td>
-			<td width="10%">Id Product &nbsp;</td>
-			<td width="35%"><?php echo $data[0]; ?></td>
+			<td width="20%"></td>
+			<td width="12%">Id Produk &nbsp;</td>
+			<td width="33%"><?php echo $data[0]; ?></td>
 		</tr>
 		<tr>
 			<td></td>
-			<td>Name &nbsp;</td>
+			<td>Nama &nbsp;</td>
 			<td><?php echo $data[1]; ?></td>
 		</tr>
 		<tr>
 			<td></td>
-			<td>Type &nbsp;</td>
+			<td>Jenis &nbsp;</td>
 			<td><?php echo $data[2]; ?></td>
 		</tr>
 		<tr>
 			<td></td>
-			<td>Price &nbsp;</td>
+			<td>Harga &nbsp;</td>
 			<td><?php echo $data[3]; ?></td>
 		</tr>
 		<tr>
 			<td></td>
-			<td class="td">Description &nbsp;</td>
+			<td class="td">Deskripsi &nbsp;</td>
 			<td><?php echo nl2br($data[4]); ?></td>
 		</tr>
 		<tr>
 			<td></td>
-			<td>Stock &nbsp;</td>
+			<td>Stok &nbsp;</td>
 			<td><?php echo $data[5]; ?></td>
 		</tr>
 		<tr>
 			<td></td>
-			<td>Image</td>
+			<td>Gambar</td>
 			<td>
 				<?php if (!empty($data['image'])): ?>				
 					<img src="<?php echo $data[6]; ?>" width="150px"><br/>
@@ -66,8 +65,8 @@ $data = mysql_fetch_array($que);
 		</tr>
 		<tr>
 			<td colspan="3" align="center">
-				<input type="submit" name="submit" value="Delete">
-				<a href="view_product.php"><input type="button" name="button" value="Back"></a>
+				<input type="submit" name="submit" value="Hapus">
+				<a href="view_product.php"><input type="button" name="button" value="Kembali"></a>
 			</td>
 		</tr>
 		<tr>

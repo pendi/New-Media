@@ -9,9 +9,7 @@
 		-o-transform: scale(1.2,1.2);
 	}
 </style>
-<?php 
-include "koneksi.php";
-// include "../header/header.php";
+<?php
 
 $batas   = 2;
 // $halaman = $_GET['halaman'];
@@ -92,7 +90,7 @@ $sql = mysql_query("select * from product where status = 2 order by $order $pos 
 				<?php if ($stock == 0): ?>
 					<a class="stock">STOK HABIS</a>			
 				<?php endif ?>
-				Rp. <?php echo number_format($price,0,'','.').",-" ?> &nbsp;
+				Rp. <?php echo price($price); ?> &nbsp;
 			</td>
 			<td class="padding-right" width="80px">
 				<?php if ($stock == 0): ?>
@@ -111,7 +109,7 @@ $sql = mysql_query("select * from product where status = 2 order by $order $pos 
 		<tr>
 			<td align="right" colspan="3">		
 				<?php
-					echo "<br>Page : ";
+					echo "<br>Hal : ";
 
 					$tampil2="select * from product where status = 2 order by $order $pos"; 
 					$hasil2=mysql_query($tampil2); 
@@ -122,11 +120,11 @@ $sql = mysql_query("select * from product where status = 2 order by $order $pos 
 						if($i>=($halaman-3) && $i <= ($halaman+3)){
 							if ($i != $halaman) 
 							{ 
-							    echo " <a href=$_SERVER[PHP_SELF]?halaman=$i&by=$by><font color='#00F'>$i</font></a>"; 
+							    echo " <a href=$_SERVER[PHP_SELF]?halaman=$i&by=$by><font color='#00F'>$i</font></a> |"; 
 							} 
 							else 
 							{ 
-							    echo " <a class=display>$i</a>"; 
+							    echo " <a class=display>$i</a> |"; 
 							}
 						}
 					}

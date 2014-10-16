@@ -13,7 +13,7 @@ include "../header/header_admin.php";
 	<tr>
 		<td width="35%" align="center">
 			<a href="../product/view_product.php"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/admin/image/documents-icon.png' ?>" width="50%"></a><br/>
-			LIST PRODUCT
+			DAFTAR PRODUK
 		</td>
 		<td width="35%" align="center">
 			<a href="view_admin.php"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/admin/image/user-icon.png' ?>" width="50%"></a><br/>

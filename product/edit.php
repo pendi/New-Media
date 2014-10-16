@@ -1,5 +1,4 @@
-<?php 
-include "../aplikasi/koneksi.php";
+<?php
 session_start();
 	if(!isset($_SESSION['id'])) {
 	  	echo "<script>window.alert('Anda Harus Login Dulu');</script>";
@@ -34,91 +33,93 @@ if ($data['category_id'] == 1) {
 ?>
 <form action="editing_process.php" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="<?php echo $data[0]; ?>" />
-	<table width="70%" align="center" bgcolor="#E6E6E6">
-		<tr>
-			<td colspan="3" align="center"><h2>EDIT PRODUCT</h2></td>
-		</tr>
-		<tr>
-			<td width="25%"></td>
-			<td width="10%">Id Product &nbsp;</td>
-			<td width="35%"><?php echo $data[0]; ?></td>
-		</tr>		
-		<tr>
-			<td></td>
-			<td>Category &nbsp;</td>
-			<td>
-				<select name="category">
-					<?php $selected = ""; ?>
-		            <?php if($data['category']) $selected = "selected"; ?>
-		            <option value="<?php echo $data['category_id'] ?>" <?php echo $selected; ?>><?php echo $category; ?></option>
-					<option value="0">Select Category</option>
-					<?php 
-					 while($r = mysql_fetch_array($sql))
-					 {
-						echo "<option value=$r[0]>$r[1]</option>";
-					 }
-					?>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>Name &nbsp;</td>
-			<td><input type="text" name="name" placeholder="Name" value="<?php echo $data[1]; ?>"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>Type &nbsp;</td>
-			<td><input type="text" name="type" placeholder="Type" value="<?php echo $data[2]; ?>"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>Price &nbsp;</td>
-			<td><input type="text" name="price" placeholder="Price" value="<?php echo $data[3]; ?>"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>Description &nbsp;</td>
-			<td><textarea name="description" rows="5" cols="20" placeholder="Description"><?php echo $data[4]; ?></textarea></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>Stock &nbsp;</td>
-			<td><input type="text" name="stock" placeholder="Stock" value="<?php echo $data[5]; ?>"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>Image</td>
-			<td>
-				<?php if (!empty($data['image'])): ?>				
-					<img src="<?php echo $data[6]; ?>" width="150px"><br/>
-				<?php else : ?>
-					<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="150px"><br/>
-				<?php endif ?>
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>Change Image</td>
-			<td><input type="file" name="image"></td>
-		</tr>
-		<tr>
-			<td colspan="3">&nbsp;</td>
-		</tr>
-		<tr>
-			<td colspan="3" align="center">
-				<input type="submit" name="submit" value="Submit">
-				<a href="view_product.php"><input type="button" name="button" value="Back"></a>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="3">&nbsp;</td>
-		</tr>
-		<tr>
-			<td colspan="3">
-				<?php include "../footer/footer.php"; ?>
-			</td>
-		</tr>
-	</table>
+	<div class="row-isi">
+		<table class="width">
+			<tr>
+				<td colspan="3" align="center"><h2>EDIT PRODUK</h2></td>
+			</tr>
+			<tr>
+				<td width="20%"></td>
+				<td width="12%">Id Produk &nbsp;</td>
+				<td width="33%"><input type="text" class="input" value="<?php echo $data[0]; ?>" disabled></td>
+			</tr>		
+			<tr>
+				<td></td>
+				<td>Kategori &nbsp;</td>
+				<td>
+					<select name="category" size="0">
+						<?php $selected = ""; ?>
+			            <?php if($data['category']) $selected = "selected"; ?>
+			            <option value="<?php echo $data['category_id'] ?>" <?php echo $selected; ?>><?php echo $category; ?></option>
+						<option value="0">Pilih Kategori</option>
+						<?php 
+						 while($r = mysql_fetch_array($sql))
+						 {
+							echo "<option value=$r[0]>$r[1]</option>";
+						 }
+						?>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>Nama &nbsp;</td>
+				<td><input type="text" class="input" name="name" placeholder="Nama" value="<?php echo $data[1]; ?>"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>Jenis &nbsp;</td>
+				<td><input type="text" class="input" name="type" placeholder="Jenis" value="<?php echo $data[2]; ?>"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>Harga &nbsp;</td>
+				<td><input type="text" class="input" name="price" placeholder="Harga" value="<?php echo $data[3]; ?>"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td style="vertical-align: top;">Deskripsi &nbsp;</td>
+				<td><textarea name="description" rows="5" cols="20" placeholder="Deskripsi"><?php echo $data[4]; ?></textarea></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>Stok &nbsp;</td>
+				<td><input type="text" class="input" name="stock" placeholder="Stok" value="<?php echo $data[5]; ?>"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>Image</td>
+				<td>
+					<?php if (!empty($data['image'])): ?>				
+						<img src="<?php echo $data[6]; ?>" width="150px"><br/>
+					<?php else : ?>
+						<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="150px"><br/>
+					<?php endif ?>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>Ganti Gambar</td>
+				<td><input type="file" name="image"></td>
+			</tr>
+			<tr>
+				<td colspan="3">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center">
+					<input type="submit" name="submit" value="Simpan">
+					<a href="view_product.php"><input type="button" name="button" value="Kembali"></a>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<?php include "../footer/footer.php"; ?>
+				</td>
+			</tr>
+		</table>		
+	</div>
 </form>
 <?php } ?>
