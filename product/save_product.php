@@ -1,8 +1,5 @@
 <?php  
 include "../aplikasi/koneksi.php";
-echo "<pre>";
-print_r($_POST);
-exit();
 $category = $_POST['category'];
 $name = $_POST['name']; 
 $type = $_POST['type']; 
@@ -40,9 +37,6 @@ if ($fileSize > 0) {
 }
 
 $hasil = mysql_query($query);
-
-// print_r($query);
-// exit();
 
 if ($hasil) {
 	echo "<script>window.alert('Data Berhasil Disimpan');</script>";

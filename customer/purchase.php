@@ -43,13 +43,16 @@ $idtransaksi = $_SESSION['transaksi'];
 				$subs_total = 0;
 				if (isset($_SESSION['items'])) {
 				    foreach ($_SESSION['items'] as $key => $val){
+				    	// if (empty($val)) {
+				    	// 	header("Location: index.php");
+				    	// }
+					// echo "<pre>"; print_r($val); exit();
 						$query = mysql_query ("select * from product where id_product = '$key'");
 				        $data = mysql_fetch_array($query);
 				         
 				        $sub_total = $data['price'] * $val;
 				        $subs_total += $sub_total;
 			?>
-					<?php //echo "<pre>"; print_r($val); exit(); ?>
 			<!-- <input type="hidden" name="id" value="<?php //echo $data[0]; ?>" /> -->
 			<tr>
 				<td align="center"><?php echo $no; ?></td>
@@ -74,8 +77,8 @@ $idtransaksi = $_SESSION['transaksi'];
 				<td>
 					Rp. <input style="text-align: right;" type="text" readonly value="<?php echo $sub_total; ?>">
 
-					<!-- <a href="cart.php?act=del&amp;id=<?php //echo $data[0]; ?>&amp;ref=purchase.php" style="vertical-align: -3px;"> -->
-					<a href="delete.php?id=<?php echo $data[0]; ?>" style="vertical-align: -3px;">
+					<a href="cart.php?act=del&amp;id=<?php echo $data[0]; ?>&amp;ref=purchase.php" style="vertical-align: -3px;">
+					<!-- <a href="delete.php?id=<?php echo $data[0]; ?>" style="vertical-align: -3px;"> -->
 						<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/delete.png' ?>" width ="13px">
 					</a>
 				</td>
@@ -84,8 +87,6 @@ $idtransaksi = $_SESSION['transaksi'];
 				$no++;
 				// mysql_free_result($query);
 					}
-				} elseif($val == 0) {
-					header('Location: index.php');
 				}
 			?>
 			<tr>

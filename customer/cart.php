@@ -19,11 +19,17 @@
     $lastNoUrut = substr($lastNoTransaksi, 5, 4);
     $nextNoUrut = $lastNoUrut + 1;
     $nextNoTransaksi = $kode.sprintf('%04s', $nextNoUrut);
-    // echo "<pre>";
-    // print_r($nextNoTransaksi);
-    // exit();
-    $insert = mysql_query("INSERT INTO orders_temp(id_order,id_product,id_session,quantity,total,method) 
-            VALUES($nextNoTransaksi,'$id','$idt','0','0','bca')");
+    
+    
+    // $insert = mysql_query("INSERT INTO orders_temp(id_order,id_product,id_session,quantity,total,method) 
+    //         VALUES($nextNoTransaksi,'$id','$idt','0','0','bca')");
+    // if ($insert) {
+    //     echo "<script>window.alert('Data Berhasil Disimpan');</script>";
+    //     echo "<script>window.location = 'view_product.php';</script>";
+    // } else {
+    //     echo "<script>window.alert('Data Gagal Disimpan');</script>";
+    //     echo "<script>window.location = 'view_product.php';</script>";
+    // }
     // $query = mysql_query("SELECT * FROM product WHERE id_product = '$_GET[id]'");
     // $data = mysql_fetch_array($query);
      
@@ -36,7 +42,7 @@
         {           
             if (isset($_GET['id'])) 
             {
-                $id = $_GET['id'];                  
+                $id = $_GET['id'];
                 if (isset($_SESSION['items'][$id])) 
                 {
                     $_SESSION['items'][$id] += 1;
@@ -75,6 +81,9 @@
                 $id = $_GET['id'];
                 if (isset($_SESSION['items'][$id])) 
                 {
+                    // echo "<pre>";
+                    // print_r($_SESSION['items'][$id]);
+                    // exit();
                     unset($_SESSION['items'][$id]);
                 }
             }
@@ -82,7 +91,7 @@
 
             //     if (!isset($_SESSION['items'][$id])) {
             //         // session_destroy();
-            //     	$ref = "../aplikasi/index.php";
+            //      $ref = "../aplikasi/index.php";
             //     }
             // }
         } 
