@@ -30,7 +30,7 @@ elseif ($module=='keranjang' AND $act=='tambah'){
 		
 			// update product quantity in cart table
 			mysql_query("UPDATE orders_temp SET jumlah = jumlah + 1 WHERE kdbrg='$_GET[id]'");		
-		}	
+		}
 		deleteAbandonedCart();
 		header('Location:header.php?module=hitung');
 	}

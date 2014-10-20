@@ -2,6 +2,13 @@
 	include "../header/header.php";
 ?>
 <style type="text/css">
+	.padding-left {
+    padding-left: 135px;
+	}
+	.padding-right {
+    padding-right: 135px;
+	}
+
 	img.scale:hover {
 		-webkit-transform: scale(1.2,1.2);
 		-moz-transform: scale(1.2,1.2);
@@ -11,7 +18,7 @@
 </style>
 <?php
 
-$batas   = 2;
+$batas = 10;
 // $halaman = $_GET['halaman'];
 if(isset($_GET['halaman'])) { 
 	$halaman = $_GET['halaman']; 
@@ -34,26 +41,21 @@ else{
 }
 
 $order = "id_product";
+$type = "type";
 $pos = "asc";
 if ($by == "az") {
 	$order = "name";
+	$type = "type";
 	$pos = "asc";
 } elseif ($by == "za") {
 	$order = "name";
+	$type = "type";
 	$pos = "desc";
 }
 
-$sql = mysql_query("select * from product where status = 2 order by $order $pos limit $posisi,$batas");
+$sql = mysql_query("select * from product where status = 2 order by $order $pos,$type $pos limit $posisi,$batas");
 // $data = mysql_fetch_array($sql);
 ?>
-<style type="text/css">
-	.padding-left {
-    padding-left: 135px;
-	}
-	.padding-right {
-    padding-right: 135px;
-	}
-</style>
 <div class="row-isi">
 	<table class="width">
 		<tr>
@@ -96,7 +98,8 @@ $sql = mysql_query("select * from product where status = 2 order by $order $pos 
 				<?php if ($stock == 0): ?>
 					<a>&nbsp;</a>
 				<?php else: ?>
-					<a href="../customer/cart.php?act=add&amp;id=<?php echo $r[0]; ?>&amp;ref=purchase.php" id="buy" class="button round">BELI</a>
+					<!-- <a href="../customer/cart.php?act=add&amp;id=<?php //echo $r[0]; ?>&amp;ref=purchase.php" id="buy" class="button round">BELI</a> -->
+					<a href="aksi2.php?act=add&amp;id=<?php echo $r[0]; ?>" id="buy" class="button round">BELI</a>
 				<?php endif ?>
 			</td>
 		</tr>
@@ -111,7 +114,7 @@ $sql = mysql_query("select * from product where status = 2 order by $order $pos 
 				<?php
 					echo "<br>Hal : ";
 
-					$tampil2="select * from product where status = 2 order by $order $pos"; 
+					$tampil2="select * from product where status = 2"; 
 					$hasil2=mysql_query($tampil2); 
 					$jmldata=mysql_num_rows($hasil2); 
 					$jmlhalaman=ceil($jmldata/$batas);

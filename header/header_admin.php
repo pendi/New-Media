@@ -64,7 +64,7 @@ $data = mysql_fetch_array($que);
 		</tr>
 		<tr>
 			<td width="9%" align="right">
-				<img class="padding" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/logo-icon.png' ?>" width="70%">
+				<a href="../aplikasi/index.php"><img class="padding" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/logo-icon.png' ?>" width="70%"></a>
 			</td>
 			<td width="26%" class="align">Menjual Laptop Baru dan Bergaransi</td>
 			<td width="35%" align="right">&nbsp;</td>

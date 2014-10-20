@@ -21,8 +21,6 @@
     $nextNoTransaksi = $kode.sprintf('%04s', $nextNoUrut);
     
     
-    // $insert = mysql_query("INSERT INTO orders_temp(id_order,id_product,id_session,quantity,total,method) 
-    //         VALUES($nextNoTransaksi,'$id','$idt','0','0','bca')");
     // if ($insert) {
     //     echo "<script>window.alert('Data Berhasil Disimpan');</script>";
     //     echo "<script>window.location = 'view_product.php';</script>";
@@ -40,6 +38,8 @@
              
         if ($act == "add") 
         {           
+            // $insert = mysql_query("INSERT INTO orders_temp(id_order,id_product,id_session,quantity,total,method) 
+            //         VALUES('$nextNoTransaksi','$id','$idt','0','0','bca')");
             if (isset($_GET['id'])) 
             {
                 $id = $_GET['id'];

@@ -1,12 +1,12 @@
 <?php
 session_start();
 if(!isset($_SESSION['transaksi'])){
-    $idt = date("ymdHis");
+    $idt = date("YmdHis");
     $_SESSION['transaksi'] = $idt;
 }
 include "../header/header.php";
 
-$idtransaksi = $_SESSION['transaksi'];
+$idt = $_SESSION['transaksi'];
 ?>
 <script>
 // $(function(){
@@ -27,89 +27,76 @@ $idtransaksi = $_SESSION['transaksi'];
 	<div class="row-isi">
 		<table width="95%" align="center">
 			<tr>
-				<td><h2>Details of Spending :</h2></td>
+				<td><h2>Rincian Pembelian :</h2></td>
 			</tr>
 		</table>
 		<table border="1" class="border" width="95%" align="center">
 			<tr bgcolor="#75D1FF">
 				<th>No</th>
-				<th>Product Name</th>
-				<th>Unit Price</th>
-				<th>Quantity</th>
-				<th>Total</th>
+				<th width="305px">Nama Produk</th>
+				<th>Harga Per Unit</th>
+				<th width="95px">Jumlah</th>
+				<th>Sub Total</th>
 			</tr>
 			<?php
 				$no = 1;
-				$subs_total = 0;
-				if (isset($_SESSION['items'])) {
-				    foreach ($_SESSION['items'] as $key => $val){
-				    	// if (empty($val)) {
-				    	// 	header("Location: index.php");
-				    	// }
-					// echo "<pre>"; print_r($val); exit();
-						$query = mysql_query ("select * from product where id_product = '$key'");
-				        $data = mysql_fetch_array($query);
-				         
-				        $sub_total = $data['price'] * $val;
-				        $subs_total += $sub_total;
+				$total = 0;
+				// $val = 1;
+				$query = mysql_query("SELECT * FROM orders_temp ot INNER JOIN product p ON ot.id_product=p.id_product WHERE id_session = '$idt'");
+		        //$data = mysql_fetch_array($query);
+				// $product = mysql_query("SELECT * FROM product WHERE id_product = '$data[1]'");
 			?>
 			<!-- <input type="hidden" name="id" value="<?php //echo $data[0]; ?>" /> -->
 			<tr>
+		        <?php while ($data = mysql_fetch_array($query)): ?>
 				<td align="center"><?php echo $no; ?></td>
-				<td><?php echo $data['name']; ?>&nbsp;<?php echo $data['type']; ?></td>
-				<td>Rp. <input readonly type="text" value="<?php echo price($data['price']); ?>"></td>
+				<td style="padding-left:5px;"><?php echo $data['name']; ?>&nbsp;<?php echo $data['type']; ?></td>
+				<td>Rp. <input readonly type="text" class="input" style="width:135px;" value="<?php echo price($data['price']); ?>"></td>
 				<!-- <td><input style="text-align: center;" size="1" name="quantity" type="text" class="qty" value="1"></td> -->
 
 
+				<?php  
+					$sub_total = $data['price'] * $data['quantity'];
+			        $total += $sub_total; 
+				?>
 				<td align="center">
-					<?php if ($val > 1): ?>
-						<a class="href minus" href="cart.php?act=min&amp;id=<?php echo $key; ?>&amp;ref=purchase.php"></a>
+					<?php if ($data['quantity'] > 1): ?>
+						<a class="href minus" href="../aplikasi/aksi2.php?act=min&amp;id=<?php echo $data['id_product']; ?>&amp;qty=<?php echo $data['quantity'] ?>"></a>
 					<?php else: ?>
 						<a class="href minus disabled"></a>
 					<?php endif ?>
-					<input name="qty" readonly type="text" size="1" style="text-align:center" value="<?php echo $val; ?>"/>
-					<?php if ($val < $data['stock']): ?>
-						<a class="href plus" href="cart.php?act=plus&amp;id=<?php echo $key; ?>&amp;ref=purchase.php"></a>
+					<input name="qty" readonly type="text" class="input" size="1" style="text-align:center; width:38px; padding-left:0;" value="<?php echo $data['quantity']; ?>"/>
+					<?php if ($data['quantity'] < $data['stock']): ?>
+						<a class="href plus" href="../aplikasi/aksi2.php?act=plus&amp;id=<?php echo $data['id_product']; ?>&amp;qty=<?php echo $data['quantity'] ?>"></a>
 					<?php else: ?>
 						<a class="href plus disabled"></a>
 					<?php endif ?>
 				</td>
 				<td>
-					Rp. <input style="text-align: right;" type="text" readonly value="<?php echo $sub_total; ?>">
+					Rp. <input style="width:130px;" type="text" class="input" readonly value="<?php echo price($sub_total); ?>">
 
-					<a href="cart.php?act=del&amp;id=<?php echo $data[0]; ?>&amp;ref=purchase.php" style="vertical-align: -3px;">
-					<!-- <a href="delete.php?id=<?php echo $data[0]; ?>" style="vertical-align: -3px;"> -->
+					<a href="../aplikasi/aksi2.php?act=del&amp;id=<?php echo $data['id_product']; ?>" style="vertical-align: -3px;">
 						<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/delete.png' ?>" width ="13px">
 					</a>
 				</td>
 			</tr>
 			<?php 
 				$no++;
-				// mysql_free_result($query);
-					}
-				}
+				endwhile
 			?>
 			<tr>
-				<td colspan="3">&nbsp;</td>
-				<td><center><b>Sub Total</b></center></td>
-				<td><b>Rp.</b> <input style="font-weight: bold; text-align: right;" type="text"  value="<?php echo $subs_total; ?>"></td>
-			</tr>
-			<tr>
-				<td colspan="4">&nbsp;Unique Number</td>
-				<td>Rp.	<span style="float: right; margin-right: 21px;">-62</span></td>
-			</tr>
-			<?php  
-				$total = 0;
-			?>
-			<tr>
-				<td colspan="2" align="center"><a href="../aplikasi/index.php"><input type="button" value="Buy Again"></a></td>
-				<td align="right" colspan="2"><b style="margin-right: 3px;">Order Total</b></td>
-				<td><b>Rp.</b> <input style="font-weight: bold; text-align: right;" name="total" type="text" class="total" readonly value="<?php echo $total; ?>"></td>
+				<td align="right" colspan="4"><b style="margin-right: 3px;">Total Belanja</b></td>
+				<td><b>Rp.</b> <input style="font-weight: bold; width:130px;" name="total" type="text" class="input" readonly value="<?php echo price($total); ?>"></td>
 			</tr>
 			<tr>
 				<td colspan="5" align="center">
-					<input type="submit" value="Next">
-					<a href="cart.php?act=clear&amp;ref=../aplikasi/index.php"><input type="button" name="button" value="Cancel"></a>
+					<a href="../aplikasi/index.php"><input type="button" value="Beli Lagi"></a>
+					<?php //echo "<pre>"; print_r($val); exit(); ?>
+					<a href="save_purchase.php?id=<?php echo $data[0]; ?>&amp;qty=<?php echo $val; ?>" class="href">
+						<input type="button" value="Lanjutkan">
+					</a>
+					<!-- <input type="submit" value="Lanjutkan"> -->
+					<a href="../aplikasi/aksi2.php?act=clear"><input type="button" name="button" value="Batal"></a>
 				</td>
 			</tr>
 		</table>

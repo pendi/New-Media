@@ -1,4 +1,7 @@
-<?php  
+<?php 
+echo "<pre>";
+print_r($_GET);
+exit();
 include "../aplikasi/koneksi.php";
 session_start();
 

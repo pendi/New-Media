@@ -1,13 +1,18 @@
-<?php 
-include "../aplikasi/koneksi.php";
+<?php
 include "../header/header.php";
 
-$batas   = 5;
+$batas = 10;
 // $halaman = $_GET['halaman'];
 if(isset($_GET['halaman'])) { 
 	$halaman = $_GET['halaman']; 
 } else { 
 	$halaman = ""; 
+}
+
+if(isset($_GET['id'])) { 
+	$id = $_GET['id']; 
+} else { 
+	$id = ""; 
 }
 
 if(empty($halaman)){ 
@@ -18,34 +23,32 @@ else{
     $posisi = ($halaman-1) * $batas; 
 }
 
-if ($_GET['id'] == 1) {
-	$id = 1;
-	$vendor = "ACER";
-} elseif ($_GET['id'] == 2) {
-	$id = 2;
-	$vendor = "APPLE";
-} elseif ($_GET['id'] == 3) {
-	$id = 3;
-	$vendor = "ASUS";
-} elseif ($_GET['id'] == 4) {
-	$id = 4;
-	$vendor = "DELL";
-} elseif ($_GET['id'] == 5) {
-	$id = 5;
-	$vendor = "HP";
-} elseif ($_GET['id'] == 6) {
-	$id = 6;
-	$vendor = "LENOVO";
-} elseif ($_GET['id'] == 7) {
-	$id = 7;
-	$vendor = "SAMSUNG";
-} elseif ($_GET['id'] == 8) {
-	$id = 8;
-	$vendor = "TOSHIBA";
+$select = mysql_query("SELECT * FROM category WHERE id='$id'");
+$data = mysql_fetch_array($select);
+$idc = $data['id'];
+$vendor = $data['vendor'];
+
+if(isset($_GET['by'])) { 
+	$by = $_GET['by']; 
+} else { 
+	$by = ""; 
 }
 
-if (isset($id)) {
-	$query = mysql_query("SELECT * FROM product WHERE category_id='$id' AND status ='2' limit $posisi,$batas");
+$order = "id_product";
+$type = "type";
+$pos = "asc";
+if ($by == "az") {
+	$order = "name";
+	$type = "type";
+	$pos = "asc";
+} elseif ($by == "za") {
+	$order = "name";
+	$type = "type";
+	$pos = "desc";
+}
+
+// if (isset($id)) {
+	$query = mysql_query("SELECT * FROM product WHERE category_id='$idc' AND status ='2' ORDER BY $order $pos,$type $pos LIMIT $posisi,$batas");
 ?>
 <style type="text/css">
 	.padding-left {
@@ -54,13 +57,29 @@ if (isset($id)) {
 	.padding-right {
     padding-right: 135px;
 	}
+
+	img.scale:hover {
+		-webkit-transform: scale(1.2,1.2);
+		-moz-transform: scale(1.2,1.2);
+		-ms-transform: scale(1.2,1.2);
+		-o-transform: scale(1.2,1.2);
+	}
 </style>
 <div class="row-isi">
-	<table class="width" align="center">
+	<table class="width">
 		<tr>
 			<td align="center" colspan="3">
 				<hr/>
-					<h2><?php echo $vendor ?></h2>
+					<h2><?php echo strtoupper($vendor); ?></h2>
+				<hr/>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" colspan="3">
+				<!-- <hr/> -->
+				Sort By: &nbsp;&nbsp; 
+				<a href="<?php $_SERVER['PHP_SELF']?>?by=az&amp;id=<?php echo $idc; ?>" class="href">A-Z</a> &nbsp;&nbsp;&nbsp; 
+				<a href="<?php $_SERVER['PHP_SELF']?>?by=za&amp;id=<?php echo $idc; ?>" class="href">Z-A</a>
 				<hr/>
 			</td>
 		</tr>
@@ -75,9 +94,9 @@ if (isset($id)) {
 		<tr>
 			<td class="padding-left" width="120px">
 				<?php if (!empty($r['image'])): ?>				
-					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img src="<?php echo $r['image']; ?>" width="120px" height="120px"></a>
+					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img class="scale" src="<?php echo $r['image']; ?>" width="120px" height="120px"></a>
 				<?php else : ?>
-					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="120px" height="120px"></a>
+					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img class="scale" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="120px" height="120px"></a>
 				<?php endif ?>
 			</td>
 			<td style="vertical-align: top; font-size: 14px;" colspan="2" class="padding-right">
@@ -110,7 +129,7 @@ if (isset($id)) {
 				<?php
 					echo "<br>Page : ";
 
-					$tampil2="select * from product where status = 2 and category_id = $id"; 
+					$tampil2="SELECT * FROM product WHERE status = 2 AND category_id='$idc'"; 
 					$hasil2=mysql_query($tampil2); 
 					$jmldata=mysql_num_rows($hasil2); 
 					$jmlhalaman=ceil($jmldata/$batas);
@@ -119,11 +138,11 @@ if (isset($id)) {
 						if($i>=($halaman-3) && $i <= ($halaman+3)){
 							if ($i != $halaman) 
 							{ 
-							    echo " <a href=$_SERVER[PHP_SELF]?halaman=$i&id=$id><font color='#00F'>$i</font></a>"; 
+							    echo " <a href=$_SERVER[PHP_SELF]?halaman=$i&id=$idc&by=$by><font color='#00F'>$i</font></a> |"; 
 							} 
 							else 
 							{ 
-							    echo " <a class=display>$i</a>"; 
+							    echo " <a class=display>$i</a> |"; 
 							}
 						}
 					}
@@ -140,5 +159,5 @@ if (isset($id)) {
 <table width="70%" bgcolor="#E6E6E6" align="center">		
 </table>
 <?php 
-}
+// }
 ?>
