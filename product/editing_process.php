@@ -8,7 +8,7 @@ $price = $_POST['price'];
 $description = $_POST['description'];
 $stock = $_POST['stock'];
 $fileSize = $_FILES["image"]["size"];
-$folder = "../aplikasi/image";
+$folder = "../image/product";
 $tmp_name = $_FILES["image"]["tmp_name"];
 $name_img = $folder."/".$_FILES["image"]["name"];
 

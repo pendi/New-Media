@@ -31,36 +31,36 @@ include "../header/header.php";
 	}
 </style>
 <form action="save_customer.php" method="post" onsubmit="return validasi(this)">
-	<div class="row">
-		<table width="55%" align="center">
+	<div class="row-isi">
+		<table width="70%" align="center">
 			<tr>
-				<td><h2>Data Customer :</h2></td>
+				<td><h2>Data Pembeli :</h2></td>
 			</tr>
 		</table>
-		<table width="55%" align="center">
+		<table width="70%" align="center">
 			<tr>
-				<td width="20%"><b>Full Name</b></td>
-				<td width="35%"><input autofocus type="text" maxlength="50" name="name" placeholder="Full Name"></td>
+				<td width="20%"><b>Nama Lengkap</b></td>
+				<td><input autofocus type="text" class="input" maxlength="50" name="name" placeholder="Nama Lengkap"></td>
 			</tr>
 			<tr>
-				<td class="top"><b>Address</b></td>
-				<td><textarea cols="25" rows="5" name="address" placeholder="Address"></textarea></td>
+				<td class="top"><b>Alamat</b></td>
+				<td><textarea cols="25" rows="5" name="address" placeholder="Alamat"></textarea></td>
 			</tr>
 			<tr>
-				<td><b>Phone Number</b></td>
-				<td><input type="text" name="phone" placeholder="Phone Number"></td>
+				<td><b>Nomor Telepon</b></td>
+				<td><input type="text" class="input" name="phone" placeholder="Nomor Telepon"></td>
 			</tr>
 			<tr>
 				<td><b>Email</b></td>
-				<td><input type="text" name="email" placeholder="Email"></td>
+				<td><input type="text" class="input" name="email" placeholder="Email"></td>
 			</tr>
 			<tr>
 				<td colspan="2">&nbsp;</td>
 			</tr>
 			<tr>
 				<td colspan="2">
-					<input type="submit" value="Next"> 
-					<a href="../aplikasi/index.php"><input type="button" value="Cancel"></a> 
+					<input type="submit" value="Simpan"> 
+					<a href="../aplikasi/index.php"><input type="button" value="Batal"></a> 
 				</td>
 			</tr>
 		</table>

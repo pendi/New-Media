@@ -1,12 +1,12 @@
 <?php
 session_start();
-if(!isset($_SESSION['transaksi'])){
-    $idt = date("ymdHis");
-    $_SESSION['transaksi'] = $idt;
-}
+// if(!isset($_SESSION['transaksi'])){
+//     $idt = date("ymdHis");
+//     $_SESSION['transaksi'] = $idt;
+// }
 include "../header/header.php";
 
-$idtransaksi = $_SESSION['transaksi'];
+$idtransaksi = session_id();
 ?>
 <script>
 // $(function(){

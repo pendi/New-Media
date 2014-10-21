@@ -33,7 +33,7 @@ table.padding tr > td {
 				<?php if ($stock == 0): ?>
 					<a></a>
 				<?php else: ?>
-					<a href="../customer/cart.php?act=add&amp;id=<?php echo $data[0]; ?>&amp;ref=purchase.php" id="buy" class="button round-group">BELI</a>
+					<a href="aksi2.php?act=add&amp;id=<?php echo $data[0]; ?>" id="buy" class="button round-group">BELI</a>
 				<?php endif ?>
 				<!-- <a href="../customer/cart.php?act=add&amp;id=<?php echo $r['id_product']; ?>&amp;ref=purchase.php" id="buy" class="button round-group">BUY</a> -->
 				<a href="index.php" id="alert" class="button alert round-group-right">KEMBALI</a>

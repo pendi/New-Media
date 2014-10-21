@@ -1,12 +1,12 @@
 <?php
 session_start();
-if(!isset($_SESSION['transaksi'])){
-    $idt = date("ymdHis");
-    $_SESSION['transaksi'] = $idt;
-}
+// if(!isset($_SESSION['transaksi'])){
+//     $idt = date("ymdHis");
+//     $_SESSION['transaksi'] = $idt;
+// }
 include "../aplikasi/koneksi.php";
 
-$idtransaksi = $_SESSION['transaksi'];
+$idtransaksi = session_id();
 
 $del = mysql_query("delete from orders_temp where id_session=$idtransaksi");
 if($del){

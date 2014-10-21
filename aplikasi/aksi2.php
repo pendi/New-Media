@@ -4,11 +4,11 @@
 // exit();
 session_start();
 include "../aplikasi/koneksi.php";
-if(!isset($_SESSION['transaksi'])){
-    $idt = date("YmdHis");
-    $_SESSION['transaksi'] = $idt;
-}
-$idt = $_SESSION['transaksi'];
+// if(!isset($_SESSION['transaksi'])){
+//     $idt = date("YmdHis");
+//     $_SESSION['transaksi'] = $idt;
+// }
+$idt = session_id();
 // $id = $_GET['id'];
 if(isset($_GET['id'])) { 
 	$id = $_GET['id']; 

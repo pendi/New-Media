@@ -1,11 +1,11 @@
 <?php 
 session_start();
-if(!isset($_SESSION['transaksi'])){
-    $idt = date("ymdHis");
-    $_SESSION['transaksi'] = $idt;
-}
+// if(!isset($_SESSION['transaksi'])){
+//     $idt = date("ymdHis");
+//     $_SESSION['transaksi'] = $idt;
+// }
 
-$idtransaksi = $_SESSION['transaksi'];
+$idtransaksi = session_id();
 include "../aplikasi/koneksi.php";
 
 $que = mysql_query("select * from orders_temp where id_session='$idtransaksi'");

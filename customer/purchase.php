@@ -1,28 +1,13 @@
 <?php
 session_start();
-if(!isset($_SESSION['transaksi'])){
-    $idt = date("YmdHis");
-    $_SESSION['transaksi'] = $idt;
-}
+// if(!isset($_SESSION['transaksi'])){
+//     $idt = date("YmdHis");
+//     $_SESSION['transaksi'] = $idt;
+// }
 include "../header/header.php";
 
-$idt = $_SESSION['transaksi'];
+$idt = session_id();
 ?>
-<script>
-// $(function(){
-//     // var qty = $(".qty").val();
-// 	$(".qty").change(function(){
-// 		var price = $(this).parent().parent().find("td input.price").val();
-// 		var sub_total = $(this).parent().parent().find("td input.sub_total");
-// 		var qty = $(this).val();
-// 	    var grandtotal = price * qty;
-// 		// console.log($(sub_total).val());
-// 	    $(sub_total).val(grandtotal);
-
-// 	});
-
-// });
-</script>
 <form method="post" action="save_purchase.php">
 	<div class="row-isi">
 		<table width="95%" align="center">
@@ -32,11 +17,11 @@ $idt = $_SESSION['transaksi'];
 		</table>
 		<table border="1" class="border" width="95%" align="center">
 			<tr bgcolor="#75D1FF">
-				<th>No</th>
+				<th width="25px">No</th>
 				<th width="305px">Nama Produk</th>
-				<th>Harga Per Unit</th>
+				<th width="190px">Harga Satuan</th>
 				<th width="95px">Jumlah</th>
-				<th>Sub Total</th>
+				<th width="190px">Sub Total</th>
 			</tr>
 			<?php
 				$no = 1;
@@ -46,9 +31,10 @@ $idt = $_SESSION['transaksi'];
 		        //$data = mysql_fetch_array($query);
 				// $product = mysql_query("SELECT * FROM product WHERE id_product = '$data[1]'");
 			?>
-			<!-- <input type="hidden" name="id" value="<?php //echo $data[0]; ?>" /> -->
 			<tr>
 		        <?php while ($data = mysql_fetch_array($query)): ?>
+				<input type="hidden" name="id_order[]" value="<?php echo $data['id_order']; ?>" />
+				<input type="hidden" name="id[]" value="<?php echo $data['id_product']; ?>" />
 				<td align="center"><?php echo $no; ?></td>
 				<td style="padding-left:5px;"><?php echo $data['name']; ?>&nbsp;<?php echo $data['type']; ?></td>
 				<td>Rp. <input readonly type="text" class="input" style="width:135px;" value="<?php echo price($data['price']); ?>"></td>
@@ -65,7 +51,7 @@ $idt = $_SESSION['transaksi'];
 					<?php else: ?>
 						<a class="href minus disabled"></a>
 					<?php endif ?>
-					<input name="qty" readonly type="text" class="input" size="1" style="text-align:center; width:38px; padding-left:0;" value="<?php echo $data['quantity']; ?>"/>
+					<input name="quantity[]" readonly type="text" class="input" size="1" style="text-align:center; width:38px; padding-left:0;" value="<?php echo $data['quantity']; ?>"/>
 					<?php if ($data['quantity'] < $data['stock']): ?>
 						<a class="href plus" href="../aplikasi/aksi2.php?act=plus&amp;id=<?php echo $data['id_product']; ?>&amp;qty=<?php echo $data['quantity'] ?>"></a>
 					<?php else: ?>
@@ -76,7 +62,7 @@ $idt = $_SESSION['transaksi'];
 					Rp. <input style="width:130px;" type="text" class="input" readonly value="<?php echo price($sub_total); ?>">
 
 					<a href="../aplikasi/aksi2.php?act=del&amp;id=<?php echo $data['id_product']; ?>" style="vertical-align: -3px;">
-						<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/delete.png' ?>" width ="13px">
+						<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/image/icon/delete.png' ?>" width ="13px">
 					</a>
 				</td>
 			</tr>
@@ -91,10 +77,9 @@ $idt = $_SESSION['transaksi'];
 			<tr>
 				<td colspan="5" align="center">
 					<a href="../aplikasi/index.php"><input type="button" value="Beli Lagi"></a>
-					<?php //echo "<pre>"; print_r($val); exit(); ?>
-					<a href="save_purchase.php?id=<?php echo $data[0]; ?>&amp;qty=<?php echo $val; ?>" class="href">
-						<input type="button" value="Lanjutkan">
-					</a>
+					<!-- <a href="save_purchase.php?id=<?php //echo $data[0]; ?>&amp;qty=<?php //echo $val; ?>" class="href"> -->
+						<input type="submit" value="Lanjutkan">
+					<!-- </a> -->
 					<!-- <input type="submit" value="Lanjutkan"> -->
 					<a href="../aplikasi/aksi2.php?act=clear"><input type="button" name="button" value="Batal"></a>
 				</td>

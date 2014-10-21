@@ -80,7 +80,7 @@ $sql = mysql_query("select * from product where status = 2 order by $order $pos,
 				<?php if (!empty($r['image'])): ?>				
 					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img class="scale" src="<?php echo $r['image']; ?>" width="120px" height="120px"></a>
 				<?php else : ?>
-					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img class="scale" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="120px" height="120px"></a>
+					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img class="scale" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/image/product/no-image.jpg' ?>" width="120px" height="120px"></a>
 				<?php endif ?>
 			</td>
 			<td style="vertical-align: top; font-size: 14px;" colspan="2" class="padding-right">
