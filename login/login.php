@@ -1,8 +1,8 @@
 <?php 
 session_start();
-if(isset($_SESSION['id']) AND $_SESSION['level'] == "admin") {
+if(isset($_SESSION['id']) AND $_SESSION['level'] == "super admin") {
 	header('location:../admin/dashboard.php'); 
-} elseif (isset($_SESSION['id']) AND $_SESSION['level'] == "co-admin") {
+} elseif (isset($_SESSION['id']) AND $_SESSION['level'] == "admin") {
 	header('location:../product/view_product.php'); 
 }
 include "../header/header.php";
@@ -45,7 +45,6 @@ include "../header/header.php";
 			</tr>
 			<tr>
 				<td colspan="3" align="center">
-					<!-- <a href="login_process.php" id="buy" class="button round" oncl="return validasi(this)">Login</a> -->
 					<input type="submit" class="submit" value="Login">
 					<a href="../aplikasi/index.php"><input type="button" name="button" value="Kembali"></a>
 				</td>

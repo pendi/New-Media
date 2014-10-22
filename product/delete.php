@@ -5,7 +5,7 @@ session_start();
 		echo "<script>window.location = '../login/login.php';</script>";
 	} else {
 include "../header/header_admin.php";
-$que = mysql_query("select * from product where id_product='$_GET[id_product]'");
+$que = mysql_query("SELECT * FROM product WHERE id_product='$_GET[id_product]'");
 $data = mysql_fetch_array($que);
 ?>
 <style type="text/css">

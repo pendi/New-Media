@@ -5,10 +5,10 @@ session_start();
 		echo "<script>window.location = '../login/login.php';</script>";
 	} else {
 include "../header/header_admin.php";
-$query = mysql_query("select * from login where id='$_GET[id]'");
+$query = mysql_query("SELECT * FROM login WHERE id='$_GET[id]'");
 $data = mysql_fetch_array($query);
 ?>
-<form action="editing_process_user.php" method="post" enctype="multipart/form-data">
+<form action="editing_process_user.php" method="post" enctype="multipart/form-data" onsubmit="return validasi(this)">
 <input type="hidden" name="id" value="<?php echo $data[0]; ?>" />
 	<div class="row-isi">
 		<table class="width">
@@ -49,3 +49,19 @@ $data = mysql_fetch_array($query);
 	</div>
 </form>
 <?php } ?>
+<script>
+	function validasi(form) {
+		if (form.username.value == 0){
+			alert("Username harus diisi.");
+			form.username.focus();
+			return (false);
+		}
+		if (form.password.value == ""){
+			alert("Anda belum memasukan password.");
+			form.password.focus();
+			return (false);
+		}
+		return (true);  
+	}
+
+</script>

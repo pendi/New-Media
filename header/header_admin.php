@@ -89,41 +89,8 @@ $data = mysql_fetch_array($que);
 			<tr>
 				<td align="right">
 					<input class="search" type="search" name="search" placeholder="Cari Produk">
-					<!-- <img class="icon-search" src="<?php //echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/search.png' ?>"> -->
 				</td>
 			</tr>
-			<!-- <tr>
-				<td><center>
-					<?php  
-						// if(isset($_REQUEST['module'])) { $module = $_REQUEST['module']; } 
-						// else { $module = ""; } 
-						// 	if($module=='keranjang') {
-						// 		include "keranjang_belanja.php";
-						// 	}
-						// 	else if($module=='selesai') {
-						// 		include "selesai_belanja.php";
-						// 	}
-						// 	else if($module=='simpan') {
-						// 		include "simpan_transaksi.php";
-						// 	}
-						// 	else if($module=='detail') {
-						// 		include "detail.php";
-						// 	}
-						// 	else if($module=='hitung') {
-						// 		include "hitung_produk.php";
-						// 	}
-						// 	else {
-						// 		include "produk.php";
-							// }
-					?>
-					</center>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<?php //include "footer.php" ?>	
-				</td>
-			</tr> -->
 		</table>
 	</form>
 </div>

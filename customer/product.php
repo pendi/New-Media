@@ -47,8 +47,7 @@ if ($by == "az") {
 	$pos = "desc";
 }
 
-// if (isset($id)) {
-	$query = mysql_query("SELECT * FROM product WHERE category_id='$idc' AND status ='2' ORDER BY $order $pos,$type $pos LIMIT $posisi,$batas");
+$query = mysql_query("SELECT * FROM product WHERE category_id='$idc' AND status ='2' ORDER BY $order $pos,$type $pos LIMIT $posisi,$batas");
 ?>
 <style type="text/css">
 	.padding-left {
@@ -88,15 +87,15 @@ if ($by == "az") {
 		$stock = $r["stock"]; ?>
 		<tr>
 			<td class="padding-left" colspan="3">			
-				<p><a href="detail.php?id_product=<?php echo $r[0] ?>" class="href ref"><?php echo $r["name"]; ?>&nbsp;<?php echo $r['type']; ?></a></p>
+				<p><a href="../aplikasi/detail.php?id_product=<?php echo $r[0] ?>" class="href ref"><?php echo $r["name"]; ?>&nbsp;<?php echo $r['type']; ?></a></p>
 			</td>
 		</tr>
 		<tr>
 			<td class="padding-left" width="120px">
 				<?php if (!empty($r['image'])): ?>				
-					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img class="scale" src="<?php echo $r['image']; ?>" width="120px" height="120px"></a>
+					<a href="../aplikasi/detail.php?id_product=<?php echo $r[0] ?>"><img class="scale" src="<?php echo $r['image']; ?>" width="120px" height="120px"></a>
 				<?php else : ?>
-					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img class="scale" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="120px" height="120px"></a>
+					<a href="../aplikasi/detail.php?id_product=<?php echo $r[0] ?>"><img class="scale" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="120px" height="120px"></a>
 				<?php endif ?>
 			</td>
 			<td style="vertical-align: top; font-size: 14px;" colspan="2" class="padding-right">
@@ -114,7 +113,7 @@ if ($by == "az") {
 				<?php if ($stock == 0): ?>
 					<a>&nbsp;</a>
 				<?php else: ?>
-					<a href="cart.php?act=add&amp;id=<?php echo $r['id_product']; ?>&amp;ref=purchase.php" id="buy" class="button round">BELI</a>
+					<a href="../aplikasi/aksi.php?act=add&amp;id=<?php echo $r[0]; ?>" id="buy" class="button round">BELI</a>
 				<?php endif ?>
 			</td>
 		</tr>
@@ -156,8 +155,3 @@ if ($by == "az") {
 		</tr>
 	</table>
 </div>
-<table width="70%" bgcolor="#E6E6E6" align="center">		
-</table>
-<?php 
-// }
-?>

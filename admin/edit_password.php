@@ -5,10 +5,10 @@ session_start();
 		echo "<script>window.location = '../login/login.php';</script>";
 	} else {
 include "../header/header_admin.php";
-$query = mysql_query("select * from login where id='$_GET[id]'");
+$query = mysql_query("SELECT * FROM login WHERE id='$_GET[id]'");
 $data = mysql_fetch_array($query);
 ?>
-<form action="editing_process_password.php" method="post" enctype="multipart/form-data">
+<form action="editing_process_password.php" method="post" enctype="multipart/form-data" onsubmit="return validasi(this)">
 <input type="hidden" name="id" value="<?php echo $data[0]; ?>" />
 	<div class="row-isi">
 		<table class="width">
@@ -22,8 +22,8 @@ $data = mysql_fetch_array($query);
 			</tr>
 			<tr>
 				<td></td>
-				<td>Ulangi Password &nbsp;</td>
-				<td><input type="password" class="input" name="newpass2" placeholder="Ulangi Password"></td>
+				<td>Konfirmasi Password &nbsp;</td>
+				<td><input type="password" class="input" name="newpass2" placeholder="Konfirmasi Password"></td>
 			</tr>
 			<tr>
 				<td colspan="3">&nbsp;</td>
@@ -54,3 +54,24 @@ $data = mysql_fetch_array($query);
 	</div>
 </form>
 <?php } ?>
+<script>
+	function validasi(form) {
+		if (form.newpass.value == 0){
+			alert("Password harus diisi.");
+			form.newpass.focus();
+			return (false);
+		}
+		if (form.newpass2.value == ""){
+			alert("Ketikan konfirmasi password anda.");
+			form.newpass2.focus();
+			return (false);
+		}
+		if (form.oldpass.value == ""){
+			alert("Ketikan password lama anda untuk konfirmasi.");
+			form.oldpass.focus();
+			return (false);
+		}
+		return (true);  
+	}
+
+</script>

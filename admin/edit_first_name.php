@@ -5,7 +5,7 @@ session_start();
 		echo "<script>window.location = '../login/login.php';</script>";
 	} else {
 include "../header/header_admin.php";
-$query = mysql_query("select * from login where id='$_GET[id]'");
+$query = mysql_query("SELECT * FROM login WHERE id='$_GET[id]'");
 $data = mysql_fetch_array($query);
 ?>
 <form action="editing_process_first_name.php" method="post" enctype="multipart/form-data">

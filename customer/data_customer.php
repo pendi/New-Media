@@ -1,36 +1,25 @@
 <?php  
+session_start();
 include "../header/header.php";
+if(!isset($_SESSION['transaksi'])){
+    $idt = date("YmdHis");
+    $_SESSION['transaksi'] = $idt;
+}
+$idt = $_SESSION['transaksi'];
+$query = mysql_query("SELECT id_session FROM orders_temp WHERE id_session = '$idt'");
+$numRow = mysql_num_rows($query);
+if ($numRow == 0) {
+	echo "<script>window.alert('Keranjang Belanja Anda Masih Kosong');</script>";
+	echo "<script>window.location = '../index.php';</script>";
+}
 ?>
-<script>
-	function validasi(form) {
-		if (form.name.value == ""){
-			alert("Anda belum mengisikan Nama.");
-			form.name.focus();
-			return (false);
-		}
-		if (form.address.value == ""){
-			alert("Anda belum mengisikan Alamat.");
-			form.address.focus();
-			return (false);
-		}
-		if (form.phone.value == ""){
-			alert("Anda belum mengisikan Nomor Telepon.");
-			form.phone.focus();
-			return (false);
-		}
-		if (form.email.value == ""){
-			alert("Anda belum mengisikan Alamat Email.");
-			form.email.focus();
-			return (false);
-		}
-	}
-</script>
 <style type="text/css">
 	.top {
 		vertical-align: top;
 	}
 </style>
 <form action="save_customer.php" method="post" onsubmit="return validasi(this)">
+	<input type="hidden" name="id_order" value="<?php echo $_GET['id_order']; ?>">
 	<div class="row-isi">
 		<table width="70%" align="center">
 			<tr>
@@ -60,7 +49,8 @@ include "../header/header.php";
 			<tr>
 				<td colspan="2">
 					<input type="submit" value="Simpan"> 
-					<a href="../aplikasi/index.php"><input type="button" value="Batal"></a> 
+					<a href="check.php?act=clear"><input type="button" value="Batal"></a> 
+					<a href="check.php?act=cart"><input type="button" value="Kembali"></a> 
 				</td>
 			</tr>
 		</table>
@@ -71,3 +61,27 @@ include "../header/header.php";
 		</table>
 	</div>
 </form>
+<script>
+	function validasi(form) {
+		if (form.name.value == ""){
+			alert("Anda belum mengisikan Nama.");
+			form.name.focus();
+			return (false);
+		}
+		if (form.address.value == ""){
+			alert("Anda belum mengisikan Alamat.");
+			form.address.focus();
+			return (false);
+		}
+		if (form.phone.value == ""){
+			alert("Anda belum mengisikan Nomor Telepon.");
+			form.phone.focus();
+			return (false);
+		}
+		if (form.email.value == ""){
+			alert("Anda belum mengisikan Alamat Email.");
+			form.email.focus();
+			return (false);
+		}
+	}
+</script>

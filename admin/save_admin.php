@@ -14,7 +14,7 @@ if(isset($_POST['status'])) {
 	$status = ""; 
 }
 
-$que = mysql_query("select username from login where username='$username'");
+$que = mysql_query("SELECT username FROM login WHERE username='$username'");
 $data = mysql_num_rows($que);
 
 if ($username != "" AND $password != "" AND $status != "") {

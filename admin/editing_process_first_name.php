@@ -6,7 +6,7 @@ $first_name = strtolower($_POST['first_name']);
 $password = md5($_POST['password']);
 
 if ($password == $_SESSION['password']) {
-		$query = "update login set first_name='$first_name' where id='$_SESSION[id_admin]'";
+		$query = "UPDATE login SET first_name='$first_name' WHERE id='$_SESSION[id_admin]'";
 }else {
 	echo "<script>window.alert('Password Anda Tidak Cocok');</script>";
 	echo "<script>window.location = 'edit_first_name.php?id=$_SESSION[id_admin]';</script>";

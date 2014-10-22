@@ -1,33 +1,28 @@
 <?php  
+session_start();
 include "../header/header.php";
-
-echo "<pre>";
-$id = $_GET['id'];
-$selectOrd = mysql_query("SELECT id_product FROM orders WHERE id_cus='$id' ");
-while($dataOrd = mysql_fetch_array($selectOrd)) {
-	$dataExp = explode(',', $dataOrd['id_product']);
-			print_r($dataExp);
-			exit();	
-	foreach ($dataExp as $key => $value) {
-		$selectPro = mysql_query("SELECT * FROM product WHERE id_product='$value' ");
-		while($test = mysql_fetch_array($selectPro)){
-		}
-	}
-	for ($i=0; $i<count($dataExp); $i++) {
-		//echo "$dataExp[$i]<br>";
-	}
-	
+if(!isset($_SESSION['transaksi'])){
+    $idt = date("YmdHis");
+    $_SESSION['transaksi'] = $idt;
+}
+$idt = $_SESSION['transaksi'];
+$query = mysql_query("SELECT id_session FROM orders_temp WHERE id_session = '$idt'");
+$numRow = mysql_num_rows($query);
+if ($numRow == 0) {
+	echo "<script>window.alert('Keranjang Belanja Anda Masih Kosong');</script>";
+	echo "<script>window.location = '../index.php';</script>";
 }
 
-
-
-$query = mysql_query("SELECT * FROM customer WHERE id_cus = '$id'");
+$id = $_GET['id'];
+$query = mysql_query("SELECT * FROM customer WHERE id_cus='$id'");
 $data = mysql_fetch_array($query);
+$queryOrd = mysql_query("SELECT * FROM orders WHERE id_cus='$id'");
+$dataOrd = mysql_fetch_array($queryOrd);
 ?>
 <div class="row-isi">
 	<table class="border" width="95%" align="center" border="1">
 		<tr>
-			<td colspan="5">
+			<td colspan="5" style="padding-bottom:25px;">
 				<table>
 					<tr>
 						<td width="118px"><b>Nama Lengkap</b></td>
@@ -35,8 +30,8 @@ $data = mysql_fetch_array($query);
 						<td><?php echo $data['name']; ?></td>
 					</tr>
 					<tr>
-						<td><b>Alamat</b></td>
-						<td>:</td>
+						<td style="vertical-align:top;"><b>Alamat</b></td>
+						<td style="vertical-align:top;">:</td>
 						<td><?php echo $data['address']; ?></td>
 					</tr>
 					<tr>
@@ -51,7 +46,7 @@ $data = mysql_fetch_array($query);
 					</tr>
 				</table>
 			</td>
-		</tr>
+		</tr><br/><br/><br/>
 		<tr>
 			<th width="25px">No</th>
 			<th width="305px">Barang</th>
@@ -59,12 +54,36 @@ $data = mysql_fetch_array($query);
 			<th width="95px">Jumlah</th>
 			<th width="190px">Sub Total</th>
 		</tr>
-		<tr>
-			<td></td>
-			<?php while($test = mysql_fetch_array($selectPro)): ?>
-			<td><?php echo $test['name']; ?></td>
-			<?php endwhile ?>
+		<?php 
+			$no = 1;
+			$total = 0;
+			$queryTrs = mysql_query("SELECT * FROM transaksi WHERE id_order='$dataOrd[id_order]'");
+			while($dataTrs = mysql_fetch_array($queryTrs)){
+				$queryPro = mysql_query("SELECT * FROM product WHERE id_product='$dataTrs[id_product]'");
+				$dataPro = mysql_fetch_array($queryPro);
+				$sub_total = $dataPro['price'] * $dataTrs['quantity'];
+				$total += $sub_total;
+		?>
+		<tr style="height:50px;">
+			<td align="center"><?php echo $no; ?></td>
+			<td><?php echo $dataPro['name']; ?> <?php echo $dataPro['type'] ?></td>
+			<td align="center">Rp. <?php echo price($dataPro['price']); ?></td>
+			<td align="center"><?php echo $dataTrs['quantity']; ?></td>
+			<td align="center">Rp. <?php echo price($sub_total); ?></td>
+		</tr>
+		<?php
+			$no++;
+		 	} 
+		?>
+		<tr style="height:50px;">
+			<td colspan="4" align="right"><b style="margin-right: 3px;">Total Belanja</b></td>
+			<td align="center"><b>Rp. <?php echo price($total); ?></b></td>
 		</tr>
 	</table>
-	<?php include "../footer/footer.php"; ?>
+	<div style="padding:10px 0 0 23px;">
+		<a target="_blank" href="print.php?id_cus=<?php echo $id; ?>"><input type="button" value="Cetak"></a>
+	</div>
+	<table class="width">
+		<?php include "../footer/footer.php"; ?>
+	</table>
 </div>

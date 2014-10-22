@@ -53,8 +53,7 @@ if ($by == "az") {
 	$pos = "desc";
 }
 
-$sql = mysql_query("select * from product where status = 2 order by $order $pos,$type $pos limit $posisi,$batas");
-// $data = mysql_fetch_array($sql);
+$sql = mysql_query("SELECT * FROM product WHERE status = 2 ORDER BY $order $pos,$type $pos LIMIT $posisi,$batas");
 ?>
 <div class="row-isi">
 	<table class="width">
@@ -98,8 +97,7 @@ $sql = mysql_query("select * from product where status = 2 order by $order $pos,
 				<?php if ($stock == 0): ?>
 					<a>&nbsp;</a>
 				<?php else: ?>
-					<!-- <a href="../customer/cart.php?act=add&amp;id=<?php //echo $r[0]; ?>&amp;ref=purchase.php" id="buy" class="button round">BELI</a> -->
-					<a href="aksi2.php?act=add&amp;id=<?php echo $r[0]; ?>" id="buy" class="button round">BELI</a>
+					<a href="aksi.php?act=add&amp;id=<?php echo $r[0]; ?>" id="buy" class="button round">BELI</a>
 				<?php endif ?>
 			</td>
 		</tr>
@@ -114,7 +112,7 @@ $sql = mysql_query("select * from product where status = 2 order by $order $pos,
 				<?php
 					echo "<br>Hal : ";
 
-					$tampil2="select * from product where status = 2"; 
+					$tampil2="SELECT * FROM product WHERE status = 2"; 
 					$hasil2=mysql_query($tampil2); 
 					$jmldata=mysql_num_rows($hasil2); 
 					$jmlhalaman=ceil($jmldata/$batas);

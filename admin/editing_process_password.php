@@ -8,7 +8,7 @@ $newpass2 = md5($_POST['newpass2']);
 
 if ($oldpass == $_SESSION['password']) {
 	if ($newpass2 == $newpass) {
-		$query = "update login set password='$newpass' where id='$_SESSION[id_admin]'";
+		$query = "UPDATE login SET password='$newpass' WHERE id='$_SESSION[id_admin]'";
 	} else {
 		echo "<script>window.alert('Konfirmasi Password Anda Tidak Cocok');</script>";
 		echo "<script>window.location = 'edit_password.php?id=$_SESSION[id_admin]';</script>";

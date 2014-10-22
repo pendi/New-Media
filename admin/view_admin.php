@@ -3,7 +3,7 @@ session_start();
 	if(!isset($_SESSION['id'])) {
 	  	echo "<script>window.alert('Anda Harus Login Dulu');</script>";
 		echo "<script>window.location = '../login/login.php';</script>";
-	} elseif ($_SESSION['level'] == "co-admin") {
+	} elseif ($_SESSION['level'] == "admin") {
 		echo "<script>window.alert('Maaf Anda Tidak Memiliki Hak Akses');</script>";
 		echo "<script>window.location = '../product/view_product.php';</script>";
 	} else {
@@ -58,7 +58,7 @@ include "../header/header_admin.php";
 							<td align='center'><?php echo $data[4]; ?></td>
 							<td align='center'><?php echo $data[5]; ?></td>
 							<td align='center'>
-								<a href="delete.php?id=<?php echo $data[0]; ?>"><img title="Hapus" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/delete.png' ?>" width = "15%"></a>
+								<a href="delete.php?id=<?php echo $data[0]; ?>"><img title="Hapus" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/image/icon/delete.png' ?>" width = "15%"></a>
 							</td>
 						</tr>					 
 					<?php $no++;

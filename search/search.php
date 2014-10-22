@@ -18,32 +18,11 @@
 </style>
 <?php
 
-// $batas   = 10;
-// $halaman = $_GET['halaman'];
-// if(isset($_GET['halaman'])) { 
-// 	$halaman = $_GET['halaman']; 
-// } else { 
-// 	$halaman = ""; 
-// }
-
-// if(isset($_GET['by'])) { 
-// 	$by = $_GET['by']; 
-// } else { 
-// 	$by = ""; 
-// }
-
-// if(empty($halaman)){ 
-//     $posisi=0; 
-//     $halaman=1; 
-// } 
-// else{ 
-//     $posisi = ($halaman-1) * $batas; 
-// }
 $search = $_POST['search'];
 
 if ($_POST['search'] <> "") {
 
-	$sql = mysql_query("select * from product where status=2 and name like '%$search%' or status=2 and type like '%$search%'");
+	$sql = mysql_query("SELECT * FROM product WHERE status=2 AND name LIKE '%$search%' OR status=2 AND type LIKE '%$search%'");
 	$jumlah = mysql_num_rows($sql);
 	?>
 	<div class="row-isi">
@@ -81,7 +60,7 @@ if ($_POST['search'] <> "") {
 							<?php if ($r['stock'] == 0): ?>
 								<a>&nbsp;</a>
 							<?php else: ?>
-								<a href="../customer/cart.php?act=add&amp;id=<?php echo $r[0]; ?>&amp;ref=purchase.php" id="buy" class="button round">BELI</a>
+								<a href="../aplikasi/aksi.php?act=add&amp;id=<?php echo $r[0]; ?>" id="buy" class="button round">BELI</a>
 							<?php endif ?>
 						</td>
 					</tr>

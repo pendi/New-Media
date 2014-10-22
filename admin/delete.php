@@ -3,7 +3,7 @@ session_start();
 	if(!isset($_SESSION['id'])) {
 	  	echo "<script>window.alert('Anda Harus Login Dulu');</script>";
 		echo "<script>window.location = '../login/login.php';</script>";
-	} elseif ($_SESSION['level'] == "co-admin") {
+	} elseif ($_SESSION['level'] == "admin") {
 		echo "<script>window.alert('Maaf Anda Tidak Memiliki Hak Akses');</script>";
 		echo "<script>window.location = '../product/view_product.php';</script>";
 	} else {

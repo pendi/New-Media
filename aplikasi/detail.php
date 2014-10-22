@@ -1,7 +1,7 @@
 <?php
 include "../header/header.php";
 
-$sql=mysql_query("select * from product where id_product='$_GET[id_product]'");
+$sql=mysql_query("SELECT * FROM product WHERE id_product='$_GET[id_product]'");
 $data=mysql_fetch_array($sql);
 $price = $data['price'];
 $stock = $data['stock'];
@@ -33,18 +33,9 @@ table.padding tr > td {
 				<?php if ($stock == 0): ?>
 					<a></a>
 				<?php else: ?>
-					<a href="aksi2.php?act=add&amp;id=<?php echo $data[0]; ?>" id="buy" class="button round-group">BELI</a>
+					<a href="aksi.php?act=add&amp;id=<?php echo $data[0]; ?>" id="buy" class="button round-group">BELI</a>
 				<?php endif ?>
-				<!-- <a href="../customer/cart.php?act=add&amp;id=<?php echo $r['id_product']; ?>&amp;ref=purchase.php" id="buy" class="button round-group">BUY</a> -->
 				<a href="index.php" id="alert" class="button alert round-group-right">KEMBALI</a>
-
-
-				<!-- <a href="../customer/check.php?id_product=<?php echo $data[0]; ?>" class="href">
-					<img class="image" title="Buy" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/buy.png' ?>" width="15%">
-				</a> &nbsp; -->
-				<!-- <a href="index.php">
-					<img title="Back" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/back4.png' ?>" width="10%">
-				</a> -->
 			</td>
 		</tr>
 		<tr>

@@ -19,28 +19,28 @@ include "../header/header_admin.php";
 				<td width="13%"><b>Username</b></td>
 				<td width="22%"><?php echo $data[1]; ?></td>
 				<td width="10%"><center>
-					<a href="edit_user.php?id=<?php echo $_SESSION['id_admin']; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/edit.png' ?>" width="20px"></a>
+					<a href="edit_user.php?id=<?php echo $_SESSION['id_admin']; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/image/icon/edit.png' ?>" width="20px"></a>
 				</center></td>
 			</tr>
 			<tr class="hover">
 				<td><b>Nama Depan</b></td>
 				<td><?php echo $data[2]; ?></td>
 				<td><center>
-					<a href="edit_first_name.php?id=<?php echo $_SESSION['id_admin']; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/edit.png' ?>" width="20px"></a>
+					<a href="edit_first_name.php?id=<?php echo $_SESSION['id_admin']; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/image/icon/edit.png' ?>" width="20px"></a>
 				</center></td>
 			</tr>
 			<tr class="hover">
 				<td><b>Nama Belakang</b></td>
 				<td><?php echo $data[3]; ?></td>
 				<td><center>
-					<a href="edit_last_name.php?id=<?php echo $_SESSION['id_admin']; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/edit.png' ?>" width="20px"></a>
+					<a href="edit_last_name.php?id=<?php echo $_SESSION['id_admin']; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/image/icon/edit.png' ?>" width="20px"></a>
 				</center></td>
 			</tr>
 			<tr class="hover">
 				<td><b>Password</b></td>
 				<td>**********</td>
 				<td><center>
-					<a href="edit_password.php?id=<?php echo $_SESSION['id_admin']; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/edit.png' ?>" width="20px"></a>
+					<a href="edit_password.php?id=<?php echo $_SESSION['id_admin']; ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/image/icon/edit.png' ?>" width="20px"></a>
 				</center></td>
 			</tr>
 			<tr class="hover">

@@ -38,7 +38,7 @@ img.padding {
 <body bgcolor="#80B2FF">
 <?php 
 if (!isset($_SESSION)) {
-    @session_start();
+    session_start();
 }
 
 include "../aplikasi/koneksi.php";
@@ -49,11 +49,11 @@ if(isset($_SESSION['id_admin'])) {
 	$id = ""; 
 }
 
-// if(!isset($_SESSION['transaksi'])){
-//     $idt = date("YmdHis");
-//     $_SESSION['transaksi'] = $idt;
-// }
-$idt = session_id();
+if(!isset($_SESSION['transaksi'])){
+    $idt = date("YmdHis");
+    $_SESSION['transaksi'] = $idt;
+}
+$idt = $_SESSION['transaksi'];
 
 $sql = mysql_query("SELECT * FROM login WHERE id = '$id'");
 $data = mysql_fetch_array($sql);
@@ -103,7 +103,6 @@ if ($numCart > 0) {
 					<li><a href="../customer/product.php?id=6">Lenovo</a></li>
 					<li><a href="../customer/product.php?id=7">Samsung</a></li>
 					<li><a href="../customer/product.php?id=8">Toshiba</a></li>
-					<!-- <li><a href="../customer/product.php?id=8">Cart</a></li> -->
 				</ul>
 			</td>
 			<td width="7%">
@@ -121,9 +120,6 @@ if ($numCart > 0) {
 		<tr>
 			<td align="right">
 				<input class="search" type="search" name="search" placeholder="Cari Produk">
-				<!-- <img class="icon-search" src="<?php //echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/search.png' ?>"> -->
-				<!-- <a href="../search/search.php" class="button" style="padding: 1px 10px 1px;">Search</a> -->
-				<!-- <input type="submit" name="submit" value="search"> -->
 			</td>
 		</tr>
 	</table>
@@ -131,35 +127,3 @@ if ($numCart > 0) {
 </form>
 </body>
 </html>
-	<!-- <tr>
-		<td><center>
-			<?php  
-				// if(isset($_REQUEST['module'])) { $module = $_REQUEST['module']; } 
-				// else { $module = ""; } 
-				// 	if($module=='keranjang') {
-				// 		include "keranjang_belanja.php";
-				// 	}
-				// 	else if($module=='selesai') {
-				// 		include "selesai_belanja.php";
-				// 	}
-				// 	else if($module=='simpan') {
-				// 		include "simpan_transaksi.php";
-				// 	}
-				// 	else if($module=='detail') {
-				// 		include "detail.php";
-				// 	}
-				// 	else if($module=='hitung') {
-				// 		include "hitung_produk.php";
-				// 	}
-				// 	else {
-				// 		include "produk.php";
-					// }
-			?>
-			</center>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<?php //include "footer.php" ?>	
-		</td>
-	</tr> -->

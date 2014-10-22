@@ -81,11 +81,6 @@ $sql = mysql_query($query);
 <?php } ?>
 <script>
 	function validasi(form) {
-		// if (form.id.value == ""){
-		// 	alert("Anda belum mengisikan Id Produk.");
-		// 	form.id.focus();
-		// 	return (false);
-		// }
 		if (form.category.value == 0){
 			alert("Anda belum memilih Category Produk.");
 			form.category.focus();
@@ -118,5 +113,4 @@ $sql = mysql_query($query);
 		}
 		return (true);  
 	}
-
 </script>

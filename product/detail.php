@@ -6,7 +6,7 @@ session_start();
 	} else {
 include "../header/header_admin.php";
 
-$sql=mysql_query("select * from product where id_product='$_GET[id_product]'");
+$sql=mysql_query("SELECT * FROM product WHERE id_product='$_GET[id_product]'");
 $data=mysql_fetch_array($sql);
 ?>
 <style type="text/css">

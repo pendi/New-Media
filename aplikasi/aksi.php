@@ -1,53 +1,81 @@
-<?php 
-include "koneksi.php";
-
-$tgl_sekarang = date("Ymd");
-$jam_sekarang = date("H:i:s");
-$module = $_GET["module"];
-$act = $_GET["act"];
-
-if ($module=='detail')
-{
-	include "detail_produk.php";
+<?php
+session_start();
+include "../aplikasi/koneksi.php";
+if(!isset($_SESSION['transaksi'])){
+    $idt = date("YmdHis");
+    $_SESSION['transaksi'] = $idt;
 }
-elseif ($module=='keranjang' AND $act=='tambah'){
-	$sql = mysql_query("SELECT stok FROM produk WHERE kdbrg='$_GET[id]'");
-	$r = mysql_fetch_array($sql);
-  
-		if ($r["stok"] == 0){
-		    echo "stok habis";
-		}
-		else {
-			// check if the product is already
-			// in cart table for this session
-			$sql2 = mysql_query("SELECT kdbrg FROM orders_temp WHERE kdbrg='$_GET[id]'");
-			$ketemu=mysql_num_rows($sql2);
-		if ($ketemu==0){
-			// put the product in cart table
-			mysql_query("INSERT INTO orders_temp (kdbrg, jumlah, tgl_order_temp, jam_order_temp)
-					VALUES ('$_GET[id]', 1, '$tgl_sekarang', '$jam_sekarang')");
+$idt = $_SESSION['transaksi'];
+// $id = $_GET['id'];
+if(isset($_GET['id'])) { 
+	$id = $_GET['id']; 
+} else { 
+	$id = ""; 
+}
+
+// $act = $_GET['act'];
+if(isset($_GET['act'])) { 
+	$act = $_GET['act']; 
+} else { 
+	$act = ""; 
+}
+
+// $qty = $_GET['qty'];
+if(isset($_GET['qty'])) { 
+	$qty = $_GET['qty']; 
+} else { 
+	$qty = ""; 
+}
+
+$encript = md5($id);
+$regex = preg_replace("/[^A-Za-z]/", '', $encript);
+$alfa = substr($regex, 0, 5);
+$kode = strtoupper($alfa);
+
+$kdauto = mysql_query("SELECT max(id_order_temp) AS last FROM orders_temp WHERE id_order_temp LIKE '$kode%'");
+$result = mysql_fetch_array($kdauto);
+$lastNoTransaksi = $result['last'];
+$lastNoUrut = substr($lastNoTransaksi, 5, 4);
+$nextNoUrut = $lastNoUrut + 1;
+$nextNoTransaksi = $kode.sprintf('%04s', $nextNoUrut);
+
+if ($act == 'add') {
+	$selectAdd = mysql_query("SELECT * FROM orders_temp WHERE id_product='$id' AND id_session='$idt'");
+	$numRowAdd = mysql_num_rows($selectAdd);
+	if ($numRowAdd == 0) {
+		$insert = mysql_query("INSERT INTO orders_temp(id_order_temp,id_product,id_session,quantity) 
+	            VALUES('$nextNoTransaksi','$id','$idt','1')");
+	} else {
+		$insert = mysql_query("UPDATE orders_temp SET quantity = quantity+1 WHERE id_product='$id'");
+	}
+	if ($insert) {
+		echo "<script>window.location = '../customer/purchase.php?id=$id';</script>";
+	}
+} elseif ($act == 'plus') {
+	$update = mysql_query("UPDATE orders_temp SET quantity = $qty + 1 WHERE id_product='$id'");
+	if ($update) {
+		echo "<script>window.location = '../customer/purchase.php?id=$id';</script>";
+	}
+} elseif ($act == 'min') {
+	$update = mysql_query("UPDATE orders_temp SET quantity = $qty - 1 WHERE id_product='$id'");
+	if ($update) {
+		echo "<script>window.location = '../customer/purchase.php?id=$id';</script>";
+	}
+} elseif ($act == 'del') {
+	$delete = mysql_query("DELETE FROM orders_temp WHERE id_product='$id' AND id_session='$idt'");
+	if ($delete) {
+		$select = mysql_query("SELECT * FROM orders_temp WHERE id_session='$idt'");
+		$numRow = mysql_num_rows($select);
+		if ($numRow == 0) {
+			echo "<script>window.location = '../index.php';</script>";
 		} else {
-		
-			// update product quantity in cart table
-			mysql_query("UPDATE orders_temp SET jumlah = jumlah + 1 WHERE kdbrg='$_GET[id]'");		
+			echo "<script>window.location = '../customer/purchase.php?id=$id';</script>";
 		}
-		deleteAbandonedCart();
-		header('Location:header.php?module=hitung');
+	}
+} elseif ($act == 'clear') {
+	$delete = mysql_query("DELETE FROM orders_temp WHERE id_session='$idt'");
+	if ($delete) {
+		echo "<script>window.location = '../index.php';</script>";
 	}
 }
-elseif ($module=='keranjang' AND $act=='update'){
-  	$id       = $_POST["id"];
-  	$jml_data = count($id);
-  	$jumlah   = $_POST["jml"]; // quantity
-  	for ($i=1; $i<=$jml_data; $i++){
-    	mysql_query("UPDATE orders_temp SET jumlah = '".$jumlah[$i]."' WHERE id_orders_temp = '".$id[$i]."'");
-}
-	header('Location:header.php?module=keranjang');				
-}
-
-function deleteAbandonedCart(){
-	$kemarin = date('Y-m-d', mktime(0,0,0, date('m'), date('d') - 1, date('Y'))); // mktime menyatakan kejadian waktu
-	mysql_query("DELETE FROM orders_temp WHERE tgl_order_temp < '$kemarin'");
-}
-
 ?>
