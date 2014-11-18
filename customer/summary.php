@@ -20,7 +20,14 @@ $queryOrd = mysql_query("SELECT * FROM orders WHERE id_cus='$id'");
 $dataOrd = mysql_fetch_array($queryOrd);
 ?>
 <div class="row-isi">
-	<table class="border" width="95%" align="center" border="1">
+	<table width="95%" align="center">
+		<tr>
+			<td style="padding-top:70px; font-size:22px">
+				Terima kasih telah berbelanja di <font color="#0052CC">ANILA SHOP</font>. <b>Periksa kembali data dan belanjaan anda</b>. 
+			</td>
+		</tr>
+	</table>
+	<table class="border" width="95%" align="center" border="1" style="margin-top:-40px">
 		<tr>
 			<td colspan="5" style="padding-bottom:25px;">
 				<table>
@@ -81,7 +88,8 @@ $dataOrd = mysql_fetch_array($queryOrd);
 		</tr>
 	</table>
 	<div style="padding:10px 0 0 23px;">
-		<a target="_blank" href="print.php?id_cus=<?php echo $id; ?>"><input type="button" value="Cetak"></a>
+		<a target="_blank" href="check.php?act=print&amp;id_cus=<?php echo $id; ?>"><input type="button" value="Cetak"></a>
+		<a href="data_customer.php?id_cus=<?php echo $id; ?>"><input type="button" value="Kembali"></a>
 	</div>
 	<table class="width">
 		<?php include "../footer/footer.php"; ?>

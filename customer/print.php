@@ -22,12 +22,12 @@ if(!isset($_SESSION['transaksi'])){
     $_SESSION['transaksi'] = $idt;
 }
 $idt = $_SESSION['transaksi'];
-$query = mysql_query("SELECT id_session FROM orders_temp WHERE id_session = '$idt'");
-$numRow = mysql_num_rows($query);
-if ($numRow == 0) {
-	echo "<script>window.alert('Keranjang Belanja Anda Masih Kosong');</script>";
-	echo "<script>window.location = '../index.php';</script>";
-}
+// $query = mysql_query("SELECT id_session FROM orders_temp WHERE id_session = '$idt'");
+// $numRow = mysql_num_rows($query);
+// if ($numRow == 0) {
+// 	echo "<script>window.alert('Keranjang Belanja Anda Masih Kosong');</script>";
+// 	echo "<script>window.location = '../index.php';</script>";
+// }
 
 $id = $_GET['id_cus'];
 $query = mysql_query("SELECT * FROM customer WHERE id_cus='$id'");

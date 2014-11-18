@@ -12,6 +12,14 @@ if ($numRow == 0) {
 	echo "<script>window.alert('Keranjang Belanja Anda Masih Kosong');</script>";
 	echo "<script>window.location = '../index.php';</script>";
 }
+
+if(isset($_GET['id_cus'])) { 
+	$id_cus = $_GET['id_cus']; 
+} else { 
+	$id_cus = ""; 
+}
+$selectCus = mysql_query("SELECT * FROM customer WHERE id_cus = '$id_cus'");
+$dataCus = mysql_fetch_array($selectCus);
 ?>
 <style type="text/css">
 	.top {
@@ -20,6 +28,7 @@ if ($numRow == 0) {
 </style>
 <form action="save_customer.php" method="post" onsubmit="return validasi(this)">
 	<input type="hidden" name="id_order" value="<?php echo $_GET['id_order']; ?>">
+	<input type="hidden" name="id_cus" value="<?php echo $dataCus['id_cus']; ?>">
 	<div class="row-isi">
 		<table width="70%" align="center">
 			<tr>
@@ -29,19 +38,19 @@ if ($numRow == 0) {
 		<table width="70%" align="center">
 			<tr>
 				<td width="20%"><b>Nama Lengkap</b></td>
-				<td><input autofocus type="text" class="input" maxlength="50" name="name" placeholder="Nama Lengkap"></td>
+				<td><input autofocus type="text" class="input" maxlength="50" name="name" placeholder="Nama Lengkap" value="<?php echo $dataCus['name'] ?>"></td>
 			</tr>
 			<tr>
 				<td class="top"><b>Alamat</b></td>
-				<td><textarea cols="25" rows="5" name="address" placeholder="Alamat"></textarea></td>
+				<td><textarea cols="25" rows="5" name="address" placeholder="Alamat"><?php echo $dataCus['address'] ?></textarea></td>
 			</tr>
 			<tr>
 				<td><b>Nomor Telepon</b></td>
-				<td><input type="text" class="input" name="phone" placeholder="Nomor Telepon"></td>
+				<td><input type="text" class="input" name="phone" placeholder="Nomor Telepon" value="<?php echo $dataCus['phone_number'] ?>"></td>
 			</tr>
 			<tr>
 				<td><b>Email</b></td>
-				<td><input type="text" class="input" name="email" placeholder="Email"></td>
+				<td><input type="text" class="input" name="email" placeholder="Email" value="<?php echo $dataCus['email'] ?>"></td>
 			</tr>
 			<tr>
 				<td colspan="2">&nbsp;</td>
