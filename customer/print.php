@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Anila Shop</title>
-	<!-- <link rel="stylesheet" type="text/css" href="../css/global.css"> -->
+	<title>Nadi Shop</title>
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
 	<!-- <link rel="stylesheet" type="text/css" href="../css/naked.css"> -->
 	<link rel="shortcut icon" href="../image/favicon/favicon.ico" type="image/x-icon" />
 <script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
@@ -10,6 +10,14 @@
 	.align {
 		vertical-align: bottom;
 		/*padding-bottom: 10px;*/
+	}
+
+	@media print{
+		input[type=submit],
+		input[type=reset],
+		input[type=button] {
+			display: none;
+		}
 	}
 </style>
 
@@ -37,7 +45,7 @@ $dataOrd = mysql_fetch_array($queryOrd);
 ?>
 <table width="95%" align="center">
 	<tr>
-		<td colspan="3"><font color="#000" size="30">&nbsp;ANILA SHOP</font></td>
+		<td colspan="3"><font color="#000" size="30">&nbsp;NADI SHOP</font></td>
 	</tr>
 	<tr>
 		<td width="9%" align="right">
@@ -106,6 +114,7 @@ $dataOrd = mysql_fetch_array($queryOrd);
 		<td align="center"><b>Rp. <?php echo price($total); ?></b></td>
 	</tr>
 </table>
-	<!-- <div style="padding:10px 0 0 23px;">
-		<a target="_blank" href="print.php?id_cus=<?php //echo $id; ?>"><input type="button" value="Cetak"></a>
-	</div> -->
+<div style="padding:10px 0 0 23px;">
+	<input type="button" onclick="window.print();" value="Cetak Bukti Transaksi">
+	<a href="../index.php"><input type="button" value="Kembali"></a>
+</div>

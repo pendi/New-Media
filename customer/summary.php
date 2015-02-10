@@ -19,11 +19,23 @@ $data = mysql_fetch_array($query);
 $queryOrd = mysql_query("SELECT * FROM orders WHERE id_cus='$id'");
 $dataOrd = mysql_fetch_array($queryOrd);
 ?>
+<style type="text/css">
+	.info{
+		border: 2px dashed;
+		height: 70px;
+		padding-top: 18px;
+		padding-left: 7px;
+	}
+</style>
 <div class="row-isi">
+	<!-- <div style="border:2px dashed;">aaaaaaa</div> -->
 	<table width="95%" align="center">
 		<tr>
-			<td style="padding-top:70px; font-size:22px">
-				Terima kasih telah berbelanja di <font color="#0052CC">ANILA SHOP</font>. <b>Periksa kembali data dan belanjaan anda</b>. 
+			<td style="padding-top:70px; font-size:22px;">
+				<div class="info">
+					Terima kasih telah berbelanja di <font color="#0052CC">NADI SHOP</font>. <b>Periksa kembali data dan belanjaan anda</b>.<br>
+					Klik "Benar" jika data dan belanjaan anda sudah sesuai.
+				</div>
 			</td>
 		</tr>
 	</table>
@@ -88,7 +100,8 @@ $dataOrd = mysql_fetch_array($queryOrd);
 		</tr>
 	</table>
 	<div style="padding:10px 0 0 23px;">
-		<a target="_blank" href="check.php?act=print&amp;id_cus=<?php echo $id; ?>"><input type="button" value="Cetak"></a>
+		<a href="check.php?act=print&amp;id_cus=<?php echo $id; ?>"><input type="button" value="Benar"></a>
+		<!-- <a href="data_customer.php?id_cus=<?php //echo $id; ?>"><input type="button" value="Benar"></a> -->
 		<a href="data_customer.php?id_cus=<?php echo $id; ?>"><input type="button" value="Kembali"></a>
 	</div>
 	<table class="width">
