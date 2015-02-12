@@ -243,28 +243,32 @@ img.image:hover {
 input[type=submit],
 input[type=reset],
 input[type=button] {
-  padding: 5px 15px 5px;
-  cursor: pointer;
-  line-height: 150%;
-  margin: 0;
-  position: relative;
-  text-decoration: none;
-  text-align: center;
-  background: #13c4ff;
-  color: white;
-  font-weight: 400;
-  display: inline-block;
-  border: 0px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  outline: 0;
-  -webkit-font-smoothing: antialiased;
+	padding: 5px 15px 5px;
+	cursor: pointer;
+	line-height: 150%;
+	margin: 0;
+	position: relative;
+	text-decoration: none;
+	text-align: center;
+	background: #13c4ff;
+	color: white;
+	font-weight: 400;
+	display: inline-block;
+	border: 0px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	outline: 0;
+	-webkit-font-smoothing: antialiased;
+}
+
+input[type=button] {
+	background: #FF3B30;
 }
 /*End Submit*/
 
