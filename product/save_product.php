@@ -7,12 +7,19 @@ $price = $_POST['price'];
 $description = $_POST['description'];
 $stock = $_POST['stock'];
 $fileSize = $_FILES["image"]["size"];
-$folder = "../image/product";
-$tmp_name = $_FILES["image"]["tmp_name"];
-$name_img = $folder."/".$_FILES["image"]["name"];
 
 $select = mysql_query("SELECT vendor FROM category WHERE id='$category'");
 $data = mysql_fetch_array($select);
+$vendor = strtolower($data['vendor']);
+
+if((!file_exists("../image/product/".$vendor))&&(!is_dir("../image/product/".$vendor)))
+{
+	$folder = mkdir("../image/product/".$vendor);
+}
+
+$tmp_name = $_FILES["image"]["tmp_name"];
+$name_img = $vendor."/".$_FILES["image"]["name"];
+
 
 $vend = substr($data['vendor'], 0, 2);
 $encript = md5($data['vendor']);

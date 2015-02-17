@@ -8,9 +8,18 @@ $price = $_POST['price'];
 $description = $_POST['description'];
 $stock = $_POST['stock'];
 $fileSize = $_FILES["image"]["size"];
-$folder = "../image/product";
+
+$select = mysql_query("SELECT vendor FROM category WHERE id='$category'");
+$data = mysql_fetch_array($select);
+$data['vendor'] = strtolower($data['vendor']);
+
+if((!file_exists("../image/product/".$data['vendor']))&&(!is_dir("../image/product/".$data['vendor'])))
+{
+	$folder = mkdir("../image/product/".$data['vendor']);
+}
+
 $tmp_name = $_FILES["image"]["tmp_name"];
-$name_img = $folder."/".$_FILES["image"]["name"];
+$name_img = "../image/product/".$data['vendor']."/".$_FILES["image"]["name"];
 
 if ($fileSize > 0) {
 
