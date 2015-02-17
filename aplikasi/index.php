@@ -79,7 +79,7 @@ $sql = mysql_query("SELECT * FROM product WHERE status = 2 ORDER BY $order $pos,
 				<?php if (!empty($r['image'])): ?>				
 					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img class="scale" src="<?php echo $r['image']; ?>" width="120px" height="120px"></a>
 				<?php else : ?>
-					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img class="scale" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/product/no-image.jpg' ?>" width="120px" height="120px"></a>
+					<a href="detail.php?id_product=<?php echo $r[0] ?>"><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/product/no-image.jpg' ?>" width="120px" height="120px"></a>
 				<?php endif ?>
 			</td>
 			<td style="vertical-align: top; font-size: 14px;" colspan="2" class="padding-right">
