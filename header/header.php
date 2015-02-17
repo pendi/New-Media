@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
 	<!-- <link rel="stylesheet" type="text/css" href="../css/naked.css"> -->
 	<!-- <link rel="shortcut icon" href="../image/favicon/favicon.ico" type="image/x-icon" /> -->
-	<link rel="shortcut icon" href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/image/favicon/favicon.ico' ?>" type="image/x-icon" />
+	<link rel="shortcut icon" href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/favicon/favicon.ico' ?>" type="image/x-icon" />
 <script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
 <script>
 	function validasi(form) {
@@ -83,7 +83,7 @@ if ($numCart > 0) {
 		</tr>
 		<tr>
 			<td width="9%" align="right">
-				<a href="../aplikasi/index.php" class="href"><img class="padding" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/image/logo-icon.png' ?>" width="70%"></a>
+				<a href="../aplikasi/index.php" class="href"><img class="padding" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/logo-icon.png' ?>" width="70%"></a>
 			</td>
 			<td width="26%" class="align">Menjual Laptop Baru dan Bergaransi</td>
 			<td width="35%" align="right">&nbsp;</td>
@@ -108,7 +108,7 @@ if ($numCart > 0) {
 			</td>
 			<td width="7%">
 				<a href="../customer/check.php?act=cart" class="href">
-					<img class="padding" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/image/icon/cart.png' ?>" width="50%"> 
+					<img class="padding" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/icon/cart.png' ?>" width="50%"> 
 					<span style="vertical-align:4px;font-size:23px;color:#FFF;"><?php echo $totalCart; ?></span>
 				</a>
 			</td>

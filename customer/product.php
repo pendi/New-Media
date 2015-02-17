@@ -95,7 +95,7 @@ $query = mysql_query("SELECT * FROM product WHERE category_id='$idc' AND status 
 				<?php if (!empty($r['image'])): ?>				
 					<a href="../aplikasi/detail.php?id_product=<?php echo $r[0] ?>"><img class="scale" src="<?php echo $r['image']; ?>" width="120px" height="120px"></a>
 				<?php else : ?>
-					<a href="../aplikasi/detail.php?id_product=<?php echo $r[0] ?>"><img class="scale" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="120px" height="120px"></a>
+					<a href="../aplikasi/detail.php?id_product=<?php echo $r[0] ?>"><img class="scale" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/aplikasi/image/no-image.jpg' ?>" width="120px" height="120px"></a>
 				<?php endif ?>
 			</td>
 			<td style="vertical-align: top; font-size: 14px;" colspan="2" class="padding-right">

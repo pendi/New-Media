@@ -58,7 +58,7 @@ include "../header/header_admin.php";
 							<td align='center'><?php echo $data[4]; ?></td>
 							<td align='center'><?php echo $data[5]; ?></td>
 							<td align='center'>
-								<a href="delete.php?id=<?php echo $data[0]; ?>"><img title="Hapus" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/image/icon/delete.png' ?>" width = "15%"></a>
+								<a href="delete.php?id=<?php echo $data[0]; ?>"><img title="Hapus" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/icon/delete.png' ?>" width = "15%"></a>
 							</td>
 						</tr>					 
 					<?php $no++;

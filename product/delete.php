@@ -56,7 +56,7 @@ $data = mysql_fetch_array($que);
 				<?php if (!empty($data['image'])): ?>				
 					<img src="<?php echo $data[6]; ?>" width="150px"><br/>
 				<?php else : ?>
-					<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/aplikasi/image/no-image.jpg' ?>" width="150px"><br/>
+					<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/aplikasi/image/no-image.jpg' ?>" width="150px"><br/>
 				<?php endif ?>
 			</td>
 		</tr>

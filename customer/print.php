@@ -49,7 +49,7 @@ $dataOrd = mysql_fetch_array($queryOrd);
 	</tr>
 	<tr>
 		<td width="9%" align="right">
-			<a href="../aplikasi/index.php" class="href"><img class="padding" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/image/logo-icon.png' ?>" width="70%"></a>
+			<a href="../aplikasi/index.php" class="href"><img class="padding" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/logo-icon.png' ?>" width="70%"></a>
 		</td>
 		<td colspan="2" class="align">Menjual Laptop Baru dan Bergaransi</td>
 	</tr>

@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
 	<!-- <link rel="stylesheet" type="text/css" href="../css/naked.css"> -->
 	<!-- <link rel="shortcut icon" href="../image/favicon/favicon.ico" type="image/x-icon" /> -->
-	<link rel="shortcut icon" href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/image/favicon/favicon.ico' ?>" type="image/x-icon" />
+	<link rel="shortcut icon" href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/favicon/favicon.ico' ?>" type="image/x-icon" />
 <script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
 <script>
 	function validasi(form) {
@@ -65,7 +65,7 @@ $data = mysql_fetch_array($que);
 		</tr>
 		<tr>
 			<td width="9%" align="right">
-				<a href="../aplikasi/index.php"><img class="padding" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/image/logo-icon.png' ?>" width="70%"></a>
+				<a href="../aplikasi/index.php"><img class="padding" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/logo-icon.png' ?>" width="70%"></a>
 			</td>
 			<td width="26%" class="align">Menjual Laptop Baru dan Bergaransi</td>
 			<td width="35%" align="right">&nbsp;</td>

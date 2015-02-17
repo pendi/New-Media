@@ -63,7 +63,7 @@ if ($numRow == 0) {
 					Rp. <input style="width:130px;" type="text" class="input" readonly value="<?php echo price($sub_total); ?>">
 
 					<a href="../aplikasi/aksi.php?act=del&amp;id=<?php echo $data['id_product']; ?>" style="vertical-align: -3px;">
-						<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/image/icon/delete.png' ?>" width ="13px">
+						<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/icon/delete.png' ?>" width ="13px">
 					</a>
 				</td>
 			</tr>

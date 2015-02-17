@@ -60,7 +60,7 @@ include "../header/header_admin.php";
 								<?php if (!empty($data['image'])): ?>				
 									<img src="<?php echo $data['image']; ?>" width="50%"><br/>
 								<?php else : ?>
-									<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/image/product/no-image.jpg' ?>" width="50%"><br/>
+									<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/product/no-image.jpg' ?>" width="50%"><br/>
 								<?php endif ?>
 							</td>
 							<td align="center">
@@ -73,12 +73,12 @@ include "../header/header_admin.php";
 								?>
 							</td>
 							<td align='center'>
-								<a href="edit.php?id_product=<?php echo $data[0]; ?>"><img title="Edit" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/image/icon/edit.png' ?>" width = "15%"></a> &nbsp;
-								<a href="delete.php?id_product=<?php echo $data[0]; ?>"><img title="Hapus" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/image/icon/delete.png' ?>" width = "15%"></a> &nbsp;
+								<a href="edit.php?id_product=<?php echo $data[0]; ?>"><img title="Edit" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/icon/edit.png' ?>" width = "15%"></a> &nbsp;
+								<a href="delete.php?id_product=<?php echo $data[0]; ?>"><img title="Hapus" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/icon/delete.png' ?>" width = "15%"></a> &nbsp;
 								<?php if($data[8]==1): ?>
-									<a href="publish.php?id_product=<?php echo $data[0]; ?>"><img title="Publish" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/image/icon/publish.png' ?>" width = "17%"></a>
+									<a href="publish.php?id_product=<?php echo $data[0]; ?>"><img title="Publish" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/icon/publish.png' ?>" width = "17%"></a>
 								<?php else: ?>
-									<a href="publish.php?id_product=<?php echo $data[0]; ?>"><img title="Not Publish" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/new_media/image/icon/publish.png' ?>" width = "17%"></a>
+									<a href="publish.php?id_product=<?php echo $data[0]; ?>"><img title="Not Publish" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/icon/publish.png' ?>" width = "17%"></a>
 								<?php endif ?>
 							</td>
 						</tr>					 
