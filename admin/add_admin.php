@@ -62,9 +62,8 @@ include "../header/header_admin.php";
 			</tr>
 			<tr>
 				<td colspan="3" align="center">
-					<input type="submit" name="submit" value="Simpan"> 
-					<input type="reset" name="reset" value="Batal">
-					<a href="view_admin.php"><input type="button" name="button" value="Kembali"></a>
+					<input type="submit" name="submit" value="Simpan">
+					<a href="view_admin.php"><input type="button" class="back" value="Batal"></a>
 				</td>
 			</tr>
 			<tr>

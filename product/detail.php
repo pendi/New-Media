@@ -25,7 +25,7 @@ table.padding tr > td {
 				<?php if (!empty($data['image'])): ?>				
 					<img src="<?php echo $data['image']; ?>" width="20%"><br/>
 				<?php else : ?>
-					<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/aplikasi/image/no-image.jpg' ?>" width="20%"><br/>
+					<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/product/no-image.jpg' ?>" width="20%"><br/>
 				<?php endif ?>
 			</td>
 		</tr>
@@ -56,7 +56,7 @@ table.padding tr > td {
 		</tr>
 		<tr>
 			<td colspan="3">
-				<a href="view_product.php"><input type="button" name="back" value="Kembali"></a>
+				<a href="view_product.php"><input type="button" name="back" class="back" value="Kembali"></a>
 			</td>
 		</tr>
 		<tr>

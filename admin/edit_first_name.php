@@ -13,7 +13,7 @@ $data = mysql_fetch_array($query);
 	<div class="row-isi">
 		<table class="width">
 			<tr>
-				<td colspan="3" align="center"><h2>EDIT NAMA DEPAN</h2></td>
+				<td colspan="3" align="center"><h2>GANTI NAMA DEPAN</h2></td>
 			</tr>
 			<tr>
 				<td width="23%"></td>
@@ -34,7 +34,7 @@ $data = mysql_fetch_array($query);
 			<tr>
 				<td colspan="3" align="center">
 					<input type="submit" name="submit" value="Simpan">
-					<a href="view_edit.php"><input type="button" name="button" value="Kembali"></a>
+					<a href="view_edit.php"><input type="button" class="back" name="button" value="Kembali"></a>
 				</td>
 			</tr>
 			<tr>

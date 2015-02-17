@@ -9,27 +9,10 @@ $query = mysql_query("SELECT * from product where id_product = '$_GET[id_product
 $data = mysql_fetch_array($query);
 
 $sql = mysql_query("SELECT * FROM category");
+$dataCat = mysql_fetch_array($sql);
 
-$category = "";
-if ($data['category_id'] == 1) {
-	$category = "Acer";
-} elseif($data['category_id'] == 2) {
-	$category = "Apple";
-} elseif($data['category_id'] == 3) {
-	$category = "Asus";
-} elseif($data['category_id'] == 4) {
-	$category = "Dell";
-} elseif($data['category_id'] == 5) {
-	$category = "Hp";
-} elseif($data['category_id'] == 6) {
-	$category = "Lenovo";
-} elseif($data['category_id'] == 7) {
-	$category = "Samsung";
-} elseif($data['category_id'] == 8) {
-	$category = "Toshiba";
-} else {
-	$category = "Select Category";
-}
+$queryCat = mysql_query("SELECT vendor from category where id = '$data[category_id]'");
+$category = mysql_fetch_array($queryCat);
 ?>
 <form action="editing_process.php" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="<?php echo $data[0]; ?>" />
@@ -50,8 +33,7 @@ if ($data['category_id'] == 1) {
 					<select name="category" size="0">
 						<?php $selected = ""; ?>
 			            <?php if($data['category']) $selected = "selected"; ?>
-			            <option value="<?php echo $data['category_id'] ?>" <?php echo $selected; ?>><?php echo $category; ?></option>
-						<option value="0">Pilih Kategori</option>
+			            <option value="<?php echo $data['category_id'] ?>" <?php echo $selected; ?>><?php echo $category['vendor']; ?></option>
 						<?php 
 						 while($r = mysql_fetch_array($sql))
 						 {
@@ -93,7 +75,7 @@ if ($data['category_id'] == 1) {
 					<?php if (!empty($data['image'])): ?>				
 						<img src="<?php echo $data[6]; ?>" width="150px"><br/>
 					<?php else : ?>
-						<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/aplikasi/image/no-image.jpg' ?>" width="150px"><br/>
+						<img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/product/no-image.jpg' ?>" width="150px"><br/>
 					<?php endif ?>
 				</td>
 			</tr>
@@ -108,7 +90,7 @@ if ($data['category_id'] == 1) {
 			<tr>
 				<td colspan="3" align="center">
 					<input type="submit" name="submit" value="Simpan">
-					<a href="view_product.php"><input type="button" name="button" value="Kembali"></a>
+					<a href="view_product.php"><input type="button" class="back" name="button" value="Kembali"></a>
 				</td>
 			</tr>
 			<tr>

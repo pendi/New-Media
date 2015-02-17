@@ -101,8 +101,7 @@ $dataOrd = mysql_fetch_array($queryOrd);
 	</table>
 	<div style="padding:10px 0 0 23px;">
 		<a href="check.php?act=print&amp;id_cus=<?php echo $id; ?>"><input type="button" value="Benar"></a>
-		<!-- <a href="data_customer.php?id_cus=<?php //echo $id; ?>"><input type="button" value="Benar"></a> -->
-		<a href="data_customer.php?id_cus=<?php echo $id; ?>"><input type="button" value="Kembali"></a>
+		<a href="data_customer.php?id_cus=<?php echo $id; ?>"><input type="button" class="back" value="Kembali"></a>
 	</div>
 	<table class="width">
 		<?php include "../footer/footer.php"; ?>

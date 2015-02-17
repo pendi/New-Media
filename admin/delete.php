@@ -8,7 +8,7 @@ session_start();
 		echo "<script>window.location = '../product/view_product.php';</script>";
 	} else {
 include "../header/header_admin.php";
-$que = mysql_query("select * from login where id='$_GET[id]'");
+$que = mysql_query("SELECT * FROM login WHERE id='$_GET[id]'");
 $data = mysql_fetch_array($que);
 ?>
 <form action="delete_process.php" method="post">
@@ -44,7 +44,7 @@ $data = mysql_fetch_array($que);
 			<tr>
 				<td colspan="3" align="center">
 					<input type="submit" name="submit" value="Hapus">
-					<a href="view_admin.php"><input type="button" name="button" value="Kembali"></a>
+					<a href="view_admin.php"><input type="button" class="back" value="Kembali"></a>
 				</td>
 			</tr>
 			<tr>

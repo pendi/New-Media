@@ -58,8 +58,8 @@ $dataCus = mysql_fetch_array($selectCus);
 			<tr>
 				<td colspan="2">
 					<input type="submit" value="Simpan"> 
-					<a href="check.php?act=clear"><input type="button" value="Batal"></a> 
-					<a href="check.php?act=cart"><input type="button" value="Kembali"></a> 
+					<a href="check.php?act=cart"><input class="back" type="button" value="Kembali"></a> 
+					<a href="check.php?act=clear"><input class="back" type="button" value="Batal"></a> 
 				</td>
 			</tr>
 		</table>

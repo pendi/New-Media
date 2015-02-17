@@ -45,7 +45,7 @@ include "../header/header_admin.php";
 				    $posisi = ($halaman-1) * $batas; 
 				}
 
-				$que = "select * from product limit $posisi,$batas";
+				$que = "SELECT * FROM product LIMIT $posisi,$batas";
 				$tampil = mysql_query("$que");
 				while ($data = mysql_fetch_array($tampil)) { ?>					
 						<tr class="hover">
@@ -92,7 +92,7 @@ include "../header/header_admin.php";
 				<?php
 					echo "<br>Hal : ";
 
-					$tampil2="select * from product"; 
+					$tampil2="SELECT * FROM product"; 
 					$hasil2=mysql_query($tampil2); 
 					$jmldata=mysql_num_rows($hasil2); 
 					$jmlhalaman=ceil($jmldata/$batas); 

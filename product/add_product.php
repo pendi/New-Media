@@ -34,8 +34,8 @@ $sql = mysql_query($query);
 			</tr>
 			<tr>
 				<td></td>
-				<td>Vendor &nbsp;</td>
-				<td><input type="text" class="input" name="name" placeholder="Vendor"></td>
+				<td>Vandor &nbsp;</td>
+				<td><input type="text" class="input" name="name" placeholder="Vandor"></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -49,8 +49,8 @@ $sql = mysql_query($query);
 			</tr>
 			<tr>
 				<td></td>
-				<td style="vertical-align: top;">Deskrisi &nbsp;</td>
-				<td><textarea name="description" rows="5" cols="20" placeholder="Deskrisi"></textarea></td>
+				<td style="vertical-align: top;">Deskripsi &nbsp;</td>
+				<td><textarea name="description" rows="5" cols="20" placeholder="Deskripsi"></textarea></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -68,8 +68,7 @@ $sql = mysql_query($query);
 			<tr>
 				<td colspan="3" align="center">
 					<input type="submit" name="submit" value="Simpan"> 
-					<input type="reset" name="reset" value="Batal">
-					<a href="view_product.php"><input type="button" name="button" value="Kembali"></a>
+					<a href="view_product.php"><input type="button" name="button" class="back" value="Batal"></a>
 				</td>
 			</tr>
 			<tr>

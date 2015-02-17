@@ -46,7 +46,7 @@ include "../header/header_admin.php";
 				    $posisi = ($halaman-1) * $batas; 
 				}
 
-				$que = "select * from login limit $posisi,$batas";
+				$que = "SELECT * FROM login LIMIT $posisi,$batas";
 				$tampil = mysql_query($que);
 				$no = $posisi + 1;
 				while ($data = mysql_fetch_array($tampil)) { ?>					
@@ -69,7 +69,7 @@ include "../header/header_admin.php";
 					<?php
 						echo "<br>Hal : ";
 
-						$tampil2="select * from login"; 
+						$tampil2="SELECT * FROM login"; 
 						$hasil2=mysql_query($tampil2); 
 						$jmldata=mysql_num_rows($hasil2); 
 						$jmlhalaman=ceil($jmldata/$batas);

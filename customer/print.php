@@ -116,5 +116,5 @@ $dataOrd = mysql_fetch_array($queryOrd);
 </table>
 <div style="padding:10px 0 0 23px;">
 	<input type="button" onclick="window.print();" value="Cetak Bukti Transaksi">
-	<a href="../index.php"><input type="button" value="Kembali"></a>
+	<a href="../index.php"><input type="button" class="back" value="Kembali"></a>
 </div>

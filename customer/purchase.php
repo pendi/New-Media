@@ -20,6 +20,11 @@ if ($numRow == 0) {
 			<tr>
 				<td><h2>Rincian Pembelian :</h2></td>
 			</tr>
+			<tr>
+				<td>
+					<a href="../aplikasi/index.php"><input type="button" value="Beli Lagi"></a>
+				</td>
+			</tr>
 		</table>
 		<table border="1" class="border" width="95%" align="center">
 			<tr bgcolor="#75D1FF">
@@ -77,9 +82,8 @@ if ($numRow == 0) {
 			</tr>
 			<tr>
 				<td colspan="5" align="center">
-					<a href="../aplikasi/index.php"><input type="button" value="Beli Lagi"></a>
 					<input type="submit" value="Lanjutkan">
-					<a href="../aplikasi/aksi.php?act=clear"><input type="button" name="button" value="Batal"></a>
+					<a href="../aplikasi/aksi.php?act=clear"><input type="button" class="back" name="reset" value="Batal"></a>
 				</td>
 			</tr>
 		</table>
