@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Nadi Shop</title>
+	<title>TokoNadi.com</title>
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
 	<!-- <link rel="stylesheet" type="text/css" href="../css/naked.css"> -->
 	<link rel="shortcut icon" href="../image/favicon/favicon.ico" type="image/x-icon" />
@@ -45,7 +45,7 @@ $dataOrd = mysql_fetch_array($queryOrd);
 ?>
 <table width="95%" align="center">
 	<tr>
-		<td colspan="3"><font color="#000" size="30">&nbsp;NADI SHOP</font></td>
+		<td colspan="3"><font color="#000" size="30">&nbsp;TokoNadi.com</font></td>
 	</tr>
 	<tr>
 		<td width="9%" align="right">

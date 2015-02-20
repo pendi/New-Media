@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Nadi Shop</title>
+	<title>TokoNadi.com</title>
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
 	<!-- <link rel="stylesheet" type="text/css" href="../css/naked.css"> -->
 	<!-- <link rel="shortcut icon" href="../image/favicon/favicon.ico" type="image/x-icon" /> -->
@@ -70,7 +70,7 @@ if ($numCart > 0) {
 <div class="row-header radius">
 	<table class="width">
 		<tr>
-			<td colspan="2"><a href="../aplikasi/index.php" class="href"><font color="#fff" size="30">&nbsp;NADI SHOP</font></a></td>
+			<td colspan="2"><a href="../aplikasi/index.php" class="href"><font color="#fff" size="30">&nbsp;TokoNadi.com</font></a></td>
 			<td align="right" style="vertical-align: top;">
 				<?php if (isset($_SESSION["id"])): ?>
 					<a href="../admin/view_edit.php" class="href"><font color="#fff">

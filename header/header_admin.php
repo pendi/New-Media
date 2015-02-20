@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Nadi Shop</title>
+	<title>TokoNadi.com</title>
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
 	<!-- <link rel="stylesheet" type="text/css" href="../css/naked.css"> -->
 	<!-- <link rel="shortcut icon" href="../image/favicon/favicon.ico" type="image/x-icon" /> -->
 	<link rel="shortcut icon" href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/favicon/favicon.ico' ?>" type="image/x-icon" />
 <script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../js/highcharts.js"></script>
 <script>
 	function validasi(form) {
 		if (form.search.value == ""){
@@ -51,7 +52,7 @@ $data = mysql_fetch_array($que);
 <div class="row-header radius">
 	<table class="width">
 		<tr>
-			<td colspan="2"><a href="../aplikasi/index.php" class="href"><font color="#fff" size="30">&nbsp;NADI SHOP</font></a></td>
+			<td colspan="2"><a href="../aplikasi/index.php" class="href"><font color="#fff" size="30">&nbsp;TokoNadi.com</font></a></td>
 			<td align="right" style="vertical-align: top;"><a href="../admin/view_edit.php" class="href"><font color="#fff">
 				<?php echo ucfirst($data['first_name']); ?> <?php echo ucfirst($data['last_name']); ?></font></a> ||
 				<?php 
@@ -79,6 +80,7 @@ $data = mysql_fetch_array($que);
 				<ul class="dropmenu">
 					<li><a href="../admin/check.php">Dashboard</a></li>
 					<li><a href="../admin/view_edit.php">Profil</a></li>
+					<li><a href="../admin/grafik.php">Grafik Penjualan</a></li>
 				</ul>
 			</td>
 		</tr>

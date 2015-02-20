@@ -28,12 +28,11 @@ $dataOrd = mysql_fetch_array($queryOrd);
 	}
 </style>
 <div class="row-isi">
-	<!-- <div style="border:2px dashed;">aaaaaaa</div> -->
 	<table width="95%" align="center">
 		<tr>
 			<td style="padding-top:70px; font-size:22px;">
 				<div class="info">
-					Terima kasih telah berbelanja di <font color="#0052CC">NADI SHOP</font>. <b>Periksa kembali data dan belanjaan anda</b>.<br>
+					Terima kasih telah berbelanja di <font color="#0052CC">TokoNadi.com</font>. <b>Periksa kembali data dan belanjaan anda</b>. 
 					Klik "Benar" jika data dan belanjaan anda sudah sesuai.
 				</div>
 			</td>
