@@ -33,16 +33,20 @@ if ($act == 'cart') {
 	if ($delete) {
 		echo "<script>window.location = '../index.php';</script>";
 	}
-} elseif ($act == 'print') {
+} elseif ($act == 'print') { 
 	$queryOrd = mysql_query("SELECT * FROM orders WHERE id_cus='$id_cus'");
 	$dataOrd = mysql_fetch_array($queryOrd);
 	$queryTrs = mysql_query("SELECT * FROM transaksi WHERE id_order='$dataOrd[id_order]'");
 	while($dataTrs = mysql_fetch_array($queryTrs)){
 		$queryPro = mysql_query("SELECT * FROM product WHERE id_product='$dataTrs[id_product]'");
 		$dataPro = mysql_fetch_array($queryPro);
-		$delete = mysql_query("UPDATE product SET stock='$dataPro[stock]'-'$dataTrs[quantity]' WHERE id_product='$dataTrs[id_product]'");
+		$updateStok = mysql_query("UPDATE product SET stock='$dataPro[stock]'-'$dataTrs[quantity]' WHERE id_product='$dataTrs[id_product]'");
+		$selectSale = mysql_query("SELECT * FROM category WHERE id='$dataPro[category_id]'");
+		$dataSale = mysql_fetch_array($selectSale);
+		$updateSale = mysql_query("UPDATE category SET sale='$dataSale[sale]'+'$dataTrs[quantity]' WHERE id='$dataPro[category_id]'");
 	}
-	if ($delete) {
+	if ($updateStok) {
+		// $selectSale = mysql_query("SELECT * FROM category ")
 		$deleteOt = mysql_query("DELETE FROM orders_temp WHERE id_session='$idt'");
 		echo "<script>window.location = 'print.php?id_cus=$_GET[id_cus]';</script>";
 	}
