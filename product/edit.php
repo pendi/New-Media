@@ -5,13 +5,12 @@ session_start();
 		echo "<script>window.location = '../login/login.php';</script>";
 	} else {
 include "../header/header_admin.php";
-$query = mysql_query("SELECT * from product where id_product = '$_GET[id_product]'");
+$query = mysql_query("SELECT * FROM product WHERE id_product = '$_GET[id_product]'");
 $data = mysql_fetch_array($query);
 
 $sql = mysql_query("SELECT * FROM category");
-$dataCat = mysql_fetch_array($sql);
 
-$queryCat = mysql_query("SELECT vendor from category where id = '$data[category_id]'");
+$queryCat = mysql_query("SELECT vendor FROM category WHERE id = '$data[category_id]'");
 $category = mysql_fetch_array($queryCat);
 ?>
 <form action="editing_process.php" method="post" enctype="multipart/form-data">
@@ -35,10 +34,10 @@ $category = mysql_fetch_array($queryCat);
 			            <?php if($data['category']) $selected = "selected"; ?>
 			            <option value="<?php echo $data['category_id'] ?>" <?php echo $selected; ?>><?php echo $category['vendor']; ?></option>
 						<?php 
-						 while($r = mysql_fetch_array($sql))
-						 {
+						while($r = mysql_fetch_array($sql))
+						{
 							echo "<option value=$r[0]>$r[1]</option>";
-						 }
+						}
 						?>
 					</select>
 				</td>
