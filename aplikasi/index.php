@@ -60,9 +60,18 @@ $sql = mysql_query("SELECT * FROM product WHERE status = 2 ORDER BY $order $pos,
 		<tr>
 			<td align="center" colspan="3">
 				<hr/>
-				Sort By: &nbsp;&nbsp; 
-				<a href="<?php $_SERVER['PHP_SELF']?>?by=az" class="href">A-Z</a> &nbsp;&nbsp;&nbsp; 
-				<a href="<?php $_SERVER['PHP_SELF']?>?by=za" class="href">Z-A</a>
+				Sort By: &nbsp;&nbsp;
+				<?php if ($by == 'az'): ?>
+					<a href="<?php $_SERVER['PHP_SELF']?>?by=az" class="href display">A-Z</a> &nbsp;&nbsp;&nbsp;
+				<?php else: ?>
+					<a href="<?php $_SERVER['PHP_SELF']?>?by=az" class="href">A-Z</a> &nbsp;&nbsp;&nbsp;
+				<?php endif ?>
+
+				<?php if ($by == 'za'): ?>
+					<a href="<?php $_SERVER['PHP_SELF']?>?by=za" class="href display">Z-A</a>
+				<?php else: ?>
+					<a href="<?php $_SERVER['PHP_SELF']?>?by=za" class="href">Z-A</a>
+				<?php endif ?>
 				<hr/>
 			</td>
 		</tr>

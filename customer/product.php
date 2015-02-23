@@ -77,8 +77,17 @@ $query = mysql_query("SELECT * FROM product WHERE category_id='$idc' AND status 
 			<td align="center" colspan="3">
 				<!-- <hr/> -->
 				Sort By: &nbsp;&nbsp; 
-				<a href="<?php $_SERVER['PHP_SELF']?>?by=az&amp;id=<?php echo $idc; ?>" class="href">A-Z</a> &nbsp;&nbsp;&nbsp; 
-				<a href="<?php $_SERVER['PHP_SELF']?>?by=za&amp;id=<?php echo $idc; ?>" class="href">Z-A</a>
+				<?php if ($by == 'az'): ?>
+					<a href="<?php $_SERVER['PHP_SELF']?>?by=az&amp;id=<?php echo $idc; ?>" class="href display">A-Z</a> &nbsp;&nbsp;&nbsp; 
+				<?php else: ?>
+					<a href="<?php $_SERVER['PHP_SELF']?>?by=az&amp;id=<?php echo $idc; ?>" class="href">A-Z</a> &nbsp;&nbsp;&nbsp; 
+				<?php endif ?>
+
+				<?php if ($by == 'za'): ?>
+					<a href="<?php $_SERVER['PHP_SELF']?>?by=za&amp;id=<?php echo $idc; ?>" class="href display">Z-A</a>
+				<?php else: ?>
+					<a href="<?php $_SERVER['PHP_SELF']?>?by=za&amp;id=<?php echo $idc; ?>" class="href">Z-A</a>
+				<?php endif ?>
 				<hr/>
 			</td>
 		</tr>
