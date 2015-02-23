@@ -46,7 +46,6 @@ if ($act == 'cart') {
 		$updateSale = mysql_query("UPDATE category SET sale='$dataSale[sale]'+'$dataTrs[quantity]' WHERE id='$dataPro[category_id]'");
 	}
 	if ($updateStok) {
-		// $selectSale = mysql_query("SELECT * FROM category ")
 		$deleteOt = mysql_query("DELETE FROM orders_temp WHERE id_session='$idt'");
 		echo "<script>window.location = 'print.php?id_cus=$_GET[id_cus]';</script>";
 	}
