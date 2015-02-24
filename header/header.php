@@ -66,6 +66,11 @@ if ($numCart > 0) {
 } else {
 	$totalCart = 0;
 }
+
+autoDelete("customer");
+autoDelete("orders");
+autoDelete("orders_temp");
+autoDelete("transaksi");
 ?>
 <div class="row-header radius">
 	<table class="width">
