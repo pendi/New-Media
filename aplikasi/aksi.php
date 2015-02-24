@@ -40,24 +40,33 @@ $nextNoUrut = $lastNoUrut + 1;
 $nextNoTransaksi = $kode.sprintf('%04s', $nextNoUrut);
 
 if ($act == 'add') {
+	$time = date("Y-m-d");
 	$selectAdd = mysql_query("SELECT * FROM orders_temp WHERE id_product='$id' AND id_session='$idt'");
 	$numRowAdd = mysql_num_rows($selectAdd);
 	if ($numRowAdd == 0) {
-		$insert = mysql_query("INSERT INTO orders_temp(id_order_temp,id_product,id_session,quantity) 
-	            VALUES('$nextNoTransaksi','$id','$idt','1')");
+		$insert = mysql_query("INSERT INTO orders_temp(id_order_temp,id_product,id_session,quantity,created_time) 
+	            VALUES('$nextNoTransaksi','$id','$idt','1','$time')");
 	} else {
-		$insert = mysql_query("UPDATE orders_temp SET quantity = quantity+1 WHERE id_product='$id'");
+		$selectPro = mysql_query("SELECT stock FROM product WHERE id_product = '$id'");
+		$dataPro = mysql_fetch_array($selectPro);
+		$dataAdd = mysql_fetch_array($selectAdd);
+		if ($dataAdd['quantity'] == $dataPro['stock']) {
+			echo "<script>window.alert('Maaf, Stok yang Tersedia Hanya $dataPro[stock] Unit');</script>";
+			echo "<script>window.location = '../index.php';</script>";
+		} else {
+			$insert = mysql_query("UPDATE orders_temp SET quantity = quantity+1 WHERE id_product='$id' AND id_session='$idt'");
+		}
 	}
 	if ($insert) {
 		echo "<script>window.location = '../customer/purchase.php?id=$id';</script>";
 	}
 } elseif ($act == 'plus') {
-	$update = mysql_query("UPDATE orders_temp SET quantity = $qty + 1 WHERE id_product='$id'");
+	$update = mysql_query("UPDATE orders_temp SET quantity = $qty + 1 WHERE id_product='$id' AND id_session='$idt'");
 	if ($update) {
 		echo "<script>window.location = '../customer/purchase.php?id=$id';</script>";
 	}
 } elseif ($act == 'min') {
-	$update = mysql_query("UPDATE orders_temp SET quantity = $qty - 1 WHERE id_product='$id'");
+	$update = mysql_query("UPDATE orders_temp SET quantity = $qty - 1 WHERE id_product='$id' AND id_session='$idt'");
 	if ($update) {
 		echo "<script>window.location = '../customer/purchase.php?id=$id';</script>";
 	}

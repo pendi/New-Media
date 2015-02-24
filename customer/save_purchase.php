@@ -23,8 +23,9 @@ $lastNoUrut = substr($lastNoOrder, 5, 3);
 $nextNoUrut = $lastNoUrut + 1;
 $nextNoOrder = $kode.sprintf('%03s', $nextNoUrut);
 
-$query = "INSERT INTO orders(id_order,id_cus) 
-			VALUES('$nextNoOrder','')";
+$time = date("Y-m-d");
+$query = "INSERT INTO orders(id_order,id_cus,created_time) 
+			VALUES('$nextNoOrder','','$time')";
 $hasil = mysql_query($query);
 
 $sql = mysql_query("SELECT max(id_order) AS idOrd FROM orders LIMIT 1");
@@ -32,8 +33,8 @@ $row = mysql_fetch_array($sql);
 $idOrd = $row['idOrd'];
 
 foreach($qty as $key => $value){
-	$sql = "INSERT INTO transaksi(id,id_order,id_product,quantity)
-	values (null,'{$idOrd}','{$id[$key]}','{$value}')";
+	$sql = "INSERT INTO transaksi(id,id_order,id_product,quantity,created_time)
+	values (null,'{$idOrd}','{$id[$key]}','{$value}','{$time}')";
 	mysql_query($sql);
 }
 

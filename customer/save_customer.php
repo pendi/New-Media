@@ -26,8 +26,9 @@ if (empty($id_cus)) {
 
 	$update = mysql_query("UPDATE orders SET id_cus='$nextNoCus' WHERE id_order='$id_order'");
 	if ($update) {
-		$query = "INSERT INTO customer(id_cus,name,address,phone_number,email)
-					VALUES('$nextNoCus','$name','$address','$phone','$email')";
+		$time = date("Y-m-d");
+		$query = "INSERT INTO customer(id_cus,name,address,phone_number,email,created_time)
+					VALUES('$nextNoCus','$name','$address','$phone','$email','$time')";
 		$hasil = mysql_query($query);
 		if ($hasil) {
 			echo "<script>window.location = 'summary.php?id=$nextNoCus';</script>";
