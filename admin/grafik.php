@@ -33,6 +33,19 @@ $(document).ready(function() {
             text: 'Jumlah Terjual (Unit)'
         }
     },
+    plotOptions: {
+        series: {
+            borderWidth: 0,
+            dataLabels: {
+                enabled: true,
+                format: '{point.y:.0f}'
+            }
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:11px">Jumlah Terjual</span><br>',
+        pointFormat: '<span style="color:{point.color}">{series.name}</span>: <b>{point.y:.0f}</b> Unit<br/>'
+    },
     series:             
         [
             <?php 
