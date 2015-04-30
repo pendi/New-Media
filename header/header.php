@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>TokoNadi.com</title>
+	<link rel="stylesheet" type="text/css" href="../css/font/stylesheet.css">
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
 	<!-- <link rel="stylesheet" type="text/css" href="../css/naked.css"> -->
 	<!-- <link rel="shortcut icon" href="../image/favicon/favicon.ico" type="image/x-icon" /> -->
@@ -24,11 +25,6 @@
 	border-radius: 30px;
 	outline-style: none;
 	padding-left: 7px;
-}
-
-.align {
-	vertical-align: bottom;
-	padding-bottom: 8px;
 }
 
 img.padding {
@@ -75,8 +71,14 @@ autoDelete("transaksi");
 <div class="row-header radius">
 	<table class="width">
 		<tr>
-			<td colspan="2"><a href="../aplikasi/index.php" class="href"><font color="#fff" size="30">&nbsp;TokoNadi.com</font></a></td>
-			<td align="right" style="vertical-align: top;">
+			<td width="9%" align="right">
+				<a href="../aplikasi/index.php" class="href"><img class="padding" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/logo-icon.png' ?>" width="70%"></a>
+			</td>
+			<td width="26%">
+				<a href="../aplikasi/index.php" class="href headerName">naditech.com</a><br />
+				<span class="subHeaderName">Menjual Laptop Baru dan Bergaransi</span>
+			</td>
+			<td width="35%" align="right" style="vertical-align: top;">
 				<?php if (isset($_SESSION["id"])): ?>
 					<a href="../admin/view_edit.php" class="href"><font color="#fff">
 						<?php echo ucfirst($data['first_name']); ?> <?php echo ucfirst($data['last_name']); ?></font></a> ||
@@ -85,13 +87,6 @@ autoDelete("transaksi");
 					<a href='../login/login.php' class='href'>Login &nbsp;</a>				
 				<?php endif ?>		
 			</td>
-		</tr>
-		<tr>
-			<td width="9%" align="right">
-				<a href="../aplikasi/index.php" class="href"><img class="padding" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/logo-icon.png' ?>" width="70%"></a>
-			</td>
-			<td width="26%" class="align">Menjual Laptop Baru dan Bergaransi</td>
-			<td width="35%" align="right">&nbsp;</td>
 		</tr>
 	</table>
 </div>
