@@ -74,8 +74,8 @@ $data = mysql_fetch_array($que);
 				</tr>
 				<tr>
 					<td colspan="4" align="center">
-						<input type="submit" name="submit" value="Hapus">
-						<a href="view_product.php"><input type="button" class="back" name="button" value="Kembali"></a>
+						<input type="submit" name="submit" class="button round" value="Hapus">
+						<a href="view_product.php" class="button round error">Batal</a>
 					</td>
 				</tr>
 			</table>		

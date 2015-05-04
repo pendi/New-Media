@@ -67,8 +67,8 @@ $sql = mysql_query($query);
 			</tr>
 			<tr>
 				<td colspan="3" align="center">
-					<input type="submit" name="submit" value="Simpan"> 
-					<a href="view_product.php"><input type="button" name="button" class="back" value="Batal"></a>
+					<input type="submit" name="submit" class="button round" value="Simpan"> 
+					<a href="view_product.php" class="button round error">Batal</a>
 				</td>
 			</tr>
 			<tr>

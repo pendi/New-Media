@@ -14,7 +14,7 @@ include "../header/header_admin.php";
 				<td align="center"><h2>DAFTAR PRODUK</h2></td>
 			</tr>
 			<tr>
-				<td align="right"><input type="submit" name="submit" value="Tambah Produk" /></td>
+				<td align="right"><input type="submit" name="submit" class="button round" value="Tambah Produk" /></td>
 			</tr>
 		</table>		
 		<table border="1" class="width border">

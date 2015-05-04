@@ -45,8 +45,8 @@ include "../header/header.php";
 			</tr>
 			<tr>
 				<td colspan="3" align="center">
-					<input type="submit" class="submit" value="Login">
-					<a href="../aplikasi/index.php"><input type="button" class="back" name="button" value="Kembali"></a>
+					<input type="submit" class="button round" value="Login">
+					<a href="../aplikasi/index.php" class="button round warning">Kembali</a>
 				</td>
 			</tr>
 			<tr>

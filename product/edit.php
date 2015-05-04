@@ -88,8 +88,8 @@ $category = mysql_fetch_array($queryCat);
 			</tr>
 			<tr>
 				<td colspan="3" align="center">
-					<input type="submit" name="submit" value="Simpan">
-					<a href="view_product.php"><input type="button" class="back" name="button" value="Kembali"></a>
+					<input type="submit" name="submit" class="button round" value="Simpan">
+					<a href="view_product.php" class="button round error">Batal</a>
 				</td>
 			</tr>
 			<tr>
