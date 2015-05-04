@@ -135,7 +135,7 @@ $query = mysql_query("SELECT * FROM product WHERE category_id='$idc' AND status 
 		<tr>
 			<td align="right" colspan="3">		
 				<?php
-					echo "<br>Page : ";
+					echo "<br>Hal : ";
 
 					$tampil2="SELECT * FROM product WHERE status = 2 AND category_id='$idc'"; 
 					$hasil2=mysql_query($tampil2); 
