@@ -16,7 +16,7 @@ include "../header/header_admin.php";
 				<td align="center"><h2>DAFTAR ADMIN</h2></td>
 			</tr>
 			<tr>
-				<td align="right"><input style="margin-right: 41px;" type="submit" name="submit" value="Tambah Admin" /></td>
+				<td align="right"><input style="margin-right: 41px;" type="submit" name="submit" value="Tambah Admin" class="button round" /></td>
 			</tr>
 		</table>		
 		<table width="90%" align="center" border="1" class="border">

@@ -33,8 +33,8 @@ $data = mysql_fetch_array($query);
 			</tr>
 			<tr>
 				<td colspan="3" align="center">
-					<input type="submit" name="submit" value="Simpan">
-					<a href="view_edit.php"><input type="button" class="back" name="button" value="Kembali"></a>
+					<input type="submit" name="submit" value="Simpan" class="button round">
+					<a href="view_edit.php" class="button round error">Batal</a>
 				</td>
 			</tr>
 			<tr>

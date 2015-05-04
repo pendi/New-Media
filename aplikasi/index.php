@@ -106,7 +106,7 @@ $sql = mysql_query("SELECT * FROM product WHERE status = 2 ORDER BY $order $pos,
 				<?php if ($stock == 0): ?>
 					<a>&nbsp;</a>
 				<?php else: ?>
-					<a href="aksi.php?act=add&amp;id=<?php echo $r[0]; ?>" id="buy" class="button round">BELI</a>
+					<a href="aksi.php?act=add&amp;id=<?php echo $r[0]; ?>" class="button round">BELI</a>
 				<?php endif ?>
 			</td>
 		</tr>
