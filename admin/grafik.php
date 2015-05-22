@@ -14,60 +14,43 @@
     </table>
 </div>
 <script type="text/javascript">
-var graf;
 $(document).ready(function() {
-    graf = new Highcharts.Chart({
-    chart: {
-        renderTo: 'container',
-        type: 'column',
-        backgroundColor:'transparent'
-    },   
-    title: {
-        text: 'Grafik Penjualan'
-    },
-    xAxis: {
-        categories: ['vendor']
-    },
-    yAxis: {
+    var options = {
+        chart: {
+            renderTo: 'container',
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            backgroundColor:'transparent'
+        },
         title: {
-            text: 'Jumlah Terjual (Unit)'
-        }
-    },
-    plotOptions: {
-        series: {
-            borderWidth: 0,
-            dataLabels: {
-                enabled: true,
-                format: '{point.y:.0f}'
-            }
-        }
-    },
-    tooltip: {
-        headerFormat: '<span style="font-size:11px">Jumlah Terjual</span><br>',
-        pointFormat: '<span style="color:{point.color}">{series.name}</span>: <b>{point.y:.0f}</b> Unit<br/>'
-    },
-    series:             
-        [
-            <?php 
-            // include('../aplikasi/koneksi.php');
-            $sql = "SELECT vendor FROM category";
-            $query = mysql_query($sql);
-            while($dataVendor = mysql_fetch_array($query))
-            {
-                $vendor=$dataVendor['vendor'];                     
-                $sqlSale = "SELECT sale FROM category WHERE vendor='$vendor'";        
-                $querySale = mysql_query($sqlSale);
-                while($dataSale = mysql_fetch_array($querySale))
-                {
-                    $sale = $dataSale['sale'];                 
+            text: 'Grafik Penjualan'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.y:.0f} Unit</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    color: '#000000',
+                    connectorColor: '#000000',
+                    format: '<b>{point.name}</b>',
                 }
-            ?>
-            {
-                name: '<?php echo $vendor; ?>',
-                data: [<?php echo $sale; ?>]
-            },
-            <?php } ?>
-        ]
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Terjual',
+            data: []
+        }]
+    }
+    
+    $.getJSON("data_grafik.php", function(json) {
+        options.series[0].data = json;
+        chart = new Highcharts.Chart(options);
     });
-}); 
+});
 </script>

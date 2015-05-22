@@ -64,29 +64,44 @@ include "../header/header_admin.php";
 					<?php $no++;
 				}
 			 ?>
+		</table>
+		<table width="90%" align="center">
 			<tr>
-				<td align="right" colspan="7">		
-					<?php
-						echo "<br>Hal : ";
+				<td align="right" colspan="7">
+					<nav>
+						<ul class="pagination">
+							<?php
+								$tampil2="SELECT * FROM login"; 
+								$hasil2=mysql_query($tampil2); 
+								$jmldata=mysql_num_rows($hasil2); 
+								$jmlhalaman=ceil($jmldata/$batas);
+							?>
 
-						$tampil2="SELECT * FROM login"; 
-						$hasil2=mysql_query($tampil2); 
-						$jmldata=mysql_num_rows($hasil2); 
-						$jmlhalaman=ceil($jmldata/$batas);
+							<?php if($halaman > 1): ?>
+								<?php $previous = $halaman-1; ?>
+								<li><a href="<?php echo "$_SERVER[PHP_SELF]?halaman=$previous" ?>" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+							<?php else: ?>
+								<li class="disabled"><a href="" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+							<?php endif ?>
 
-						for($i=1;$i<=$jmlhalaman;$i++) {
-							if($i>=($halaman-3) && $i <= ($halaman+3)){
-								if ($i != $halaman)
-								{
-								    echo " <a class=href href=$_SERVER[PHP_SELF]?halaman=$i><font color='#00F'>$i</font></a> |"; 
-								} 
-								else 
-								{ 
-								    echo " <a class=display>$i</a> |"; 
-								}
-							}
-						}
-					?>
+							<?php for($i=1;$i<=$jmlhalaman;$i++): ?>
+								<?php if($i>=($halaman-3) && $i <= ($halaman+3)): ?>
+									<?php if ($i != $halaman): ?>
+										<li><a href="<?php echo "$_SERVER[PHP_SELF]?halaman=$i" ?>"><?php echo $i; ?></a></li>
+									<?php else: ?>
+										<li class="active"><a><?php echo $i; ?></a></li>
+									<?php endif ?>
+								<?php endif ?>
+							<?php endfor ?>
+
+							<?php if($halaman < $jmlhalaman): ?>
+								<?php $next = $halaman+1; ?>
+								<li><a href="<?php echo "$_SERVER[PHP_SELF]?halaman=$next" ?>" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+							<?php else: ?>
+								<li class="disabled"><a href="" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+							<?php endif ?>
+						</ul>
+				   	</nav>
 				</td>
 			</tr>
 		</table>

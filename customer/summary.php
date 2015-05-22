@@ -32,7 +32,7 @@ $dataOrd = mysql_fetch_array($queryOrd);
 		<tr>
 			<td style="padding-top:70px; font-size:22px;">
 				<div class="info">
-					Terima kasih telah berbelanja di <font color="#0052CC">TokoNadi.com</font>. <b>Periksa kembali data dan belanjaan anda</b>. 
+					Terima kasih telah berbelanja di <font color="#0052CC">naditech.com</font>. <b>Periksa kembali data dan belanjaan anda</b>. 
 					Klik "Benar" jika data dan belanjaan anda sudah sesuai.
 				</div>
 			</td>
@@ -99,8 +99,8 @@ $dataOrd = mysql_fetch_array($queryOrd);
 		</tr>
 	</table>
 	<div style="padding:10px 0 0 23px;">
-		<a href="check.php?act=print&amp;id_cus=<?php echo $id; ?>"><input type="button" value="Benar"></a>
-		<a href="data_customer.php?id_cus=<?php echo $id; ?>"><input type="button" class="back" value="Kembali"></a>
+		<a href="check.php?act=print&amp;id_cus=<?php echo $id; ?>" class="button round">Benar</a>
+		<a href="data_customer.php?id_cus=<?php echo $id; ?>" class="button round warning">Kembali</a>
 	</div>
 	<table class="width">
 		<?php include "../footer/footer.php"; ?>

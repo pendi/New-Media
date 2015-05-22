@@ -57,9 +57,9 @@ $dataCus = mysql_fetch_array($selectCus);
 			</tr>
 			<tr>
 				<td colspan="2">
-					<input type="submit" value="Simpan"> 
-					<a href="check.php?act=cart"><input class="back" type="button" value="Kembali"></a> 
-					<a href="check.php?act=clear"><input class="back" type="button" value="Batal"></a> 
+					<input type="submit" value="Simpan" class="button round"> 
+					<a href="check.php?act=cart" class="button round warning">Kembali</a> 
+					<a href="check.php?act=clear" class="button round error">Batal</a> 
 				</td>
 			</tr>
 		</table>

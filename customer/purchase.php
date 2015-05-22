@@ -22,7 +22,7 @@ if ($numRow == 0) {
 			</tr>
 			<tr>
 				<td>
-					<a href="../aplikasi/index.php"><input type="button" value="Beli Lagi"></a>
+					<a href="../aplikasi/index.php"><input type="button" value="Beli Lagi" class="button round"></a>
 				</td>
 			</tr>
 		</table>
@@ -82,8 +82,8 @@ if ($numRow == 0) {
 			</tr>
 			<tr>
 				<td colspan="5" align="center">
-					<input type="submit" value="Lanjutkan">
-					<a href="../aplikasi/aksi.php?act=clear"><input type="button" class="back" name="reset" value="Batal"></a>
+					<input type="submit" value="Lanjutkan" class="button round">
+					<a href="../aplikasi/aksi.php?act=clear" class="button round error">Batal</a>
 				</td>
 			</tr>
 		</table>

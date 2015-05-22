@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>TokoNadi.com</title>
+	<title>naditech.com</title>
+	<link rel="stylesheet" type="text/css" href="../css/font/stylesheet.css">
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
 	<!-- <link rel="stylesheet" type="text/css" href="../css/naked.css"> -->
 	<link rel="shortcut icon" href="../image/favicon/favicon.ico" type="image/x-icon" />
 <script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
 <style type="text/css">
 	.align {
-		vertical-align: bottom;
+		vertical-align: 10px;
 		/*padding-bottom: 10px;*/
 	}
 
@@ -18,6 +19,8 @@
 		input[type=button] {
 			display: none;
 		}
+
+		a.button.round.warning { display: none; }
 	}
 </style>
 
@@ -45,13 +48,13 @@ $dataOrd = mysql_fetch_array($queryOrd);
 ?>
 <table width="95%" align="center">
 	<tr>
-		<td colspan="3"><font color="#000" size="30">&nbsp;TokoNadi.com</font></td>
-	</tr>
-	<tr>
-		<td width="9%" align="right">
-			<a href="../aplikasi/index.php" class="href"><img class="padding" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/logo-icon.png' ?>" width="70%"></a>
+		<td width="10%" align="right">
+			<a href="#"><img class="padding" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/logo-icon.png' ?>" width="95%"></a>
 		</td>
-		<td colspan="2" class="align">Menjual Laptop Baru dan Bergaransi</td>
+		<td width="85%">
+			<a href="#" class="href headerName print">naditech.com</a><br />
+			<span class="subHeaderName align">Menjual Laptop Baru dan Bergaransi</span>
+		</td>
 	</tr>
 </table>
 <table style="border-collapse: collapse;" width="95%" align="center" border="1">
@@ -115,6 +118,6 @@ $dataOrd = mysql_fetch_array($queryOrd);
 	</tr>
 </table>
 <div style="padding:10px 0 0 23px;">
-	<input type="button" onclick="window.print();" value="Cetak Bukti Transaksi">
-	<a href="../index.php"><input type="button" class="back" value="Kembali"></a>
+	<input type="button" onclick="window.print();" value="Cetak Bukti Transaksi" class="button round">
+	<a href="../index.php" class="button round warning">Kembali</a>
 </div>
