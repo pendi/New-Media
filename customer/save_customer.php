@@ -1,8 +1,5 @@
 <?php
 include "../aplikasi/koneksi.php";
-// echo "<pre>";
-// print_r($_POST);
-// exit();
 
 $id_order = $_POST['id_order'];
 $id_cus = $_POST['id_cus'];

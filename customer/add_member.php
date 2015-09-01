@@ -26,31 +26,41 @@ $dataCus = mysql_fetch_array($selectCus);
 		vertical-align: top;
 	}
 </style>
-<form action="save_customer.php" method="post" onsubmit="return validasi(this)">
-	<input type="hidden" name="id_order" value="<?php echo $_GET['id_order']; ?>">
-	<input type="hidden" name="id_cus" value="<?php echo $dataCus['id_cus']; ?>">
+<form action="save_member.php" method="post" onsubmit="return validasi(this)">
 	<div class="row-isi">
 		<table width="70%" align="center">
 			<tr>
-				<td><h2>Data Pembeli :</h2></td>
+				<td><h2>Daftar Member :</h2></td>
 			</tr>
 		</table>
 		<table width="70%" align="center">
 			<tr>
-				<td width="20%"><b>Nama Lengkap</b></td>
-				<td><input autofocus type="text" class="input" name="name" placeholder="Nama Lengkap" value="<?php echo $dataCus['name'] ?>"></td>
+				<td width="25%"><b>Username</b></td>
+				<td><input autofocus type="text" class="input" name="username" placeholder="Username"></td>
+			</tr>
+			<tr>
+				<td><b>Nama Lengkap</b></td>
+				<td><input type="text" class="input" name="name" placeholder="Nama Lengkap"></td>
 			</tr>
 			<tr>
 				<td class="top"><b>Alamat</b></td>
-				<td><textarea cols="25" rows="5" name="address" placeholder="Alamat"><?php echo $dataCus['address'] ?></textarea></td>
+				<td><textarea cols="25" rows="5" name="address" placeholder="Alamat"></textarea></td>
 			</tr>
 			<tr>
 				<td><b>Nomor Telepon</b></td>
-				<td><input type="text" class="input" name="phone" placeholder="Nomor Telepon" value="<?php echo $dataCus['phone_number'] ?>"></td>
+				<td><input type="text" class="input" name="phone" placeholder="Nomor Telepon"></td>
 			</tr>
 			<tr>
 				<td><b>Email</b></td>
-				<td><input type="text" class="input" name="email" placeholder="Email" value="<?php echo $dataCus['email'] ?>"></td>
+				<td><input type="text" class="input" name="email" placeholder="Email"></td>
+			</tr>
+			<tr>
+				<td><b>Password</b></td>
+				<td><input type="password" class="input" name="password" placeholder="Password"></td>
+			</tr>
+			<tr>
+				<td><b>Konfirmasi Password</b></td>
+				<td><input type="password" class="input" name="password_con" placeholder="Konfirmasi Password"></td>
 			</tr>
 			<tr>
 				<td colspan="2">&nbsp;</td>
@@ -58,15 +68,9 @@ $dataCus = mysql_fetch_array($selectCus);
 			<tr>
 				<td colspan="2">
 					<input type="submit" value="Simpan" class="button round"> 
-					<a href="check.php?act=cart" class="button round warning">Kembali</a> 
-					<a href="check.php?act=clear" class="button round error">Batal</a> 
+					<a href="data_customer.php" class="button round warning">Kembali</a> 
 				</td>
 			</tr>
-			<!-- <tr>
-				<td colspan="2">
-					<a href="../login/member.php" class="button round">Member</a>
-				</td>
-			</tr> -->
 		</table>
 		<table width="100%">
 			<tr>
@@ -77,24 +81,39 @@ $dataCus = mysql_fetch_array($selectCus);
 </form>
 <script>
 	function validasi(form) {
-		if (form.name.value == ""){
+		if (form.username.value.trim() == ""){
+			alert("Username harus diisi.");
+			form.username.focus();
+			return (false);
+		}
+		if (form.name.value.trim() == ""){
 			alert("Anda belum mengisikan Nama.");
 			form.name.focus();
 			return (false);
 		}
-		if (form.address.value == ""){
+		if (form.address.value.trim() == ""){
 			alert("Anda belum mengisikan Alamat.");
 			form.address.focus();
 			return (false);
 		}
-		if (form.phone.value == ""){
+		if (form.phone.value.trim() == ""){
 			alert("Anda belum mengisikan Nomor Telepon.");
 			form.phone.focus();
 			return (false);
 		}
-		if (form.email.value == ""){
+		if (form.email.value.trim() == ""){
 			alert("Anda belum mengisikan Alamat Email.");
 			form.email.focus();
+			return (false);
+		}
+		if (form.password.value.trim() == ""){
+			alert("Anda belum mengisikan Password.");
+			form.password.focus();
+			return (false);
+		}
+		if (form.password_con.value.trim() == ""){
+			alert("Konfirmasi Password harus diisi.");
+			form.password_con.focus();
 			return (false);
 		}
 	}

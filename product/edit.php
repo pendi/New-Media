@@ -12,6 +12,7 @@ $sql = mysql_query("SELECT * FROM category");
 
 $queryCat = mysql_query("SELECT vendor FROM category WHERE id = '$data[category_id]'");
 $category = mysql_fetch_array($queryCat);
+// var_dump($data, $sql);exit();
 ?>
 <form action="editing_process.php" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="<?php echo $data[0]; ?>" />
@@ -30,15 +31,12 @@ $category = mysql_fetch_array($queryCat);
 				<td>Kategori &nbsp;</td>
 				<td>
 					<select name="category" size="0">
-						<?php $selected = ""; ?>
-			            <?php if($data['category']) $selected = "selected"; ?>
-			            <option value="<?php echo $data['category_id'] ?>" <?php echo $selected; ?>><?php echo $category['vendor']; ?></option>
-						<?php 
-						while($r = mysql_fetch_array($sql))
-						{
-							echo "<option value=$r[0]>$r[1]</option>";
-						}
-						?>
+						<?php //$selected = ""; ?>
+			            <?php //if($data['category_id']) $selected = "selected"; ?>
+			            <!-- <option value="<?php //echo $data['category_id'] ?>" <?php //echo $selected; ?>><?php //echo $category['vendor']; ?></option> -->
+						<?php while($r = mysql_fetch_array($sql)): ?>
+							<option value="<?php echo $r[0]; ?>" <?php if($data['category_id'] == $r[0]){ echo "selected"; } ?>><?php echo $r[1]; ?></option>
+						<?php endwhile ?>
 					</select>
 				</td>
 			</tr>

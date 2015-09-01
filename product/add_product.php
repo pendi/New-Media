@@ -34,8 +34,8 @@ $sql = mysql_query($query);
 			</tr>
 			<tr>
 				<td></td>
-				<td>Vandor &nbsp;</td>
-				<td><input type="text" class="input" name="name" placeholder="Vandor"></td>
+				<td>Nama &nbsp;</td>
+				<td><input type="text" class="input" name="name" placeholder="Nama"></td>
 			</tr>
 			<tr>
 				<td></td>

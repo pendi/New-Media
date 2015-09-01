@@ -25,7 +25,7 @@ include "../header/header.php";
 	<div class="row-isi">
 		<table class="width">
 			<tr>
-				<td colspan="3" align="center"><h2>Login Admin</h2></td>
+				<td colspan="3" align="center"><h2>Admin</h2></td>
 			</tr>
 			<tr>
 				<td colspan="3">&nbsp;</td>
@@ -45,7 +45,7 @@ include "../header/header.php";
 			</tr>
 			<tr>
 				<td colspan="3" align="center">
-					<input type="submit" class="button round" value="Login">
+					<input type="submit" class="button round" value="Masuk">
 					<a href="../aplikasi/index.php" class="button round warning">Kembali</a>
 				</td>
 			</tr>

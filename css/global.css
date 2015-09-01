@@ -1,170 +1,133 @@
 /*Menu Dropdown*/
 .dropmenu{ background:transparent; height:30px; list-style-type:none; margin:0; padding:0px; }
-
 .dropmenu li { float:left; height:30px; }
-
 .dropmenu li a { color:#FFF; display:block; font:13px arial, verdana, sans-serif; font-weight:bold; padding:8px 20px; text-decoration:none; }
-
 .dropmenu li:hover { background:#B2D1FF; position:relative; border-radius:20px; }
-
 .dropmenu li a:hover { color:black; }
-
 .dropmenu .display { background:#B2D1FF; position:relative; border-radius:20px; color:black; }
 /*End Menu Dropdown*/
 
 
-/* Pagination */
-.list { float:left; margin:10px 28px; }	
-/* End Pagination */
-
-
 /* Table */
 table.border { border-collapse:collapse; }
-
 tr.hover:hover { background:#A1A1A1; }
-
 .width { width:100%; }
 /* End Table */
 
 
 /* Footer */
 .footer { margin:0 auto; margin-top:30px; }
-
 .footer p { text-align:center; margin-bottom:10px; font-family:monospace; }
 /*End Footer*/
 
+
 /* Link */
 .href { text-decoration:none; color:#002966; }
-
 .ref:hover { text-decoration:underline; color:#005CE6; }
-
 a.plus { color:#3385FF; width:8px; height:8px; right:12px; top:50%; content:"\a0"; display:inline-block; vertical-align:middle; border-style:solid; border-width:.14rem .14rem 0 0;	 -webkit-transform:rotate(45deg); -moz-transform:rotate(45deg); -ms-transform:rotate(45deg); -o-transform:rotate(45deg); transform:rotate(45deg); }
-
 a.minus { color:#3385FF; width:8px; height:8px; right:12px; top:50%; content:"\a0"; display:inline-block; vertical-align:middle; border-style:solid; border-width:0 0 .14rem .14rem; -webkit-transform:rotate(45deg); -moz-transform:rotate(45deg); -ms-transform:rotate(45deg); -o-transform:rotate(45deg); transform:rotate(45deg); }
-
 a.disabled { color:#97A0A4; pointer-events:none; cursor:default; }
 /*End Link*/
 
+
 /*Image*/
 img.image { box-shadow:0 2px 10px #0066FF; }
-
 img.image:hover { box-shadow:0 -2px 10px #0066FF; }
 /*End Image*/
 
+
 /*Div*/
 .row-header { margin-left:190px; width:884px; background-color:#3385FF; margin:auto; }
-
 .row-menu { margin-left: 190px; width: 884px; background-color: #0052CC; margin: 5px auto; }
-
 .row-isi { margin-left: 190px; width: 884px; background-color: #E6E6E6; margin: auto; }
 /*End Div*/
 
+
 /*Button Buy*/
 /*.button { padding: 5px 10px 5px; cursor: pointer; line-height: 150%; margin: 0; position: relative; text-decoration: none; text-align: center; background: #13c4ff; border: 1px solid #E6E6E6; color: white; font-weight: 400; display: inline-block; -webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; -o-appearance: none; appearance: none; -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0; }*/
-.button { padding: 6px 16px; cursor: pointer; line-height: 150%; margin: 0; position: relative; text-decoration: none; text-align: center; background: transparent; border: 1px solid #0088cc; color: #0088cc; font-weight: 700; display: inline-block; -webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; -o-appearance: none; appearance: none; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
-
+.button { font-size: 15px; padding: 6px 16px; cursor: pointer; line-height: 150%; margin: 0; position: relative; text-decoration: none; text-align: center; background: transparent; border: 1px solid #0088cc; color: #0088cc; font-weight: 700; display: inline-block; -webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; -o-appearance: none; appearance: none; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
 .button.alert { background: #FF3B30; padding: 5px 10px 5px; font-weight: 400; margin-left: -5px; }
-
 .button.round { -webkit-border-radius: 1000px; -moz-border-radius: 1000px; border-radius: 1000px; padding: 5px 20px 5px; }
-
 .round-group { border-top-left-radius: 10px; border-bottom-left-radius: 10px; }
-
 .round-group-right { border-top-right-radius: 10px; border-bottom-right-radius: 10px; }
-
 .button.warning { background: transparent; border: 1px solid #ff9500; color: #ff9500; }
-
 .button.error { background: transparent; border: 1px solid #f3382e; color: #f3382e; }
-
-.button:hover { background: #0088cc; color: white; }
-
+.button:hover { background: #337ab7; color: white; }
 .button.warning:hover { background: #ff9500; color: white; }
-
 .button.error:hover { background: #f3382e; color: white; }
 /*End Button Buy*/
 
+
 /*Radius*/
 .radius { border-radius: 20px; }
-
 .radius-top { border-top-left-radius: 20px; border-top-right-radius: 20px; }
 /*End Radius*/
 
+
 /*Pagination*/
-.display { background: #13C4FF; color: #FFF; font-weight: bold; padding: 0 5px 0 5px; }
-
+.display { background: #337ab7; color: #FFF; font-weight: bold; padding: 0 5px 0 5px; }
 .pagination { display: inline-block; padding-left: 0; margin: 20px 0; border-radius: 4px; }
-
 .pagination > li { display: inline; }
-
 .pagination > li > a,
 .pagination > li > span { position: relative; float: left; padding: 6px 12px; margin-left: -1px; line-height: 1.42857143; color: #337ab7; text-decoration: none; background-color: #fff; border: 1px solid #ddd; }
-
 .pagination > li:first-child > a,
 .pagination > li:first-child > span { margin-left: 0; border-top-left-radius: 4px; border-bottom-left-radius: 4px; }
-
 .pagination > li:last-child > a,
 .pagination > li:last-child > span { border-top-right-radius: 4px; border-bottom-right-radius: 4px; }
-
 .pagination > li > a:hover,
 .pagination > li > span:hover,
 .pagination > li > a:focus,
 .pagination > li > span:focus { color: #23527c; background-color: #eee; border-color: #ddd; }
-
 .pagination > .active > a,
 .pagination > .active > span,
 .pagination > .active > a:hover,
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus { z-index: 2; color: #fff; cursor: default; background-color: #337ab7; border-color: #337ab7; }
-
 .pagination > .disabled > span,
 .pagination > .disabled > span:hover,
 .pagination > .disabled > span:focus,
 .pagination > .disabled > a,
 .pagination > .disabled > a:hover,
 .pagination > .disabled > a:focus { color: #777; cursor: not-allowed; background-color: #fff; border-color: #ddd; }
-
 .pagination-lg > li > a,
 .pagination-lg > li > span { padding: 10px 16px; font-size: 18px; }
-
 .pagination-lg > li:first-child > a,
 .pagination-lg > li:first-child > span { border-top-left-radius: 6px; border-bottom-left-radius: 6px; }
-
 .pagination-lg > li:last-child > a,
 .pagination-lg > li:last-child > span { border-top-right-radius: 6px; border-bottom-right-radius: 6px; }
-
 .pagination-sm > li > a,
 .pagination-sm > li > span { padding: 5px 10px; font-size: 12px; }
 .pagination-sm > li:first-child > a,
 .pagination-sm > li:first-child > span { border-top-left-radius: 3px; border-bottom-left-radius: 3px; }
-
 .pagination-sm > li:last-child > a,
 .pagination-sm > li:last-child > span { border-top-right-radius: 3px; border-bottom-right-radius: 3px; }
-
 /*End Pagination*/
+
 
 /*Stock*/
 .stock { font-weight: bold; margin-right: 20px; color: #F00; }
 /*End Stock*/
 
+
 /*Submit*/
 input[type=submit],
 input[type=reset],
-input[type=button] { padding: 6px 16px; cursor: pointer; line-height: 187%; margin: 0; position: relative; text-decoration: none; text-align: center; background: transparent; border: 1px solid #0088cc; color: #0088cc; font-weight: 700; display: inline-block; -webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; -o-appearance: none; appearance: none; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; outline-style: none; }
+input[type=button] { font-size: 13px; padding: 6px 16px; cursor: pointer; line-height: 187%; margin: 0; position: relative; text-decoration: none; text-align: center; background: transparent; border: 1px solid #0088cc; color: #0088cc; font-weight: 700; display: inline-block; -webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; -o-appearance: none; appearance: none; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; outline-style: none; }
 /*End Submit*/
+
 
 /*Input*/
 input[type=password].input,
 input[type=text].input { border-radius: 5px; width: 200px; height: 20px; padding-left: 5px; padding-bottom: 4px; outline-style: none; }
-
 select[size="0"] { border-radius: 5px; width: 206px; height: 26px; padding-left: 5px; padding-bottom: 2px; outline-style: none; background: #FFF; }
-
 textarea { width: 450px; border-radius: 5px; padding-left: 5px; }
 /*End Input*/
 
+
 /*Header*/
+.nameTitle { font-family: sf_archery_black_scregular; }
 .headerName { font-size: 42px; color: #fff; font-family: sf_archery_black_scregular; }
-
 .headerName.print{ color: #000; }
-
 .subHeaderName { font-family: comfortaabold; }
 /*End Header

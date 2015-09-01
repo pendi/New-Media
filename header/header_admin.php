@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>TokoNadi.com</title>
+	<title>nadiTech.com</title>
 	<link rel="stylesheet" type="text/css" href="../css/font/stylesheet.css">
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
 	<!-- <link rel="stylesheet" type="text/css" href="../css/naked.css"> -->
@@ -12,7 +12,7 @@
 <script>
 	function validasi(form) {
 		if (form.search.value == ""){
-			alert("Silahkan masukan kata kunci yang anda cari.");
+			alert("Silahkan input produk yang anda cari.");
 			form.search.focus();
 			return (false);
 		}    
@@ -52,7 +52,7 @@ $data = mysql_fetch_array($que);
 				<a href="../aplikasi/index.php"><img class="padding" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/online_shop/image/logo-icon.png' ?>" width="70%"></a>
 			</td>
 			<td width="26%">
-				<a href="../aplikasi/index.php" class="href headerName">naditech.com</a><br />
+				<a href="../aplikasi/index.php" class="href nameTitle headerName">naditech.com</a><br />
 				<span class="subHeaderName">Menjual Laptop Baru dan Bergaransi</span>
 			</td>
 			<td width="35%" align="right" style="vertical-align: top;">
@@ -63,7 +63,7 @@ $data = mysql_fetch_array($que);
 				</a> ||
 				<?php 
 					if (isset($_SESSION["id"])) {
-						echo "<a href='../logout/logout.php' class='href'>Logout &nbsp;</a>";
+						echo "<a href='../logout/logout.php' class='href'>Keluar &nbsp;</a>";
 					} else {
 						echo "<a href='../login/login.php' class='href'>Login &nbsp;</a>";
 					}
@@ -79,14 +79,15 @@ $data = mysql_fetch_array($que);
 				<ul class="dropmenu">
 					<li><a href="../admin/check.php">Dashboard</a></li>
 					<li><a href="../admin/view_edit.php">Profil</a></li>
-					<li><a href="../admin/grafik.php">Grafik Penjualan</a></li>
+					<!-- <li><a href="../admin/grafik.php">Grafik Penjualan</a></li> -->
 				</ul>
 			</td>
 		</tr>
 	</table>
 </div>
 <div class="row-isi radius-top">
-	<form action="../search/search_admin.php" method="post" onsubmit="return validasi(this)">
+	<div>&nbsp;</div>
+	<!-- <form action="../search/search_admin.php" method="post" onsubmit="return validasi(this)">
 		<table class="width">
 			<tr>
 				<td align="right">
@@ -94,7 +95,7 @@ $data = mysql_fetch_array($que);
 				</td>
 			</tr>
 		</table>
-	</form>
+	</form> -->
 </div>
 </body>
 </html>

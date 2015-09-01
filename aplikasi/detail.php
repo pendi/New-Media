@@ -28,14 +28,13 @@ table.padding tr > td {
 			<td style="vertical-align: bottom;">
 				<?php if ($stock == 0): ?>
 					<a class="stock" style="font-size: x-large; color: #F00;">STOK HABIS</a>			
-				<?php endif ?>
-				<a style="font-size: x-large; color: #00008B;">Rp. <?php echo price($price); ?></a> &nbsp;
-				<?php if ($stock == 0): ?>
-					<a></a>
+					<a style="font-size: x-large; color: #00008B;">Rp. <?php echo price($price); ?></a> &nbsp;
+					<a href="index.php" class="button warning round-group-right">KEMBALI</a>
 				<?php else: ?>
-					<a href="aksi.php?act=add&amp;id=<?php echo $data[0]; ?>" id="buy" class="button round-group">BELI</a>
+					<a style="font-size: x-large; color: #00008B;">Rp. <?php echo price($price); ?></a> &nbsp;
+					<a href="aksi.php?act=add&amp;id=<?php echo $data[0]; ?>" class="button round-group">BELI</a>
+					<a href="index.php" class="button warning round-group-right">KEMBALI</a>
 				<?php endif ?>
-				<a href="index.php" id="alert" class="button alert round-group-right">KEMBALI</a>
 			</td>
 		</tr>
 		<tr>

@@ -32,7 +32,7 @@ $dataOrd = mysql_fetch_array($queryOrd);
 		<tr>
 			<td style="padding-top:70px; font-size:22px;">
 				<div class="info">
-					Terima kasih telah berbelanja di <font color="#0052CC">naditech.com</font>. <b>Periksa kembali data dan belanjaan anda</b>. 
+					Terima kasih telah berbelanja di <font color="#0052CC" class="nameTitle">naditech.com</font>. <b>Periksa kembali data dan belanjaan anda</b>. 
 					Klik "Benar" jika data dan belanjaan anda sudah sesuai.
 				</div>
 			</td>

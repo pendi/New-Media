@@ -66,8 +66,10 @@ include "../header/header_admin.php";
 					<a href="view_admin.php" class="button round error">Batal</a>
 				</td>
 			</tr>
+		</table>
+		<table class="width">
 			<tr>
-				<td colspan="3"><?php include "../footer/footer.php"; ?></td>
+				<td><?php include "../footer/footer.php"; ?></td>
 			</tr>
 		</table>
 	</form>	
